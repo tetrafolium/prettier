@@ -11,7 +11,7 @@ inspecode:
     auto-fix: true
     thresholds: { num-issues: 999 }
 
-  #### csslint aborted.
+  #### CSSLint was aborted unexpectedly.
   #csslint:
   #  thresholds: { num-issues: 999 }
 
@@ -28,8 +28,9 @@ inspecode:
   grep:
     thresholds: { num-issues: 66 }
 
-  htmlhint:
-    thresholds: { num-issues: 999 }
+  #### HTMLHint was aborted unexpectedly.
+  #htmlhint:
+  #  thresholds: { num-issues: 999 }
 
   jscpd:
     thresholds: { num-issues: 999 }
@@ -54,6 +55,7 @@ inspecode:
   pmd:
     thresholds: { num-issues: 999 }
 
+  #### Prettier was aborted unexpectedly.
   #### -> tractrix/codelift#1800
   #prettier:
   #  auto-fix: true
