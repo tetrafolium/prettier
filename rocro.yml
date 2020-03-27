@@ -6,14 +6,15 @@ inspecode:
 
   cpd:
     options: [ --skip-lexical-errors ]
-    thresholds: { num-issues: 999 }
+    thresholds: { num-issues: 82 }
 
   #### repeated below:
   ####   (node:134) UnhandledPromiseRejectionWarning: [object Object]
   ####   (node:134) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: {num})
-  csscomb:
-    auto-fix: true
-    thresholds: { num-issues: 999 }   ### RUNNING
+  #### CSScomb timed out.
+  #csscomb:
+  #  auto-fix: true
+  #  thresholds: { num-issues: 999 }   ### (timed-out)
 
   #### CSSLint was aborted unexpectedly.
   #csslint:
@@ -60,6 +61,7 @@ inspecode:
       --exclude:
       - Generic.Commenting.DocComment
       - Generic.WhiteSpace.DisallowTabIndent
+      - PEAR.ControlStructures.MultiLineCondition
       - PEAR.Functions.FunctionCallSignature
       - PEAR.Functions.FunctionDeclaration
       - PEAR.WhiteSpace.ScopeIndent
@@ -86,6 +88,7 @@ inspecode:
     thresholds: { num-issues: 192 }
 
   stylelint:
+    config-file: inspecode-stylelintrc.yaml
     auto-fix: true
     thresholds: { num-issues: 999 }   # too many issues detected: 1929 > 1000
 
@@ -98,4 +101,5 @@ inspecode:
     thresholds: { num-issues: 0 }
 
   unused:
+    options: [ --single-occurrence, --all-likelihoods ]
     thresholds: { num-issues: 118 }
