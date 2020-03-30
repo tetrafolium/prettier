@@ -69,13 +69,12 @@ inspecode:
     auto-fix: true
     thresholds: { num-issues: 140 }
 
-  #### Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-  pmd:
-  - machine: { cpu: 750m }          # (staging) must be <= 750m
-    thresholds: { num-issues: 999 }
-  #- machine: { cpu: 1.0 }
+  ## (must be <= 750m) in staging
+  #### -> codelift#1754
+  #pmd:
+  #- machine: { cpu: 1.0 }   # OutOfMemoryError: Java heap space
   #  thresholds: { num-issues: 999 }
-  #- machine: { cpu: 1.5 }
+  #- machine: { cpu: 1.5 }   # /opt/pmd/pmd-bin-6.18.0/bin/run.sh: line 218:   210 Killed
   #  thresholds: { num-issues: 999 }
 
   #### Prettier was aborted unexpectedly.
@@ -105,4 +104,4 @@ inspecode:
 
   unused:
     options: [ --single-occurrence, --all-likelihoods ]
-    thresholds: { num-issues: 118 }
+    thresholds: { num-issues: 6 }
