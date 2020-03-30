@@ -71,10 +71,12 @@ inspecode:
 
   #### Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
   pmd:
-  - machine: { cpu: 1.0 }
+  - machine: { cpu: 750m }          # (staging) must be <= 750m
     thresholds: { num-issues: 999 }
-  - machine: { cpu: 1.5 }
-    thresholds: { num-issues: 999 }
+  #- machine: { cpu: 1.0 }
+  #  thresholds: { num-issues: 999 }
+  #- machine: { cpu: 1.5 }
+  #  thresholds: { num-issues: 999 }
 
   #### Prettier was aborted unexpectedly.
   #### -> tractrix/codelift#1800
