@@ -1,10 +1,17 @@
-<div ng-if="$ctrl .shouldShowWarning&&!$ctrl.loading">Warning!</div>
-
-<div
-	class="common--error-message"
-	test-hook="upper-error-message"
-	ng-if="!$ctrl.showsFormBelowPlain() && !!$ctrl.error.message && !($ctrl.error.kind === 'validator' && $ctrl.form.$valid && $ctrl.error.form === $ctrl.form)"
->
-	<div ng-if="$ctrl.error.html" ng-bind-html="$ctrl.error.message"></div>
-	<div ng-if="!$ctrl.error.html" ng-bind="$ctrl.error.message"></div>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div ng-if="$ctrl .shouldShowWarning&amp;&amp;!$ctrl.loading">
+Warning!</div>
+<div class="common--error-message" test-hook="upper-error-message"
+ng-if=
+"!$ctrl.showsFormBelowPlain() &amp;&amp; !!$ctrl.error.message &amp;&amp; !($ctrl.error.kind === 'validator' &amp;&amp; $ctrl.form.$valid &amp;&amp; $ctrl.error.form === $ctrl.form)">
+<div ng-if="$ctrl.error.html" ng-bind-html="$ctrl.error.message">
 </div>
+<div ng-if="!$ctrl.error.html" ng-bind="$ctrl.error.message"></div>
+</div>
+</body>
+</html>
