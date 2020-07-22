@@ -106,30 +106,34 @@ class A {
   p:? string;
 
   ensure0(): string {
-    if (typeof this.p == "string")
+    if (typeof this.p == "string") {
       return this.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure1(): string {
-    if (typeof this.p != "string")
+    if (typeof this.p != "string") {
       return "";
-    else
+    } else {
       return this.p;
+    }
   }
 
   ensure2(): string|void {
-    if (typeof this.p === "string")
+    if (typeof this.p === "string") {
       return this.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure3(): string|void {
-    if (typeof this.p !== "string")
+    if (typeof this.p !== "string") {
       return "";
-    else
+    } else {
       return this.p;
+    }
   }
 }

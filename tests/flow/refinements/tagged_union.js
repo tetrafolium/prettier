@@ -51,8 +51,9 @@ function bar(x: Breakfast) {
   if (x.kind === 'Fruit') {
     (x.taste: 'Good');
   } // error, Apple.taste = Bad
-  else
+  else {
     (x.raw: 'No'); // error, Carrot.raw = Maybe
+  }
 }
 
 function qux(x: Breakfast) {
@@ -78,8 +79,9 @@ function length(l) {
   }
 }
 function check(n) {
-  if (n >= 0)
+  if (n >= 0) {
     return (n === (length(list(n))));
+  }
   return true;
 }
 
@@ -118,9 +120,11 @@ type NonCitizen =
       citizen: false,
       nationality: string
     } function nationality(x: Citizen|NonCitizen) {
-      if (x.citizen)
+      if (x.citizen) {
         return "Shire"
-        else return x.nationality;
+        else { return x.nationality;
+        }
+      }
     }
 
 let tests = [

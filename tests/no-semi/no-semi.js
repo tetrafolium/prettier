@@ -63,7 +63,7 @@ class C4 {
 
 // don't semicolon if it doesn't start statement
 
-if (true)
+if (true) {
   (() => {})()
 
   class A {
@@ -103,6 +103,7 @@ if (true)
     a = 0;
     b = 1;
   }
+}
 
 // being first/last shouldn't break things
 class G1 {
@@ -132,15 +133,18 @@ if (true) {
 
 // check statement clauses
 
-do break;
+do { break;
+}
 while (false)
-  if (true)
-    do
+  if (true) {
+    do {
       break;
+    }
     while (false)
 
-    if (true) 1;
-  else
+    if (true) { 1;
+  }
+  } else
     2
     for (;;);
 for (x of y)
@@ -176,7 +180,8 @@ x;
 x;
 ++(a || b).c
 
-while (false)(function() {}())
+while (false) { (function() {}())
 
 aReallyLongLine012345678901234567890123456789012345678901234567890123456789 *
-    (b + c)
+    (b + c); 
+}

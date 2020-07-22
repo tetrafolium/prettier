@@ -5,8 +5,9 @@ function foo() {
 
 function bar() {
   var x: ? { bar(): void; };
-  if (x)
+  if (x) {
     x.bar();
+  }
 }
 
 function qux(x?: number, y: string = "", z) {}

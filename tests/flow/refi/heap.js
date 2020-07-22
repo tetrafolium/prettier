@@ -21,8 +21,9 @@ var tests = [
 
   function() {
     var x: {p: ? string } = {p : "xxx"};
-    if (x.p == null)
+    if (x.p == null) {
       return;
+    }
     var y: string = x.p; // ok
   },
 

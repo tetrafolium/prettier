@@ -23,5 +23,6 @@ while (
 while (true) {
 } // comment
 
-while (true) /* comment */
+while (true) { /* comment */
   ++x;
+}

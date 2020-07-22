@@ -1,7 +1,8 @@
 var x = 1;
 while (typeof x == "number" || typeof x == "string") {
   x = x + 1;
-  if (true)
+  if (true) {
     x = "";
+  }
 }
 var z: number = x;

@@ -6,7 +6,8 @@ function foo() {
 }
 
 function bar(x: ?string): number {
-  if (x == null)
+  if (x == null) {
     x = "";
+  }
   return x.length;
 }

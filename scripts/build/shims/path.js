@@ -3,8 +3,9 @@ const sep = /[\\/]/;
 export function extname(path) {
   const filename = basename(path);
   const dotIndex = filename.lastIndexOf(".");
-  if (dotIndex === -1)
+  if (dotIndex === -1) {
     return "";
+  }
   return filename.slice(dotIndex);
 }
 

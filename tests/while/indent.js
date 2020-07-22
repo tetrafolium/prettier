@@ -21,6 +21,7 @@ do {
 while (0)
   1;
 
-do
+do {
   1;
+}
 while (0);
