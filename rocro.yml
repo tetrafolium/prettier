@@ -1,4 +1,4 @@
 inspecode:
   jscpd:
     thresholds:
-      num-issues: 94
+      num-issues: 90
