@@ -1,2 +1,4 @@
 inspecode:
-  jscpd: default
+  jscpd:
+    thresholds:
+      num-issues: 94
