@@ -1,8 +1,5 @@
-fn(
-  bifornCringerMoshedPerplexSawder,
-  askTrovenaBeenaDependsRowans,
-  glimseGlyphsHazardNoopsTieTie === averredBathersBoxroomBuggyNurl &&
-    anodyneCondosMalateOverateRetinol 
-      ? annularCooeedSplicesWalksWayWay 
-      : kochabCooieGameOnOboleUnweave 
-);
+fn(bifornCringerMoshedPerplexSawder, askTrovenaBeenaDependsRowans,
+   glimseGlyphsHazardNoopsTieTie === averredBathersBoxroomBuggyNurl &&
+           anodyneCondosMalateOverateRetinol
+       ? annularCooeedSplicesWalksWayWay
+       : kochabCooieGameOnOboleUnweave);

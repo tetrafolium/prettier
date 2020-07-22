@@ -1,8 +1,9 @@
 const CONNECTION_STATUS = exports.CONNECTION_STATUS = {
-  CLOSED: Object.freeze({ kind: 'CLOSED' }),
-  CONNECTED: Object.freeze({ kind: 'CONNECTED' }),
-  CONNECTING: Object.freeze({ kind: 'CONNECTING' }),
-  NOT_CONNECTED: Object.freeze({ kind: 'NOT_CONNECTED' }) };
+  CLOSED : Object.freeze({kind : 'CLOSED'}),
+  CONNECTED : Object.freeze({kind : 'CONNECTED'}),
+  CONNECTING : Object.freeze({kind : 'CONNECTING'}),
+  NOT_CONNECTED : Object.freeze({kind : 'NOT_CONNECTED'})
+};
 
 /* A comment */ /**
 * A type that can be written to a buffer.

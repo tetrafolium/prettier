@@ -1,3 +1,1 @@
-function f() {
-  console.log("testing line endings");
-}
+function f() { console.log("testing line endings"); }

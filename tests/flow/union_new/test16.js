@@ -2,15 +2,15 @@
 
 // annotations
 
-type T = number | (() => string);
-type Foo = T | (() => bool);
+type T = number|(() => string);
+type Foo = T|(() => bool);
 
-type Bar = number | (() => string) | (() => bool);
+type Bar = number|(() => string)|(() => bool);
 
-function foo(x: Foo) { }
+function foo(x: Foo) {}
 foo(() => qux());
 
-function bar(x: Bar) { }
+function bar(x: Bar) {}
 bar(() => qux());
 
 var x = false;

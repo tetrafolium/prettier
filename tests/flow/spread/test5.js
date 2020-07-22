@@ -1,9 +1,9 @@
 /* @flow */
 
 declare function map<Tv, TNext>(
-  obj: {[key: string]: Tv},
-  iterator:((obj: Tv) => TNext),
-): Array<TNext>;
+    obj: {[key: string]: Tv},
+    iterator: ((obj: Tv) => TNext),
+    ): Array<TNext>;
 
 /**
  * Tests overriding a property via a spread, where the value is a tvar. the
@@ -19,7 +19,7 @@ function test(
     (value: string); // OK
     return {
       ...x,
-      kind: value,
+      kind : value,
     };
   });
 }

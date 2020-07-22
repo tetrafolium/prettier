@@ -1,4 +1,3 @@
 // check coverage of declare module
 
-declare module foo {
-}
+declare module foo {}

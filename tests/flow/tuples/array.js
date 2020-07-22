@@ -5,5 +5,5 @@ function foo(x: Array<number>): [number, ?number] {
 }
 
 function foo(x: Array<number>): [number, ?number] {
-  return [x[0], x[1]]; // OK. This is unsound, but at least arity is enforced
+  return [ x[0], x[1] ]; // OK. This is unsound, but at least arity is enforced
 }

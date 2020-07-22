@@ -1,18 +1,18 @@
 "use strict";
 
 const createError = require("../common/parser-create-error");
-const { hasPragma } = require("./pragma");
+const {hasPragma} = require("./pragma");
 
 function parseComments(ast) {
   const comments = [];
-  const { startToken } = ast.loc;
-  let { next } = startToken;
+  const {startToken} = ast.loc;
+  let {next} = startToken;
   while (next.kind !== "<EOF>") {
     if (next.kind === "Comment") {
       Object.assign(next, {
         // The Comment token's column starts _after_ the `#`,
         // but we need to make sure the node captures the `#`
-        column: next.column - 1,
+        column : next.column - 1,
       });
       comments.push(next);
     }
@@ -37,8 +37,8 @@ function removeTokens(node) {
 
 function fallbackParser(parse, source) {
   const parserOptions = {
-    allowLegacySDLImplementsInterfaces: false,
-    experimentalFragmentVariables: true,
+    allowLegacySDLImplementsInterfaces : false,
+    experimentalFragmentVariables : true,
   };
   try {
     return parse(source, parserOptions);
@@ -57,12 +57,12 @@ function parse(text /*, parsers, opts*/) {
     removeTokens(ast);
     return ast;
   } catch (error) {
-    const { GraphQLError } = require("graphql/error");
+    const {GraphQLError} = require("graphql/error");
     if (error instanceof GraphQLError) {
       throw createError(error.message, {
-        start: {
-          line: error.locations[0].line,
-          column: error.locations[0].column,
+        start : {
+          line : error.locations[0].line,
+          column : error.locations[0].column,
         },
       });
     } else {
@@ -72,10 +72,10 @@ function parse(text /*, parsers, opts*/) {
 }
 
 module.exports = {
-  parsers: {
-    graphql: {
+  parsers : {
+    graphql : {
       parse,
-      astFormat: "graphql",
+      astFormat : "graphql",
       hasPragma,
       locStart(node) {
         if (typeof node.start === "number") {

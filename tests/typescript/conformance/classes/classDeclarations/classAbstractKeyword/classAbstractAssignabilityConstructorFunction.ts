@@ -1,6 +1,6 @@
-abstract class A { }
+abstract class A {}
 
-var AAA: new() => A;
+var AAA: new () => A;
 
 AAA = A;
 AAA = "asdf";

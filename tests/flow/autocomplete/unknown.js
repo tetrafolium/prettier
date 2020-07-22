@@ -1,2 +1,4 @@
 // @noflow
-module.exports = { x: { y: "" } };
+module.exports = {
+  x : {y : ""}
+};

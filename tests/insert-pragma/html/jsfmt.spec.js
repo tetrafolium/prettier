@@ -1,1 +1,1 @@
-run_spec(__dirname, ["html"], { insertPragma: true });
+run_spec(__dirname, [ "html" ], {insertPragma : true});

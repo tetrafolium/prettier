@@ -17,15 +17,14 @@ ClassAnnotated.p = 42;
 (ClassAnnotated.p: number);
 (ClassAnnotated.p: string); // Error: number ~> string
 
-
 /**
  * It's always an error to initialized a generically-typed field with an
  * expression of any type other than the generic itself.
  */
 class ClassGenericInitialized<T, U> {
   invalid: T = 42; // Error: number ~> Generic<T>
-  valid: T = ((42:any):T);
+  valid: T = ((42: any): T);
 
   static invalid: T = 42; // Error: number ~> Generic<T>
-  static valid: T = ((42:any):T);
+  static valid: T = ((42: any): T);
 }

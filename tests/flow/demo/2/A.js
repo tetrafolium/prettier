@@ -6,9 +6,7 @@ class A {
 
   getX() { return this.x; }
 
-  onLoad(callback) {
-    return callback(this.getX());
-  }
+  onLoad(callback) { return callback(this.getX()); }
 }
 
 function callback(x: string) { return x.length; }

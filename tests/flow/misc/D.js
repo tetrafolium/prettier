@@ -3,9 +3,9 @@
 
 var f = require('A').fn;
 
-function g():string { return this.i; }
+function g(): string { return this.i; }
 
-var o = {fn: g, ...{}};
+var o = {fn : g, ...{}};
 o.i = true;
 
 var i = o.fn();

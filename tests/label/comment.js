@@ -1,9 +1,9 @@
 {
   inf_leave: // goto emulation
-  for (;;) {}
+      for (;;) {}
 }
 {
   inf_leave:
-  // goto emulation
-  for (; ;) { }
+      // goto emulation
+      for (;;) {}
 }

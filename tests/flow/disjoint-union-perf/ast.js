@@ -3,14 +3,7 @@
  */
 
 export type InferredType =
-  | 'unknown'
-  | 'gender'
-  | 'enum'
-  | 'number-or-string'
-  | 'number'
-  | 'string'
-  | 'error'
-;
+    |'unknown'|'gender'|'enum'|'number-or-string'|'number'|'string'|'error';
 
 export type Pos = {
   firstLine: number,
@@ -21,7 +14,7 @@ export type Pos = {
 
 export type TypedBinaryOpNode = {
   exprNodeType: 'binary_op',
-  binaryOp: 'plus' | 'multiply' | 'divide' | 'minus',
+  binaryOp: 'plus'|'multiply'|'divide'|'minus',
   lhs: TypedNode,
   rhs: TypedNode,
   pos: Pos,
@@ -66,15 +59,9 @@ export type TypedFunctionInvocationNode = {
   name: string,
   parameters: TypedNode[],
   pos: Pos,
-  exprType: 'error' | 'string',
+  exprType: 'error'|'string',
   typed: true,
 }
 
-export type TypedNode =
-  | TypedBinaryOpNode
-  | TypedUnaryMinusNode
-  | TypedNumberNode
-  | TypedStringLiteralNode
-  | TypedVariableNode
-  | TypedFunctionInvocationNode
-;
+export type TypedNode =|TypedBinaryOpNode|TypedUnaryMinusNode|TypedNumberNode|
+    TypedStringLiteralNode|TypedVariableNode|TypedFunctionInvocationNode;

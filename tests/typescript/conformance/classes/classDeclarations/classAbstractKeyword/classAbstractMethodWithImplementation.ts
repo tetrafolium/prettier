@@ -1,3 +1,3 @@
 abstract class A {
-    abstract foo() {}
+  abstract foo() {}
 }

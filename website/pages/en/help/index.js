@@ -1,23 +1,23 @@
 "use strict";
 
 const React = require("react");
-const { Container, GridBlock } = require("../../../core/CompLibrary.js");
+const {Container, GridBlock} = require("../../../core/CompLibrary.js");
 
 class Help extends React.Component {
   render() {
     const supportLinks = [
       {
-        content:
-          "Learn more using the [documentation on this site.](/docs/en/why-prettier.html)\n",
-        title: "Browse Docs",
+        content :
+            "Learn more using the [documentation on this site.](/docs/en/why-prettier.html)\n",
+        title : "Browse Docs",
       },
       {
-        content: "Ask questions about the documentation and project\n",
-        title: "Join the community",
+        content : "Ask questions about the documentation and project\n",
+        title : "Join the community",
       },
       {
-        content: "Find out what's new with this project\n",
-        title: "Stay up to date",
+        content : "Find out what's new with this project\n",
+        title : "Stay up to date",
       },
     ];
 
@@ -40,7 +40,7 @@ class Help extends React.Component {
 }
 
 Help.defaultProps = {
-  language: "en",
+  language : "en",
 };
 
 module.exports = Help;

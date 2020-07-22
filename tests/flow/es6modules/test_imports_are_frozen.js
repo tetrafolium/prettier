@@ -14,7 +14,7 @@ ES6_Named1.varDeclNumber1 = 123; // Error: ES6_Named1 is frozen
 
 // CommonJS module that clobbers module.exports
 import * as CommonJS_Star from "CommonJS_Clobbering_Lit";
-CommonJS_Star.numberValue1 = 123; // Error: frozen
+CommonJS_Star.numberValue1 = 123;         // Error: frozen
 CommonJS_Star.default.numberValue1 = 123; // ok
 
 import CommonJS_Clobbering_Lit from "CommonJS_Clobbering_Lit";
@@ -22,12 +22,11 @@ CommonJS_Clobbering_Lit.numberValue1 = 123; // ok
 
 // CommonJS module that clobbers module.exports with a frozen object
 import * as CommonJS_Frozen_Star from "CommonJS_Clobbering_Frozen";
-CommonJS_Frozen_Star.numberValue1 = 123; // Error: frozen
+CommonJS_Frozen_Star.numberValue1 = 123;         // Error: frozen
 CommonJS_Frozen_Star.default.numberValue1 = 123; // Error: frozen
 
 import CommonJS_Clobbering_Frozen from "CommonJS_Clobbering_Frozen";
 CommonJS_Clobbering_Frozen.numberValue1 = 123; // Error: exports are frozen
-
 
 //
 // Requires

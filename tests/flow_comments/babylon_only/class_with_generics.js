@@ -7,5 +7,4 @@ import React from 'react';
 
 /*:: type State = { baz: number }; */
 
-class Component extends React.Component/*:: <Props, State> */ {
-}
+class Component extends React.Component /*:: <Props, State> */ {}

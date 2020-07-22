@@ -1,3 +1,2 @@
-run_spec(__dirname, ["flow", "babel", "typescript"], {
-  jsxBracketSameLine: true
-});
+run_spec(__dirname, [ "flow", "babel", "typescript" ],
+         {jsxBracketSameLine : true});

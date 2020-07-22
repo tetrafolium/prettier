@@ -1,1 +1,2 @@
-const ArtistInput = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Component);
+const ArtistInput =
+    connect(mapStateToProps, mapDispatchToProps, mergeProps)(Component);

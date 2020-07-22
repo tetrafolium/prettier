@@ -1,4 +1,6 @@
-class A { x: number; }
+class A {
+  x: number;
+}
 
 class B {
   x: number;
@@ -7,7 +9,7 @@ class B {
   }
 }
 
-class C extends A { }
+class C extends A {}
 
 class D extends A {
   y: number;
@@ -59,10 +61,8 @@ class H extends A {
 }
 
 class I_ {
-  constructor(leaked_this) {
-    leaked_this.foo()
-  }
-  foo() { }
+  constructor(leaked_this) { leaked_this.foo() }
+  foo() {}
 }
 class I extends I_ {
   constructor() {
@@ -70,13 +70,13 @@ class I extends I_ {
   }
 }
 
-class J__ { }
+class J__ {}
 class J_ extends J__ {
   constructor(closure_leaking_this) {
     closure_leaking_this();
     super();
   }
-  foo() { }
+  foo() {}
 }
 class J extends J_ {
   constructor() {
@@ -94,11 +94,14 @@ class K_ {
   constructor(closure_leaking_this) {
     this.closure_leaking_this = closure_leaking_this;
   }
-  foo() { }
+  foo() {}
 }
 class K extends K_ {
   constructor() {
-    super(() => { if (_this) _this.foo() }); // OK
+    super(() => {
+      if (_this)
+        _this.foo()
+    }); // OK
     var _this = this;
     this.closure_leaking_this();
   }
@@ -109,9 +112,7 @@ class K extends K_ {
 // the constructor returns false (a non-object), but `super()` returns false,
 // which then similarly causes `new L()` to return an instance of `L`.
 class L_ {
-  constructor() {
-    return false;
-  }
+  constructor() { return false; }
 }
 class L extends L_ {
   constructor() {
@@ -125,14 +126,10 @@ class L extends L_ {
 // similarly, the converse is true: if the parent's constructor returns an
 // object, then the child does too.
 class M_ {
-  constructor() {
-    return {foo: 'foo'};
-  }
+  constructor() { return {foo : 'foo'}; }
 }
 class M extends M_ {
-  constructor() {
-    return super();
-  }
+  constructor() { return super(); }
 }
 (new M_(): {foo: string});
 (new M(): {foo: string});
@@ -146,9 +143,7 @@ class N_ {
   }
 }
 class N extends N_ {
-  constructor() {
-    return super();
-  }
+  constructor() { return super(); }
 }
 (new N_(): N_);
 (new N(): N);

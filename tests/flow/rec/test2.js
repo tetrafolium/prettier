@@ -16,7 +16,9 @@ function foo0() {
   a_ = a_.x; // terminate despite expanding types
 }
 
-type T<X> = { y: S<X> };
+type T<X> = {
+  y: S<X>
+};
 type S<X> = T<S<X>>;
 function foo1(b: S<*>) {
   b = b.y; // terminate despite expanding types, OK
@@ -24,7 +26,7 @@ function foo1(b: S<*>) {
   // Both S<S<*>> and S<*> expand to { y: { y: ... }}.
 }
 
-class D<X> { }
-class B<X> extends D<X> { }
-class C<X> extends B<X> { }
+class D<X> {}
+class B<X> extends D<X> {}
+class C<X> extends B<X> {}
 ((new C: C<number>): D<string>) // error: number ~/~ string

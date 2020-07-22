@@ -1,10 +1,10 @@
 "use strict";
 
 const path = require("path");
-const { ConfigError } = require("../common/errors");
+const {ConfigError} = require("../common/errors");
 const jsLoc = require("../language-js/loc");
 
-const { locStart, locEnd } = jsLoc;
+const {locStart, locEnd} = jsLoc;
 
 // Use defineProperties()/getOwnPropertyDescriptor() to prevent
 // triggering the parsers getters.
@@ -31,8 +31,8 @@ function resolveParser(opts, parsers) {
   if (typeof opts.parser === "function") {
     // Custom parser API always works with JavaScript.
     return {
-      parse: opts.parser,
-      astFormat: "estree",
+      parse : opts.parser,
+      astFormat : "estree",
       locStart,
       locEnd,
     };
@@ -45,14 +45,13 @@ function resolveParser(opts, parsers) {
 
     /* istanbul ignore next */
     if (process.env.PRETTIER_TARGET === "universal") {
-      throw new ConfigError(
-        `Couldn't resolve parser "${opts.parser}". Parsers must be explicitly added to the standalone bundle.`
-      );
+      throw new ConfigError(`Couldn't resolve parser "${
+          opts.parser}". Parsers must be explicitly added to the standalone bundle.`);
     } else {
       try {
         return {
-          parse: eval("require")(path.resolve(process.cwd(), opts.parser)),
-          astFormat: "estree",
+          parse : eval("require")(path.resolve(process.cwd(), opts.parser)),
+          astFormat : "estree",
           locStart,
           locEnd,
         };
@@ -67,18 +66,14 @@ function resolveParser(opts, parsers) {
 function parse(text, opts) {
   const parsers = getParsers(opts);
 
-  // Create a new object {parserName: parseFn}. Uses defineProperty() to only call
-  // the parsers getters when actually calling the parser `parse` function.
+  // Create a new object {parserName: parseFn}. Uses defineProperty() to only
+  // call the parsers getters when actually calling the parser `parse` function.
   const parsersForCustomParserApi = Object.keys(parsers).reduce(
-    (object, parserName) =>
-      Object.defineProperty(object, parserName, {
-        enumerable: true,
-        get() {
-          return parsers[parserName].parse;
-        },
+      (object, parserName) => Object.defineProperty(object, parserName, {
+        enumerable : true,
+        get() { return parsers[parserName].parse; },
       }),
-    {}
-  );
+      {});
 
   const parser = resolveParser(opts, parsers);
 
@@ -89,15 +84,15 @@ function parse(text, opts) {
 
     return {
       text,
-      ast: parser.parse(text, parsersForCustomParserApi, opts),
+      ast : parser.parse(text, parsersForCustomParserApi, opts),
     };
   } catch (error) {
-    const { loc } = error;
+    const {loc} = error;
 
     if (loc) {
       const codeFrame = require("@babel/code-frame");
       error.codeFrame = codeFrame.codeFrameColumns(text, loc, {
-        highlightCode: true,
+        highlightCode : true,
       });
       error.message += "\n" + error.codeFrame;
       throw error;
@@ -108,4 +103,7 @@ function parse(text, opts) {
   }
 }
 
-module.exports = { parse, resolveParser };
+module.exports = {
+  parse,
+  resolveParser
+};

@@ -1,9 +1,7 @@
-@(bind as ClassDecorator)
-class Decorated {
-
+@(
+    bind as ClassDecorator) class Decorated {
 }
 
-@(<ClassDecorator>bind)
-class Decorated {
-
+@(
+    <ClassDecorator>bind) class Decorated {
 }

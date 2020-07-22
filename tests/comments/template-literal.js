@@ -1,12 +1,14 @@
 `
-${a // comment
+${
+    a // comment
 }
 
 ${b /* comment */}
 
 ${/* comment */ c /* comment */}
 
-${// comment
-d //comment
+${
+    // comment
+    d // comment
 };
 `

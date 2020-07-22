@@ -7,7 +7,7 @@
  */
 function foo() {
   try {
-  } catch(error) {
+  } catch (error) {
     if (error.foo === 4) {
       throw error;
     }

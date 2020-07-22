@@ -25,5 +25,7 @@ declare var c: C;
 var d: D = c; // ok
 
 // dict type mismatch
-type E = { [key: string]: string };
+type E = {
+  [key: string]: string
+};
 var e: E = c; // error

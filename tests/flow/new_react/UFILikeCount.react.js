@@ -16,7 +16,7 @@ var UFILikeCount = React.createClass({
   },
 
   render: function(): ?React.Element<any> {
-    return <div/>;
+  return <div />;
   }
 });
 

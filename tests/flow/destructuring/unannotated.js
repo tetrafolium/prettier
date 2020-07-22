@@ -1,9 +1,5 @@
 // @flow
 
-var { x } = {
-  x: { foo: "foo" }
-};
+var {x} = {x : {foo : "foo"}};
 
-function bar() {
-  x.bar
-}
+function bar() { x.bar }

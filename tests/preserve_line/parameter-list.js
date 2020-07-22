@@ -1,77 +1,38 @@
 class Foo {
-  constructor(
-    one,
+  constructor(one,
 
-    two,
-    three,
-    four,
+              two, three, four,
 
+              five, six, seven, eight, nine, ten,
 
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-
-    eleven
+              eleven
 
   ) {}
 }
 
-function foo(
-  one,
+function foo(one,
 
-  two,
-  three,
-  four,
+             two, three, four,
 
+             five, six, seven, eight, nine, ten,
 
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
-
-  eleven
+             eleven
 
 ) {}
 
 call((a, b) => {});
 
-call((
-  one,
-  two,
-  three,
-  four,
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
-  eleven
-) => {});
+call((one, two, three, four, five, six, seven, eight, nine, ten, eleven) => {});
 
-call((
-  one,
+call((one,
 
-  two,
-  three,
-  four,
+      two, three, four,
 
+      five, six, seven, eight, nine, ten,
 
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
+      eleven
 
-  eleven
-
-) => {});
+      ) => {});
 
 function test({
   one,
@@ -79,7 +40,6 @@ function test({
   two,
   three,
   four,
-
 
   five,
   six,
@@ -108,44 +68,33 @@ function test({
 
 }) {}
 
-function test({ one, two, three, four }, $a) {}
+function test({one, two, three, four}, $a) {}
 
+function test({one, two, three, four},
 
-function test(
-  { one, two, three, four },
-
-  $a
-) {}
+              $a) {}
 
 function foo(
 
-  ...rest
+    ...rest
 
 ) {}
 
-function foo(
-  one,
+function foo(one,
 
-  ...rest
-) {}
+             ...rest) {}
 
-function foo(one,...rest) {}
+function foo(one, ...rest) {}
 
-f(
-  superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,...args
-);
+f(superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
+  ...args);
 
 it(
 
-  "does something really long and complicated so I have to write a very long name for the test",
+    "does something really long and complicated so I have to write a very long name for the test",
 
-  function(
+    function(
 
-    done,
+        done,
 
-    foo
-  ) {
-
-    console.log("hello!");
-  }
-);
+        foo) { console.log("hello!"); });

@@ -28,18 +28,18 @@ normalModeNonBreaking ? "a" : "b";
 // This ConditionalExpression has no JSXElements so it prints in normal mode.
 // Its consequent is very long, so it breaks out to multiple lines.
 normalModeBreaking
-  ? johnJacobJingleHeimerSchmidtHisNameIsMyNameTooWheneverWeGoOutThePeopleAlwaysShoutThereGoesJohnJacobJingleHeimerSchmidtYaDaDaDaDaDaDa
-  : "c";
+    ? johnJacobJingleHeimerSchmidtHisNameIsMyNameTooWheneverWeGoOutThePeopleAlwaysShoutThereGoesJohnJacobJingleHeimerSchmidtYaDaDaDaDaDaDa
+    : "c";
 
 // This ConditionalExpression prints in JSX mode because its test is a
 // JSXElement. It is non-breaking.
 // Note: I have never, ever seen someone use a JSXElement as the test in a
 // ConditionalExpression. But this test is included for completeness.
-<div /> ? jsxModeFromElementNonBreaking : "a";
+<div />? jsxModeFromElementNonBreaking : "a";
 
 // This ConditionalExpression prints in JSX mode because its consequent is a
 // JSXElement. It is non-breaking.
-jsxModeFromElementNonBreaking ? <div /> : "a";
+jsxModeFromElementNonBreaking ? <div />: "a";
 
 // This ConditionalExpression prints in JSX mode because its alternate is a
 // JSXElement. It is non-breaking.
@@ -49,87 +49,83 @@ jsxModeFromElementNonBreaking ? "a" : <div />;
 // JSXElement. It is breaking.
 // Note: I have never, ever seen someone use a JSXElement as the test in a
 // ConditionalExpression. But this test is included for completeness.
-<div>
-  <span>thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo</span>
-</div>  ? (
-  "jsx mode from element breaking"
-) : (
-  "a"
-);
+<div><span>
+        thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo<
+            /span>
+</div>
+    ? ("jsx mode from element breaking")
+    : ("a");
 
 // This ConditionalExpression prints in JSX mode because its consequent is a
 // JSXElement. It is breaking.
-jsxModeFromElementBreaking ? (
-  <div>
-    <span>thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo</span>
-  </div>
-) : (
-  "a"
-);
+jsxModeFromElementBreaking
+    ? (<div><span>
+           thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo<
+               /span>
+  </div>)
+    : ("a");
 
 // This ConditionalExpression prints in JSX mode because its alternate is a
 // JSXElement. It is breaking.
-jsxModeFromElementBreaking ? (
-  "a"
-) : (
-  <div>
-    <span>thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo</span>
-  </div>
-);
+jsxModeFromElementBreaking
+    ? ("a")
+    : (<div><span>
+           thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo<
+               /span>
+  </div>);
 
 // This chain of ConditionalExpressions prints in JSX mode because the parent of
 // the outermost ConditionalExpression is a JSXExpressionContainer. It is
 // non-breaking.
-<div>
-  {a ? "a" : b ? "b" : "c"}
-</div>;
+<div>{a ? "a" : b ? "b" : "c"} <
+    /div>;
 
-// This chain of ConditionalExpressions prints in JSX mode because there is a
+/ / This chain of ConditionalExpressions prints in
+    JSX mode because there is a
 // JSX element somewhere in the chain. It is non-breaking.
-cable ? "satellite" : public ? "affairs" : network ? <span id="c" /> : "dunno";
+cable ? "satellite" : public ? "affairs" : network ? <span id = "c" />: "dunno";
 
 // This chain of ConditionalExpressions prints in JSX mode because there is a
 // JSX element somewhere in the chain (in this case, at the end). It is
 // breaking; notice the consequents and alternates in the entire chain get
 // wrapped in parens.
-cable ? (
-  "satellite"
-) : public ? (
-  "affairs"
-) : network ? (
-  <div>
-    <span>thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo</span>
-  </div>
-) : "dunno";
+cable
+    ? ("satellite")
+    : public ? ("affairs")
+             : network
+                   ? (<div><span>
+                          thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo<
+                              /span>
+  </div>)
+                   : "dunno";
 
 // This chain of ConditionalExpressions prints in JSX mode because there is a
 // JSX element somewhere in the chain (in this case, at the beginning). It is
 // breaking; notice the consequents and alternates in the entire chain get
 // wrapped in parens.
-cable ? (
-  <div>
-    <span>thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo</span>
-  </div>
-) : sateline ? (
-  "public"
-) : affairs ? (
-  "network"
-) : "dunno";
+cable
+    ? (<div><span>
+           thisIsASongAboutYourPoorSickPenguinHeHasAFeverAndHisToesAreBlueButIfISingToYourPoorSickPenguinHeWillFeelBetterInADayOrTwo<
+               /span>
+  </div>)
+    : sateline ? ("public") : affairs ? ("network") : "dunno";
 
 // This chain of ConditionalExpressions prints in JSX mode because there is a
 // JSX element somewhere in the chain. It is breaking; notice the consequents
 // and alternates in the entire chain get wrapped in parens.
-<div>
-  {properties.length > 1 ||
-  (properties.length === 1 && properties[0].apps.size > 1) ? (
-    draggingApp == null || newPropertyName == null ? (
-      <MigrationPropertyListItem />
-    ) : (
-      <MigrationPropertyListItem apps={Immutable.List()} />
+<div> {
+  properties.length > 1 ||
+      (properties.length === 1 && properties[0].apps.size > 1)
+      ? (draggingApp == null || newPropertyName == null
+             ? (<MigrationPropertyListItem />)
+             : (<MigrationPropertyListItem apps =
+                 { Immutable.List() } />
     )
   ) : null}
 </div>;
 
-// #3552
-foo ? <span>loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong jsx</span> :
+                // #3552
+                foo
+                ? <span>loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong
+                          jsx < /span> :
 undefined

@@ -9,9 +9,9 @@ let tests = [
   },
 
   function(y: string) {
-    y++; // error, we don't allow coercion here
+    y++;         // error, we don't allow coercion here
     (y: number); // ok, y is a number now
-    y++; // error, but you still can't write a number to a string
+    y++;         // error, but you still can't write a number to a string
   },
 
   function(y: string) {

@@ -7,34 +7,35 @@
 //    (including `havoc`) should be retained.
 
 class C {
-  m() {
-    return true;
-  }
+  m() { return true; }
   a: 1;
 
   n() {
-    if(this.m.bind(this)) {
+    if (this.m.bind(this)) {
       this.a;
     }
   }
 }
 
 declare var m: Function;
-const o = { a: 1 };
+const o = {
+  a : 1
+};
 
 if (m.bind(o)) {
   o.a;
 }
 
-
 class D {
   m: Function;
 
   n() {
-    if(this.m({})) { }
+    if (this.m({})) {
+    }
   }
 }
 
 declare var m: Function;
 const x = "";
-if (m.bind(this)(x)) { }
+if (m.bind(this)(x)) {
+}

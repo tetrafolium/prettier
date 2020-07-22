@@ -1,6 +1,8 @@
 /* @flow */
 
-class C { foo: string; }
+class C {
+  foo: string;
+}
 
 // OK, `instanceof C` would be true
 (Object.create(C.prototype): C);
@@ -9,9 +11,10 @@ class C { foo: string; }
 (Object.create(new C): C);
 
 // error, object literals don't structurally match instances
-({ foo: "foo" }: C);
+({foo : "foo"}: C);
 
 // error, object types don't structurally match instances
-type O = { foo: string; }
-declare var o: O;
+type O = {
+  foo: string;
+} declare var o: O;
 (o: C);

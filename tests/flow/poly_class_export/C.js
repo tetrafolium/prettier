@@ -4,11 +4,7 @@
 // It should be inferred (no annotation required).
 
 class Foo {
-  foo(): this {
-    return this;
-  }
+  foo(): this { return this; }
 }
 
-export function f(x: Foo) {
-  return x.foo();
-}
+export function f(x: Foo) { return x.foo(); }

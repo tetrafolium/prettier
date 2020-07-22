@@ -1,11 +1,9 @@
 // @flow
 
-import type { Action } from './e1';
+import type {Action} from './e1';
 
-const f = (): Action => {
-  return { type: 'FOO' };
-}
+const f = (): Action => { return {type : 'FOO'}; }
 
-import { LIFE } from './e1';
+import{LIFE} from './e1';
 
 (LIFE: 42);

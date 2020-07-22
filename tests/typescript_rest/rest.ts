@@ -1,1 +1,1 @@
-function test([first, ...rest]) {}
+function test([ first, ...rest ]) {}

@@ -12,14 +12,18 @@ enum E2 of number {
   // D = 100
 }
 
-enum E3 {/*Q*/}
+enum E3 {
+  /*Q*/
+}
 
 enum E4 of /*Q*/ string {
   Foo = "foo"
 }
 
-enum E5 of string { // Q
+enum E5 of string {
+  // Q
   Bar = "bar"
 }
 
-enum /*Q*/ E6 of string {}
+enum /*Q*/ E6 of string {
+}

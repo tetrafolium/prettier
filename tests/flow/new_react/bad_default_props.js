@@ -1,8 +1,11 @@
 var React = require('React');
 
-type T1 = { }
-type T2 = { x: number }
-type T3 = { x: number, y: number }
+type T1 = {} type T2 = {
+  x: number
+} type T3 = {
+  x: number,
+  y: number
+}
 
 class C1 extends React.Component<T1, T2, any> { // error
 }

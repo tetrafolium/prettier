@@ -1,9 +1,7 @@
 /* @flow */
 
-function foo(param: { name: string; }): number {
-    return param.id;
-}
+function foo(param: {name: string;}): number { return param.id; }
 
-foo({ name: "test" });
+foo({name : "test"});
 
 module.exports = foo;

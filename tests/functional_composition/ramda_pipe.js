@@ -6,13 +6,8 @@ f(3, 4); // -(3^4) + 1
 //  get :: String -> Object -> Maybe *
 
 //  getStateCode :: Maybe String -> Maybe String
-var getStateCode = R.pipeK(
-  parseJson,
-  get("user"),
-  get("address"),
-  get("state"),
-  R.compose(Maybe.of, R.toUpper)
-);
+var getStateCode = R.pipeK(parseJson, get("user"), get("address"), get("state"),
+                           R.compose(Maybe.of, R.toUpper));
 
 getStateCode('{"user":{"address":{"state":"ny"}}}');
 //=> Just('NY')

@@ -27,7 +27,7 @@ function getSortedChildNodes(node, options, resultArray) {
   if (!node) {
     return;
   }
-  const { printer, locStart, locEnd } = options;
+  const {printer, locStart, locEnd} = options;
 
   if (resultArray) {
     if (printer.canAttachComment && printer.canAttachComment(node)) {
@@ -36,10 +36,8 @@ function getSortedChildNodes(node, options, resultArray) {
       // nodes in order anyway.
       let i;
       for (i = resultArray.length - 1; i >= 0; --i) {
-        if (
-          locStart(resultArray[i]) <= locStart(node) &&
-          locEnd(resultArray[i]) <= locEnd(node)
-        ) {
+        if (locStart(resultArray[i]) <= locStart(node) &&
+            locEnd(resultArray[i]) <= locEnd(node)) {
           break;
         }
       }
@@ -51,17 +49,13 @@ function getSortedChildNodes(node, options, resultArray) {
   }
 
   const childNodes =
-    (printer.getCommentChildNodes &&
-      printer.getCommentChildNodes(node, options)) ||
-    (typeof node === "object" &&
-      Object.keys(node)
-        .filter(
-          (n) =>
-            n !== "enclosingNode" &&
-            n !== "precedingNode" &&
-            n !== "followingNode"
-        )
-        .map((n) => node[n]));
+      (printer.getCommentChildNodes &&
+       printer.getCommentChildNodes(node, options)) ||
+      (typeof node === "object" &&
+       Object.keys(node)
+           .filter((n) => n !== "enclosingNode" && n !== "precedingNode" &&
+                          n !== "followingNode")
+           .map((n) => node[n]));
 
   if (!childNodes) {
     return;
@@ -69,14 +63,13 @@ function getSortedChildNodes(node, options, resultArray) {
 
   if (!resultArray) {
     Object.defineProperty(node, childNodesCacheKey, {
-      value: (resultArray = []),
-      enumerable: false,
+      value : (resultArray = []),
+      enumerable : false,
     });
   }
 
-  childNodes.forEach((childNode) => {
-    getSortedChildNodes(childNode, options, resultArray);
-  });
+  childNodes.forEach(
+      (childNode) => { getSortedChildNodes(childNode, options, resultArray); });
 
   return resultArray;
 }
@@ -85,7 +78,7 @@ function getSortedChildNodes(node, options, resultArray) {
 // .precedingNode, .enclosingNode, and/or .followingNode properties, at
 // least one of which is guaranteed to be defined.
 function decorateComment(node, comment, options) {
-  const { locStart, locEnd } = options;
+  const {locStart, locEnd} = options;
 
   const childNodes = getSortedChildNodes(node, options);
   let precedingNode;
@@ -97,10 +90,8 @@ function decorateComment(node, comment, options) {
     const middle = (left + right) >> 1;
     const child = childNodes[middle];
 
-    if (
-      locStart(child) - locStart(comment) <= 0 &&
-      locEnd(comment) - locEnd(child) <= 0
-    ) {
+    if (locStart(child) - locStart(comment) <= 0 &&
+        locEnd(comment) - locEnd(child) <= 0) {
       // The comment is completely contained by this child node.
       comment.enclosingNode = child;
 
@@ -134,29 +125,18 @@ function decorateComment(node, comment, options) {
 
   // We don't want comments inside of different expressions inside of the same
   // template literal to move to another expression.
-  if (
-    comment.enclosingNode &&
-    comment.enclosingNode.type === "TemplateLiteral"
-  ) {
-    const { quasis } = comment.enclosingNode;
-    const commentIndex = findExpressionIndexForComment(
-      quasis,
-      comment,
-      options
-    );
+  if (comment.enclosingNode &&
+      comment.enclosingNode.type === "TemplateLiteral") {
+    const {quasis} = comment.enclosingNode;
+    const commentIndex =
+        findExpressionIndexForComment(quasis, comment, options);
 
-    if (
-      precedingNode &&
-      findExpressionIndexForComment(quasis, precedingNode, options) !==
-        commentIndex
-    ) {
+    if (precedingNode && findExpressionIndexForComment(
+                             quasis, precedingNode, options) !== commentIndex) {
       precedingNode = null;
     }
-    if (
-      followingNode &&
-      findExpressionIndexForComment(quasis, followingNode, options) !==
-        commentIndex
-    ) {
+    if (followingNode && findExpressionIndexForComment(
+                             quasis, followingNode, options) !== commentIndex) {
       followingNode = null;
     }
   }
@@ -176,15 +156,12 @@ function attach(comments, ast, text, options) {
   }
 
   const tiesToBreak = [];
-  const { locStart, locEnd } = options;
+  const {locStart, locEnd} = options;
 
   comments.forEach((comment, i) => {
-    if (
-      options.parser === "json" ||
-      options.parser === "json5" ||
-      options.parser === "__js_expression" ||
-      options.parser === "__vue_expression"
-    ) {
+    if (options.parser === "json" || options.parser === "json5" ||
+        options.parser === "__js_expression" ||
+        options.parser === "__vue_expression") {
       if (locStart(comment) - locStart(ast) <= 0) {
         addLeadingComment(ast, comment);
         return;
@@ -196,29 +173,30 @@ function attach(comments, ast, text, options) {
     }
 
     decorateComment(ast, comment, options);
-    const { precedingNode, enclosingNode, followingNode } = comment;
+    const {precedingNode, enclosingNode, followingNode} = comment;
 
     const pluginHandleOwnLineComment =
-      options.printer.handleComments && options.printer.handleComments.ownLine
-        ? options.printer.handleComments.ownLine
-        : () => false;
+        options.printer.handleComments && options.printer.handleComments.ownLine
+            ? options.printer.handleComments.ownLine
+            : () => false;
     const pluginHandleEndOfLineComment =
-      options.printer.handleComments && options.printer.handleComments.endOfLine
-        ? options.printer.handleComments.endOfLine
-        : () => false;
+        options.printer.handleComments &&
+                options.printer.handleComments.endOfLine
+            ? options.printer.handleComments.endOfLine
+            : () => false;
     const pluginHandleRemainingComment =
-      options.printer.handleComments && options.printer.handleComments.remaining
-        ? options.printer.handleComments.remaining
-        : () => false;
+        options.printer.handleComments &&
+                options.printer.handleComments.remaining
+            ? options.printer.handleComments.remaining
+            : () => false;
 
     const isLastComment = comments.length - 1 === i;
 
-    if (hasNewline(text, locStart(comment), { backwards: true })) {
+    if (hasNewline(text, locStart(comment), {backwards : true})) {
       // If a comment exists on its own line, prefer a leading comment.
       // We also need to check if it's the first line of the file.
-      if (
-        pluginHandleOwnLineComment(comment, text, options, ast, isLastComment)
-      ) {
+      if (pluginHandleOwnLineComment(comment, text, options, ast,
+                                     isLastComment)) {
         // We're good
       } else if (followingNode) {
         // Always a leading comment.
@@ -233,9 +211,8 @@ function attach(comments, ast, text, options) {
         addDanglingComment(ast, comment);
       }
     } else if (hasNewline(text, locEnd(comment))) {
-      if (
-        pluginHandleEndOfLineComment(comment, text, options, ast, isLastComment)
-      ) {
+      if (pluginHandleEndOfLineComment(comment, text, options, ast,
+                                       isLastComment)) {
         // We're good
       } else if (precedingNode) {
         // There is content before this comment on the same line, but
@@ -251,9 +228,8 @@ function attach(comments, ast, text, options) {
         addDanglingComment(ast, comment);
       }
     } else {
-      if (
-        pluginHandleRemainingComment(comment, text, options, ast, isLastComment)
-      ) {
+      if (pluginHandleRemainingComment(comment, text, options, ast,
+                                       isLastComment)) {
         // We're good
       } else if (precedingNode && followingNode) {
         // Otherwise, text exists both before and after the comment on
@@ -300,12 +276,11 @@ function breakTies(tiesToBreak, text, options) {
   if (tieCount === 0) {
     return;
   }
-  const { precedingNode, followingNode, enclosingNode } = tiesToBreak[0];
+  const {precedingNode, followingNode, enclosingNode} = tiesToBreak[0];
 
-  const gapRegExp =
-    (options.printer.getGapRegex &&
-      options.printer.getGapRegex(enclosingNode)) ||
-    /^[\s(]*$/;
+  const gapRegExp = (options.printer.getGapRegex &&
+                     options.printer.getGapRegex(enclosingNode)) ||
+                    /^[\s(]*$/;
 
   let gapEndPos = options.locStart(followingNode);
 
@@ -315,11 +290,8 @@ function breakTies(tiesToBreak, text, options) {
   // gaps (or other comments). Gaps should only contain whitespace or open
   // parentheses.
   let indexOfFirstLeadingComment;
-  for (
-    indexOfFirstLeadingComment = tieCount;
-    indexOfFirstLeadingComment > 0;
-    --indexOfFirstLeadingComment
-  ) {
+  for (indexOfFirstLeadingComment = tieCount; indexOfFirstLeadingComment > 0;
+       --indexOfFirstLeadingComment) {
     const comment = tiesToBreak[indexOfFirstLeadingComment - 1];
     assert.strictEqual(comment.precedingNode, precedingNode);
     assert.strictEqual(comment.followingNode, followingNode);
@@ -370,10 +342,10 @@ function findExpressionIndexForComment(quasis, comment, options) {
 function getQuasiRange(expr) {
   if (expr.start !== undefined) {
     // Babel
-    return { start: expr.start, end: expr.end };
+    return {start : expr.start, end : expr.end};
   }
   // Flow
-  return { start: expr.range[0], end: expr.range[1] };
+  return {start : expr.range[0], end : expr.range[1]};
 }
 
 function printLeadingComment(commentPath, print, options) {
@@ -383,23 +355,24 @@ function printLeadingComment(commentPath, print, options) {
     return "";
   }
   const isBlock =
-    options.printer.isBlockComment && options.printer.isBlockComment(comment);
+      options.printer.isBlockComment && options.printer.isBlockComment(comment);
 
   // Leading block comments should see if they need to stay on the
   // same line or not.
   if (isBlock) {
-    const lineBreak = hasNewline(options.originalText, options.locEnd(comment))
-      ? hasNewline(options.originalText, options.locStart(comment), {
-          backwards: true,
-        })
-        ? hardline
-        : line
-      : " ";
+    const lineBreak =
+        hasNewline(options.originalText, options.locEnd(comment))
+            ? hasNewline(options.originalText, options.locStart(comment), {
+                backwards : true,
+              })
+                  ? hardline
+                  : line
+            : " ";
 
-    return concat([contents, lineBreak]);
+    return concat([ contents, lineBreak ]);
   }
 
-  return concat([contents, hardline]);
+  return concat([ contents, hardline ]);
 }
 
 function printTrailingComment(commentPath, print, options) {
@@ -409,24 +382,21 @@ function printTrailingComment(commentPath, print, options) {
     return "";
   }
   const isBlock =
-    options.printer.isBlockComment && options.printer.isBlockComment(comment);
+      options.printer.isBlockComment && options.printer.isBlockComment(comment);
 
   // We don't want the line to break
   // when the parentParentNode is a ClassDeclaration/-Expression
   // And the parentNode is in the superClass property
   const parentNode = commentPath.getNode(1);
   const parentParentNode = commentPath.getNode(2);
-  const isParentSuperClass =
-    parentParentNode &&
-    (parentParentNode.type === "ClassDeclaration" ||
-      parentParentNode.type === "ClassExpression") &&
-    parentParentNode.superClass === parentNode;
+  const isParentSuperClass = parentParentNode &&
+                             (parentParentNode.type === "ClassDeclaration" ||
+                              parentParentNode.type === "ClassExpression") &&
+                             parentParentNode.superClass === parentNode;
 
-  if (
-    hasNewline(options.originalText, options.locStart(comment), {
-      backwards: true,
-    })
-  ) {
+  if (hasNewline(options.originalText, options.locStart(comment), {
+        backwards : true,
+      })) {
     // This allows comments at the end of nested structures:
     // {
     //   x: 1,
@@ -439,22 +409,18 @@ function printTrailingComment(commentPath, print, options) {
     // if this a comment on its own line; normal trailing comments are
     // always at the end of another expression.
 
-    const isLineBeforeEmpty = isPreviousLineEmpty(
-      options.originalText,
-      comment,
-      options.locStart
-    );
+    const isLineBeforeEmpty =
+        isPreviousLineEmpty(options.originalText, comment, options.locStart);
 
     return lineSuffix(
-      concat([hardline, isLineBeforeEmpty ? hardline : "", contents])
-    );
+        concat([ hardline, isLineBeforeEmpty ? hardline : "", contents ]));
   } else if (isBlock || isParentSuperClass) {
     // Trailing block comments never need a newline
-    return concat([" ", contents]);
+    return concat([ " ", contents ]);
   }
 
   return concat([
-    lineSuffix(concat([" ", contents])),
+    lineSuffix(concat([ " ", contents ])),
     !isBlock ? breakParent : "",
   ]);
 }
@@ -469,12 +435,8 @@ function printDanglingComments(path, options, sameIndent, filter) {
 
   path.each((commentPath) => {
     const comment = commentPath.getValue();
-    if (
-      comment &&
-      !comment.leading &&
-      !comment.trailing &&
-      (!filter || filter(comment))
-    ) {
+    if (comment && !comment.leading && !comment.trailing &&
+        (!filter || filter(comment))) {
       parts.push(printComment(commentPath, options));
     }
   }, "comments");
@@ -486,12 +448,12 @@ function printDanglingComments(path, options, sameIndent, filter) {
   if (sameIndent) {
     return join(hardline, parts);
   }
-  return indent(concat([hardline, join(hardline, parts)]));
+  return indent(concat([ hardline, join(hardline, parts) ]));
 }
 
 function prependCursorPlaceholder(path, options, printed) {
   if (path.getNode() === options.cursorNode && path.getValue()) {
-    return concat([cursor, printed, cursor]);
+    return concat([ cursor, printed, cursor ]);
   }
   return printed;
 }
@@ -506,11 +468,11 @@ function printComments(path, print, options, needsSemi) {
   }
 
   const leadingParts = [];
-  const trailingParts = [needsSemi ? ";" : "", printed];
+  const trailingParts = [ needsSemi ? ";" : "", printed ];
 
   path.each((commentPath) => {
     const comment = commentPath.getValue();
-    const { leading, trailing } = comment;
+    const {leading, trailing} = comment;
 
     if (leading) {
       const contents = printLeadingComment(commentPath, print, options);
@@ -529,11 +491,8 @@ function printComments(path, print, options, needsSemi) {
     }
   }, "comments");
 
-  return prependCursorPlaceholder(
-    path,
-    options,
-    concat(leadingParts.concat(trailingParts))
-  );
+  return prependCursorPlaceholder(path, options,
+                                  concat(leadingParts.concat(trailingParts)));
 }
 
 module.exports = {

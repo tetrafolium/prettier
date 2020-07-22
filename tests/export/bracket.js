@@ -1,11 +1,11 @@
 export {
-  runTaskForChanged,
+  andMore,
   description,
-  someOtherLabel,
-  thatMakes,
   itGo,
   multiLine,
-  andMore,
-  soWeCanGetItTo80Columns
+  runTaskForChanged,
+  someOtherLabel,
+  soWeCanGetItTo80Columns,
+  thatMakes
 };
 export {fitsIn, oneLine};

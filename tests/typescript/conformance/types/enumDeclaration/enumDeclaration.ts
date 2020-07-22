@@ -1,1 +1,5 @@
-enum E { A, B, C }
+enum E {
+  A,
+  B,
+  C
+}

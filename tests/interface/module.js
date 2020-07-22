@@ -1,3 +1,5 @@
 declare module X {
-  declare interface Y { x: number; }
+  declare interface Y {
+    x: number;
+  }
 }

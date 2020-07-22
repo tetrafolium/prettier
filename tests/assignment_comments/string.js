@@ -1,69 +1,119 @@
 fnString =
-  // Comment
-  'some' + 'long' + 'string';
+    // Comment
+    'some' +
+    'long' +
+    'string';
 
 fnString =
-  // Comment
+    // Comment
 
-  'some' + 'long' + 'string';
-
-fnString =
-
-  // Comment
-
-  'some' + 'long' + 'string';
+    'some' +
+    'long' +
+    'string';
 
 fnString =
-  /* comment */
-  'some' + 'long' + 'string';
+
+    // Comment
+
+    'some' +
+    'long' +
+    'string';
 
 fnString =
-  /**
-   * multi-line
-   */
-  'some' + 'long' + 'string';
+    /* comment */
+    'some' +
+    'long' +
+    'string';
 
 fnString =
-  /* inline */ 'some' + 'long' + 'string' + 'some' + 'long' + 'string' + 'some' + 'long' + 'string' + 'some' + 'long' + 'string';
+    /**
+     * multi-line
+     */
+    'some' +
+    'long' +
+    'string';
+
+fnString =
+    /* inline */ 'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string';
 
 fnString = // Comment0
-  // Comment1
-  'some' + 'long' + 'string';
+           // Comment1
+    'some' +
+    'long' +
+    'string';
 
 fnString = // Comment
-  'some' + 'long' + 'string';
+    'some' +
+    'long' +
+    'string';
 
 fnString =
-  // Comment
-  'some' + 'long' + 'string';
+    // Comment
+    'some' +
+    'long' +
+    'string';
 
 var fnString =
-  // Comment
+    // Comment
 
-  'some' + 'long' + 'string';
-
-var fnString =
-
-  // Comment
-
-  'some' + 'long' + 'string';
+    'some' +
+    'long' +
+    'string';
 
 var fnString =
-  /* comment */
-  'some' + 'long' + 'string';
+
+    // Comment
+
+    'some' +
+    'long' +
+    'string';
 
 var fnString =
-  /**
-   * multi-line
-   */
-  'some' + 'long' + 'string';
+    /* comment */
+    'some' +
+    'long' +
+    'string';
 
 var fnString =
-  /* inline */ 'some' + 'long' + 'string' + 'some' + 'long' + 'string' + 'some' + 'long' + 'string' + 'some' + 'long' + 'string';
+    /**
+     * multi-line
+     */
+    'some' +
+    'long' +
+    'string';
+
+var fnString =
+    /* inline */ 'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string' +
+    'some' +
+    'long' +
+    'string';
 
 var fnString = // Comment0
-  // Comment1
-  'some' + 'long' + 'string';
+               // Comment1
+    'some' +
+    'long' +
+    'string';
 
 var fnString = // Comment
-  'some' + 'long' + 'string';
+    'some' +
+    'long' +
+    'string';

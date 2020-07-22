@@ -1,8 +1,6 @@
-export function stateToggler(key) {
-  return (state) => ({ [key]: !state[key] });
-}
+export function stateToggler(key) { return (state) => ({[key] : !state[key]}); }
 
-const { hasOwnProperty } = Object.prototype;
+const {hasOwnProperty} = Object.prototype;
 
 function is(x, y) {
   // SameValue algorithm
@@ -20,12 +18,8 @@ export function shallowEqual(objA, objB) {
     return true;
   }
 
-  if (
-    typeof objA !== "object" ||
-    objA === null ||
-    typeof objB !== "object" ||
-    objB === null
-  ) {
+  if (typeof objA !== "object" || objA === null || typeof objB !== "object" ||
+      objB === null) {
     return false;
   }
 
@@ -37,10 +31,8 @@ export function shallowEqual(objA, objB) {
   }
 
   for (let i = 0; i < keysA.length; i++) {
-    if (
-      !hasOwnProperty.call(objB, keysA[i]) ||
-      !is(objA[keysA[i]], objB[keysA[i]])
-    ) {
+    if (!hasOwnProperty.call(objB, keysA[i]) ||
+        !is(objA[keysA[i]], objB[keysA[i]])) {
       return false;
     }
   }

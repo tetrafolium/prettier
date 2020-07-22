@@ -1,34 +1,34 @@
 class Default {
-    member: string;
+  member: string;
 }
 
 class Public {
-    public member: string;
+  public member: string;
 }
 
 class Protected {
-    protected member: string;
+  protected member: string;
 }
 
 class Private {
-    private member: number;
+  private member: number;
 }
 
 var v1: Default;
 var v2: Public;
 var v3: Protected;
 var v4: Private;
-var v5: Default | Public;
-var v6: Default | Protected;
-var v7: Default | Private;
-var v8: Public | Protected;
-var v9: Public | Private;
-var v10: Protected | Private;
-var v11: Default | Public | Protected;
-var v12: Default | Public | Private;
-var v13: Default | Protected | Private;
-var v14: Public | Private | Protected;
-var v15: Default | Public | Private | Protected;
+var v5: Default|Public;
+var v6: Default|Protected;
+var v7: Default|Private;
+var v8: Public|Protected;
+var v9: Public|Private;
+var v10: Protected|Private;
+var v11: Default|Public|Protected;
+var v12: Default|Public|Private;
+var v13: Default|Protected|Private;
+var v14: Public|Private|Protected;
+var v15: Default|Public|Private|Protected;
 
 v1.member;
 v2.member;

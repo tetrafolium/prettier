@@ -1,6 +1,6 @@
 // @flow
 
-type Mode = 0 | 1 | 2;
+type Mode = 0|1|2;
 
 let tests = [
   function(x: number) {

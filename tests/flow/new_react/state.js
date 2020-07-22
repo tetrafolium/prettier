@@ -3,13 +3,10 @@
 var React = require('react');
 
 type State = {
-    bar: ?{ qux: string; };
-};
+  bar: ? { qux: string; }; };
 
 var ReactClass = React.createClass({
-    getInitialState: function():State {
-        return { bar: null };
-    },
+getInitialState: function(): State { return {bar : null}; },
 
     render: function(): any {
         // Any state access here seems to make state any

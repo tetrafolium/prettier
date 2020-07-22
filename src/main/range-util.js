@@ -8,17 +8,14 @@ function findSiblingAncestors(startNodeAndParents, endNodeAndParents, opts) {
 
   if (resultStartNode === resultEndNode) {
     return {
-      startNode: resultStartNode,
-      endNode: resultEndNode,
+      startNode : resultStartNode,
+      endNode : resultEndNode,
     };
   }
 
   for (const endParent of endNodeAndParents.parentNodes) {
-    if (
-      endParent.type !== "Program" &&
-      endParent.type !== "File" &&
-      opts.locStart(endParent) >= opts.locStart(startNodeAndParents.node)
-    ) {
+    if (endParent.type !== "Program" && endParent.type !== "File" &&
+        opts.locStart(endParent) >= opts.locStart(startNodeAndParents.node)) {
       resultEndNode = endParent;
     } else {
       break;
@@ -26,11 +23,8 @@ function findSiblingAncestors(startNodeAndParents, endNodeAndParents, opts) {
   }
 
   for (const startParent of startNodeAndParents.parentNodes) {
-    if (
-      startParent.type !== "Program" &&
-      startParent.type !== "File" &&
-      opts.locEnd(startParent) <= opts.locEnd(endNodeAndParents.node)
-    ) {
+    if (startParent.type !== "Program" && startParent.type !== "File" &&
+        opts.locEnd(startParent) <= opts.locEnd(endNodeAndParents.node)) {
       resultStartNode = startParent;
     } else {
       break;
@@ -38,8 +32,8 @@ function findSiblingAncestors(startNodeAndParents, endNodeAndParents, opts) {
   }
 
   return {
-    startNode: resultStartNode,
-    endNode: resultEndNode,
+    startNode : resultStartNode,
+    endNode : resultEndNode,
   };
 }
 
@@ -51,12 +45,7 @@ function findNodeAtOffset(node, offset, options, predicate, parentNodes) {
   if (start <= offset && offset <= end) {
     for (const childNode of comments.getSortedChildNodes(node, options)) {
       const childResult = findNodeAtOffset(
-        childNode,
-        offset,
-        options,
-        predicate,
-        [node].concat(parentNodes)
-      );
+          childNode, offset, options, predicate, [ node ].concat(parentNodes));
       if (childResult) {
         return childResult;
       }
@@ -97,16 +86,16 @@ function isSourceElement(opts, node) {
     "VariableDeclaration",
     "WhileStatement",
     "WithStatement",
-    "ClassDeclaration", // ES 2015
-    "ImportDeclaration", // Module
+    "ClassDeclaration",         // ES 2015
+    "ImportDeclaration",        // Module
     "ExportDefaultDeclaration", // Module
-    "ExportNamedDeclaration", // Module
-    "ExportAllDeclaration", // Module
-    "TypeAlias", // Flow
-    "InterfaceDeclaration", // Flow, TypeScript
-    "TypeAliasDeclaration", // TypeScript
-    "ExportAssignment", // TypeScript
-    "ExportDeclaration", // TypeScript
+    "ExportNamedDeclaration",   // Module
+    "ExportAllDeclaration",     // Module
+    "TypeAlias",                // Flow
+    "InterfaceDeclaration",     // Flow, TypeScript
+    "TypeAliasDeclaration",     // TypeScript
+    "ExportAssignment",         // TypeScript
+    "ExportDeclaration",        // TypeScript
   ];
   const jsonSourceElements = [
     "ObjectExpression",
@@ -135,75 +124,55 @@ function isSourceElement(opts, node) {
     "ScalarTypeDefinition",
   ];
   switch (opts.parser) {
-    case "flow":
-    case "babel":
-    case "babel-flow":
-    case "babel-ts":
-    case "typescript":
-      return jsSourceElements.includes(node.type);
-    case "json":
-      return jsonSourceElements.includes(node.type);
-    case "graphql":
-      return graphqlSourceElements.includes(node.kind);
-    case "vue":
-      return node.tag !== "root";
+  case "flow":
+  case "babel":
+  case "babel-flow":
+  case "babel-ts":
+  case "typescript":
+    return jsSourceElements.includes(node.type);
+  case "json":
+    return jsonSourceElements.includes(node.type);
+  case "graphql":
+    return graphqlSourceElements.includes(node.kind);
+  case "vue":
+    return node.tag !== "root";
   }
   return false;
 }
 
 function calculateRange(text, opts, ast) {
-  // Contract the range so that it has non-whitespace characters at its endpoints.
-  // This ensures we can format a range that doesn't end on a node.
+  // Contract the range so that it has non-whitespace characters at its
+  // endpoints. This ensures we can format a range that doesn't end on a node.
   const rangeStringOrig = text.slice(opts.rangeStart, opts.rangeEnd);
-  const startNonWhitespace = Math.max(
-    opts.rangeStart + rangeStringOrig.search(/\S/),
-    opts.rangeStart
-  );
+  const startNonWhitespace =
+      Math.max(opts.rangeStart + rangeStringOrig.search(/\S/), opts.rangeStart);
   let endNonWhitespace;
-  for (
-    endNonWhitespace = opts.rangeEnd;
-    endNonWhitespace > opts.rangeStart;
-    --endNonWhitespace
-  ) {
+  for (endNonWhitespace = opts.rangeEnd; endNonWhitespace > opts.rangeStart;
+       --endNonWhitespace) {
     if (text[endNonWhitespace - 1].match(/\S/)) {
       break;
     }
   }
 
   const startNodeAndParents = findNodeAtOffset(
-    ast,
-    startNonWhitespace,
-    opts,
-    (node) => isSourceElement(opts, node)
-  );
+      ast, startNonWhitespace, opts, (node) => isSourceElement(opts, node));
   const endNodeAndParents = findNodeAtOffset(
-    ast,
-    endNonWhitespace,
-    opts,
-    (node) => isSourceElement(opts, node)
-  );
+      ast, endNonWhitespace, opts, (node) => isSourceElement(opts, node));
 
   if (!startNodeAndParents || !endNodeAndParents) {
     return {
-      rangeStart: 0,
-      rangeEnd: 0,
+      rangeStart : 0,
+      rangeEnd : 0,
     };
   }
 
-  const siblingAncestors = findSiblingAncestors(
-    startNodeAndParents,
-    endNodeAndParents,
-    opts
-  );
-  const { startNode, endNode } = siblingAncestors;
-  const rangeStart = Math.min(
-    opts.locStart(startNode, opts.locStart),
-    opts.locStart(endNode, opts.locStart)
-  );
-  const rangeEnd = Math.max(
-    opts.locEnd(startNode, opts.locEnd),
-    opts.locEnd(endNode, opts.locEnd)
-  );
+  const siblingAncestors =
+      findSiblingAncestors(startNodeAndParents, endNodeAndParents, opts);
+  const {startNode, endNode} = siblingAncestors;
+  const rangeStart = Math.min(opts.locStart(startNode, opts.locStart),
+                              opts.locStart(endNode, opts.locStart));
+  const rangeEnd = Math.max(opts.locEnd(startNode, opts.locEnd),
+                            opts.locEnd(endNode, opts.locEnd));
 
   return {
     rangeStart,

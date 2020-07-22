@@ -1,3 +1,1 @@
-declare module foo {
-  declare var bar: number;
-}
+declare module foo { declare var bar: number; }

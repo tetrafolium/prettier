@@ -1,8 +1,9 @@
 interface Some<X> {}
-interface Other<X> { x: X; }
+interface Other<X> {
+  x: X;
+}
 interface None<Y> {}
-interface Nada<Y> { y: Y }
-interface A<X> {
+interface Nada<Y>{y : Y} interface A<X> {
   foo<Y>(s: Some<X>, e: None<Y>): A<Y>;
   foo<Y>(s: Some<X>, e: Nada<Y>): A<Y>;
   foo<Y>(s: Other<X>, e: None<Y>): A<Y>;

@@ -3,7 +3,7 @@
 
 class A {}
 
-type B<T> = A & {
+type B<T> = A&{
   +a: (x: B<T>) => void;
   +b: (x: B<T>) => void;
   +c: (x: B<T>) => void;

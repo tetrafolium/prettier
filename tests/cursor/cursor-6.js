@@ -1,1 +1,1 @@
-const      y    /* h<|>i */   = 5
+const y /* h<|>i */ = 5

@@ -5,11 +5,9 @@ import * as t from './jsAst';
 
 const b = t.builders;
 
-import type {
-        TypedNode
-} from './ast';
+import type {TypedNode} from './ast';
 
-function getBinaryOp(op: 'plus' | 'minus' | 'divide' | 'multiply') : '+' | '-' | '*' | '/' {
+function getBinaryOp(op: 'plus'|'minus'|'divide'|'multiply'): '+'|'-'|'*'|'/' {
   switch (op) {
   case 'plus':
     return '+';
@@ -24,17 +22,14 @@ function getBinaryOp(op: 'plus' | 'minus' | 'divide' | 'multiply') : '+' | '-' |
   }
 }
 
-export function emitExpression(node: TypedNode) : t.Expression {
+export function emitExpression(node: TypedNode): t.Expression {
   switch (node.exprNodeType) {
   case 'string_literal': // FALLTHROUGH
   case 'number':
     return b.literal(node.value);
   case 'variable':
-    return b.memberExpression(
-      b.identifier('vars'),
-      b.identifier(node.name),
-      false
-    );
+    return b.memberExpression(b.identifier('vars'), b.identifier(node.name),
+                              false);
   case 'binary_op': {
     const lhs = emitExpression(node.lhs);
     const rhs = emitExpression(node.rhs);
@@ -47,15 +42,10 @@ export function emitExpression(node: TypedNode) : t.Expression {
     return b.unaryExpression('-', operand, true);
   }
   case 'function_invocation': {
-    const callee = b.memberExpression(
-      b.identifier('fns'),
-      b.identifier(node.name),
-      false
-    );
+    const callee =
+        b.memberExpression(b.identifier('fns'), b.identifier(node.name), false);
 
-    const args = node.parameters.map(
-      (n) => emitExpression(n)
-    );
+    const args = node.parameters.map((n) => emitExpression(n));
 
     return b.callExpression(callee, args);
   }

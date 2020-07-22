@@ -1,4 +1,4 @@
 state = {
   // students
-  hoverColumn: -1
+  hoverColumn : -1
 };

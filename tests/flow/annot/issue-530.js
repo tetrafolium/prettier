@@ -1,3 +1,3 @@
-function foo(...args: any) { }
+function foo(...args: any) {}
 
 module.exports = foo;

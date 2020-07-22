@@ -6,8 +6,9 @@ function foo(x: I<number>): J<number> {
   // I<number> and J<number> both expand to () => () => ...
 }
 
-type Q<X> = { x: X; }
-type P<X> = () => Q<P<X>>;
+type Q<X> = {
+  x: X;
+} type P<X> = () => Q<P<X>>;
 
 function bar(x: P<number>): () => P<number> {
   return x; // terminate despite expanding types, error

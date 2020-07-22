@@ -1,4 +1,4 @@
 
-function f(x:string) { }
+function f(x: string) {}
 
 module.exports = f;

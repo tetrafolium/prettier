@@ -1,4 +1,4 @@
-type A = { [key: string] };
+type A = {[key: string]};
 
 type TwoParams = {
   [a: string, b: string]: string;
@@ -8,12 +8,17 @@ type ThreeParams = {
 };
 
 type TooLong = {
-  [loooooooooooooooooooooooooong: string, looooooooooooooooooooooooooooooooooooooong: string]: string;
+  [loooooooooooooooooooooooooong: string,
+   looooooooooooooooooooooooooooooooooooooong: string]: string;
+} type TooLong81 = {
+  [loooooooooooooooooooooooooong: string,
+   loooooooooooooooooong: string]: string;
+} type TooLong80 = {
+  [loooooooooooooooooooooooooong: string, looooooooooooooooong: string]: string;
 }
-type TooLong81 = { [loooooooooooooooooooooooooong: string, loooooooooooooooooong: string]: string; }
-type TooLong80 = { [loooooooooooooooooooooooooong: string, looooooooooooooooong: string]: string; }
 
 // note lack of trailing comma in the index signature
 type TooLongSingleParam = {
-  [looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong: string]: string;
+  [looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong:
+       string]: string;
 }

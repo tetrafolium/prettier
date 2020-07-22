@@ -1,4 +1,4 @@
-export //comment
+export // comment
 {}
 
 export /* comment */ {};
@@ -17,6 +17,6 @@ export {
 const fooo = ''
 const barr = ''
 export {
-  fooo, // comment
-  barr, // comment
+  fooo,     // comment
+      barr, // comment
 }

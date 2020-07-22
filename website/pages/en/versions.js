@@ -8,7 +8,7 @@
  */
 
 const React = require("react");
-const { Container } = require("../../core/CompLibrary");
+const {Container} = require("../../core/CompLibrary");
 
 const CWD = process.cwd();
 
@@ -19,33 +19,30 @@ const masterVersion = rootPackageJson.version;
 const isMasterDevVersion = masterVersion.endsWith("-dev");
 const devVersion = isMasterDevVersion ? masterVersion : null;
 const latestVersion = isMasterDevVersion
-  ? rootPackageJson.devDependencies.prettier
-  : masterVersion;
+                          ? rootPackageJson.devDependencies.prettier
+                          : masterVersion;
 const [latestDocsVersion, ...pastDocsVersions] = versions;
 
 function Versions(props) {
-  const { config: siteConfig } = props;
+  const {config : siteConfig} = props;
   return (
-    <div className="docMainWrapper wrapper">
-      <Container className="mainContainer versionsContainer">
-        <div className="post">
-          <header className="postHeader">
-            <h1>{siteConfig.title} Versions</h1>
+      <div className = "docMainWrapper wrapper">
+      <Container className = "mainContainer versionsContainer">
+      <div className = "post"><header className = "postHeader">
+      <h1>{siteConfig.title} Versions</h1>
           </header>
-          <table className="versions">
-            <tbody>
-              <tr>
-                <th>Version</th>
+      <table className = "versions"><tbody><tr>
+      <th>Version</th>
                 <th>Install with</th>
-                <th>Documentation</th>
-              </tr>
-              <tr>
-                <td>{latestVersion}</td>
+      <th>Documentation</th>
+              </tr><tr><td>{latestVersion}<
+          /td>
                 <td>
                   <code>npm install prettier</code>
-                </td>
+      </td>
                 <td>
-                  <a href={`${siteConfig.baseUrl}docs/en/index.html`}>
+                  <a href={`${siteConfig.baseUrl}docs/en /
+       index.html`}>
                     {latestDocsVersion}
                   </a>{" "}
                   (latest)
@@ -57,7 +54,8 @@ function Versions(props) {
                   <code>npm install prettier/prettier</code>
                 </td>
                 <td>
-                  <a href={`${siteConfig.baseUrl}docs/en/next/index.html`}>
+                  <a href={` ${siteConfig.baseUrl} docs /
+       en / next / index.html`}>
                     next
                   </a>{" "}
                   (master)
@@ -77,19 +75,22 @@ function Versions(props) {
                       </td>
                       <td>
                         <a
-                          href={`${siteConfig.baseUrl}docs/en/${pastDocsVersion}/index.html`}
+                          href={` ${siteConfig.baseUrl} docs /
+       en /
+       $ {
+         pastDocsVersion
+       } /index.html`}
                         >
                           {pastDocsVersion}
                         </a>
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        </div>
-      </Container>
-    </div>
+      </td>
+                    </tr>);
+})
+}
+</tbody>
+          </table></div>
+      </Container><
+    /div>
   );
 }
 

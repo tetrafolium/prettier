@@ -1,16 +1,10 @@
-function a() {
-    let global = 1;
-}
+function a() { let global = 1; }
 function b() {
-    class global {}
+  class global {}
 }
 
-namespace global {
-}
+namespace global {}
 
-function foo(global: number) {
-}
+function foo(global: number) {}
 
-let obj = {
-    global: "123"
-}
+let obj = {global : "123"}

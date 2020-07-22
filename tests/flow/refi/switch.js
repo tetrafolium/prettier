@@ -1,5 +1,5 @@
 // @flow
-function foo(a,b,c) {
+function foo(a, b, c) {
   switch (c) {
   case a.x.y: // OK
   case b.x.y: // OK
@@ -29,7 +29,7 @@ function exhaustion2(x, y): number {
   switch (x) {
   case 0:
     if (y) {
-      break;  // leaks uninitialized foo out of switch
+      break; // leaks uninitialized foo out of switch
     }
     /**
      * TODO this shouldn't cause an error, because the path that

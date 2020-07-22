@@ -1,11 +1,10 @@
 abstract class A {}
 
-abstract
-class B {}
+abstract class B {}
 
 abstract
 
-class C {}
+    class C {}
 
 new A;
 new B;

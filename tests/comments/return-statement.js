@@ -1,15 +1,13 @@
 function jsx() {
   return (
-    // Comment
-    <div />
-  );
+      // Comment
+      <div />);
 }
 
 function unary() {
   return (
-    // Comment
-    !!x
-  );
+      // Comment
+      !!x);
 }
 
 function numericLiteralNoParen() {
@@ -18,79 +16,81 @@ function numericLiteralNoParen() {
 
 function logical() {
   return (
-    // Reason for 42
-    42
-  ) && 84
+             // Reason for 42
+             42) &&
+         84
 }
 
 function binary() {
   return (
-    // Reason for 42
-    42
-  ) * 84
+             // Reason for 42
+             42) *
+         84
 }
 
 function binaryInBinaryLeft() {
   return (
-    // Reason for 42
-    42
-  ) * 84 + 2
+             // Reason for 42
+             42) *
+             84 +
+         2
 }
 
 function binaryInBinaryRight() {
   return (
-    // Reason for 42
-    42
-  ) + 84 * 2
+             // Reason for 42
+             42) +
+         84 * 2
 }
 
 function conditional() {
   return (
-    // Reason for 42
-    42
-  ) ? 1 : 2
+             // Reason for 42
+             42)
+             ? 1
+             : 2
 }
 
 function binaryInConditional() {
   return (
-    // Reason for 42
-    42
-  ) * 3 ? 1 : 2
+             // Reason for 42
+             42) *
+                 3
+             ? 1
+             : 2
 }
 
 function call() {
   return (
-    // Reason for a
-    a
-  )()
+      // Reason for a
+      a)()
 }
 
 function memberInside() {
   return (
-    // Reason for a.b
-    a.b
-  ).c
+             // Reason for a.b
+             a.b)
+      .c
 }
 
 function memberOutside() {
   return (
-    // Reason for a
-    a
-  ).b.c
+             // Reason for a
+             a)
+      .b.c
 }
 
 function memberInAndOutWithCalls() {
   return (
-    // Reason for a
-    aFunction.b()
-  ).c.d()
+             // Reason for a
+             aFunction.b())
+      .c.d()
 }
 
 function excessiveEverything() {
   return (
-    // Reason for stuff
-    a.b() * 3 + 4 ? (a`hi`, 1) ? 1 : 1 : 1
-  )
+      // Reason for stuff
+      a.b() * 3 + 4 ? (a`hi`, 1) ? 1 : 1 : 1)
 }
 
 // See https://github.com/prettier/prettier/issues/2392
@@ -103,19 +103,17 @@ function excessiveEverything() {
 
 function sequenceExpressionInside() {
   return ( // Reason for a
-    a, b
-  );
+      a, b);
 }
 
 function taggedTemplate() {
   return (
-    // Reason for a
-    a
-  )`b`
+      // Reason for a
+      a) `b`
 }
 
 function inlineComment() {
   return (
-    /* hi */ 42
-  ) || 42
+             /* hi */ 42) ||
+         42
 }

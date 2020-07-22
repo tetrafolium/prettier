@@ -1,7 +1,7 @@
 class Base<T> {
-    foo: T;
+  foo: T;
 }
 
 class Derived extends Base<string> {
-    foo: any;
+  foo: any;
 }

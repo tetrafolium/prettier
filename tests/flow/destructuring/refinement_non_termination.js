@@ -1,10 +1,10 @@
 // @flow
 
-function _([argArray]: Array<Value>) {
+function _([ argArray ]: Array<Value>) {
   if (argArray instanceof NullValue || argArray instanceof UndefinedValue) {
   }
 };
 
-class Value { }
-class NullValue extends Value { }
-class UndefinedValue extends Value { }
+class Value {}
+class NullValue extends Value {}
+class UndefinedValue extends Value {}

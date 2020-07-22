@@ -1,3 +1,1 @@
-declare module A {
-  declare function foo(): string;
-}
+declare module A { declare function foo(): string; }

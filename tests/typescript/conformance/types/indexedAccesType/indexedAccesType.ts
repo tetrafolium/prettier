@@ -1,3 +1,3 @@
 const a: Foo['bar'] = {
-  baz: 'yawp'
+  baz : 'yawp'
 }

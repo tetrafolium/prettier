@@ -34,23 +34,15 @@ function shouldPreserveContent(node, options) {
     return false;
   }
 
-  if (
-    node.type === "element" &&
-    node.fullName === "template" &&
-    node.attrMap.lang &&
-    node.attrMap.lang !== "html"
-  ) {
+  if (node.type === "element" && node.fullName === "template" &&
+      node.attrMap.lang && node.attrMap.lang !== "html") {
     return true;
   }
 
   // unterminated node in ie conditional comment
   // e.g. <!--[if lt IE 9]><html><![endif]-->
-  if (
-    node.type === "ieConditionalComment" &&
-    node.lastChild &&
-    !node.lastChild.isSelfClosing &&
-    !node.lastChild.endSourceSpan
-  ) {
+  if (node.type === "ieConditionalComment" && node.lastChild &&
+      !node.lastChild.isSelfClosing && !node.lastChild.endSourceSpan) {
     return true;
   }
 
@@ -60,30 +52,25 @@ function shouldPreserveContent(node, options) {
     return true;
   }
 
-  // top-level elements (excluding <template>, <style> and <script>) in Vue SFC are considered custom block
-  // custom blocks can be written in other languages so we should preserve them to not break the code
-  if (
-    options.parser === "vue" &&
-    node.type === "element" &&
-    node.parent.type === "root" &&
-    ![
-      "template",
-      "style",
-      "script",
-      // vue parser can be used for vue dom template as well, so we should still format top-level <html>
-      "html",
-    ].includes(node.fullName)
-  ) {
+  // top-level elements (excluding <template>, <style> and <script>) in Vue SFC
+  // are considered custom block custom blocks can be written in other languages
+  // so we should preserve them to not break the code
+  if (options.parser === "vue" && node.type === "element" &&
+      node.parent.type === "root" &&
+      !["template",
+        "style",
+        "script",
+        // vue parser can be used for vue dom template as well, so we should
+        // still format top-level <html>
+        "html",
+  ].includes(node.fullName)) {
     return true;
   }
 
   // TODO: handle non-text children in <pre>
-  if (
-    isPreLikeNode(node) &&
-    node.children.some(
-      (child) => child.type !== "text" && child.type !== "interpolation"
-    )
-  ) {
+  if (isPreLikeNode(node) &&
+      node.children.some((child) => child.type !== "text" &&
+                                    child.type !== "interpolation")) {
     return true;
   }
 
@@ -131,12 +118,9 @@ function isTextLikeNode(node) {
 }
 
 function isScriptLikeTag(node) {
-  return (
-    node.type === "element" &&
-    (node.fullName === "script" ||
-      node.fullName === "style" ||
-      node.fullName === "svg:style")
-  );
+  return (node.type === "element" &&
+          (node.fullName === "script" || node.fullName === "style" ||
+           node.fullName === "svg:style"));
 }
 
 function isFrontMatterNode(node) {
@@ -148,11 +132,8 @@ function canHaveInterpolation(node) {
 }
 
 function isWhitespaceSensitiveNode(node) {
-  return (
-    isScriptLikeTag(node) ||
-    node.type === "interpolation" ||
-    isIndentationSensitiveNode(node)
-  );
+  return (isScriptLikeTag(node) || node.type === "interpolation" ||
+          isIndentationSensitiveNode(node));
 }
 
 function isIndentationSensitiveNode(node) {
@@ -162,13 +143,8 @@ function isIndentationSensitiveNode(node) {
 function isLeadingSpaceSensitiveNode(node) {
   const isLeadingSpaceSensitive = _isLeadingSpaceSensitiveNode();
 
-  if (
-    isLeadingSpaceSensitive &&
-    !node.prev &&
-    node.parent &&
-    node.parent.tagDefinition &&
-    node.parent.tagDefinition.ignoreFirstLf
-  ) {
+  if (isLeadingSpaceSensitive && !node.prev && node.parent &&
+      node.parent.tagDefinition && node.parent.tagDefinition.ignoreFirstLf) {
     return node.type === "interpolation";
   }
 
@@ -179,11 +155,8 @@ function isLeadingSpaceSensitiveNode(node) {
       return false;
     }
 
-    if (
-      (node.type === "text" || node.type === "interpolation") &&
-      node.prev &&
-      (node.prev.type === "text" || node.prev.type === "interpolation")
-    ) {
+    if ((node.type === "text" || node.type === "interpolation") && node.prev &&
+        (node.prev.type === "text" || node.prev.type === "interpolation")) {
       return true;
     }
 
@@ -195,20 +168,16 @@ function isLeadingSpaceSensitiveNode(node) {
       return true;
     }
 
-    if (
-      !node.prev &&
-      (node.parent.type === "root" ||
-        (isPreLikeNode(node) && node.parent) ||
-        isScriptLikeTag(node.parent) ||
-        !isFirstChildLeadingSpaceSensitiveCssDisplay(node.parent.cssDisplay))
-    ) {
+    if (!node.prev &&
+        (node.parent.type === "root" || (isPreLikeNode(node) && node.parent) ||
+         isScriptLikeTag(node.parent) ||
+         !isFirstChildLeadingSpaceSensitiveCssDisplay(
+             node.parent.cssDisplay))) {
       return false;
     }
 
-    if (
-      node.prev &&
-      !isNextLeadingSpaceSensitiveCssDisplay(node.prev.cssDisplay)
-    ) {
+    if (node.prev &&
+        !isNextLeadingSpaceSensitiveCssDisplay(node.prev.cssDisplay)) {
       return false;
     }
 
@@ -221,11 +190,8 @@ function isTrailingSpaceSensitiveNode(node) {
     return false;
   }
 
-  if (
-    (node.type === "text" || node.type === "interpolation") &&
-    node.next &&
-    (node.next.type === "text" || node.next.type === "interpolation")
-  ) {
+  if ((node.type === "text" || node.type === "interpolation") && node.next &&
+      (node.next.type === "text" || node.next.type === "interpolation")) {
     return true;
   }
 
@@ -237,20 +203,15 @@ function isTrailingSpaceSensitiveNode(node) {
     return true;
   }
 
-  if (
-    !node.next &&
-    (node.parent.type === "root" ||
-      (isPreLikeNode(node) && node.parent) ||
-      isScriptLikeTag(node.parent) ||
-      !isLastChildTrailingSpaceSensitiveCssDisplay(node.parent.cssDisplay))
-  ) {
+  if (!node.next &&
+      (node.parent.type === "root" || (isPreLikeNode(node) && node.parent) ||
+       isScriptLikeTag(node.parent) ||
+       !isLastChildTrailingSpaceSensitiveCssDisplay(node.parent.cssDisplay))) {
     return false;
   }
 
-  if (
-    node.next &&
-    !isPrevTrailingSpaceSensitiveCssDisplay(node.next.cssDisplay)
-  ) {
+  if (node.next &&
+      !isPrevTrailingSpaceSensitiveCssDisplay(node.next.cssDisplay)) {
     return false;
   }
 
@@ -258,60 +219,46 @@ function isTrailingSpaceSensitiveNode(node) {
 }
 
 function isDanglingSpaceSensitiveNode(node) {
-  return (
-    isDanglingSpaceSensitiveCssDisplay(node.cssDisplay) &&
-    !isScriptLikeTag(node)
-  );
+  return (isDanglingSpaceSensitiveCssDisplay(node.cssDisplay) &&
+          !isScriptLikeTag(node));
 }
 
 function forceNextEmptyLine(node) {
-  return (
-    isFrontMatterNode(node) ||
-    (node.next &&
-      node.sourceSpan.end.line + 1 < node.next.sourceSpan.start.line)
-  );
+  return (isFrontMatterNode(node) ||
+          (node.next &&
+           node.sourceSpan.end.line + 1 < node.next.sourceSpan.start.line));
 }
 
 /** firstChild leadingSpaces and lastChild trailingSpaces */
 function forceBreakContent(node) {
-  return (
-    forceBreakChildren(node) ||
-    (node.type === "element" &&
-      node.children.length !== 0 &&
-      (["body", "script", "style"].includes(node.name) ||
-        node.children.some((child) => hasNonTextChild(child)))) ||
-    (node.firstChild &&
-      node.firstChild === node.lastChild &&
-      hasLeadingLineBreak(node.firstChild) &&
-      (!node.lastChild.isTrailingSpaceSensitive ||
-        hasTrailingLineBreak(node.lastChild)))
-  );
+  return (forceBreakChildren(node) ||
+          (node.type === "element" && node.children.length !== 0 &&
+           ([ "body", "script", "style" ].includes(node.name) ||
+            node.children.some((child) => hasNonTextChild(child)))) ||
+          (node.firstChild && node.firstChild === node.lastChild &&
+           hasLeadingLineBreak(node.firstChild) &&
+           (!node.lastChild.isTrailingSpaceSensitive ||
+            hasTrailingLineBreak(node.lastChild))));
 }
 
 /** spaces between children */
 function forceBreakChildren(node) {
-  return (
-    node.type === "element" &&
-    node.children.length !== 0 &&
-    (["html", "head", "ul", "ol", "select"].includes(node.name) ||
-      (node.cssDisplay.startsWith("table") && node.cssDisplay !== "table-cell"))
-  );
+  return (node.type === "element" && node.children.length !== 0 &&
+          ([ "html", "head", "ul", "ol", "select" ].includes(node.name) ||
+           (node.cssDisplay.startsWith("table") &&
+            node.cssDisplay !== "table-cell")));
 }
 
 function preferHardlineAsLeadingSpaces(node) {
-  return (
-    preferHardlineAsSurroundingSpaces(node) ||
-    (node.prev && preferHardlineAsTrailingSpaces(node.prev)) ||
-    hasSurroundingLineBreak(node)
-  );
+  return (preferHardlineAsSurroundingSpaces(node) ||
+          (node.prev && preferHardlineAsTrailingSpaces(node.prev)) ||
+          hasSurroundingLineBreak(node));
 }
 
 function preferHardlineAsTrailingSpaces(node) {
-  return (
-    preferHardlineAsSurroundingSpaces(node) ||
-    (node.type === "element" && node.fullName === "br") ||
-    hasSurroundingLineBreak(node)
-  );
+  return (preferHardlineAsSurroundingSpaces(node) ||
+          (node.type === "element" && node.fullName === "br") ||
+          hasSurroundingLineBreak(node));
 }
 
 function hasSurroundingLineBreak(node) {
@@ -319,34 +266,32 @@ function hasSurroundingLineBreak(node) {
 }
 
 function hasLeadingLineBreak(node) {
-  return (
-    node.hasLeadingSpaces &&
-    (node.prev
-      ? node.prev.sourceSpan.end.line < node.sourceSpan.start.line
-      : node.parent.type === "root" ||
-        node.parent.startSourceSpan.end.line < node.sourceSpan.start.line)
-  );
+  return (node.hasLeadingSpaces &&
+          (node.prev
+               ? node.prev.sourceSpan.end.line < node.sourceSpan.start.line
+               : node.parent.type === "root" ||
+                     node.parent.startSourceSpan.end.line <
+                         node.sourceSpan.start.line));
 }
 
 function hasTrailingLineBreak(node) {
-  return (
-    node.hasTrailingSpaces &&
-    (node.next
-      ? node.next.sourceSpan.start.line > node.sourceSpan.end.line
-      : node.parent.type === "root" ||
-        (node.parent.endSourceSpan &&
-          node.parent.endSourceSpan.start.line > node.sourceSpan.end.line))
-  );
+  return (node.hasTrailingSpaces &&
+          (node.next
+               ? node.next.sourceSpan.start.line > node.sourceSpan.end.line
+               : node.parent.type === "root" ||
+                     (node.parent.endSourceSpan &&
+                      node.parent.endSourceSpan.start.line >
+                          node.sourceSpan.end.line)));
 }
 
 function preferHardlineAsSurroundingSpaces(node) {
   switch (node.type) {
-    case "ieConditionalComment":
-    case "comment":
-    case "directive":
-      return true;
-    case "element":
-      return ["script", "select"].includes(node.name);
+  case "ieConditionalComment":
+  case "comment":
+  case "directive":
+    return true;
+  case "element":
+    return [ "script", "select" ].includes(node.name);
   }
   return false;
 }
@@ -361,22 +306,17 @@ function hasNonTextChild(node) {
 
 function inferScriptParser(node) {
   if (node.name === "script" && !node.attrMap.src) {
-    if (
-      (!node.attrMap.lang && !node.attrMap.type) ||
-      node.attrMap.type === "module" ||
-      node.attrMap.type === "text/javascript" ||
-      node.attrMap.type === "text/babel" ||
-      node.attrMap.type === "application/javascript" ||
-      node.attrMap.lang === "jsx"
-    ) {
+    if ((!node.attrMap.lang && !node.attrMap.type) ||
+        node.attrMap.type === "module" ||
+        node.attrMap.type === "text/javascript" ||
+        node.attrMap.type === "text/babel" ||
+        node.attrMap.type === "application/javascript" ||
+        node.attrMap.lang === "jsx") {
       return "babel";
     }
 
-    if (
-      node.attrMap.type === "application/x-typescript" ||
-      node.attrMap.lang === "ts" ||
-      node.attrMap.lang === "tsx"
-    ) {
+    if (node.attrMap.type === "application/x-typescript" ||
+        node.attrMap.lang === "ts" || node.attrMap.lang === "tsx") {
       return "typescript";
     }
 
@@ -384,10 +324,8 @@ function inferScriptParser(node) {
       return "markdown";
     }
 
-    if (
-      node.attrMap.type.endsWith("json") ||
-      node.attrMap.type.endsWith("importmap")
-    ) {
+    if (node.attrMap.type.endsWith("json") ||
+        node.attrMap.type.endsWith("importmap")) {
       return "json";
     }
 
@@ -397,11 +335,8 @@ function inferScriptParser(node) {
   }
 
   if (node.name === "style") {
-    if (
-      !node.attrMap.lang ||
-      node.attrMap.lang === "postcss" ||
-      node.attrMap.lang === "css"
-    ) {
+    if (!node.attrMap.lang || node.attrMap.lang === "postcss" ||
+        node.attrMap.lang === "css") {
       return "css";
     }
 
@@ -418,11 +353,8 @@ function inferScriptParser(node) {
 }
 
 function isBlockLikeCssDisplay(cssDisplay) {
-  return (
-    cssDisplay === "block" ||
-    cssDisplay === "list-item" ||
-    cssDisplay.startsWith("table")
-  );
+  return (cssDisplay === "block" || cssDisplay === "list-item" ||
+          cssDisplay.startsWith("table"));
 }
 
 function isFirstChildLeadingSpaceSensitiveCssDisplay(cssDisplay) {
@@ -453,12 +385,8 @@ function countParents(path, predicate = () => true) {
   let counter = 0;
   for (let i = path.stack.length - 1; i >= 0; i--) {
     const value = path.stack[i];
-    if (
-      value &&
-      typeof value === "object" &&
-      !Array.isArray(value) &&
-      predicate(value)
-    ) {
+    if (value && typeof value === "object" && !Array.isArray(value) &&
+        predicate(value)) {
       counter++;
     }
   }
@@ -498,37 +426,29 @@ function getNodeCssStyleDisplay(node, options) {
   }
 
   switch (options.htmlWhitespaceSensitivity) {
-    case "strict":
-      return "inline";
-    case "ignore":
-      return "block";
-    default:
-      return (
-        (node.type === "element" &&
-          (!node.namespace ||
-            isInSvgForeignObject ||
-            isUnknownNamespace(node)) &&
-          CSS_DISPLAY_TAGS[node.name]) ||
-        CSS_DISPLAY_DEFAULT
-      );
+  case "strict":
+    return "inline";
+  case "ignore":
+    return "block";
+  default:
+    return ((node.type === "element" &&
+             (!node.namespace || isInSvgForeignObject ||
+              isUnknownNamespace(node)) &&
+             CSS_DISPLAY_TAGS[node.name]) ||
+            CSS_DISPLAY_DEFAULT);
   }
 }
 
 function isUnknownNamespace(node) {
-  return (
-    node.type === "element" &&
-    !node.hasExplicitNamespace &&
-    !["html", "svg"].includes(node.namespace)
-  );
+  return (node.type === "element" && !node.hasExplicitNamespace &&
+          !["html", "svg"].includes(node.namespace));
 }
 
 function getNodeCssStyleWhiteSpace(node) {
-  return (
-    (node.type === "element" &&
-      (!node.namespace || isUnknownNamespace(node)) &&
-      CSS_WHITE_SPACE_TAGS[node.name]) ||
-    CSS_WHITE_SPACE_DEFAULT
-  );
+  return ((node.type === "element" &&
+           (!node.namespace || isUnknownNamespace(node)) &&
+           CSS_WHITE_SPACE_TAGS[node.name]) ||
+          CSS_WHITE_SPACE_DEFAULT);
 }
 
 function getMinIndentation(text) {
@@ -558,12 +478,10 @@ function getMinIndentation(text) {
 }
 
 function dedentString(text, minIndent = getMinIndentation(text)) {
-  return minIndent === 0
-    ? text
-    : text
-        .split("\n")
-        .map((lineText) => lineText.slice(minIndent))
-        .join("\n");
+  return minIndent === 0 ? text
+                         : text.split("\n")
+                               .map((lineText) => lineText.slice(minIndent))
+                               .join("\n");
 }
 
 function normalizeParts(parts) {
@@ -582,11 +500,9 @@ function normalizeParts(parts) {
       continue;
     }
 
-    if (
-      newParts.length !== 0 &&
-      typeof newParts[newParts.length - 1] === "string" &&
-      typeof part === "string"
-    ) {
+    if (newParts.length !== 0 &&
+        typeof newParts[newParts.length - 1] === "string" &&
+        typeof part === "string") {
       newParts.push(newParts.pop() + part);
       continue;
     }
@@ -597,16 +513,12 @@ function normalizeParts(parts) {
   return newParts;
 }
 
-function identity(x) {
-  return x;
-}
+function identity(x) { return x; }
 
 function shouldNotPrintClosingTag(node, options) {
   return (
-    !node.isSelfClosing &&
-    !node.endSourceSpan &&
-    (hasPrettierIgnore(node) || shouldPreserveContent(node.parent, options))
-  );
+      !node.isSelfClosing && !node.endSourceSpan &&
+      (hasPrettierIgnore(node) || shouldPreserveContent(node.parent, options)));
 }
 
 function countChars(text, char) {

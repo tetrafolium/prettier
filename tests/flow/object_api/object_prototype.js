@@ -7,10 +7,10 @@ function takesAnObject(x: Object) {}
 
 class Foo {}
 
-var a = { foo: 'bar' };
-var b = { foo: 'bar', ...{}};
-var c = { foo: 'bar', toString: function(): number { return 123; }};
-var d : { [key: string]: string } = { foo: 'bar' };
+var a = {foo : 'bar'};
+var b = {foo : 'bar', ...{}};
+var c = {foo : 'bar', toString : function() : number { return 123; }};
+var d: {[key: string]: string} = {foo : 'bar'};
 var x = new Date();
 var y = new Foo();
 
@@ -23,7 +23,7 @@ takesAString(a.toString());
 d.toString(); // ok, even though dict specifies strings, this is a function
 
 // get
-var aToString : () => string = a.toString;
+var aToString: () => string = a.toString;
 var aToString2 = a.toString;
 takesAString(aToString2());
 
@@ -32,15 +32,15 @@ b.toString = function(): string { return 'foo'; };
 c.toString = function(): number { return 123; };
 
 // override
-var cToString : () => number = c.toString;
+var cToString: () => number = c.toString;
 
 // ... on a built-in instance
-var xToString : number = x.toString; // error
-var xToString2 : () => number = x.toString; // error
+var xToString: number = x.toString;        // error
+var xToString2: () => number = x.toString; // error
 takesAString(x.toString());
 
 // ... on an instance
-var yToString : number = y.toString; // error
+var yToString: number = y.toString; // error
 takesAString(y.toString());
 
 // ... on a primitive
@@ -49,8 +49,7 @@ takesAString(y.toString());
 (123).toString = function() {}; // error
 (123).toString(2);
 (123).toString('foo'); // error
-(123).toString(null); // error
-
+(123).toString(null);  // error
 
 //
 // hasOwnProperty
@@ -60,7 +59,7 @@ takesAString(y.toString());
 takesABool(a.hasOwnProperty('foo'));
 
 // get
-var aHasOwnProperty : (prop: string) => boolean = a.hasOwnProperty;
+var aHasOwnProperty: (prop: string) => boolean = a.hasOwnProperty;
 var aHasOwnProperty2 = a.hasOwnProperty;
 takesABool(aHasOwnProperty2('bar'));
 
@@ -68,14 +67,13 @@ takesABool(aHasOwnProperty2('bar'));
 b.hasOwnProperty = function() { return false; };
 
 // ... on a built-in instance
-var xHasOwnProperty : number = x.hasOwnProperty; // error
-var xHasOwnProperty2 : (prop: string) => number = x.hasOwnProperty; // error
+var xHasOwnProperty: number = x.hasOwnProperty;                    // error
+var xHasOwnProperty2: (prop: string) => number = x.hasOwnProperty; // error
 takesABool(x.hasOwnProperty('foo'));
 
 // ... on an instance
-var yHasOwnProperty : number = y.hasOwnProperty; // error
+var yHasOwnProperty: number = y.hasOwnProperty; // error
 takesABool(y.hasOwnProperty('foo'));
-
 
 //
 // propertyIsEnumerable
@@ -85,7 +83,7 @@ takesABool(y.hasOwnProperty('foo'));
 takesABool(a.propertyIsEnumerable('foo'));
 
 // get
-var aPropertyIsEnumerable : (prop: string) => boolean = a.propertyIsEnumerable;
+var aPropertyIsEnumerable: (prop: string) => boolean = a.propertyIsEnumerable;
 var aPropertyIsEnumerable2 = a.propertyIsEnumerable;
 takesABool(aPropertyIsEnumerable2('bar'));
 
@@ -93,15 +91,14 @@ takesABool(aPropertyIsEnumerable2('bar'));
 b.propertyIsEnumerable = function() { return false; };
 
 // ... on a built-in instance
-var xPropertyIsEnumerable : number = x.propertyIsEnumerable; // error
-var xPropertyIsEnumerable2 : (prop: string) => number =
-  x.propertyIsEnumerable; // error
+var xPropertyIsEnumerable: number = x.propertyIsEnumerable; // error
+var xPropertyIsEnumerable2: (prop: string) => number =
+    x.propertyIsEnumerable; // error
 takesABool(x.propertyIsEnumerable('foo'));
 
 // ... on an instance
-var yPropertyIsEnumerable : number = y.propertyIsEnumerable; // error
+var yPropertyIsEnumerable: number = y.propertyIsEnumerable; // error
 takesABool(y.propertyIsEnumerable('foo'));
-
 
 //
 // valueOf
@@ -111,7 +108,7 @@ takesABool(y.propertyIsEnumerable('foo'));
 takesAnObject(a.valueOf());
 
 // get
-var aValueOf : () => Object = a.valueOf;
+var aValueOf: () => Object = a.valueOf;
 var aValueOf2 = a.valueOf;
 takesAnObject(aValueOf2());
 
@@ -119,17 +116,17 @@ takesAnObject(aValueOf2());
 b.valueOf = function() { return {}; };
 
 // ... on a built-in instance
-var xValueOf : number = x.valueOf; // error
+var xValueOf: number = x.valueOf; // error
 takesANumber(x.valueOf());
 
 // ... on an instance
-var yValueOf : number = y.valueOf; // error
+var yValueOf: number = y.valueOf; // error
 takesAnObject(y.valueOf());
 
 // ... on a literal
-var strValueOf : string = ("foo").valueOf();
-var numValueOf : number = (123).valueOf();
-var boolValueOf : boolean = (true).valueOf();
+var strValueOf: string = ("foo").valueOf();
+var numValueOf: number = (123).valueOf();
+var boolValueOf: boolean = (true).valueOf();
 
 //
 // toLocaleString
@@ -139,7 +136,7 @@ var boolValueOf : boolean = (true).valueOf();
 takesAString(a.toLocaleString());
 
 // get
-var aToLocaleString : () => string = a.toLocaleString;
+var aToLocaleString: () => string = a.toLocaleString;
 var aToLocaleString2 = a.toLocaleString;
 takesAString(aToLocaleString2());
 
@@ -147,18 +144,17 @@ takesAString(aToLocaleString2());
 b.toLocaleString = function() { return 'derp'; };
 
 // ... on a built-in instance
-var xToLocaleString : number = x.toLocaleString; // error
-var xToLocaleString2 : () => number = x.toLocaleString; // error
+var xToLocaleString: number = x.toLocaleString;        // error
+var xToLocaleString2: () => number = x.toLocaleString; // error
 takesAString(x.toLocaleString());
 
 // ... on an instance
-var yToLocaleString : number = y.toLocaleString; // error
+var yToLocaleString: number = y.toLocaleString; // error
 takesAString(y.toLocaleString());
-
 
 //
 // constructor
 //
 
-var k : Object = a.constructor;
+var k: Object = a.constructor;
 (123).constructor;

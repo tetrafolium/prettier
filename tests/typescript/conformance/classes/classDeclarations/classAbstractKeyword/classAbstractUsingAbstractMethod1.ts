@@ -1,13 +1,13 @@
 abstract class A {
-    abstract foo() : number;
+  abstract foo(): number;
 }
 
 class B extends A {
-    foo() { return 1; }
+  foo() { return 1; }
 }
 
-abstract class C extends A  {
-    abstract foo() : number;
+abstract class C extends A {
+  abstract foo(): number;
 }
 
 var a = new B;

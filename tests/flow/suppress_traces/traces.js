@@ -8,8 +8,6 @@
 // $FlowFixMe - Error unused suppression
 function bar(): number { return 5; }
 
-function foo(x: string) {
-  return bar();
-}
+function foo(x: string) { return bar(); }
 
 var a: string = foo('hi'); // error number ~> string

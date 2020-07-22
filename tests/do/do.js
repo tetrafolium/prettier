@@ -1,9 +1,10 @@
 const envSpecific = {
-  domain:
-    do {
-      if(env === 'production') 'https://abc.mno.com/';
-      else if(env === 'development') 'http://localhost:4000';
-    }
+  domain : do {
+    if (env === 'production')
+      'https://abc.mno.com/';
+    else if (env === 'development')
+      'http://localhost:4000';
+  }
 };
 
 let x = do {
@@ -12,9 +13,13 @@ let x = do {
 };
 
 let y = do {
-  if (foo()) { f() }
-  else if (bar()) { g() }
-  else { h() }
+  if (foo()) {
+    f()
+  } else if (bar()) {
+    g()
+  } else {
+    h()
+  }
 };
 
 function foo() {
@@ -23,11 +28,11 @@ function foo() {
       <Home />
       {
         do {
-          if (loggedIn) {
-            <LogoutButton />
-          } else {
-            <LoginButton />
-          }
+    if (loggedIn) {
+<LogoutButton />
+    } else {
+<LoginButton />
+    }
         }
       }
     </nav>

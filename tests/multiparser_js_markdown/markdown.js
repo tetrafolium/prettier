@@ -1,5 +1,5 @@
 export default function ReadMe() {
-    return md`
+  return md`
         ## Why Prettier?
         
         ### Building and enforcing a style guide

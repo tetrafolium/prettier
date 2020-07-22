@@ -148,25 +148,21 @@ importScripts("lib/standalone.js");
 // eslint-disable-next-line no-unused-vars
 var PRETTIER_DEBUG = true;
 
-self.onmessage = function (event) {
+self.onmessage = function(event) {
   self.postMessage({
-    uid: event.data.uid,
-    message: handleMessage(event.data.message),
+    uid : event.data.uid,
+    message : handleMessage(event.data.message),
   });
 };
 
 function handleMessage(message) {
   if (message.type === "meta") {
     return {
-      type: "meta",
-      supportInfo: JSON.parse(
-        JSON.stringify(
-          prettier.getSupportInfo({
-            showUnreleased: /-pr\./.test(prettier.version),
-          })
-        )
-      ),
-      version: prettier.version,
+      type : "meta",
+      supportInfo : JSON.parse(JSON.stringify(prettier.getSupportInfo({
+        showUnreleased : /-pr\./.test(prettier.version),
+      }))),
+      version : prettier.version,
     };
   }
 
@@ -177,15 +173,15 @@ function handleMessage(message) {
     delete options.doc;
     delete options.output2;
 
-    var plugins = [{ parsers }];
+    var plugins = [ {parsers} ];
     options.plugins = plugins;
 
     var response = {
-      formatted: formatCode(message.code, options),
-      debug: {
-        ast: null,
-        doc: null,
-        reformatted: null,
+      formatted : formatCode(message.code, options),
+      debug : {
+        ast : null,
+        doc : null,
+        reformatted : null,
       },
     };
 
@@ -201,7 +197,7 @@ function handleMessage(message) {
 
       if (!errored) {
         try {
-          ast = formatCode(ast, { parser: "json", plugins });
+          ast = formatCode(ast, {parser : "json", plugins});
         } catch (e) {
           ast = JSON.stringify(ast, null, 2);
         }
@@ -212,9 +208,8 @@ function handleMessage(message) {
     if (message.debug.doc) {
       try {
         response.debug.doc = prettier.__debug.formatDoc(
-          prettier.__debug.printToDoc(message.code, options),
-          { parser: "babel", plugins }
-        );
+            prettier.__debug.printToDoc(message.code, options),
+            {parser : "babel", plugins});
       } catch (e) {
         response.debug.doc = String(e);
       }

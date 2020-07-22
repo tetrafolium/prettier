@@ -1,5 +1,5 @@
 // @flow
 
-import { bar } from "./c2";
+import {bar} from "./c2";
 
-bar({ x: 0 });
+bar({x : 0});

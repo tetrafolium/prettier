@@ -7,14 +7,12 @@ let foo = (i: number) => [i];
 
 const bar = (i: number) => {
   [i] = foo(i);
-  return [i];
+  return [ i ];
 };
 
-foo = (i: number) => {
-  return bar(i);
-};
+foo = (i: number) => { return bar(i); };
 
 // Also make sure that the following doesn't loop
 
 declare var o;
-var { x: o } = o;
+var {x : o} = o;

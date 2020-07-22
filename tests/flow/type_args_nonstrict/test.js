@@ -14,9 +14,7 @@
 
 class MyClass<T> {
   x: T;
-  constructor(x: T) {
-    this.x = x;
-  }
+  constructor(x: T) { this.x = x; }
 }
 
 var c: MyClass = new MyClass(0); // no error
@@ -40,11 +38,15 @@ type MyObject<T> = {
   x: T;
 }
 
-var o: MyObject = { x: 0 }; // no error
+var o: MyObject = {
+  x: 0
+}; // no error
 
 // arity error in type alias rhs
 
-type MySubobject = { y: number } & MyObject; // no error
+type MySubobject = {
+  y: number
+}&MyObject; // no error
 
 // arity error in interface extends
 
@@ -60,13 +62,11 @@ interface MySubinterface extends MyInterface { // no error
 
 class MySubclass extends MyClass { // ok, type arg inferred
   y: number;
-  constructor(y: number) {
-    super(y);
-  }
+  constructor(y: number) { super(y); }
 }
 
 // no arity error in call of polymorphic function
 
-function singleton<T>(x: T):Array<T> { return [x]; }
+function singleton<T>(x: T): Array<T> { return [ x ]; }
 
-var num_array:Array<number> = singleton(0); // ok, type arg inferred
+var num_array: Array<number> = singleton(0); // ok, type arg inferred

@@ -1,8 +1,7 @@
-(function() {}).length
-typeof (function() {});
+(function() {}).length typeof (function() {});
 export default (function() {})();
-(function() {})()``;
-(function() {})``;
+(function() {})() ``;
+(function() {}) ``;
 new (function() {});
 (function() {});
 a = function f() {} || b;

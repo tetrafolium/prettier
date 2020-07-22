@@ -4,6 +4,4 @@ function foo(bar? = undefined) {
     x = bar;
 }
 
-function bar() {
-    return x.duck;
-}
+function bar() { return x.duck; }

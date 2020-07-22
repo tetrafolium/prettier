@@ -2,7 +2,7 @@
 
 let ws = new WeakSet();
 let obj: Object = {};
-let dict: {foo: string} = {foo: 'bar'};
+let dict: {foo: string} = {foo : 'bar'};
 
 ws.add(window);
 ws.add(obj);
@@ -14,13 +14,13 @@ ws.delete(window);
 ws.delete(obj);
 ws.delete(dict);
 
-let ws2 = new WeakSet([obj, dict]);
+let ws2 = new WeakSet([ obj, dict ]);
 
-let ws3 = new WeakSet([1, 2, 3]); // error, must be objects
+let ws3 = new WeakSet([ 1, 2, 3 ]); // error, must be objects
 
-function* generator(): Iterable<{foo: string}> {
+function* generator(): Iterable<{foo : string}> {
   while (true) {
-    yield {foo: 'bar'};
+    yield {foo : 'bar'};
   }
 }
 

@@ -1,22 +1,7 @@
-postMessage(
-  <IActionMessage>{
-    context: item.context,
-    topic: item.topic
-  }
-);
+postMessage(<IActionMessage>{context : item.context, topic : item.topic});
 
-window.postMessage(
-  {
-    context: item.context,
-    topic: item.topic
-  } as IActionMessage
-);
+window.postMessage({context : item.context, topic : item.topic} as
+                   IActionMessage);
 
 postMessages(
-  <IActionMessage[]>[
-    {
-      context: item.context,
-      topic: item.topic
-    }
-  ]
-);
+    <IActionMessage[]>[ {context : item.context, topic : item.topic} ]);

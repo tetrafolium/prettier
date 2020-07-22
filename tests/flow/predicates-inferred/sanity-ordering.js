@@ -1,7 +1,7 @@
 // @flow
 
 declare var key: string;
-declare var obj: { page: ?Object; };
+declare var obj: {page: ? Object; };
 
 if (dotAccess(obj)) {
   (obj.page: Object);

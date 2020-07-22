@@ -1,9 +1,9 @@
 "use strict";
 
-module.exports = function (linguistData, override) {
-  const { languageId, ...rest } = linguistData;
+module.exports = function(linguistData, override) {
+  const {languageId, ...rest} = linguistData;
   return {
-    linguistLanguageId: languageId,
+    linguistLanguageId : languageId,
     ...rest,
     ...override(linguistData),
   };

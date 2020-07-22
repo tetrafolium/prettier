@@ -1,1 +1,1 @@
-function getScaledData({x}): ?{foo: number} {}
+function getScaledData({x}): ? {foo : number} {}

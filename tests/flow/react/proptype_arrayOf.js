@@ -2,8 +2,8 @@
 
 var React = require('react');
 var Example = React.createClass({
-  propTypes: {
-    arr: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  propTypes : {
+    arr : React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
   },
 });
 
@@ -26,8 +26,10 @@ var OptionalExample = React.createClass({
 });
 
 (<OptionalExample />); // OK
-(<OptionalExample arr={[0]} />); // OK
-(<OptionalExample arr={[""]} />); // error: string ~> number
+(<OptionalExample arr={
+  [0]} />); // OK
+(<OptionalExample arr={
+  [""]} />); // error: string ~> number
 
 var AnyExample = React.createClass({
   propTypes: {
@@ -35,11 +37,13 @@ var AnyExample = React.createClass({
   },
 });
 
-(<AnyExample arr={0} />); // error: still needs to be an array
-(<AnyExample arr={[0]} />); // OK
+(<AnyExample arr={
+  0} />); // error: still needs to be an array
+(<AnyExample arr={
+  [0]} />); // OK
 
 var InvalidExample = React.createClass({
-  propTypes: {
-    arr: React.PropTypes.arrayOf(0), // error: number not a prop type
+  propTypes : {
+    arr : React.PropTypes.arrayOf(0), // error: number not a prop type
   },
 });

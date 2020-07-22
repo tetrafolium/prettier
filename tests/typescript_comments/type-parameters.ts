@@ -3,27 +3,25 @@ const a: T</* comment */> = 1;
 functionName</* comment */>();
 function foo</* comment */>() {}
 interface Foo {
- </* comment */>(arg): any;
+  </* comment */>(arg): any;
 }
 type T = </* comment */>(arg) => any;
 
-functionName<
-  A // comment
->();
+functionName<A // comment
+             >();
 const a: T<
-  // comment
-> = 1;
+    // comment
+    > = 1;
 functionName<
-  // comment
->();
+    // comment
+    >();
 function foo<
-  // comment
->() {}
+    // comment
+    >() {}
 interface Foo {
- <
-  A// comment
- >(arg): any;
+  <A // comment
+   >(arg): any;
 }
 type T = <
-  // comment
->(arg) => any;
+    // comment
+    >(arg) => any;

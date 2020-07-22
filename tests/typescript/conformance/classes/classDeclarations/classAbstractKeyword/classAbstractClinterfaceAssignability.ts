@@ -2,8 +2,8 @@
 var I: IConstructor;
 
 abstract class A {
-    x: number;
-    static y: number;
+  x: number;
+  static y: number;
 }
 
 var AA: typeof A;

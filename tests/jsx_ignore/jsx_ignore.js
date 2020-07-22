@@ -1,7 +1,5 @@
 // this should remain as-is
-<div>
- {/* prettier-ignore */}
- <style jsx global>{ComponentStyles}</style>
+<div>{/* prettier-ignore */}<style jsx global>{ComponentStyles}</style>
 </div>;
 
 // this should remain as-is

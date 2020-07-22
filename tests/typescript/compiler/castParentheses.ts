@@ -1,5 +1,5 @@
 ﻿class a {
-    static b: any;
+  static b: any;
 }
 
 var b = (<any>a);

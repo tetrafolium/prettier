@@ -1,21 +1,21 @@
-func(first, second, third, fourth, fifth, aReallyLongArgumentsListToForceItToBreak, {
-  // comment
-})
+func(first, second, third, fourth, fifth,
+     aReallyLongArgumentsListToForceItToBreak,
+     {
+         // comment
+     })
 
 func({
-  // comment
+    // comment
 })
 
 func(
-  {} // comment
+    {} // comment
 )
 
 func(
-  {}
-  // comment
+    {} // comment
 )
 
 func(
-  // comment
-  {}
-)
+    // comment
+    {})

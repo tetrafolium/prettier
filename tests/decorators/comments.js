@@ -1,18 +1,14 @@
 var x = 100
 
-@Hello({
-  a: 'a', // Comment is in the wrong place
-  // test
-  b: '2'
-})
-class X {
-
-}
-
+    @Hello({
+      a : 'a', // Comment is in the wrong place
+      // test
+      b : '2'
+    }) class X {}
 
 @NgModule({
   // Imports.
-  imports: [
+  imports : [
     // Angular modules.
     BrowserModule,
 
@@ -21,11 +17,13 @@ class X {
     SharedModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+}
 
 // A
 @Foo()
 // B
 @Bar()
 // C
-export class Bar{}
+export class Bar {
+}

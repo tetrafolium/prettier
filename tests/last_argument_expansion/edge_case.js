@@ -1,22 +1,18 @@
 var listener = DOM.listen(
-  introCard,
-  'click',
-  sigil,
-  (event: JavelinEvent): void =>
-    BanzaiLogger.log(
-      config,
-      {...logData, ...DataStore.get(event.getNode(sigil))},
-    ),
+    introCard,
+    'click',
+    sigil,
+    (event: JavelinEvent): void => BanzaiLogger.log(
+        config,
+        {...logData, ...DataStore.get(event.getNode(sigil))},
+        ),
 );
 
-a(
-  SomethingVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong,
-  [
-    {
-      SomethingVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong: 1
-    }
-  ]
-);
+a(SomethingVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong,
+  [ {
+    SomethingVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong :
+        1
+  } ]);
 
 exports.examples = [
   {
@@ -28,7 +24,8 @@ exports.examples = [
             <InlineBlock>
               <img
                 src={data[1234567890].image.uri}
-                style={{position: 'absolute', top: '0', left: '0', zIndex:'-1'}}
+                style={
+      { position: 'absolute', top: '0', left: '0', zIndex: '-1' }}
               />
             </InlineBlock>
           </div>
@@ -44,23 +41,28 @@ someReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReallyReal
   [],
 ]);
 
-(function webpackUniversalModuleDefinition() {})(this, function(__WEBPACK_EXTERNAL_MODULE_85__, __WEBPACK_EXTERNAL_MODULE_115__) {
-return /******/ (function(modules) { // webpackBootstrap
-
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-/***/ }
-/******/ ])
-});
+                (function webpackUniversalModuleDefinition() {
+                })(this, function(__WEBPACK_EXTERNAL_MODULE_85__,
+                                  __WEBPACK_EXTERNAL_MODULE_115__) {
+                  return /******/ (function(modules) { // webpackBootstrap
+                                                       /******/
+                  })
+                      /************************************************************************/
+                      /******/ ([
+                        /* 0 */
+                        /***/ function(module, exports, __webpack_require__) {
+                          /***/
+                        },
+                        /* 1 */
+                        /***/
+                        function(module, exports, __webpack_require__) {
+                          /***/
+                        },
+                        /* 2 */
+                        /***/
+                        function(module, exports, __webpack_require__) {
+                          /***/
+                        }
+                        /******/
+                      ])
+                });

@@ -10,7 +10,6 @@ const query = gql`
   }
 `;
 
-
 // With interpolations:
 
 gql`
@@ -24,7 +23,6 @@ query User {
 ${USER_DETAILS_FRAGMENT}${FRIENDS_FRAGMENT}
 `
 
-
 // Skip if non-toplevel interpolation:
 
 gql`
@@ -32,7 +30,6 @@ query User {
   user(id:${id}){ name }
 }
 `
-
 
 // Skip if top-level interpolation within comment:
 
@@ -43,7 +40,6 @@ query User {
 #${test}
 `
 
-
 // Comment on last line:
 
 gql`
@@ -52,7 +48,6 @@ query User {
 }
 # comment`
 // ` <-- editor syntax highlighting workaround
-
 
 // Preserve up to one blank line between things and enforce linebreak between
 // interpolations:
@@ -80,32 +75,26 @@ ${eight}
 
 `
 
-
 // Interpolation directly before and after query:
 
 gql`${one} query Test { test }${two}`
 
-
 // Only interpolation:
 
 gql`${test}`
-
 
 // Only comment:
 
 gql`# comment`
 // ` <-- editor syntax highlighting workaround
 
-
 // Only whitespace:
 
 gql`   `
 
-
 // Empty:
 
 gql``
-
 
 // Comments after other things:
 // Currently, comments after interpolations are moved to the next line.
@@ -125,7 +114,6 @@ gql`
   # comment
   ${test} # comment
 `
-
 
 // Larger mixed test:
 
@@ -149,10 +137,10 @@ ${USER_DETAILS_FRAGMENT}
 
     ${FRIENDS_FRAGMENT}
   ${generateFragment({
-     totally:  "a good idea"
-    })}
+  totally : "a good idea"
+})}
 
 ${fragment}#comment
 
 fragment another on User { name
-}${ fragment }`
+}${fragment}`

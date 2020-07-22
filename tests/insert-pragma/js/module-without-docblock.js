@@ -1,3 +1,1 @@
-function foo(bar) { 
-  return bar + 3 + 4;
-}
+function foo(bar) { return bar + 3 + 4; }

@@ -9,7 +9,7 @@ function x1(y: string): number {
 }
 
 function x3(y: string) {
-  return ~y;  // error, we don't allow coercion here
+  return ~y; // error, we don't allow coercion here
 }
 
 function x4(y: string): boolean {

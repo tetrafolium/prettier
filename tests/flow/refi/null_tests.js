@@ -1,104 +1,109 @@
-var null_tests =
-[
+var null_tests = [
   // expr != null
   function() {
-    var x : ?string = "xxx";
+    var x: ? string = "xxx";
     if (x != null) {
-      var y : string = x;  // ok
+      var y: string = x; // ok
     }
   },
 
   function() {
-    var x : ?string = "xxx";
+    var x: ? string = "xxx";
     if (null != x) {
-      var y : string = x;  // ok
+      var y: string = x; // ok
     }
   },
 
   function() {
-    var x : {p:?string} = {p:"xxx"};
+    var x: {p: ? string } = {p : "xxx"};
     if (x.p != null) {
-      var y : string = x.p;  // ok
+      var y: string = x.p; // ok
     }
   },
 
   function() {
-    var x : {p:{q:?string}} = {p:{q:"xxx"}};
+    var x: {p: {q: ? string }} = {p : {q : "xxx"}};
     if (x.p.q != null) {
-      var y : string = x.p.q;  // ok
+      var y: string = x.p.q; // ok
     }
   },
 
   // expr == null
   function() {
-    var x : ?string = "xxx";
-    if (x == null) {} else {
-      var y : string = x;  // ok
+    var x: ? string = "xxx";
+    if (x == null) {
+    } else {
+      var y: string = x; // ok
     }
   },
 
   function() {
-    var x : {p:?string} = {p:"xxx"};
-    if (x.p == null) {} else {
-      var y : string = x.p;  // ok
+    var x: {p: ? string } = {p : "xxx"};
+    if (x.p == null) {
+    } else {
+      var y: string = x.p; // ok
     }
   },
 
   function() {
-    var x : {p:{q:?string}} = {p:{q:"xxx"}};
-    if (x.p.q == null) {} else {
-      var y : string = x.p.q;  // ok
+    var x: {p: {q: ? string }} = {p : {q : "xxx"}};
+    if (x.p.q == null) {
+    } else {
+      var y: string = x.p.q; // ok
     }
   },
 
   // expr !== null
   function() {
-    var x : ?string = "xxx";
+    var x: ? string = "xxx";
     if (x !== null) {
-      var y : string | void = x;  // ok
+      var y: string|void = x; // ok
     }
   },
 
   function() {
-    var x : {p:?string} = {p:"xxx"};
+    var x: {p: ? string } = {p : "xxx"};
     if (x.p !== null) {
-      var y : string | void = x.p;  // ok
+      var y: string|void = x.p; // ok
     }
   },
 
   function() {
-    var x : {p:{q:?string}} = {p:{q:"xxx"}};
+    var x: {p: {q: ? string }} = {p : {q : "xxx"}};
     if (x.p.q !== null) {
-      var y : string | void = x.p.q;  // ok
+      var y: string|void = x.p.q; // ok
     }
   },
 
   // expr === null
   function() {
-    var x : ?string = "xxx";
-    if (x === null) {} else {
-      var y : string | void = x;  // ok
+    var x: ? string = "xxx";
+    if (x === null) {
+    } else {
+      var y: string|void = x; // ok
     }
   },
 
   function() {
-    var x : {p:?string} = {p:"xxx"};
-    if (x.p === null) {} else {
-      var y : string | void = x.p;  // ok
+    var x: {p: ? string } = {p : "xxx"};
+    if (x.p === null) {
+    } else {
+      var y: string|void = x.p; // ok
     }
   },
 
   function() {
-    var x : {p:{q:?string}} = {p:{q:"xxx"}};
-    if (x.p.q === null) {} else {
-      var y : string | void = x.p.q;  // ok
+    var x: {p: {q: ? string }} = {p : {q : "xxx"}};
+    if (x.p.q === null) {
+    } else {
+      var y: string|void = x.p.q; // ok
     }
   },
 ];
 
 // this.p op null
 class C {
-  p: ?string;
+  p:? string;
 
   ensure0(): string {
     if (this.p != null)
@@ -113,14 +118,14 @@ class C {
     return this.p;
   }
 
-  ensure2(): string | void {
+  ensure2(): string|void {
     if (this.p !== null)
       return this.p;
     else
       return "";
   }
 
-  ensure3(): string | void {
+  ensure3(): string|void {
     if (this.p === null)
       return "";
     return this.p;
@@ -147,7 +152,7 @@ class D extends C {
   ensure103(): string {
     if (super.p != null) {
       alert("");
-      return super.p;  // not ok
+      return super.p; // not ok
     }
     return "";
   }

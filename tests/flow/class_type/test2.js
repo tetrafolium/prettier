@@ -3,9 +3,9 @@
 // since everything can be trivially satisfied by going to `mixed`.
 declare function check<X>(cls: $Type<X>, inst: X): void;
 
-class A { }
-class B extends A { }
-class C { }
+class A {}
+class B extends A {}
+class C {}
 
 check(B, new A);
 check(A, new B);

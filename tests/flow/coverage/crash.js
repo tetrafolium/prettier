@@ -2,10 +2,8 @@
 // that we implicitly assume in type-at-pos and coverage implementations. In
 // particular, when unchecked it causes a crash with coverage --color.
 
-declare module foo {
-}
+declare module foo {}
 
-declare module bar {
-}
+declare module bar {}
 
 // TODO

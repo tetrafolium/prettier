@@ -1,5 +1,3 @@
 // @flow
 
-export async function foo() {
-  return 123;
-}
+export async function foo() { return 123; }

@@ -1,7 +1,6 @@
 declare class A {
-    one: boolean;
-    two: { three: string }
-    | number;
+  one: boolean;
+  two: {three: string}|number;
 }
 
 // NOTE: Flow and Babel both fail to apply ASI here
@@ -12,9 +11,8 @@ declare class A {
 // }
 
 declare interface C {
-    one: boolean;
-    two: { three: string }
-    | number;
+  one: boolean;
+  two: {three: string}|number;
 }
 
 // NOTE: Flow and Babel both fail to apply ASI here
@@ -25,9 +23,8 @@ declare interface C {
 // }
 
 interface E {
-    one: boolean;
-    two: { three: string }
-    | number;
+  one: boolean;
+  two: {three: string}|number;
 }
 
 // NOTE: Flow and Babel both fail to apply ASI here

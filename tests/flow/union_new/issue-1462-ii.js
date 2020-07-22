@@ -1,22 +1,18 @@
-type Common = {
-};
+type Common = {};
 
 type A = {
   type: 'A',
   foo: number
-} & Common;
+}&Common;
 
 type B = {
   type: 'B',
   foo: Array<number>
-} & Common;
+}&Common;
 
-type MyType = A | B;
+type MyType = A|B;
 
-
-function print(x: number) {
-  console.log(x);
-}
+function print(x: number) { console.log(x); }
 
 function printAll(val: MyType) {
   if (val.type === 'A') {

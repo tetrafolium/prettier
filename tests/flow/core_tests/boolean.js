@@ -24,9 +24,7 @@ let tests = [
   },
 
   // valueOf
-  function() {
-    ((new Boolean(0)).valueOf(): boolean);
-  },
+  function() { ((new Boolean(0)).valueOf(): boolean); },
 
   // casting
   function() {

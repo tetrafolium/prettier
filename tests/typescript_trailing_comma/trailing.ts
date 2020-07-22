@@ -4,8 +4,8 @@ export class BaseSingleLevelProfileTargeting<
 }
 
 enum Enum {
-	x = 1,
-	y = 2,
+  x = 1,
+  y = 2,
 }
 
 const {

@@ -1,54 +1,50 @@
 // "ArrowFunctionExpression"
-(() => {})``;
+(() => {}) ``;
 
 // "AssignmentExpression"
-(b = c)``;
+(b = c) ``;
 
 // "AwaitExpression"
-async function f() {
-  (await b)``;
-}
+async function f() { (await b) ``; }
 
 // "BinaryExpression"
-(b + c)``;
+(b + c) ``;
 
 // "CallExpression"
-b()``;
+b() ``;
 
 // "ClassExpression"
-(class {})``;
+(class {}) ``;
 
 // "ConditionalExpression"
-(b ? c : d)``;
+(b ? c : d) ``;
 
 // "FunctionExpression"
-(function() {})``;
+(function() {}) ``;
 
 // "LogicalExpression"
-(b || c)``;
+(b || c) ``;
 
 // "MemberExpression"
 b.c``;
 
 // "NewExpression"
-(new B())``;
+(new B()) ``;
 
 // "ObjectExpression"
-({})``;
+({}) ``;
 
 // "SequenceExpression"
-(b, c)``;
+(b, c) ``;
 
 // "TaggedTemplateExpression"
-(``)``;
+(``) ``;
 
 // "UnaryExpression"
-(void b)``;
+(void b) ``;
 
 // "UpdateExpression"
-(++b)``;
+(++b) ``;
 
 // "YieldExpression"
-function* d() {
-  (yield 1)``;
-}
+function* d() { (yield 1) ``; }

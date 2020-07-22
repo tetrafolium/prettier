@@ -9,7 +9,7 @@ const thirdParty = require("./third-party");
 const internalPlugins = require("./internal-plugins");
 const mem = require("mem");
 
-const memoizedLoad = mem(load, { cacheKey: JSON.stringify });
+const memoizedLoad = mem(load, {cacheKey : JSON.stringify});
 const memoizedSearch = mem(findPluginsInNodeModules);
 const clearCache = () => {
   mem.clear(memoizedLoad);
@@ -24,99 +24,89 @@ function load(plugins, pluginSearchDirs) {
   if (!pluginSearchDirs) {
     pluginSearchDirs = [];
   }
-  // unless pluginSearchDirs are provided, auto-load plugins from node_modules that are parent to Prettier
+  // unless pluginSearchDirs are provided, auto-load plugins from node_modules
+  // that are parent to Prettier
   if (!pluginSearchDirs.length) {
     const autoLoadDir = thirdParty.findParentDir(__dirname, "node_modules");
     if (autoLoadDir) {
-      pluginSearchDirs = [autoLoadDir];
+      pluginSearchDirs = [ autoLoadDir ];
     }
   }
 
-  const [externalPluginNames, externalPluginInstances] = partition(
-    plugins,
-    (plugin) => typeof plugin === "string"
-  );
+  const [externalPluginNames, externalPluginInstances] =
+      partition(plugins, (plugin) => typeof plugin === "string");
 
-  const externalManualLoadPluginInfos = externalPluginNames.map(
-    (pluginName) => {
-      let requirePath;
-      try {
-        // try local files
-        requirePath = eval("require").resolve(
-          path.resolve(process.cwd(), pluginName)
-        );
-      } catch (_) {
-        // try node modules
-        requirePath = eval("require").resolve(pluginName, {
-          paths: [process.cwd()],
-        });
-      }
+  const externalManualLoadPluginInfos =
+      externalPluginNames.map((pluginName) => {
+        let requirePath;
+        try {
+          // try local files
+          requirePath =
+              eval("require").resolve(path.resolve(process.cwd(), pluginName));
+        } catch (_) {
+          // try node modules
+          requirePath = eval("require").resolve(pluginName, {
+            paths : [ process.cwd() ],
+          });
+        }
 
-      return {
-        name: pluginName,
-        requirePath,
-      };
-    }
-  );
+        return {
+          name : pluginName,
+          requirePath,
+        };
+      });
 
-  const externalAutoLoadPluginInfos = pluginSearchDirs
-    .map((pluginSearchDir) => {
-      const resolvedPluginSearchDir = path.resolve(
-        process.cwd(),
-        pluginSearchDir
-      );
+  const externalAutoLoadPluginInfos =
+      pluginSearchDirs
+          .map((pluginSearchDir) => {
+            const resolvedPluginSearchDir =
+                path.resolve(process.cwd(), pluginSearchDir);
 
-      const nodeModulesDir = path.resolve(
-        resolvedPluginSearchDir,
-        "node_modules"
-      );
+            const nodeModulesDir =
+                path.resolve(resolvedPluginSearchDir, "node_modules");
 
-      // In some fringe cases (ex: files "mounted" as virtual directories), the
-      // isDirectory(resolvedPluginSearchDir) check might be false even though
-      // the node_modules actually exists.
-      if (
-        !isDirectory(nodeModulesDir) &&
-        !isDirectory(resolvedPluginSearchDir)
-      ) {
-        throw new Error(
-          `${pluginSearchDir} does not exist or is not a directory`
-        );
-      }
+            // In some fringe cases (ex: files "mounted" as virtual
+            // directories), the isDirectory(resolvedPluginSearchDir) check
+            // might be false even though the node_modules actually exists.
+            if (!isDirectory(nodeModulesDir) &&
+                !isDirectory(resolvedPluginSearchDir)) {
+              throw new Error(
+                  `${pluginSearchDir} does not exist or is not a directory`);
+            }
 
-      return memoizedSearch(nodeModulesDir).map((pluginName) => ({
-        name: pluginName,
-        requirePath: eval("require").resolve(pluginName, {
-          paths: [resolvedPluginSearchDir],
-        }),
-      }));
-    })
-    .reduce((a, b) => a.concat(b), []);
+            return memoizedSearch(nodeModulesDir)
+                .map((pluginName) => ({
+                       name : pluginName,
+                       requirePath : eval("require").resolve(pluginName, {
+                         paths : [ resolvedPluginSearchDir ],
+                       }),
+                     }));
+          })
+          .reduce((a, b) => a.concat(b), []);
 
-  const externalPlugins = uniqBy(
-    externalManualLoadPluginInfos.concat(externalAutoLoadPluginInfos),
-    "requirePath"
-  )
-    .map((externalPluginInfo) => ({
-      name: externalPluginInfo.name,
-      ...eval("require")(externalPluginInfo.requirePath),
-    }))
-    .concat(externalPluginInstances);
+  const externalPlugins =
+      uniqBy(externalManualLoadPluginInfos.concat(externalAutoLoadPluginInfos),
+             "requirePath")
+          .map((externalPluginInfo) => ({
+                 name : externalPluginInfo.name,
+                 ...eval("require")(externalPluginInfo.requirePath),
+               }))
+          .concat(externalPluginInstances);
 
   return internalPlugins.concat(externalPlugins);
 }
 
 function findPluginsInNodeModules(nodeModulesDir) {
   const pluginPackageJsonPaths = globby.sync(
-    [
-      "prettier-plugin-*/package.json",
-      "@*/prettier-plugin-*/package.json",
-      "@prettier/plugin-*/package.json",
-    ],
-    {
-      cwd: nodeModulesDir,
-      expandDirectories: false,
-    }
-  );
+      [
+        "prettier-plugin-*/package.json",
+        "@*/prettier-plugin-*/package.json",
+        "@prettier/plugin-*/package.json",
+      ],
+      {
+        cwd : nodeModulesDir,
+        expandDirectories : false,
+      });
   return pluginPackageJsonPaths.map(path.dirname);
 }
 
@@ -129,6 +119,6 @@ function isDirectory(dir) {
 }
 
 module.exports = {
-  loadPlugins: memoizedLoad,
+  loadPlugins : memoizedLoad,
   clearCache,
 };

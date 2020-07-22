@@ -40,27 +40,28 @@ let obj9 = // Comment
 `val`;
 
 let obj10 = // Comment
-`
+    `
 val
 val
 `;
 
 let obj11 = // Comment
-tag`val`;
+    tag`val`;
 
 let obj12 = // Comment
-tag`
+    tag`
 val
 val
 `;
 
 let // Comment
-  foo1 = 'val';
+    foo1 = 'val';
 
 let // Comment
-  foo2 = 'val',
-  bar = 'val';
+    foo2 = 'val',
+    bar = 'val';
 
 const foo3 = 123
-// Nothing to see here.
-;["2", "3"].forEach(x => console.log(x))
+    // Nothing to see here.
+    ;
+["2", "3"].forEach(x => console.log(x))

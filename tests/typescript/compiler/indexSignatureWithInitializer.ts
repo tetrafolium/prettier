@@ -1,8 +1,8 @@
 // These used to be indexers, now they are computed properties
 interface I {
-    [x = '']: string;
+  [x = '']: string;
 }
 
 class C {
-    [x = 0]: string
+  [x = 0]: string
 }

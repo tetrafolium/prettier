@@ -1,11 +1,11 @@
 var o = {
-  [`key`]: () => {
+  [`key`] : () => {
     // Comment
   }
 };
 
 var x = {
-  y: () => Relay.QL`
+  y : () => Relay.QL`
     query {
       ${foo},
       field,

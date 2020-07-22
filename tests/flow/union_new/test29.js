@@ -5,27 +5,25 @@
 // polymorphic definitions, where the same code may be checked multiple times
 // with different instantiations.
 
-type Row = { x: string };
+type Row = {
+  x: string
+};
 
 declare class D<T> {
-  reduce(
-    callbackfn: (previousValue: T, currentValue: T) => T,
-    initialValue: void
-  ): T;
-  reduce<U>(
-    callbackfn: (previousValue: U, currentValue: T) => U,
-    initialValue: U
-  ): U;
+  reduce(callbackfn: (previousValue: T, currentValue: T) => T,
+         initialValue: void): T;
+  reduce<U>(callbackfn: (previousValue: U, currentValue: T) => U,
+            initialValue: U): U;
 }
 
 class C {
   foo(
-    rows: D<Row>,
-    minWidth: number,
-  ): number {
+      rows: D<Row>,
+      minWidth: number,
+      ): number {
     return rows.reduce(
-      (length, row) => 0,
-      minWidth,
+        (length, row) => 0,
+        minWidth,
     );
   }
 }

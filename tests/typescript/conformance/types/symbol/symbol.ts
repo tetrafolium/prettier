@@ -1,2 +1,2 @@
 var x: symbol
-var x: symbol | string
+var x: symbol|string

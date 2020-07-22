@@ -33,6 +33,6 @@ let tests = [
     (hmac.digest('hex'): string);
     (hmac.digest(): Buffer);
     (hmac.digest('hex'): void); // 1 error
-    (hmac.digest(): void); // 1 error
+    (hmac.digest(): void);      // 1 error
   }
 ]

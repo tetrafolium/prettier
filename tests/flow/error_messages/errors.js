@@ -1,1 +1,2 @@
-if (typeof define === 'function' && define.amd) { }
+if (typeof define === 'function' && define.amd) {
+}

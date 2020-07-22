@@ -1,1 +1,1 @@
-run_spec(__dirname, ["flow", "babel"], { trailingComma: "none" });
+run_spec(__dirname, [ "flow", "babel" ], {trailingComma : "none"});

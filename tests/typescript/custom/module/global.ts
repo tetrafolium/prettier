@@ -1,5 +1,5 @@
 declare global {
-    interface Event {
-	    persist: Function
-  	}
+  interface Event {
+    persist: Function
+  }
 }

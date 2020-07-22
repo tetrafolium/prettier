@@ -1,1 +1,1 @@
-(function() {return        <|> 15})()
+(function() { return <|>15 })()

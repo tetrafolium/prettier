@@ -1,3 +1,3 @@
 namespace X {
-    declare function f();
+declare function f();
 }

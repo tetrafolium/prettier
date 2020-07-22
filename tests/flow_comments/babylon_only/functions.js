@@ -1,5 +1,4 @@
 
 export function updateStoreFromURL(
-  store /*: Store*/,
-  {search, hash} /*: {search: string, hash: string}*/
+    store /*: Store*/, {search, hash} /*: {search: string, hash: string}*/
 ) {}

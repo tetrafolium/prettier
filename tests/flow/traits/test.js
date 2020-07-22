@@ -1,16 +1,15 @@
-declare class Foo extends Qux<string> mixins Bar<number> {
+declare class Foo extends Qux<string>mixins Bar<number> {
   // KeyedCollection <: Collection
   // ...KeyedIterable
 }
-declare class Bar<T> extends Baz<T> {
+declare class Bar<T> extends Baz<T>{
   // KeyedIterable <: Iterable
-  y: T
-}
-declare class Qux<T> extends Baz<T> {
+  y : T
+} declare class Qux<T> extends Baz<T>{
   // Collection <: Iterable
-  y: T, z: T
-}
-declare class Baz<T> {
+  y : T,
+  z : T
+} declare class Baz<T> {
   // Iterable
   x: T
 }

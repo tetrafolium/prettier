@@ -1,5 +1,5 @@
 // @flow
 var num = 42;
-function bar() { }
+function bar() {}
 bar();
 module.exports = num;

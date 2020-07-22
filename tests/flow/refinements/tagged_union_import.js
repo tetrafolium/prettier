@@ -1,6 +1,6 @@
 /* @flow */
 
-import { SUCCESS, ERROR } from './constants'
+import {ERROR, SUCCESS} from './constants'
 
 type Success = {
   type: typeof SUCCESS,
@@ -12,12 +12,12 @@ type Error = {
   error: string
 }
 
-function handleStatus(status: Success | Error) {
-  switch(status.type) {
-    case SUCCESS:
-      console.log(`Successful: ${status.message}`);
-      break;
-    default:
-      console.log(`Errored: ${status.error}`);
+function handleStatus(status: Success|Error) {
+  switch (status.type) {
+  case SUCCESS:
+    console.log(`Successful: ${status.message}`);
+    break;
+  default:
+    console.log(`Errored: ${status.error}`);
   }
 }

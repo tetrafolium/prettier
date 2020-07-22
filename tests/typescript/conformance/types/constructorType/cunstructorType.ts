@@ -1,1 +1,1 @@
-var d: new(x: number) => void;
+var d: new (x: number) => void;

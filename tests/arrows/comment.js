@@ -5,26 +5,25 @@
  * @returns {Function}
  */
 export const bem = block =>
-  /**
-   * @param {String} [element] - the BEM Element within that block; if undefined, selects the block itself.
-   * @returns {Function}
-   */
-  element =>
     /**
-     * @param {?String} [modifier] - the BEM Modifier for the Block or Element; if undefined, selects the Block or Element unmodified.
-     * @returns {String}
+     * @param {String} [element] - the BEM Element within that block; if
+     *     undefined, selects the block itself.
+     * @returns {Function}
      */
-    modifier =>
-      [
-        ".",
-        css(block),
-        element ? `__${css(element)}` : "",
-        modifier ? `--${css(modifier)}` : ""
-      ].join("");
+    element =>
+        /**
+         * @param {?String} [modifier] - the BEM Modifier for the Block or
+         *     Element; if undefined, selects the Block or Element unmodified.
+         * @returns {String}
+         */
+    modifier => [".", css(block), element ? `__${css(element)}` : "",
+                 modifier ? `--${css(modifier)}` : ""]
+                    .join("");
 
-<FlatList
-  renderItem={(
-    info, // $FlowExpectedError - bad widgetCount type 6, should be Object
-  ) => <span>{info.item.widget.missingProp}</span>}
+< FlatList
+renderItem = {
+  (
+      info, // $FlowExpectedError - bad widgetCount type 6, should be Object
+      ) => <span>{info.item.widget.missingProp}</span>}
   data={data}
 />

@@ -4,7 +4,7 @@
 
 // type aliases are hoisted and always available
 
-type T1 = T2;   // ok
+type T1 = T2; // ok
 type T2 = number;
 
 // --- lets ---
@@ -22,16 +22,16 @@ type T2 = number;
 // which would be annoying. TODO
 
 function f0() {
-  var v = x * c;  // errors, let + const referenced before decl
+  var v = x * c; // errors, let + const referenced before decl
   let x = 0;
   const c = 0;
 }
 
 function f1(b) {
-  x = 10;         // error, attempt to write to let before decl
+  x = 10; // error, attempt to write to let before decl
   let x = 0;
   if (b) {
-    y = 10;       // error, attempt to write to let before decl
+    y = 10; // error, attempt to write to let before decl
     let y = 0;
   }
 }
@@ -46,18 +46,18 @@ function f2() {
 
 // functions are let-scoped and hoisted
 function f3() {
-  var s: string = foo();          // ok, finds hoisted outer
+  var s: string = foo(); // ok, finds hoisted outer
   {
-    var n: number = foo();        // ok, finds hoisted inner
+    var n: number = foo(); // ok, finds hoisted inner
     function foo() { return 0; }
   }
-  var s2: string = foo();         // ok, hoisted outer not clobbered
+  var s2: string = foo(); // ok, hoisted outer not clobbered
   function foo() { return ""; }
 }
 
 // out-of-scope TDZ not enforced. sometimes right...
 function f4() {
-  function g() { return x + c; }  // ok, g doesn't run in TDZ
+  function g() { return x + c; } // ok, g doesn't run in TDZ
   let x = 0;
   const c = 0;
 }
@@ -65,7 +65,7 @@ function f4() {
 // ...sometimes wrong
 function f5() {
   function g() { return x; }
-  g();          // should error, but doesn't currently
+  g(); // should error, but doesn't currently
   let x = 0;
   const c = 0;
 }
@@ -75,7 +75,7 @@ function f5() {
 // phasing of AST traversal, and will be fixed.
 //
 
-var x: C;       // ok
+var x: C; // ok
 
 var y = new C(); // error: let ref before decl from value position
 
@@ -89,7 +89,7 @@ var z: C = new C(); // ok
 // but leave it uninitialized until later (as long as it's
 // initialized before use)
 
-var a: number;  // not an error per se - only if used before init
+var a: number; // not an error per se - only if used before init
 
 function f(n: number) { return n; }
 

@@ -1,7 +1,7 @@
 var B = require('./B');
 
 class C extends B {
-  foo(x:string):void { }
+  foo(x: string): void {}
 }
 
 let c = new C();

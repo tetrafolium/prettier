@@ -2,7 +2,7 @@ declare var s: symbol;
 
 // Creation
 {
-  const x: symbol = Symbol(); // OK
+  const x: symbol = Symbol();      // OK
   const y: symbol = Symbol('bar'); // OK
 
   Symbol('foo', 'bar'); // Error: unused argument
@@ -10,38 +10,38 @@ declare var s: symbol;
 
 // Properties and methods
 {
-  const x: string = s.toString(); // OK
-  const y: ?symbol = s.valueOf(); // OK
-  const z: string | void = s.description; // OK
+  const x: string = s.toString();       // OK
+  const y: ? symbol = s.valueOf();      // OK
+  const z: string|void = s.description; // OK
 }
 
 // Refinement
 {
-  const x: symbol | boolean = true;
+  const x: symbol|boolean = true;
   if (typeof x === "symbol") {
-    (x: symbol); // OK
+    (x: symbol);  // OK
     (x: boolean); // Error
   } else {
     (x: boolean); // OK
-    (x: symbol); // Error
+    (x: symbol);  // Error
   }
 }
 
 // Well-known symbols
 {
-  (Symbol.hasInstance: symbol); // OK
+  (Symbol.hasInstance: symbol);        // OK
   (Symbol.isConcatSpreadable: symbol); // OK
-  (Symbol.match: symbol); // OK
-  (Symbol.matchAll: symbol); // OK
-  (Symbol.replace: symbol); // OK
-  (Symbol.search: symbol); // OK
-  (Symbol.species: symbol); // OK
-  (Symbol.split: symbol); // OK
-  (Symbol.toPrimitive: symbol); // OK
-  (Symbol.toStringTag: symbol); // OK
-  (Symbol.unscopables: symbol); // OK
+  (Symbol.match: symbol);              // OK
+  (Symbol.matchAll: symbol);           // OK
+  (Symbol.replace: symbol);            // OK
+  (Symbol.search: symbol);             // OK
+  (Symbol.species: symbol);            // OK
+  (Symbol.split: symbol);              // OK
+  (Symbol.toPrimitive: symbol);        // OK
+  (Symbol.toStringTag: symbol);        // OK
+  (Symbol.unscopables: symbol);        // OK
 
-  const x: $SymbolMatch = Symbol.match; // OK
+  const x: $SymbolMatch = Symbol.match;       // OK
   const y: $SymbolMatch = Symbol.toPrimitive; // Error
 }
 
@@ -67,8 +67,8 @@ declare var s: symbol;
 {
   const s: symbol = Symbol();
   // Other than null/void which we always allow
-  s == null; // OK
-  null == s; // OK
+  s == null;      // OK
+  null == s;      // OK
   s == undefined; // OK
   undefined == s; // OK
 }

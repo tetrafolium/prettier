@@ -3,7 +3,9 @@
  * @flow
  */
 
-export default class Foo { givesANum(): number { return 42; }};
+export default class Foo {
+  givesANum(): number { return 42; }
+};
 
 // Regression test for https://github.com/facebook/flow/issues/511
 //

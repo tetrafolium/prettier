@@ -1,5 +1,5 @@
 /* @flow */
 
 module.exports = {
-  numVal: 42
+  numVal : 42
 };

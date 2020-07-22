@@ -3,21 +3,17 @@
 var child_process = require('child_process');
 
 var ls = child_process.spawn('ls');
-var wc = child_process.spawn('wc', ['-l']);
+var wc = child_process.spawn('wc', [ '-l' ]);
 
 // args + options.
-child_process.spawn('echo', ['-n', '"Testing..."'], {env: {TEST: 'foo'}});
+child_process.spawn('echo', [ '-n', '"Testing..."' ], {env : {TEST : 'foo'}});
 
 // options only.
-child_process.spawn('echo', {env: {FOO: 2}});
+child_process.spawn('echo', {env : {FOO : 2}});
 
-ls.stdout.on('data', function(data) {
-  wc.stdin.write(data);
-});
+ls.stdout.on('data', function(data) { wc.stdin.write(data); });
 
-ls.stderr.on('data', function(data) {
-  console.warn(data);
-});
+ls.stderr.on('data', function(data) { console.warn(data); });
 
 ls.on('close', function(code) {
   if (code !== 0) {

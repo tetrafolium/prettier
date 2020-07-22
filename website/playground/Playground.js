@@ -1,19 +1,18 @@
 import React from "react";
 
-import { Button, ClipboardButton } from "./buttons";
-import EditorState from "./EditorState";
-import { DebugPanel, InputPanel, OutputPanel } from "./panels";
-import PrettierFormat from "./PrettierFormat";
-import { shallowEqual } from "./helpers";
-import * as urlHash from "./urlHash";
-import formatMarkdown from "./markdown";
-import * as util from "./util";
+import {Button, ClipboardButton} from "./buttons";
 import getCodeSample from "./codeSamples";
-
-import { Sidebar, SidebarCategory } from "./sidebar/components";
-import SidebarOptions from "./sidebar/SidebarOptions";
+import EditorState from "./EditorState";
+import {shallowEqual} from "./helpers";
+import formatMarkdown from "./markdown";
+import {DebugPanel, InputPanel, OutputPanel} from "./panels";
+import PrettierFormat from "./PrettierFormat";
+import {Sidebar, SidebarCategory} from "./sidebar/components";
+import {Checkbox} from "./sidebar/inputs";
 import Option from "./sidebar/options";
-import { Checkbox } from "./sidebar/inputs";
+import SidebarOptions from "./sidebar/SidebarOptions";
+import * as urlHash from "./urlHash";
+import * as util from "./util";
 
 const CATEGORIES_ORDER = [
   "Global",
@@ -43,9 +42,10 @@ const ENABLED_OPTIONS = [
   "vueIndentScriptAndStyle",
 ];
 const ISSUES_URL = "https://github.com/prettier/prettier/issues/new?body=";
-const MAX_LENGTH = 8000 - ISSUES_URL.length; // it seems that GitHub limit is 8195
+const MAX_LENGTH =
+    8000 - ISSUES_URL.length; // it seems that GitHub limit is 8195
 const COPY_MESSAGE =
-  "<!-- The issue body has been saved to the clipboard. Please paste it after this line! 👇 -->\n";
+    "<!-- The issue body has been saved to the clipboard. Please paste it after this line! 👇 -->\n";
 
 class Playground extends React.Component {
   constructor(props) {
@@ -53,44 +53,38 @@ class Playground extends React.Component {
 
     const original = urlHash.read();
 
-    const defaultOptions = util.getDefaults(
-      props.availableOptions,
-      ENABLED_OPTIONS
-    );
+    const defaultOptions =
+        util.getDefaults(props.availableOptions, ENABLED_OPTIONS);
 
     const options = Object.assign(defaultOptions, original.options);
     const content = original.content || getCodeSample(options.parser);
 
-    this.state = { content, options };
+    this.state = {content, options};
 
     this.handleOptionValueChange = this.handleOptionValueChange.bind(this);
 
-    this.setContent = (content) => this.setState({ content });
+    this.setContent = (content) => this.setState({content});
     this.clearContent = this.setContent.bind(this, "");
-    this.resetOptions = () => this.setState({ options: defaultOptions });
+    this.resetOptions = () => this.setState({options : defaultOptions});
 
     this.enabledOptions = orderOptions(props.availableOptions, ENABLED_OPTIONS);
-    this.rangeStartOption = props.availableOptions.find(
-      (opt) => opt.name === "rangeStart"
-    );
-    this.rangeEndOption = props.availableOptions.find(
-      (opt) => opt.name === "rangeEnd"
-    );
+    this.rangeStartOption =
+        props.availableOptions.find((opt) => opt.name === "rangeStart");
+    this.rangeEndOption =
+        props.availableOptions.find((opt) => opt.name === "rangeEnd");
   }
 
   componentDidUpdate(_, prevState) {
-    const { content, options } = this.state;
-    if (
-      !shallowEqual(prevState.options, this.state.options) ||
-      prevState.content !== content
-    ) {
-      urlHash.replace({ content, options });
+    const {content, options} = this.state;
+    if (!shallowEqual(prevState.options, this.state.options) ||
+        prevState.content !== content) {
+      urlHash.replace({content, options});
     }
   }
 
   handleOptionValueChange(option, value) {
     this.setState((state) => {
-      const options = { ...state.options };
+      const options = {...state.options};
 
       if (option.type === "int" && isNaN(value)) {
         delete options[option.name];
@@ -99,47 +93,35 @@ class Playground extends React.Component {
       }
 
       const content =
-        state.content === "" ||
-        state.content === getCodeSample(state.options.parser)
-          ? getCodeSample(options.parser)
-          : state.content;
+          state.content === "" ||
+                  state.content === getCodeSample(state.options.parser)
+              ? getCodeSample(options.parser)
+              : state.content;
 
-      return { options, content };
+      return {options, content};
     });
   }
 
   getMarkdown(formatted, reformatted, full) {
-    const { content, options } = this.state;
-    const { availableOptions, version } = this.props;
+    const {content, options} = this.state;
+    const {availableOptions, version} = this.props;
 
-    return formatMarkdown(
-      content,
-      formatted,
-      reformatted || "",
-      version,
-      window.location.href,
-      options,
-      util.buildCliArgs(availableOptions, options),
-      full
-    );
+    return formatMarkdown(content, formatted, reformatted || "", version,
+                          window.location.href, options,
+                          util.buildCliArgs(availableOptions, options), full);
   }
 
   render() {
-    const { worker } = this.props;
-    const { content, options } = this.state;
+    const {worker} = this.props;
+    const {content, options} = this.state;
 
     return (
       <EditorState>
         {(editorState) => (
           <PrettierFormat
-            worker={worker}
-            code={content}
-            options={options}
-            debugAst={editorState.showAst}
-            debugDoc={editorState.showDoc}
-            reformat={editorState.showSecondFormat}
-          >
-            {({ formatted, debug }) => {
+    worker = {worker} code = {content} options = {options} debugAst =
+        {editorState.showAst} debugDoc = {
+            editorState.showDoc} reformat = {editorState.showSecondFormat} > {({ formatted, debug }) => {
               const fullReport = this.getMarkdown(
                 formatted,
                 debug.reformatted,

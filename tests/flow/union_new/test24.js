@@ -4,7 +4,7 @@
 
 declare class C {
   addListener(event: string, listener: Function): C;
-  emit(event: string, ...args:Array<any>): boolean;
+  emit(event: string, ...args: Array<any>): boolean;
   listeners(event: string): Array<Function>;
   listenerCount(event: string): number;
   on(event: string, listener: Function): C;
@@ -15,7 +15,8 @@ declare class C {
 }
 
 declare class D extends C {
-  listen(port: number, hostname?: string, backlog?: number, callback?: Function): D;
+  listen(port: number, hostname?: string, backlog?: number,
+         callback?: Function): D;
   listen(path: string, callback?: Function): D;
   listen(handle: Object, callback?: Function): D;
   close(callback?: Function): D;
@@ -23,8 +24,8 @@ declare class D extends C {
   connections: number;
   maxConnections: number;
   getConnections(callback: Function): void;
-  ref():  D;
-  unref():  D;
+  ref(): D;
+  unref(): D;
 }
 
-(0: D | number);
+(0: D|number);

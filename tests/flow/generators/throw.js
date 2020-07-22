@@ -1,4 +1,4 @@
-function *catch_return() {
+function* catch_return() {
   try {
     yield 0;
   } catch (e) {
@@ -8,10 +8,10 @@ function *catch_return() {
 
 var catch_return_value = catch_return().throw("").value;
 if (catch_return_value !== undefined) {
-  (catch_return_value : string); // error: number ~> string
+  (catch_return_value: string); // error: number ~> string
 }
 
-function *yield_return() {
+function* yield_return() {
   try {
     yield 0;
     return;

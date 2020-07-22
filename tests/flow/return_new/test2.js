@@ -1,5 +1,5 @@
 declare class D {
-  constructor(): { x: number }; // OK
+  constructor(): {x: number}; // OK
   y: any;
 }
 

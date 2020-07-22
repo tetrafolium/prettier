@@ -56,7 +56,7 @@ var c: typeof MyClass2 = new MyClass2();
 // == typeof <<non-class value>> == //
 //////////////////////////////////////
 
-var numValue:number = 42;
+var numValue: number = 42;
 var d: typeof numValue = 100;
 var e: typeof numValue = 'asdf'; // Error: string ~> number
 
@@ -70,7 +70,8 @@ type numberAlias = number;
 // a type, as an argument. However, the current error
 // is suboptimal - just 'cannot resolve name'. TODO.
 //
-var f: typeof numberAlias = 42; // Error: 'typeof <<type-alias>>' makes no sense...
+var f: typeof numberAlias =
+    42; // Error: 'typeof <<type-alias>>' makes no sense...
 
 /**
  * Use of a non-class/non-function value in type annotation.
@@ -78,5 +79,5 @@ var f: typeof numberAlias = 42; // Error: 'typeof <<type-alias>>' makes no sense
  * "type is incompatible"
  */
 
- var Map = { "A": "this is A", "B": "this is B", "C": "this is C" };
- var keys: $Keys<Map> = "A";  // Error: ineligible value used in type anno
+var Map = {"A" : "this is A", "B" : "this is B", "C" : "this is C"};
+var keys: $Keys<Map> = "A"; // Error: ineligible value used in type anno

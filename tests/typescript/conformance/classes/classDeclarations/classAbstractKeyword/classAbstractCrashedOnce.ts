@@ -1,9 +1,8 @@
 abstract class foo {
-    protected abstract test();
+  protected abstract test();
 }
 
 class bar extends foo {
-    test() {
-    }
+  test() {}
 }
 var x = new bar();

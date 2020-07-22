@@ -1,11 +1,11 @@
 let example = [
-  'FOO',
-  'BAR',
+  'FOO', 'BAR',
   // Comment
 ];
 
-foo({},
-  // Comment
+foo(
+    {},
+    // Comment
 );
 
 o = {
@@ -20,24 +20,19 @@ o = {
 };
 
 function supersupersupersuperLongF(
-  supersupersupersuperLongA,
-  supersupersupersuperLongB
-  // Comment
+    supersupersupersuperLongA, supersupersupersuperLongB
+    // Comment
 ) {
   a
 }
 function supersupersupersuperLongF(
-  supersupersupersuperLongA,
-  supersupersupersuperLongB,
-  // Comment
+    supersupersupersuperLongA,
+    supersupersupersuperLongB,
+    // Comment
 ) {
   a
 }
 
 this.getAttribute(function(s)
-  /*string*/ {
-  console.log()
-});
-this.getAttribute(function(s) /*string*/ {
-  console.log()
-});
+                  /*string*/ { console.log() });
+this.getAttribute(function(s) /*string*/ { console.log() });

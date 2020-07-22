@@ -1,6 +1,6 @@
 /* @providesModule Condition */
 
-function f(x:number) { }
+function f(x: number) {}
 function g() { return (42 || "hello"); }
 
 var x = g();
@@ -16,11 +16,13 @@ var y = h();
 if (y instanceof A) {
   y = 0;
 }
-//f(y);
+// f(y);
 
 function bar() { return true; }
 
-class C { qux() { } }
+class C {
+  qux() {}
+}
 
 function foo() {
 
@@ -29,7 +31,6 @@ function foo() {
   if (bar()) {
     c.qux();
   }
-
 }
 
 function goofy() {
@@ -37,20 +38,17 @@ function goofy() {
   if (typeof x == 'function') {
     x();
   } else { // if (typeof x == 'number') {
-    //f(x);
+    // f(x);
   }
 }
 
 function goofy2() {
-  var o = {x : 0}
-  if (typeof o.x == 'function') {
-    o.x();
-  }
+  var o = { x : 0 } if (typeof o.x == 'function') { o.x(); }
   var y = o.x;
   if (typeof y == 'function') {
     y();
   } else {
-    //f(y);
+    // f(y);
   }
 }
 

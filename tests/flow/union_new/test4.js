@@ -8,7 +8,7 @@
 // example with function types
 ///////////////////////////////
 
-function fun(a: ((x: number) => void) | ((x: string) => void)) { }
+function fun(a: ((x: number) => void)|((x: string) => void)) {}
 
 const a1 = ((x) => {}: A1);
 fun(a1);
@@ -23,7 +23,7 @@ type B1 = string;
 // example with array types
 ////////////////////////////
 
-function arr(a: number[] | string[]) { }
+function arr(a: number[]|string[]) {}
 
 const a2 = ([]: A2);
 arr(a2);

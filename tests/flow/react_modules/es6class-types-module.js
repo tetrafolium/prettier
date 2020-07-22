@@ -1,14 +1,16 @@
 /* @flow */
 import React from 'react';
 
-type Props = {name: string};
+type Props = {
+  name: string
+};
 
-class Hello extends React.Component<{}, Props, void>{
+class Hello extends React.Component<{}, Props, void> {
   props: Props;
   static defaultProps: {};
 
   render(): React.Element<*> {
-    return <div>{this.props.name}</div>;
+    return <div>{this.props.name} < /div>;
   }
 }
 

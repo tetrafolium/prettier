@@ -6,7 +6,7 @@ function takesString(x: string) {}
 function num(x: mixed) {
   if (typeof x === "number") {
     takesString(x); // error
-    (!x: false); // error: we don't know the truthiness of x
+    (!x: false);    // error: we don't know the truthiness of x
   }
   if (typeof x === "number" && x) {
     (!x: false); // ok
@@ -19,7 +19,7 @@ function num(x: mixed) {
 function str(x: mixed) {
   if (typeof x === "string") {
     takesNumber(x); // error
-    (!x: false); // error: we don't know the truthiness of x
+    (!x: false);    // error: we don't know the truthiness of x
   }
   if (typeof x === "string" && x) {
     (!x: false); // ok
@@ -32,7 +32,7 @@ function str(x: mixed) {
 function bool(x: mixed) {
   if (typeof x === "boolean") {
     takesString(x); // error
-    (x: true); // error: we don't know the truthiness of x
+    (x: true);      // error: we don't know the truthiness of x
   }
   if (typeof x === "boolean" && x) {
     (x: true); // ok
@@ -92,7 +92,7 @@ function false_(x: mixed) {
 
 function obj2(x: mixed) {
   if (typeof x === "object") {
-    (x: { [key: string]: mixed } | null);
+    (x: {[key: string]: mixed}|null);
     if (x !== null) {
       (x['foo']: string); // error, mixed
     }

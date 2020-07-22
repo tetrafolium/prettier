@@ -1,7 +1,7 @@
 class A {
-    abstract foo();
+  abstract foo();
 }
 
 class B {
-    abstract foo() {}
+  abstract foo() {}
 }

@@ -10,19 +10,23 @@ async function f() {
 }
 
 // "BinaryExpression"
-class a3 extends (b + c) {}
+class a3 extends (b + c) {
+}
 
 // "CallExpression"
-class a4 extends b() {}
+class a4 extends b
+() {}
 
 // "ClassExpression"
-class a5 extends class {} {}
+class a5 extends class {}
+{}
 
 // "ConditionalExpression"
 class a6 extends (b ? c : d) {}
 
 // "FunctionExpression"
-class a7 extends (function() {}) {}
+class a7 extends (function
+() {}) {}
 
 // "LogicalExpression"
 class a8 extends (b || c) {}

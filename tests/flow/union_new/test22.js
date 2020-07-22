@@ -2,20 +2,21 @@
 
 // refinement of disjoint unions
 
-type Empty = { }
+type Empty = {}
 
 type Success = {
-  type: 'SUCCESS';
-  result: string;
+  type: 'SUCCESS'; result : string;
 };
 
 type Error = {
   type: 'ERROR';
-} & Empty;
+}&Empty;
 
-export type T = Success | Error;
+export type T = Success|Error;
 
 function foo(x: T) {
-  if (x.type === 'SUCCESS') return x.result;
-  else return x.result;
+  if (x.type === 'SUCCESS')
+    return x.result;
+  else
+    return x.result;
 }

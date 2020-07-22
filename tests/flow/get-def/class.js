@@ -1,7 +1,7 @@
 // @flow
 
 class Foo {
-  prop: ?string;
+  prop:? string;
   #privateProp: number;
   fun(): void {
     this.#privateProp;
@@ -22,6 +22,4 @@ function f(x: ?Foo): void {
   x.fun();
 }
 
-function f(x: Foo | null | void): void {
-  x.fun();
-}
+function f(x: Foo|null|void): void { x.fun(); }

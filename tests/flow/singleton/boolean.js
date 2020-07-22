@@ -1,20 +1,18 @@
 /* @flow */
 
-function veryOptimistic(isThisAwesome: true): boolean {
-  return isThisAwesome;
-}
+function veryOptimistic(isThisAwesome: true): boolean { return isThisAwesome; }
 
-var x : boolean = veryOptimistic(true);
-var y : boolean = veryOptimistic(false); // error
+var x: boolean = veryOptimistic(true);
+var y: boolean = veryOptimistic(false); // error
 
 function veryPessimistic(isThisAwesome: true): boolean {
   return !isThisAwesome; // test bool conversion
 }
 
-var x : boolean = veryPessimistic(true);
-var y : boolean = veryPessimistic(false); // error
+var x: boolean = veryPessimistic(true);
+var y: boolean = veryPessimistic(false); // error
 
-type MyOwnBooleanLOL = true | false
+type MyOwnBooleanLOL = true|false
 
 function bar(x: MyOwnBooleanLOL): false {
   if (x) {

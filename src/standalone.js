@@ -1,9 +1,9 @@
 "use strict";
 
-const { version } = require("../package.json");
+const {version} = require("../package.json");
 
 const core = require("./main/core");
-const { getSupportInfo } = require("./main/support");
+const {getSupportInfo} = require("./main/support");
 const sharedUtil = require("./common/util-shared");
 
 const doc = require("./document");
@@ -19,8 +19,8 @@ const internalPlugins = [
 ];
 
 function withPlugins(
-  fn,
-  optsArgIdx = 1 // Usually `opts` is the 2nd argument
+    fn,
+    optsArgIdx = 1 // Usually `opts` is the 2nd argument
 ) {
   return (...args) => {
     const opts = args[optsArgIdx] || {};
@@ -28,7 +28,7 @@ function withPlugins(
 
     args[optsArgIdx] = {
       ...opts,
-      plugins: [
+      plugins : [
         ...internalPlugins,
         ...(Array.isArray(plugins) ? plugins : Object.values(plugins)),
       ],
@@ -43,28 +43,26 @@ const formatWithCursor = withPlugins(core.formatWithCursor);
 module.exports = {
   formatWithCursor,
 
-  format(text, opts) {
-    return formatWithCursor(text, opts).formatted;
-  },
+  format(text, opts) { return formatWithCursor(text, opts).formatted; },
 
   check(text, opts) {
-    const { formatted } = formatWithCursor(text, opts);
+    const {formatted} = formatWithCursor(text, opts);
     return formatted === text;
   },
 
   doc,
 
-  getSupportInfo: withPlugins(getSupportInfo, 0),
+  getSupportInfo : withPlugins(getSupportInfo, 0),
 
   version,
 
-  util: sharedUtil,
+  util : sharedUtil,
 
-  __debug: {
-    parse: withPlugins(core.parse),
-    formatAST: withPlugins(core.formatAST),
-    formatDoc: withPlugins(core.formatDoc),
-    printToDoc: withPlugins(core.printToDoc),
-    printDocToString: withPlugins(core.printDocToString),
+  __debug : {
+    parse : withPlugins(core.parse),
+    formatAST : withPlugins(core.formatAST),
+    formatDoc : withPlugins(core.formatDoc),
+    printToDoc : withPlugins(core.printToDoc),
+    printDocToString : withPlugins(core.printDocToString),
   },
 };

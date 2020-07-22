@@ -1,8 +1,8 @@
 "use strict";
 
 const NODES_KEYS = {
-  attrs: true,
-  children: true,
+  attrs : true,
+  children : true,
 };
 
 class Node {
@@ -22,10 +22,12 @@ class Node {
       this[key] = cloneAndUpdateNodes(nodes, this);
       if (key === "attrs") {
         setNonEnumerableProperties(this, {
-          attrMap: this[key].reduce((reduced, attr) => {
-            reduced[attr.fullName] = attr.value;
-            return reduced;
-          }, Object.create(null)),
+          attrMap : this[key].reduce(
+              (reduced, attr) => {
+                reduced[attr.fullName] = attr.value;
+                return reduced;
+              },
+              Object.create(null)),
         });
       }
     }
@@ -53,7 +55,7 @@ class Node {
           newNode[key] = this[key];
         }
       }
-      const { index, siblings, prev, next, parent } = this;
+      const {index, siblings, prev, next, parent} = this;
       setNonEnumerableProperties(newNode, {
         index,
         siblings,
@@ -67,19 +69,18 @@ class Node {
   }
 
   clone(overrides) {
-    return new Node(overrides ? { ...this, ...overrides } : this);
+    return new Node(overrides ? {...this, ...overrides} : this);
   }
 
   get firstChild() {
-    return this.children && this.children.length !== 0
-      ? this.children[0]
-      : null;
+    return this.children && this.children.length !== 0 ? this.children[0]
+                                                       : null;
   }
 
   get lastChild() {
     return this.children && this.children.length !== 0
-      ? this.children[this.children.length - 1]
-      : null;
+               ? this.children[this.children.length - 1]
+               : null;
   }
 
   // for element and attribute
@@ -93,15 +94,13 @@ class Node {
 
 function mapNodesIfChanged(nodes, fn) {
   const newNodes = nodes.map(fn);
-  return newNodes.some((newNode, index) => newNode !== nodes[index])
-    ? newNodes
-    : nodes;
+  return newNodes.some((newNode, index) => newNode !== nodes[index]) ? newNodes
+                                                                     : nodes;
 }
 
 function cloneAndUpdateNodes(nodes, parent) {
-  const siblings = nodes.map((node) =>
-    node instanceof Node ? node.clone() : new Node(node)
-  );
+  const siblings =
+      nodes.map((node) => node instanceof Node ? node.clone() : new Node(node));
 
   let prev = null;
   let current = siblings[0];
@@ -125,7 +124,7 @@ function cloneAndUpdateNodes(nodes, parent) {
 
 function setNonEnumerableProperties(obj, props) {
   const descriptors = Object.keys(props).reduce((reduced, key) => {
-    reduced[key] = { value: props[key], enumerable: false };
+    reduced[key] = {value : props[key], enumerable : false};
     return reduced;
   }, {});
   Object.defineProperties(obj, descriptors);

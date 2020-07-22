@@ -27,11 +27,11 @@ class MyDuplex extends stream.Duplex {}
 class MyTransform extends stream.Duplex {}
 
 new MyReadStream()
-  .pipe(new MyDuplex())
-  .pipe(new MyTransform())
-  .pipe(new MyWriteStream());
+    .pipe(new MyDuplex())
+    .pipe(new MyTransform())
+    .pipe(new MyWriteStream());
 
 new MyReadStream()
-  .on('error', () => {})
-  .pipe(new MyDuplex())
-  .once('close', () => {});
+    .on('error', () => {})
+    .pipe(new MyDuplex())
+    .once('close', () => {});

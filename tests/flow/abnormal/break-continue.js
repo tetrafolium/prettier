@@ -1,7 +1,10 @@
 function foo() {
-    while(true) { break; }
+  while (true) {
+    break;
+  }
 }
 
 function bar() {
-    L: do { continue L; } while(false)
+  L: do { continue L; }
+  while (false)
 }

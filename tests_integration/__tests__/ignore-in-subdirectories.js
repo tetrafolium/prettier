@@ -11,7 +11,7 @@ describe("ignores files when executing in a subdirectory", () => {
     "../.prettierignore",
     "-l",
   ]).test({
-    status: 0,
+    status : 0,
   });
 
   runPrettier("cli/ignore-in-subdirectories/web1", [
@@ -20,7 +20,7 @@ describe("ignores files when executing in a subdirectory", () => {
     "../.prettierignore",
     "-l",
   ]).test({
-    status: 0,
+    status : 0,
   });
 });
 
@@ -31,7 +31,7 @@ describe("formats files when executing in a subdirectory", () => {
     "../.prettierignore",
     "-l",
   ]).test({
-    status: 1,
+    status : 1,
   });
 
   runPrettier("cli/ignore-in-subdirectories/web2", [
@@ -40,38 +40,41 @@ describe("formats files when executing in a subdirectory", () => {
     "../.prettierignore",
     "-l",
   ]).test({
-    status: 1,
+    status : 1,
   });
 });
 
-describe("ignore files when executing in a subdirectory and using stdin", () => {
-  runPrettier(
-    "cli/ignore-in-subdirectories/web1",
-    [
-      "--ignore-path",
-      "../.prettierignore",
-      "--stdin-filepath",
-      "ignore-me/example.js",
-    ],
-    {
-      input: "hello_world( );",
-    }
-  ).test({
-    stdout: "hello_world( );",
-    status: 0,
-  });
-});
+describe("ignore files when executing in a subdirectory and using stdin",
+         () => {
+           runPrettier("cli/ignore-in-subdirectories/web1",
+                       [
+                         "--ignore-path",
+                         "../.prettierignore",
+                         "--stdin-filepath",
+                         "ignore-me/example.js",
+                       ],
+                       {
+                         input : "hello_world( );",
+                       })
+               .test({
+                 stdout : "hello_world( );",
+                 status : 0,
+               });
+         });
 
-describe("formats files when executing in a subdirectory and using stdin", () => {
-  runPrettier(
-    "cli/ignore-in-subdirectories/web1",
-    ["--ignore-path", "../.prettierignore", "--stdin-filepath", "example.js"],
-    {
-      input: "hello_world( );",
-    }
-  ).test({
-    stdout: `hello_world();
+describe("formats files when executing in a subdirectory and using stdin",
+         () => {
+           runPrettier("cli/ignore-in-subdirectories/web1",
+                       [
+                         "--ignore-path", "../.prettierignore",
+                         "--stdin-filepath", "example.js"
+                       ],
+                       {
+                         input : "hello_world( );",
+                       })
+               .test({
+                 stdout : `hello_world();
 `,
-    status: 0,
-  });
-});
+                 status : 0,
+               });
+         });

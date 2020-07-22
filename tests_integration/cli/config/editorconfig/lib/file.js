@@ -1,3 +1,1 @@
-function f() {
-  console.log("should have space width 2");
-}
+function f() { console.log("should have space width 2"); }

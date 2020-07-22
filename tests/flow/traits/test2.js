@@ -1,2 +1,2 @@
-declare interface I { }
-declare class C mixins I { }
+declare interface I {}
+declare class C mixins I {}

@@ -1,6 +1,6 @@
 const obj = {
-  foo: "",
-  [foo.bar]: ""
+  foo : "",
+  [foo.bar] : ""
 };
 
 class Foo {

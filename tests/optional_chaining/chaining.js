@@ -56,11 +56,13 @@ a?.[b ? c : d];
 (void fn)?.();
 (a && b)?.();
 (a ? b : c)?.();
-(function(){})?.();
+(function() {})?.();
 (() => f)?.();
-(()=>f)?.x;
+(() => f)?.x;
 (a?.(x)).x;
-(aaaaaaaaaaaaaaaaaaaaaaaa&&aaaaaaaaaaaaaaaaaaaaaaaa&&aaaaaaaaaaaaaaaaaaaaaaaa)?.();
+(aaaaaaaaaaaaaaaaaaaaaaaa && aaaaaaaaaaaaaaaaaaaaaaaa &&
+ aaaaaaaaaaaaaaaaaaaaaaaa)
+    ?.();
 
 let f = () => ({}?.());
 let g = () => ({}?.b);
@@ -76,7 +78,7 @@ a = () => ({}?.b() && a);
 (x) => ({}?.b());
 (x) => ({}?.b.b);
 ({}?.a().b());
-({ a: 1 }?.entries());
+({a : 1}?.entries());
 
 new (foo?.bar)();
 new (foo?.bar())();

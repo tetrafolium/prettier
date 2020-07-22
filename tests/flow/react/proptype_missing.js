@@ -19,13 +19,16 @@ var Foo = React.createClass({
     // So this would have been an error in 0.21.0 if we didn't make this.props
     // Object
     switch (this.props.name) {
-      case 'a': return 'Bob';
-      default: return 'Alice';
+    case 'a':
+      return 'Bob';
+    default:
+      return 'Alice';
     }
-  },
+  }
+  ,
 
-  render() {
+      render() {
     // But this never errored
-    return <div id={this.props.name} />;
+    return < div id = { this.props.name } />;
   }
 });

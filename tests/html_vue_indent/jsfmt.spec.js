@@ -1,2 +1,2 @@
-run_spec(__dirname, ["vue"], { vueIndentScriptAndStyle: true });
-run_spec(__dirname, ["vue"], { vueIndentScriptAndStyle: false });
+run_spec(__dirname, [ "vue" ], {vueIndentScriptAndStyle : true});
+run_spec(__dirname, [ "vue" ], {vueIndentScriptAndStyle : false});

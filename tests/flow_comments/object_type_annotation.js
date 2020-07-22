@@ -1,9 +1,10 @@
 type Props1 = // (DispatchProps & StateProps); WHY DON'T YOU WORK FLOW!!!!!!!!!
-{
-  isPlaying: boolean,
-};
+    {
+      isPlaying: boolean,
+    };
 
-type Props2 = { // (DispatchProps & StateProps); WHY DON'T YOU WORK FLOW!!!!!!!!!
+type Props2 = {
+  // (DispatchProps & StateProps); WHY DON'T YOU WORK FLOW!!!!!!!!!
   isPlaying: boolean
 };
 

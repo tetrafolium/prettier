@@ -16,25 +16,24 @@ function flattenDoc(doc) {
       }
     }
 
-    return { ...doc, parts: res };
+    return {...doc, parts : res};
   } else if (doc.type === "if-break") {
     return {
       ...doc,
-      breakContents:
-        doc.breakContents != null ? flattenDoc(doc.breakContents) : null,
-      flatContents:
-        doc.flatContents != null ? flattenDoc(doc.flatContents) : null,
+      breakContents : doc.breakContents != null ? flattenDoc(doc.breakContents)
+                                                : null,
+      flatContents : doc.flatContents != null ? flattenDoc(doc.flatContents)
+                                              : null,
     };
   } else if (doc.type === "group") {
     return {
       ...doc,
-      contents: flattenDoc(doc.contents),
-      expandedStates: doc.expandedStates
-        ? doc.expandedStates.map(flattenDoc)
-        : doc.expandedStates,
+      contents : flattenDoc(doc.contents),
+      expandedStates : doc.expandedStates ? doc.expandedStates.map(flattenDoc)
+                                          : doc.expandedStates,
     };
   } else if (doc.contents) {
-    return { ...doc, contents: flattenDoc(doc.contents) };
+    return {...doc, contents : flattenDoc(doc.contents)};
   }
   return doc;
 }
@@ -75,43 +74,32 @@ function printDoc(doc) {
 
   if (doc.type === "align") {
     return doc.n === -Infinity
-      ? "dedentToRoot(" + printDoc(doc.contents) + ")"
-      : doc.n < 0
-      ? "dedent(" + printDoc(doc.contents) + ")"
-      : doc.n.type === "root"
-      ? "markAsRoot(" + printDoc(doc.contents) + ")"
-      : "align(" + JSON.stringify(doc.n) + ", " + printDoc(doc.contents) + ")";
+               ? "dedentToRoot(" + printDoc(doc.contents) + ")"
+               : doc.n < 0 ? "dedent(" + printDoc(doc.contents) + ")"
+                           : doc.n.type === "root"
+                                 ? "markAsRoot(" + printDoc(doc.contents) + ")"
+                                 : "align(" + JSON.stringify(doc.n) + ", " +
+                                       printDoc(doc.contents) + ")";
   }
 
   if (doc.type === "if-break") {
-    return (
-      "ifBreak(" +
-      printDoc(doc.breakContents) +
-      (doc.flatContents ? ", " + printDoc(doc.flatContents) : "") +
-      ")"
-    );
+    return ("ifBreak(" + printDoc(doc.breakContents) +
+            (doc.flatContents ? ", " + printDoc(doc.flatContents) : "") + ")");
   }
 
   if (doc.type === "group") {
     if (doc.expandedStates) {
-      return (
-        "conditionalGroup(" +
-        "[" +
-        doc.expandedStates.map(printDoc).join(",") +
-        "])"
-      );
+      return ("conditionalGroup(" +
+              "[" + doc.expandedStates.map(printDoc).join(",") + "])");
     }
 
-    return (
-      (doc.break ? "wrappedGroup" : "group") +
-      "(" +
-      printDoc(doc.contents) +
-      ")"
-    );
+    return ((doc.break ? "wrappedGroup" : "group") + "(" +
+            printDoc(doc.contents) + ")");
   }
 
   if (doc.type === "fill") {
-    return "fill" + "(" + doc.parts.map(printDoc).join(", ") + ")";
+    return "fill" +
+           "(" + doc.parts.map(printDoc).join(", ") + ")";
   }
 
   if (doc.type === "line-suffix") {
@@ -126,7 +114,5 @@ function printDoc(doc) {
 }
 
 module.exports = {
-  printDocToDebug(doc) {
-    return printDoc(flattenDoc(doc));
-  },
+  printDocToDebug(doc) { return printDoc(flattenDoc(doc)); },
 };

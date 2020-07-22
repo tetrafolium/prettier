@@ -21,22 +21,19 @@ test("shared util has correct structure", () => {
   expect(typeof sharedUtil.isNextLineEmpty).toEqual("function");
   expect(typeof sharedUtil.isNextLineEmptyAfterIndex).toEqual("function");
   expect(typeof sharedUtil.isPreviousLineEmpty).toEqual("function");
-  expect(typeof sharedUtil.getNextNonSpaceNonCommentCharacterIndex).toEqual(
-    "function"
-  );
+  expect(typeof sharedUtil.getNextNonSpaceNonCommentCharacterIndex)
+      .toEqual("function");
   expect(typeof sharedUtil.makeString).toEqual("function");
 });
 
 test("sharedUtil.getMaxContinuousCount", () => {
-  const { getMaxContinuousCount } = sharedUtil;
+  const {getMaxContinuousCount} = sharedUtil;
 
   expect(getMaxContinuousCount("|---|--|-|--|---|", "-")).toEqual(3);
   expect(getMaxContinuousCount("|...|", ".")).toEqual(3);
 
   const fixture = [
-    "([a-f])([a-f])",
-    "[a-f][a-f][a-f]",
-    "a-fa-fa-fa-f",
+    "([a-f])([a-f])", "[a-f][a-f][a-f]", "a-fa-fa-fa-f",
     "bbbbbbbbbbbbbbbbbb", // neither `a-f` `[a-f]` `([a-f])` should matches `b`
   ].join("");
   expect(getMaxContinuousCount(fixture, "([a-f])")).toEqual(2);

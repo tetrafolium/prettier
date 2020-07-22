@@ -4,23 +4,21 @@ const chalk = require("chalk");
 const dedent = require("dedent");
 const fetch = require("node-fetch");
 const execa = require("execa");
-const { logPromise } = require("../utils");
+const {logPromise} = require("../utils");
 
 const SCHEMA_REPO = "SchemaStore/schemastore";
 const SCHEMA_PATH = "src/schemas/json/prettierrc.json";
-const RAW_URL = `https://raw.githubusercontent.com/${SCHEMA_REPO}/master/${SCHEMA_PATH}`;
+const RAW_URL =
+    `https://raw.githubusercontent.com/${SCHEMA_REPO}/master/${SCHEMA_PATH}`;
 const EDIT_URL = `https://github.com/${SCHEMA_REPO}/edit/master/${SCHEMA_PATH}`;
 
 // Any optional or manual step can be warned in this script.
 
 async function checkSchema() {
-  const schema = await execa.stdout("node", ["scripts/generate-schema.js"]);
+  const schema = await execa.stdout("node", [ "scripts/generate-schema.js" ]);
   const remoteSchema = await logPromise(
-    "Checking current schema in SchemaStore",
-    fetch(RAW_URL)
-      .then((r) => r.text())
-      .then((t) => t.trim())
-  );
+      "Checking current schema in SchemaStore",
+      fetch(RAW_URL).then((r) => r.text()).then((t) => t.trim()));
 
   if (schema === remoteSchema) {
     return;
@@ -44,8 +42,8 @@ function twitterAnnouncement() {
   `);
 }
 
-module.exports = async function () {
-  const steps = [await checkSchema(), twitterAnnouncement()].filter(Boolean);
+module.exports = async function() {
+  const steps = [ await checkSchema(), twitterAnnouncement() ].filter(Boolean);
 
   console.log(chalk.bold.green("The script has finished!\n"));
 
@@ -53,13 +51,10 @@ module.exports = async function () {
     return;
   }
 
-  console.log(
-    dedent(chalk`
+  console.log(dedent(chalk`
       {yellow.bold The following ${
-        steps.length === 1 ? "step is" : "steps are"
-      } optional.}
+      steps.length === 1 ? "step is" : "steps are"} optional.}
 
       ${steps.join("\n\n")}
-    `)
-  );
+    `));
 };

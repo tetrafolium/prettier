@@ -1,4 +1,2 @@
 function f(x: string): void;
-function f(x: string): number {
-    return 0;
-} 
+function f(x: string): number { return 0; }

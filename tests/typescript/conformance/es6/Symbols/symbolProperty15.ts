@@ -1,7 +1,7 @@
 //@target: ES6
-class C { }
+class C {}
 interface I {
-    [Symbol.iterator]?: { x };
+  [Symbol.iterator]?: {x};
 }
 
 declare function foo(i: I): I;

@@ -20,9 +20,8 @@ const replaceCWD = (text) => {
 };
 
 module.exports = {
-  test: (value) =>
-    typeof value === "string" &&
-    (value.includes("\\") || value.includes(process.cwd())),
-  print: (value, serializer) =>
-    serializer(replaceCWD(value).replace(/\\/g, "/")),
+  test : (value) => typeof value === "string" &&
+                    (value.includes("\\") || value.includes(process.cwd())),
+  print : (value, serializer) =>
+      serializer(replaceCWD(value).replace(/\\/g, "/")),
 };

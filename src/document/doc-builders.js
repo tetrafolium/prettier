@@ -16,12 +16,10 @@
  */
 function assertDoc(val) {
   /* istanbul ignore if */
-  if (
-    !(typeof val === "string" || (val != null && typeof val.type === "string"))
-  ) {
-    throw new Error(
-      "Value " + JSON.stringify(val) + " is not a valid document"
-    );
+  if (!(typeof val === "string" ||
+        (val != null && typeof val.type === "string"))) {
+    throw new Error("Value " + JSON.stringify(val) +
+                    " is not a valid document");
   }
 }
 
@@ -40,7 +38,7 @@ function concat(parts) {
   //   // If it's a single document, no need to concat it.
   //   return parts[0];
   // }
-  return { type: "concat", parts };
+  return {type : "concat", parts};
 }
 
 /**
@@ -52,7 +50,7 @@ function indent(contents) {
     assertDoc(contents);
   }
 
-  return { type: "indent", contents };
+  return {type : "indent", contents};
 }
 
 /**
@@ -65,7 +63,7 @@ function align(n, contents) {
     assertDoc(contents);
   }
 
-  return { type: "align", contents, n };
+  return {type : "align", contents, n};
 }
 
 /**
@@ -81,11 +79,11 @@ function group(contents, opts) {
   }
 
   return {
-    type: "group",
-    id: opts.id,
+    type : "group",
+    id : opts.id,
     contents,
-    break: !!opts.shouldBreak,
-    expandedStates: opts.expandedStates,
+    break : !!opts.shouldBreak,
+    expandedStates : opts.expandedStates,
   };
 }
 
@@ -93,9 +91,7 @@ function group(contents, opts) {
  * @param {Doc} contents
  * @returns Doc
  */
-function dedentToRoot(contents) {
-  return align(-Infinity, contents);
-}
+function dedentToRoot(contents) { return align(-Infinity, contents); }
 
 /**
  * @param {Doc} contents
@@ -103,16 +99,14 @@ function dedentToRoot(contents) {
  */
 function markAsRoot(contents) {
   // @ts-ignore - TBD ???:
-  return align({ type: "root" }, contents);
+  return align({type : "root"}, contents);
 }
 
 /**
  * @param {Doc} contents
  * @returns Doc
  */
-function dedent(contents) {
-  return align(-1, contents);
-}
+function dedent(contents) { return align(-1, contents); }
 
 /**
  * @param {Doc[]} states
@@ -120,7 +114,7 @@ function dedent(contents) {
  * @returns Doc
  */
 function conditionalGroup(states, opts) {
-  return group(states[0], { ...opts, expandedStates: states });
+  return group(states[0], {...opts, expandedStates : states});
 }
 
 /**
@@ -132,7 +126,7 @@ function fill(parts) {
     parts.forEach(assertDoc);
   }
 
-  return { type: "fill", parts };
+  return {type : "fill", parts};
 }
 
 /**
@@ -154,10 +148,10 @@ function ifBreak(breakContents, flatContents, opts) {
   }
 
   return {
-    type: "if-break",
+    type : "if-break",
     breakContents,
     flatContents,
-    groupId: opts.groupId,
+    groupId : opts.groupId,
   };
 }
 
@@ -169,20 +163,34 @@ function lineSuffix(contents) {
   if (process.env.NODE_ENV !== "production") {
     assertDoc(contents);
   }
-  return { type: "line-suffix", contents };
+  return {type : "line-suffix", contents};
 }
 
-const lineSuffixBoundary = { type: "line-suffix-boundary" };
-const breakParent = { type: "break-parent" };
-const trim = { type: "trim" };
-const line = { type: "line" };
-const softline = { type: "line", soft: true };
-const hardline = concat([{ type: "line", hard: true }, breakParent]);
+const lineSuffixBoundary = {
+  type : "line-suffix-boundary"
+};
+const breakParent = {
+  type : "break-parent"
+};
+const trim = {
+  type : "trim"
+};
+const line = {
+  type : "line"
+};
+const softline = {
+  type : "line",
+  soft : true
+};
+const hardline = concat([ {type : "line", hard : true}, breakParent ]);
 const literalline = concat([
-  { type: "line", hard: true, literal: true },
+  {type : "line", hard : true, literal : true},
   breakParent,
 ]);
-const cursor = { type: "cursor", placeholder: Symbol("cursor") };
+const cursor = {
+  type : "cursor",
+  placeholder : Symbol("cursor")
+};
 
 /**
  * @param {Doc} sep

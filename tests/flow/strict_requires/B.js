@@ -1,2 +1,4 @@
 /* @flow */
-module.exports = { foo: "" }
+module.exports = {
+  foo : ""
+}

@@ -36,7 +36,7 @@ function* expandPatterns(context) {
   if (noResults) {
     // If there was no files and no other errors, let's yield a general error.
     yield {
-      error: `No matching files. Patterns: ${context.filePatterns.join(" ")}`,
+      error : `No matching files. Patterns: ${context.filePatterns.join(" ")}`,
     };
   }
 }
@@ -47,23 +47,26 @@ function* expandPatterns(context) {
 function* expandPatternsInternal(context) {
   // Ignores files in version control systems directories and `node_modules`
   const silentlyIgnoredDirs = {
-    ".git": true,
-    ".svn": true,
-    ".hg": true,
-    node_modules: context.argv["with-node-modules"] !== true,
+    ".git" : true,
+    ".svn" : true,
+    ".hg" : true,
+    node_modules : context.argv["with-node-modules"] !== true,
   };
 
   const globOptions = {
-    dot: true,
-    ignore: Object.keys(silentlyIgnoredDirs)
-      .filter((dir) => silentlyIgnoredDirs[dir])
-      .map((dir) => "**/" + dir),
+    dot : true,
+    ignore : Object.keys(silentlyIgnoredDirs)
+                 .filter((dir) => silentlyIgnoredDirs[dir])
+                 .map((dir) => "**/" + dir),
   };
 
   let supportedFilesGlob;
   const cwd = process.cwd();
 
-  /** @type {Array<{ type: 'file' | 'dir' | 'glob'; glob: string; input: string; }>} */
+  /**
+   * @type {Array<{ type: 'file' | 'dir' | 'glob'; glob: string; input: string;
+   *     }>}
+   */
   const entries = [];
 
   for (const pattern of context.filePatterns) {
@@ -77,18 +80,16 @@ function* expandPatternsInternal(context) {
     if (stat) {
       if (stat.isFile()) {
         entries.push({
-          type: "file",
-          glob: escapePathForGlob(fixWindowsSlashes(pattern)),
-          input: pattern,
+          type : "file",
+          glob : escapePathForGlob(fixWindowsSlashes(pattern)),
+          input : pattern,
         });
       } else if (stat.isDirectory()) {
         entries.push({
-          type: "dir",
-          glob:
-            escapePathForGlob(fixWindowsSlashes(pattern)) +
-            "/" +
-            getSupportedFilesGlob(),
-          input: pattern,
+          type : "dir",
+          glob : escapePathForGlob(fixWindowsSlashes(pattern)) + "/" +
+                     getSupportedFilesGlob(),
+          input : pattern,
         });
       }
     } else if (pattern[0] === "!") {
@@ -96,25 +97,25 @@ function* expandPatternsInternal(context) {
       globOptions.ignore.push(fixWindowsSlashes(pattern.slice(1)));
     } else {
       entries.push({
-        type: "glob",
-        glob: fixWindowsSlashes(pattern),
-        input: pattern,
+        type : "glob",
+        glob : fixWindowsSlashes(pattern),
+        input : pattern,
       });
     }
   }
 
-  for (const { type, glob, input } of entries) {
+  for (const {type, glob, input} of entries) {
     let result;
 
     try {
       result = fastGlob.sync(glob, globOptions);
-    } catch ({ message }) {
-      yield { error: `${errorMessages.globError[type]}: ${input}\n${message}` };
+    } catch ({message}) {
+      yield {error : `${errorMessages.globError[type]}: ${input}\n${message}`};
       continue;
     }
 
     if (result.length === 0) {
-      yield { error: `${errorMessages.emptyResults[type]}: "${input}".` };
+      yield {error : `${errorMessages.emptyResults[type]}: "${input}".`};
     } else {
       yield* sortPaths(result);
     }
@@ -122,30 +123,29 @@ function* expandPatternsInternal(context) {
 
   function getSupportedFilesGlob() {
     if (!supportedFilesGlob) {
-      const extensions = flat(
-        context.languages.map((lang) => lang.extensions || [])
-      );
-      const filenames = flat(
-        context.languages.map((lang) => lang.filenames || [])
-      );
-      supportedFilesGlob = `**/{${extensions
-        .map((ext) => "*" + (ext[0] === "." ? ext : "." + ext))
-        .concat(filenames)}}`;
+      const extensions =
+          flat(context.languages.map((lang) => lang.extensions || []));
+      const filenames =
+          flat(context.languages.map((lang) => lang.filenames || []));
+      supportedFilesGlob = `**/{${
+          extensions.map((ext) => "*" + (ext[0] === "." ? ext : "." + ext))
+              .concat(filenames)}}`;
     }
     return supportedFilesGlob;
   }
 }
 
 const errorMessages = {
-  globError: {
-    file: "Unable to resolve file",
-    dir: "Unable to expand directory",
-    glob: "Unable to expand glob pattern",
+  globError : {
+    file : "Unable to resolve file",
+    dir : "Unable to expand directory",
+    glob : "Unable to expand glob pattern",
   },
-  emptyResults: {
-    file: "Explicitly specified file was ignored due to negative glob patterns",
-    dir: "No supported files were found in the directory",
-    glob: "No files matching the pattern were found",
+  emptyResults : {
+    file :
+        "Explicitly specified file was ignored due to negative glob patterns",
+    dir : "No supported files were found in the directory",
+    glob : "No files matching the pattern were found",
   },
 };
 
@@ -155,18 +155,15 @@ const errorMessages = {
  * @param {Record<string, boolean>} ignoredDirectories
  */
 function containsIgnoredPathSegment(absolutePath, cwd, ignoredDirectories) {
-  return path
-    .relative(cwd, absolutePath)
-    .split(path.sep)
-    .some((dir) => ignoredDirectories[dir]);
+  return path.relative(cwd, absolutePath)
+      .split(path.sep)
+      .some((dir) => ignoredDirectories[dir]);
 }
 
 /**
  * @param {string[]} paths
  */
-function sortPaths(paths) {
-  return paths.sort((a, b) => a.localeCompare(b));
-}
+function sortPaths(paths) { return paths.sort((a, b) => a.localeCompare(b)); }
 
 /**
  * Get stats of a given path.
@@ -185,18 +182,19 @@ function statSafeSync(filePath) {
 }
 
 /**
- * This function should be replaced with `fastGlob.escapePath` when these issues are fixed:
+ * This function should be replaced with `fastGlob.escapePath` when these issues
+ * are fixed:
  * - https://github.com/mrmlnc/fast-glob/issues/261
  * - https://github.com/mrmlnc/fast-glob/issues/262
  * @param {string} path
  */
 function escapePathForGlob(path) {
   return fastGlob
-    .escapePath(
-      path.replace(/\\/g, "\0") // Workaround for fast-glob#262 (part 1)
-    )
-    .replace(/\\!/g, "@(!)") // Workaround for fast-glob#261
-    .replace(/\0/g, "@(\\\\)"); // Workaround for fast-glob#262 (part 2)
+      .escapePath(
+          path.replace(/\\/g, "\0") // Workaround for fast-glob#262 (part 1)
+          )
+      .replace(/\\!/g, "@(!)")    // Workaround for fast-glob#261
+      .replace(/\0/g, "@(\\\\)"); // Workaround for fast-glob#262 (part 2)
 }
 
 const isWindows = path.sep === "\\";

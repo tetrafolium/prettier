@@ -1,9 +1,7 @@
 class Greeter {
   greeting: string;
 
-  constructor(message: string) {
-    this.greeting = message;
-  }
+  constructor(message: string) { this.greeting = message; }
 
   @validate
   greet(@required name: string) {
@@ -11,7 +9,7 @@ class Greeter {
   }
 
   @validate
-  destructured(@required { toString }: Object) {
+  destructured(@required{toString}: Object) {
     return Function.prototype.toString.apply(toString);
   }
 }

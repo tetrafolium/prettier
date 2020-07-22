@@ -10,12 +10,12 @@ function guessEndOfLine(text) {
 
 function convertEndOfLineToChars(value) {
   switch (value) {
-    case "cr":
-      return "\r";
-    case "crlf":
-      return "\r\n";
-    default:
-      return "\n";
+  case "cr":
+    return "\r";
+  case "crlf":
+    return "\r\n";
+  default:
+    return "\n";
   }
 }
 

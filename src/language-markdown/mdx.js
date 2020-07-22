@@ -39,8 +39,8 @@ const tokenizeEsSyntax = (eat, value) => {
 
   if (isExport(subvalue) || isImport(subvalue)) {
     return eat(subvalue)({
-      type: isExport(subvalue) ? "export" : "import",
-      value: subvalue,
+      type : isExport(subvalue) ? "export" : "import",
+      value : subvalue,
     });
   }
 };
@@ -50,7 +50,7 @@ tokenizeEsSyntax.locator = (value /*, fromIndex*/) => {
 };
 
 function esSyntax() {
-  const { Parser } = this;
+  const {Parser} = this;
   const tokenizers = Parser.prototype.blockTokenizers;
   const methods = Parser.prototype.blockMethods;
 

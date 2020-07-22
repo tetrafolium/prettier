@@ -1,1 +1,4 @@
-     thisWillBeFormatted  <|>  (2  ,3,   )
+thisWillBeFormatted<|>(
+    2,
+    3,
+)

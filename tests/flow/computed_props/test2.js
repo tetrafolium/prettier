@@ -1,8 +1,8 @@
-var { ColorId, ColorNumber } = require('./test');
+var {ColorId, ColorNumber} = require('./test');
 var ColorIdToNumber = {
-  [ColorId.RED]: ColorNumber.RED,
-  [ColorId.GREEN]: ColorNumber.GREEN,
-  [ColorId.BLUE]: ColorNumber.BLUE,
+  [ColorId.RED] : ColorNumber.RED,
+  [ColorId.GREEN] : ColorNumber.GREEN,
+  [ColorId.BLUE] : ColorNumber.BLUE,
 };
 
 (ColorIdToNumber[ColorId.GREEN]: 'ffffff'); // oops

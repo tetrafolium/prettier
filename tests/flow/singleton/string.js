@@ -1,7 +1,5 @@
 /* @flow */
 
-type NoSpaces = "foobar"
-("foobar": NoSpaces);
+type NoSpaces = "foobar"("foobar": NoSpaces);
 
-type HasSpaces = "foo bar"
-("foo bar": HasSpaces);
+type HasSpaces = "foo bar"("foo bar": HasSpaces);

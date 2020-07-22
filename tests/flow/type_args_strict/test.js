@@ -13,9 +13,7 @@
 
 class MyClass<T> {
   x: T;
-  constructor(x: T) {
-    this.x = x;
-  }
+  constructor(x: T) { this.x = x; }
 }
 
 var c: MyClass = new MyClass(0); // error, missing argument list (1)
@@ -39,11 +37,15 @@ type MyObject<T> = {
   x: T;
 }
 
-var o: MyObject = { x: 0 }; // error, missing argument list
+var o: MyObject = {
+  x: 0
+}; // error, missing argument list
 
 // arity error in type alias rhs
 
-type MySubobject = { y: number } & MyObject; // error, missing argument list
+type MySubobject = {
+  y: number
+}&MyObject; // error, missing argument list
 
 // arity error in interface extends
 
@@ -59,13 +61,11 @@ interface MySubinterface extends MyInterface { // error, missing argument list
 
 class MySubclass extends MyClass { // ok, type arg inferred
   y: number;
-  constructor(y: number) {
-    super(y);
-  }
+  constructor(y: number) { super(y); }
 }
 
 // *no* arity error in call of polymorphic function
 
-function singleton<T>(x: T):Array<T> { return [x]; }
+function singleton<T>(x: T): Array<T> { return [ x ]; }
 
-var num_array:Array<number> = singleton(0); // ok, type arg inferred
+var num_array: Array<number> = singleton(0); // ok, type arg inferred

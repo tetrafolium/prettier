@@ -1,3 +1,3 @@
-class D { }
-class E { }
+class D {}
+class E {}
 new E().x

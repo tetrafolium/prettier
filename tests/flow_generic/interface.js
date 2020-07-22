@@ -1,2 +1,6 @@
-interface A { 'C': string; }
-interface B { "D": boolean; }
+interface A {
+  'C': string;
+}
+interface B {
+  "D": boolean;
+}

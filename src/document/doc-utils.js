@@ -4,7 +4,7 @@
 const traverseDocOnExitStackMarker = {};
 
 function traverseDoc(doc, onEnter, onExit, shouldTraverseConditionalGroups) {
-  const docsStack = [doc];
+  const docsStack = [ doc ];
 
   while (docsStack.length !== 0) {
     const doc = docsStack.pop();
@@ -60,14 +60,14 @@ function traverseDoc(doc, onEnter, onExit, shouldTraverseConditionalGroups) {
 function mapDoc(doc, cb) {
   if (doc.type === "concat" || doc.type === "fill") {
     const parts = doc.parts.map((part) => mapDoc(part, cb));
-    return cb({ ...doc, parts });
+    return cb({...doc, parts});
   } else if (doc.type === "if-break") {
     const breakContents = doc.breakContents && mapDoc(doc.breakContents, cb);
     const flatContents = doc.flatContents && mapDoc(doc.flatContents, cb);
-    return cb({ ...doc, breakContents, flatContents });
+    return cb({...doc, breakContents, flatContents});
   } else if (doc.contents) {
     const contents = mapDoc(doc.contents, cb);
-    return cb({ ...doc, contents });
+    return cb({...doc, contents});
   }
   return cb(doc);
 }
@@ -89,9 +89,7 @@ function findInDoc(doc, fn, defaultValue) {
   return result;
 }
 
-function isEmpty(n) {
-  return typeof n === "string" && n.length === 0;
-}
+function isEmpty(n) { return typeof n === "string" && n.length === 0; }
 
 function isLineNextFn(doc) {
   if (typeof doc === "string") {
@@ -102,9 +100,7 @@ function isLineNextFn(doc) {
   }
 }
 
-function isLineNext(doc) {
-  return findInDoc(doc, isLineNextFn, false);
-}
+function isLineNext(doc) { return findInDoc(doc, isLineNextFn, false); }
 
 function willBreakFn(doc) {
   if (doc.type === "group" && doc.break) {
@@ -118,9 +114,7 @@ function willBreakFn(doc) {
   }
 }
 
-function willBreak(doc) {
-  return findInDoc(doc, willBreakFn, false);
-}
+function willBreak(doc) { return findInDoc(doc, willBreakFn, false); }
 
 function breakParentGroup(groupStack) {
   if (groupStack.length > 0) {
@@ -157,12 +151,8 @@ function propagateBreaks(doc) {
       }
     }
   }
-  traverseDoc(
-    doc,
-    propagateBreaksOnEnterFn,
-    propagateBreaksOnExitFn,
-    /* shouldTraverseConditionalGroups */ true
-  );
+  traverseDoc(doc, propagateBreaksOnEnterFn, propagateBreaksOnExitFn,
+              /* shouldTraverseConditionalGroups */ true);
 }
 
 function removeLinesFn(doc) {
@@ -178,26 +168,21 @@ function removeLinesFn(doc) {
   return doc;
 }
 
-function removeLines(doc) {
-  return mapDoc(doc, removeLinesFn);
-}
+function removeLines(doc) { return mapDoc(doc, removeLinesFn); }
 
 function stripTrailingHardline(doc) {
   // HACK remove ending hardline, original PR: #1984
   if (doc.type === "concat" && doc.parts.length !== 0) {
     const lastPart = doc.parts[doc.parts.length - 1];
     if (lastPart.type === "concat") {
-      if (
-        lastPart.parts.length === 2 &&
-        lastPart.parts[0].hard &&
-        lastPart.parts[1].type === "break-parent"
-      ) {
-        return { type: "concat", parts: doc.parts.slice(0, -1) };
+      if (lastPart.parts.length === 2 && lastPart.parts[0].hard &&
+          lastPart.parts[1].type === "break-parent") {
+        return {type : "concat", parts : doc.parts.slice(0, -1)};
       }
 
       return {
-        type: "concat",
-        parts: doc.parts.slice(0, -1).concat(stripTrailingHardline(lastPart)),
+        type : "concat",
+        parts : doc.parts.slice(0, -1).concat(stripTrailingHardline(lastPart)),
       };
     }
   }

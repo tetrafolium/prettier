@@ -5,6 +5,6 @@
  */
 
 // non-flow files should not give parse errors
-var A = require("./Imported");          // non-Flow file @providesModule Foo
+var A = require("./Imported"); // non-Flow file @providesModule Foo
 
-var B = require("./ParseError");        // Flow file
+var B = require("./ParseError"); // Flow file

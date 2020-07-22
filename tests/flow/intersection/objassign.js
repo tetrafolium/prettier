@@ -8,4 +8,4 @@
 
 declare var x: ObjAssignT;
 
-let y: ObjAssignT = { ...x }; // should be fine
+let y: ObjAssignT = {...x}; // should be fine

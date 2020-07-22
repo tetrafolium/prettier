@@ -3,6 +3,6 @@
 @foo
 export default class MyComponent {
   @task
-  *foo() {
+      * foo() {
   }
 }

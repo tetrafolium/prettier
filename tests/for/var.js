@@ -1,1 +1,3 @@
-for (a in b) var c = {}; [];
+for (a in b)
+  var c = {};
+[];

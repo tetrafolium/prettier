@@ -1,18 +1,16 @@
 "use strict";
 
 const React = require("react");
-const { Container } = require("../../../core/CompLibrary.js");
+const {Container} = require("../../../core/CompLibrary.js");
 
 const siteConfig = require(process.cwd() + "/siteConfig.js");
 
 class Users extends React.Component {
   render() {
     const showcase = siteConfig.users.map((user, i) => {
-      return (
-        <a key={i} href={user.infoLink}>
-          <img src={user.image} title={user.caption} />
-        </a>
-      );
+      return (<a key = {i} href = {user.infoLink}>
+              <img src = {user.image} title = { user.caption } />
+        </a>);
     });
 
     return (
@@ -28,25 +26,21 @@ class Users extends React.Component {
                 <p>
                   A few of the{" "}
                   <a href="https://www.npmjs.com/browse/depended/prettier">
-                    many projects
-                  </a>{" "}
+    many projects</a>{" "}
                   using Prettier
                 </p>
-              </div>
-              <div className="logos">{showcase}</div>
-              <div className="prose">
-                <p>Are you using this project?</p>
-              </div>
-              <a
-                href={`${siteConfig.githubUrl}/edit/master/website/data/users.yml`}
-                className="button"
-              >
-                Add your company
-              </a>
-            </div>
-          </Container>
         </div>
-      </div>
+              <div className="logos">{showcase}</div>
+        <div className = "prose"><p>Are you using this project
+        ? </p>
+              </div>< a
+    href = {`${
+        siteConfig.githubUrl}/edit/master/website/data/users.yml`} className =
+        "button" > Add your company</a>
+            </div>
+        </Container>
+        </div><
+        /div>
     );
   }
 }

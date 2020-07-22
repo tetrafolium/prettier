@@ -3,29 +3,26 @@
 const chalk = require("chalk");
 const dedent = require("dedent");
 const execa = require("execa");
-const { logPromise, waitForEnter } = require("../utils");
+const {logPromise, waitForEnter} = require("../utils");
 
-module.exports = async function ({ dry, version }) {
+module.exports = async function({dry, version}) {
   if (dry) {
     return;
   }
 
-  await logPromise(
-    "Publishing to npm",
-    execa("npm", ["publish"], {
-      cwd: "./dist",
-      stdio: "inherit", // we need to input OTP if 2FA enabled
-    })
-  );
+  await logPromise("Publishing to npm", execa("npm", [ "publish" ], {
+                     cwd : "./dist",
+                     stdio : "inherit", // we need to input OTP if 2FA enabled
+                   }));
 
-  console.log(
-    dedent(chalk`
+  console.log(dedent(chalk`
       {green.bold Prettier ${version} published!}
 
       {yellow.bold Some manual steps are necessary.}
 
       {bold.underline Create a GitHub Release}
-      - Go to {cyan.underline https://github.com/prettier/prettier/releases/new?tag=${version}}
+      - Go to {cyan.underline https://github.com/prettier/prettier/releases/new?tag=${
+      version}}
       - Copy release notes from {yellow CHANGELOG.md}
       - Press {bgGreen.black  Publish release }
 
@@ -35,7 +32,6 @@ module.exports = async function ({ dry, version }) {
 
       After that, we can proceed to bump this repo's Prettier dependency.
       Press ENTER to continue.
-    `)
-  );
+    `));
   await waitForEnter();
 };

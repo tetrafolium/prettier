@@ -1,5 +1,5 @@
 function foo(x: boolean) {
-  var arr = [1, 2, 3];
+  var arr = [ 1, 2, 3 ];
   for (var elem of arr) {
     if (x) {
       continue;
@@ -24,11 +24,9 @@ function baz(x: boolean) {
 }
 
 function bliffl(x: boolean) {
-  var arr = [1, 2, 3];
+  var arr = [ 1, 2, 3 ];
   loop1: for (var elem of arr) {
-    loop2: for (var elem of arr) {
-      break loop1;
-    }
+    loop2: for (var elem of arr) { break loop1; }
     console.log('this is still reachable');
   }
   console.log('this is still reachable');

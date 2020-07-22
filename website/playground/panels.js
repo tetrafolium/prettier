@@ -13,18 +13,16 @@ class CodeMirrorPanel extends React.Component {
   }
 
   componentDidMount() {
-    const options = { ...this.props };
+    const options = {...this.props};
     delete options.ruler;
     delete options.rulerColor;
     delete options.value;
     delete options.onChange;
 
-    options.rulers = [makeRuler(this.props)];
+    options.rulers = [ makeRuler(this.props) ];
 
-    this._codeMirror = CodeMirror.fromTextArea(
-      this._textareaRef.current,
-      options
-    );
+    this._codeMirror =
+        CodeMirror.fromTextArea(this._textareaRef.current, options);
     this._codeMirror.on("change", this.handleChange);
     this._codeMirror.on("focus", this.handleFocus);
 
@@ -35,25 +33,21 @@ class CodeMirrorPanel extends React.Component {
     this.updateOverlay();
   }
 
-  componentWillUnmount() {
-    this._codeMirror && this._codeMirror.toTextArea();
-  }
+  componentWillUnmount() { this._codeMirror && this._codeMirror.toTextArea(); }
 
   componentDidUpdate(prevProps) {
     if (this.props.value !== this._cached) {
       this.updateValue(this.props.value);
     }
-    if (
-      this.props.overlayStart !== prevProps.overlayStart ||
-      this.props.overlayEnd !== prevProps.overlayEnd
-    ) {
+    if (this.props.overlayStart !== prevProps.overlayStart ||
+        this.props.overlayEnd !== prevProps.overlayEnd) {
       this.updateOverlay();
     }
     if (this.props.mode !== prevProps.mode) {
       this._codeMirror.setOption("mode", this.props.mode);
     }
     if (this.props.ruler !== prevProps.ruler) {
-      this._codeMirror.setOption("rulers", [makeRuler(this.props)]);
+      this._codeMirror.setOption("rulers", [ makeRuler(this.props) ]);
     }
   }
 
@@ -91,11 +85,9 @@ class CodeMirrorPanel extends React.Component {
   }
 
   render() {
-    return (
-      <div className="editor input">
-        <textarea ref={this._textareaRef} />
-      </div>
-    );
+    return (<div className = "editor input">
+            <textarea ref = { this._textareaRef } />
+      </div>);
   }
 }
 
@@ -117,7 +109,7 @@ function getIndexPosition(text, indexes) {
       count++;
     }
 
-    result.push({ line, pos: count - lineStart });
+    result.push({line, pos : count - lineStart});
   }
 
   return result;
@@ -126,7 +118,7 @@ function getIndexPosition(text, indexes) {
 function createOverlay(start, end) {
   return {
     token(stream) {
-      const { line } = stream.lineOracle;
+      const {line} = stream.lineOracle;
 
       if (line < start.line || line > end.line) {
         stream.skipToEnd();
@@ -147,20 +139,20 @@ function createOverlay(start, end) {
 }
 
 function makeRuler(props) {
-  return { column: props.ruler, color: props.rulerColor };
+  return {column : props.ruler, color : props.rulerColor};
 }
 
 export function InputPanel(props) {
   return (
     <CodeMirrorPanel
-      lineNumbers={true}
-      keyMap="sublime"
+  lineNumbers = {true} keyMap = "sublime"
       autoCloseBrackets={true}
       matchBrackets={true}
       showCursorWhenSelecting={true}
       tabSize={4}
       rulerColor="#eeeeee"
-      {...props}
+      {
+    ...props}
     />
   );
 }
@@ -176,13 +168,10 @@ export function OutputPanel(props) {
   );
 }
 
-export function DebugPanel({ value }) {
+export function DebugPanel({value}) {
   return (
     <CodeMirrorPanel
-      readOnly={true}
-      lineNumbers={false}
-      mode="jsx"
-      value={value}
-    />
+  readOnly = {true} lineNumbers = {false} mode = "jsx"
+  value = { value } />
   );
 }

@@ -24,16 +24,16 @@ function foo4(): {[key: number]: number} {
 }
 
 // If key exists in object type then indexer is not matched
-function foo5(): {[key: string]: number; foo: string} {
+function foo5(): {[key: string]: number; foo : string} {
   return { foo: "bar" }
 }
 
 // If key exists in object type then indexer is not matched
-function foo6(): {[key: number]: number; foo: string} {
+function foo6(): {[key: number]: number; foo : string} {
   return { foo: "bar" }
 }
 
 // Should still complain about mistyped properties
-function foo7(): {[key: string]: number; foo: number} {
+function foo7(): {[key: string]: number; foo : number} {
   return { foo: "bar" }
 }

@@ -1,12 +1,12 @@
 /* @flow */
 
-(Object({foo: 'bar'}): {foo: string});
+(Object({foo : 'bar'}): {foo: string});
 (Object("123"): String);
 (Object(123): Number);
 (Object(true): Boolean);
 (Object(null): {});
 (Object(undefined): {});
-(Object(void(0)): {});
+(Object(void (0)): {});
 (Object(undefined): Number); // error
 
 var x = Object(null);

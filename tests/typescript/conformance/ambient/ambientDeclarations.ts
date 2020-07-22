@@ -17,10 +17,10 @@ declare function fn9(...q: {}[]);
 declare function fn10<T>(...q: T[]);
 
 declare class cls {
-    constructor();
-    method(): cls;
-    static static(p): number;
-    static q;
-    private fn();
-    private static fns();
+  constructor();
+  method(): cls;
+  static static(p): number;
+  static q;
+  private fn();
+  private static fns();
 }

@@ -1,4 +1,4 @@
 /* @providesModule test-lib */
 
-class C { }
+class C {}
 module.exports = C;

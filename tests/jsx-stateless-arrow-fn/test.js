@@ -54,20 +54,29 @@ React.render(
   , document.querySelector('#react-root')
 )
 
-
-const renderTernary = (props) =>
-  <BaseForm url="/auth/google" method="GET" colour="blue" size="large" submitLabel="Sign in with Google">
-    {props.showTheThing ?
-      <BaseForm url="/auth/google" method="GET" colour="blue" size="large" submitLabel="Sign in with Google">Hello world</BaseForm>
+const renderTernary = (props) => <
+    BaseForm url = "/auth/google" method = "GET" colour = "blue" size =
+        "large" submitLabel = "Sign in with Google">{
+    props.showTheThing
+        ? <BaseForm url = "/auth/google" method = "GET" colour = "blue" size =
+               "large" submitLabel = "Sign in with Google">Hello world <
+              /BaseForm>
       : "hello " + "howdy! "}
     {props.showTheThing ?
-      <BaseForm url="/auth/google" method="GET" colour="blue" size="large" submitLabel="Sign in with Google">Hello world</BaseForm>
-      :
-      null
+      <BaseForm url="/auth /
+                  google " method=" GET " colour=" blue " size=" large
+                         " submitLabel=" Sign in with Google
+                         ">Hello world</BaseForm>
+        : null} {
+  props.showTheThing
+      ? null
+      : <BaseForm url = "/auth/google" method = "GET" colour = "blue" size =
+             "large" submitLabel = "Sign in with Google">Hello
+            world<
+                /BaseForm>
     }
-    {props.showTheThing ? null :
-      <BaseForm url="/auth/google" method="GET" colour="blue" size="large" submitLabel="Sign in with Google">Hello world</BaseForm>
-    }
-    {props.showTheOtherThing ? <div>I am here</div> : <div attr="blah" />}
-    {props.showTheOtherThing ? <div>I am here!!</div> : null}
+    {props.showTheOtherThing ? <div>I am here</div>:
+                <div attr = "blah" />
+} {
+  props.showTheOtherThing ? <div>I am here!!</div> : null}
   </BaseForm>

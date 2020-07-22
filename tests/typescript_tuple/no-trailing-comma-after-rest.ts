@@ -1,8 +1,6 @@
 type ValidateArgs = [
-	{
-		[key: string]: any;
-	},
-	string,
-	string,
-	...string[],
+  { [key: string]: any; },
+  string,
+  string,
+  ...string[],
 ];

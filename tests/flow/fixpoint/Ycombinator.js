@@ -7,11 +7,11 @@ function Y(f) {
 }
 
 function func1(f) {
-  function fix_f(x:number):number { return f(x); }
+  function fix_f(x: number): number { return f(x); }
   return fix_f;
 }
 function func2(f) {
-  function fix_f(x:string):string { return f(x); }
+  function fix_f(x: string): string { return f(x); }
   return fix_f;
 }
 

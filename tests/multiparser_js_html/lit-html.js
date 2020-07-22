@@ -1,11 +1,7 @@
-import { LitElement, html } from '@polymer/lit-element';
+import {html, LitElement} from '@polymer/lit-element';
 
 class MyElement extends LitElement {
-  static get properties() {
-    return {
-      mood: { type: String }
-    };
-  }
+  static get properties() { return {mood : {type : String}}; }
 
   constructor() {
     super();
@@ -30,8 +26,8 @@ class MyElement extends LitElement {
       
       class="mood"      >${
         this.mood
-      
-      }</span
+
+    }</span
       
            >!
     `;
@@ -67,7 +63,9 @@ function HelloWorld() {
 }
 
 const trickyParens = html`<script> f((${expr}) / 2); </script>`;
-const nestedFun = /* HTML */ `${outerExpr( 1 )} <script>const tpl = html\`<div>\${innerExpr( 1 )} ${outerExpr( 2 )}</div>\`</script>`;
+const nestedFun = /* HTML */ `${
+    outerExpr(1)} <script>const tpl = html\`<div>\${innerExpr( 1 )} ${
+    outerExpr(2)}</div>\`</script>`;
 
 const closingScriptTagShouldBeEscapedProperly = /* HTML */ `
   <script>
@@ -75,17 +73,16 @@ const closingScriptTagShouldBeEscapedProperly = /* HTML */ `
   </script>
 `;
 
-const closingScriptTag2 = /* HTML */ `<script>const  scriptTag='<\\/script>'; <\/script>`;
+const closingScriptTag2 =
+    /* HTML */ `<script>const  scriptTag='<\\/script>'; <\/script>`;
 
 html`
  <div style="
- ${ foo}
+ ${foo}
 "></div>
 `
 html`
- <div style=${ 
-  foo
- }></div>
+ <div style=${foo}></div>
 `
 
 html`<div style="   color : red;
@@ -93,10 +90,10 @@ html`<div style="   color : red;
   </div>`
 
 html`<div style="   color : red;
-${ foo}
+${foo}
             display    :inline ">
   </div>`
 html`<div style="   color : red;
-${ foo}:${bar};
+${foo}:${bar};
             display    :inline ">
   </div>`

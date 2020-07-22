@@ -2,8 +2,9 @@
  * @flow
  */
 export type Comment = {
-  loc: ?SourceLocation,
-  value: string,
+  loc: ? SourceLocation,
+  value
+  : string,
   leading: boolean,
   trailing: boolean,
 };
@@ -11,8 +12,7 @@ export type Comment = {
 export type SourceLocation = {
   start: SourcePosition,
   end: SourcePosition,
-  source: ?string,
-};
+  source: ? string,};
 
 export type SourcePosition = {
   line: number,
@@ -62,91 +62,27 @@ export type BinaryOperator =
   | '..'
 ;
 
-export type UnaryOperator =
-  | '-'
-  | '+'
-  | '!'
-  | '~'
-  | 'typeof'
-  | 'void'
-  | 'delete'
-;
+export type UnaryOperator =|'-'|'+'|'!'|'~'|'typeof'|'void'|'delete';
 
 export type AssignmentOperator =
-  | '='
-  | '+='
-  | '-='
-  | '*='
-  | '/='
-  | '%='
-  | '<<='
-  | '>>='
-  | '>>>='
-  | '|='
-  | '^='
-  | '&='
-;
+    |'='|'+='|'-='|'*='|'/='|'%='|'<<='|'>>='|'>>>='|'|='|'^='|'&=';
 
-export type UpdateOperator =
-  | '++'
-  | '--'
-;
+export type UpdateOperator =|'++'|'--';
 
-export type LogicalOperator =
-  | '&&'
-  | '||'
-;
+export type LogicalOperator =|'&&'|'||';
 
-export type Node =
-  | EmptyStatement
-  | BlockStatement
-  | ExpressionStatement
-  | IfStatement
-  | BreakStatement
-  | ContinueStatement
-  | ReturnStatement
-  | ThrowStatement
-  | WhileStatement
-  | ForStatement
-  | ForInStatement
-  | TryStatement
-  | CatchClause
-  | Identifier
-  | Literal
-  | ThisExpression
-  | ArrayExpression
-  | ObjectExpreession
-  | Property
-  | FunctionExpression
-  | BinaryExpression
-  | UnaryExpression
-  | AssignmentExpression
-  | UpdateExpression
-  | LogicalExpression
-  | ConditionalExpression
-  | NewExpression
-  | CallExpression
-  | MemberExpression
-  | VariableDeclaration
-  | FunctionDeclaration
-  | VariableDeclarator
-;
+export type Node =|EmptyStatement|BlockStatement|ExpressionStatement|
+    IfStatement|BreakStatement|ContinueStatement|ReturnStatement|ThrowStatement|
+    WhileStatement|ForStatement|ForInStatement|TryStatement|CatchClause|
+    Identifier|Literal|ThisExpression|ArrayExpression|ObjectExpreession|
+    Property|FunctionExpression|BinaryExpression|UnaryExpression|
+    AssignmentExpression|UpdateExpression|LogicalExpression|
+    ConditionalExpression|NewExpression|CallExpression|MemberExpression|
+    VariableDeclaration|FunctionDeclaration|VariableDeclarator;
 
-export type Statement =
-  | BlockStatement
-  | EmptyStatement
-  | ExpressionStatement
-  | IfStatement
-  | BreakStatement
-  | ContinueStatement
-  | ReturnStatement
-  | ThrowStatement
-  | WhileStatement
-  | ForStatement
-  | ForInStatement
-  | TryStatement
-  | Declaration
-;
+export type Statement =|BlockStatement|EmptyStatement|ExpressionStatement|
+    IfStatement|BreakStatement|ContinueStatement|ReturnStatement|ThrowStatement|
+    WhileStatement|ForStatement|ForInStatement|TryStatement|Declaration;
 
 export type EmptyStatement = {
   source: ?string,
@@ -277,23 +213,10 @@ export type CatchClause = {
   body: BlockStatement,
 };
 
-export type Expression =
-  | Identifier
-  | ThisExpression
-  | Literal
-  | FunctionExpression
-  | BinaryExpression
-  | UnaryExpression
-  | AssignmentExpression
-  | UpdateExpression
-  | LogicalExpression
-  | ConditionalExpression
-  | NewExpression
-  | CallExpression
-  | MemberExpression
-  | ArrayExpression
-  | ObjectExpreession
-;
+export type Expression =|Identifier|ThisExpression|Literal|FunctionExpression|
+    BinaryExpression|UnaryExpression|AssignmentExpression|UpdateExpression|
+    LogicalExpression|ConditionalExpression|NewExpression|CallExpression|
+    MemberExpression|ArrayExpression|ObjectExpreession;
 
 export type Identifier = {
   source: ?string,
@@ -464,10 +387,7 @@ export type Pattern =
   | Identifier
 ;
 
-export type Declaration =
-  | VariableDeclaration
-  | FunctionDeclaration
-;
+export type Declaration =|VariableDeclaration|FunctionDeclaration;
 
 export type VariableDeclaration = {
   source: ?string,

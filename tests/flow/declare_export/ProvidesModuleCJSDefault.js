@@ -4,5 +4,5 @@
  */
 
 module.exports = {
-  numberValue: 42
+  numberValue : 42
 };

@@ -1,10 +1,9 @@
 // nested classes are not allowed
 
 class C {
-    x: string;
+  x: string;
 }
 
 function foo() {
-    class C3 {
-    }
+  class C3 {}
 }

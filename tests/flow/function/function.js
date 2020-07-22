@@ -20,14 +20,14 @@ function good(x: Function, MyThing: Function): number {
   x();
   <MyThing />;
   var {...something} = x;
-  Object.assign(x, {hi: 'there'});
+  Object.assign(x, {hi : 'there'});
   Object.keys(x);
   return x.bar + x['bar'] + x.lala();
 }
 
 function bad(x: Function, y: Object): void {
-  var a: number = x; // Error
-  var b: string = x; // Error
+  var a: number = x;   // Error
+  var b: string = x;   // Error
   var c: Function = y; // Object is not a Function
 }
 

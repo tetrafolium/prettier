@@ -4,10 +4,6 @@ export type ObjectType = {
   +m: () => void,
 };
 
-function methodCaller(x: ObjectType) {
-  x.m();
-};
+function methodCaller(x: ObjectType) { x.m(); };
 
-module.exports = id(
-  methodCaller
-);
+module.exports = id(methodCaller);

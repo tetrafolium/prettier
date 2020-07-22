@@ -1,3 +1,1 @@
-declare module 'foo' {
-  declare function bar(str: string): number;
-}
+declare module 'foo' { declare function bar(str: string): number; }

@@ -27,30 +27,32 @@
 // do not narrow the types of annotated variables as do
 // subsequent assignments.)
 //
-var x: { a: number, b?: number } = { a: 0 };
+var x: {a: number, b?: number} = {a : 0};
 
 // now assign an object literal lacking property b.
 // the literal's type is sealed and has only a at creation.
 // but it then flows, specific ~> general, to x's annotation
 // type. at that point, it acquires b as an optional property.
 //
-x = { a: 0 };
+x = {
+  a : 0
+};
 
 // ...which allows this assignment to take place.
 x.b = 1;
 
 // T7810506
 class A {
-    x: { a: number, b?: string };
-    foo() {
-        // Something similar should happen here, but doesn't: the problem is
-        // made explicit by adding generics (see test3_failure.js introduced by
-        // D2747512). There is a race between writing b on the object literal
-        // type and adding b as an optional property to it, since in general we
-        // cannot guarantee that the flow from the object literal to the
-        // annotation will be processed before the flow involving the
-        // access. Here we lose the race and get an error on the write.
-        this.x = { a: 123 };
-        this.x.b = 'hello';
-    }
+  x: {a: number, b?: string};
+  foo() {
+    // Something similar should happen here, but doesn't: the problem is
+    // made explicit by adding generics (see test3_failure.js introduced by
+    // D2747512). There is a race between writing b on the object literal
+    // type and adding b as an optional property to it, since in general we
+    // cannot guarantee that the flow from the object literal to the
+    // annotation will be processed before the flow involving the
+    // access. Here we lose the race and get an error on the write.
+    this.x = {a : 123};
+    this.x.b = 'hello';
+  }
 }

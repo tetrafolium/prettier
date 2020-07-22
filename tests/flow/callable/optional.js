@@ -3,8 +3,6 @@ type F = {
   p?: string;
 }
 
-function f(x) {
-  return x.length;
-}
+function f(x) { return x.length; }
 
 (f: F);

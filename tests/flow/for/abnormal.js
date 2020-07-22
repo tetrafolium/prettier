@@ -30,9 +30,7 @@ function baz(x: boolean) {
 function bliffl(x: boolean) {
   var max = 10;
   loop1: for (var ii = 0; ii < max; ii++) {
-    loop2: for (var jj = 0; jj < max; jj++) {
-      break loop1;
-    }
+    loop2: for (var jj = 0; jj < max; jj++) { break loop1; }
     console.log('this is still reachable');
   }
   console.log('this is still reachable');

@@ -1,6 +1,6 @@
 /* @flow */
 
-function num(x:number) { }
+function num(x: number) {}
 
 num(null * 1);
 num(1 * null);

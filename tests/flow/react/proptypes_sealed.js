@@ -10,15 +10,11 @@
 import React from "react";
 
 React.createClass({
-  propTypes: {
-    foo: React.PropTypes.string.isRequired,
+  propTypes : {
+    foo : React.PropTypes.string.isRequired,
   },
 
-  f() {
-    (this.props.baz: string);
-  },
+  f() { (this.props.baz: string); },
 
-  g() {
-    this.props.baz = 0;
-  }
+  g() { this.props.baz = 0; }
 });

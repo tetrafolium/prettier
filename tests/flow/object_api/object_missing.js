@@ -1,7 +1,5 @@
 // @flow
 
 let tests = [
-  function() {
-    Object.doesNotExist();
-  },
+  function() { Object.doesNotExist(); },
 ];

@@ -41,26 +41,22 @@ function run(args) {
 
     if (context.argv.help !== undefined) {
       context.logger.log(
-        typeof context.argv.help === "string" && context.argv.help !== ""
-          ? util.createDetailedUsage(context, context.argv.help)
-          : util.createUsage(context)
-      );
+          typeof context.argv.help === "string" && context.argv.help !== ""
+              ? util.createDetailedUsage(context, context.argv.help)
+              : util.createUsage(context));
       process.exit(0);
     }
 
     if (context.argv["support-info"]) {
-      context.logger.log(
-        prettier.format(stringify(prettier.getSupportInfo()), {
-          parser: "json",
-        })
-      );
+      context.logger.log(prettier.format(stringify(prettier.getSupportInfo()), {
+        parser : "json",
+      }));
       process.exit(0);
     }
 
     const hasFilePatterns = context.filePatterns.length !== 0;
-    const useStdin =
-      !hasFilePatterns &&
-      (!process.stdin.isTTY || context.args["stdin-filepath"]);
+    const useStdin = !hasFilePatterns &&
+                     (!process.stdin.isTTY || context.args["stdin-filepath"]);
 
     if (context.argv["find-config-path"]) {
       util.logResolvedConfigPathOrDie(context);

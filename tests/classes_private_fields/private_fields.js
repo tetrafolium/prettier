@@ -1,5 +1,11 @@
-class A { #x; #y; }
-class B { #x = 0; #y = 1; }
+class A {
+  #x;
+  #y;
+}
+class B {
+  #x = 0;
+  #y = 1;
+}
 
 class C {
   static #x;
@@ -28,7 +34,7 @@ class Point {
 
   equals(p) { return this.#x === p.#x && this.#y === p.#y }
 
-  toString() { return `Point<${ this.#x },${ this.#y }>` }
+  toString() { return `Point<${this.#x},${this.#y}>` }
 }
 
 class E {
@@ -36,14 +42,12 @@ class E {
   #b() {}
   get #c() {}
   set #c(bar) {}
-  *#d() {}
-  async *#e() {}
+  * #d() {}
+  async * #e() {}
   get #f() {}
   set #f(taz) {}
 }
 
 class F {
-  #func(id, { blog: { title } }) {
-    return id + title;
-  }
+  #func(id, {blog : {title}}) { return id + title; }
 }

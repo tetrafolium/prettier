@@ -1,4 +1,4 @@
-declare var gen: AsyncGenerator<void,string,void>;
+declare var gen: AsyncGenerator<void, string, void>;
 
 // You can pass whatever you like to return, it doesn't need to be related to
 // the AsyncGenerator's return type
@@ -8,7 +8,7 @@ gen.return(0).then(result => {
 
 // However, a generator can "refuse" the return by catching an exception and
 // yielding or returning internally.
-async function *refuse_return() {
+async function* refuse_return() {
   try {
     yield 1;
   } finally {

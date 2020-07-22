@@ -1,9 +1,9 @@
 class C {
-    constructor() { }
+  constructor() {}
 }
 
 class D {
-    constructor():number { }
+  constructor(): number {}
 }
 
 // the return type of a constructor overrides the type of the class

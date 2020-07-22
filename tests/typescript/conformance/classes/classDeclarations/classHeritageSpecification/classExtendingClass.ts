@@ -1,11 +1,11 @@
 class C {
-    foo: string;
-    thing() { }
-    static other() { }
+  foo: string;
+  thing() {}
+  static other() {}
 }
 
 class D extends C {
-    bar: string;
+  bar: string;
 }
 
 var d: D;
@@ -15,13 +15,13 @@ var r3 = d.thing();
 var r4 = D.other();
 
 class C2<T> {
-    foo: T;
-    thing(x: T) { }
-    static other<T>(x: T) { }
+  foo: T;
+  thing(x: T) {}
+  static other<T>(x: T) {}
 }
 
 class D2<T> extends C2<T> {
-    bar: string;
+  bar: string;
 }
 
 var d2: D2<string>;

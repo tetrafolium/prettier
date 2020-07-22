@@ -4,5 +4,5 @@
  */
 
 module.exports = Object.freeze({
-  numberValue1: 1,
+  numberValue1 : 1,
 });

@@ -1,1 +1,1 @@
-var [a, b] = [0, undefined];
+var [a, b] = [ 0, undefined ];

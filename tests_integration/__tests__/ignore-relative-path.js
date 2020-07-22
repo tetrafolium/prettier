@@ -13,6 +13,6 @@ describe("support relative paths", () => {
     "level1-glob/shouldNotBeIgnored.js",
     "-l",
   ]).test({
-    status: 1,
+    status : 1,
   });
 });

@@ -1,7 +1,7 @@
 "use strict";
 
 const createError = require("../common/parser-create-error");
-const { hasPragma } = require("./pragma");
+const {hasPragma} = require("./pragma");
 
 function parse(text) {
   try {
@@ -18,22 +18,21 @@ function parse(text) {
     return root;
   } catch (error) {
     // istanbul ignore next
-    throw error && error.position
-      ? createError(error.message, error.position)
-      : error;
+    throw error && error.position ? createError(error.message, error.position)
+                                  : error;
   }
 }
 
 const parser = {
-  astFormat: "yaml",
+  astFormat : "yaml",
   parse,
   hasPragma,
-  locStart: (node) => node.position.start.offset,
-  locEnd: (node) => node.position.end.offset,
+  locStart : (node) => node.position.start.offset,
+  locEnd : (node) => node.position.end.offset,
 };
 
 module.exports = {
-  parsers: {
-    yaml: parser,
+  parsers : {
+    yaml : parser,
   },
 };

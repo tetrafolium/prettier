@@ -2,7 +2,7 @@
  * @flow
  */
 
-requireLazy(['A', 'B'], function(A, B) {
+requireLazy([ 'A', 'B' ], function(A, B) {
   var num1: number = A.numberValueA;
   var str1: string = A.stringValueA;
   var num2: number = A.stringValueA; // Error: string ~> number
@@ -17,6 +17,6 @@ requireLazy(['A', 'B'], function(A, B) {
 var notA: Object = A;
 var notB: Object = B;
 
-requireLazy(); // Error: No args
-requireLazy([nope], function() {}); // Error: Non-stringliteral args
-requireLazy(['A']); // Error: No callback expression
+requireLazy();                        // Error: No args
+requireLazy([ nope ], function() {}); // Error: Non-stringliteral args
+requireLazy([ 'A' ]);                 // Error: No callback expression

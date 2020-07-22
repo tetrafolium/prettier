@@ -1,15 +1,15 @@
 interface I {
-    "string": "I";
+  "string": "I";
 }
 
 type T = {
-    "string": "T";
+  "string": "T";
 }
 
 interface A {
-    'string': "A";
+  'string': "A";
 }
 
 type B = {
-    'string': "B";
+  'string': "B";
 }

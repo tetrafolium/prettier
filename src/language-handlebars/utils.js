@@ -1,19 +1,15 @@
 "use strict";
 
-function isUppercase(string) {
-  return string.toUpperCase() === string;
-}
+function isUppercase(string) { return string.toUpperCase() === string; }
 
 function isGlimmerComponent(node) {
-  return (
-    isNodeOfSomeType(node, ["ElementNode"]) &&
-    typeof node.tag === "string" &&
-    (isUppercase(node.tag[0]) || node.tag.includes("."))
-  );
+  return (isNodeOfSomeType(node, [ "ElementNode" ]) &&
+          typeof node.tag === "string" &&
+          (isUppercase(node.tag[0]) || node.tag.includes(".")));
 }
 
 function isWhitespaceNode(node) {
-  return isNodeOfSomeType(node, ["TextNode"]) && !/\S/.test(node.chars);
+  return isNodeOfSomeType(node, [ "TextNode" ]) && !/\S/.test(node.chars);
 }
 
 function isNodeOfSomeType(node, types) {
@@ -47,24 +43,19 @@ function getPreviousNode(path, lookBack = 1) {
   return getSiblingNode(path, -lookBack);
 }
 
-function getNextNode(path) {
-  return getSiblingNode(path, 1);
-}
+function getNextNode(path) { return getSiblingNode(path, 1); }
 
 function isPrettierIgnoreNode(node) {
-  return (
-    isNodeOfSomeType(node, ["MustacheCommentStatement"]) &&
-    typeof node.value === "string" &&
-    node.value.trim() === "prettier-ignore"
-  );
+  return (isNodeOfSomeType(node, [ "MustacheCommentStatement" ]) &&
+          typeof node.value === "string" &&
+          node.value.trim() === "prettier-ignore");
 }
 
 function hasPrettierIgnore(path) {
   const node = path.getValue();
   const previousPreviousNode = getPreviousNode(path, 2);
-  return (
-    isPrettierIgnoreNode(node) || isPrettierIgnoreNode(previousPreviousNode)
-  );
+  return (isPrettierIgnoreNode(node) ||
+          isPrettierIgnoreNode(previousPreviousNode));
 }
 
 module.exports = {
