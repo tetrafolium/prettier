@@ -83,8 +83,8 @@
 
 <div
   /**
- * Handles clicks.
-*/
+   * Handles clicks.
+   */
 onClick={() => {}}>
 
 </div>;

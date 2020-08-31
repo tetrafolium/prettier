@@ -17,8 +17,9 @@ type NonNullType = {
 type BadType = {};
 
 function getTypeASTName(typeAST: Type): string {
-  if (!typeAST.type)
+  if (!typeAST.type) {
     throw new Error('Must be wrapping type'); // OK
+  }
   return getTypeASTName(typeAST.type); // error, BadType not a subtype of Type
 }
 

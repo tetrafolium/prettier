@@ -21,8 +21,9 @@ var paths = [
 
   function() {
     var x: ? string = "xxx";
-    if (x == null)
+    if (x == null) {
       return;
+    }
     var y: string = x; // ok
   },
 

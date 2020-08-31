@@ -106,28 +106,32 @@ class C {
   p:? string;
 
   ensure0(): string {
-    if (this.p != null)
+    if (this.p != null) {
       return this.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure1(): string {
-    if (this.p == null)
+    if (this.p == null) {
       return "";
+    }
     return this.p;
   }
 
   ensure2(): string|void {
-    if (this.p !== null)
+    if (this.p !== null) {
       return this.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure3(): string|void {
-    if (this.p === null)
+    if (this.p === null) {
       return "";
+    }
     return this.p;
   }
 }
@@ -136,17 +140,19 @@ class C {
 class D extends C {
 
   ensure100(): string {
-    if (super.p != null)
+    if (super.p != null) {
       return super.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure101(): string {
-    if (super.p == null)
+    if (super.p == null) {
       return "";
-    else
+    } else {
       return super.p;
+    }
   }
 
   ensure103(): string {

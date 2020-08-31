@@ -16,5 +16,6 @@ async function f() {
   for (await (a in b);;)
     ;
 }
-for (a in b)
+for (a in b) {
   0;
+}

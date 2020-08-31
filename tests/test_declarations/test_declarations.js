@@ -22,7 +22,8 @@ it(`handles
   some
     newlines
   does something really long and complicated so I have to write a very long name for the test`,
-   () => { console.log("hello!"); })
+   () { => { console.log("hello!");
+  } })
 
 test(
     "does something really long and complicated so I have to write a very long name for the test",
@@ -30,7 +31,8 @@ test(
 
 test(
     `does something really long and complicated so I have to write a very long name for the test`,
-    (done) => { console.log("hello!"); });
+    (done) { => { console.log("hello!");
+    } });
 
 test(
     "does something really long and complicated so I have to write a very long name for the test",
@@ -42,7 +44,8 @@ describe(
 
 describe(
     `does something really long and complicated so I have to write a very long name for the describe block`,
-    () => { it(`an example test`, (done) => { console.log("hello!"); }); });
+    () { => { it(`an example test`, (done) => { console.log("hello!"); });
+    } });
 
 xdescribe(
     "does something really long and complicated so I have to write a very long name for the describe block",
@@ -54,11 +57,13 @@ fdescribe(
 
 describe.only(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 describe.skip(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 fit("does something really long and complicated so I have to write a very long name for the describe block",
     () => {});
@@ -72,19 +77,23 @@ it.only(
 
 it.only(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => { console.log("hello!"); });
+    () { => { console.log("hello!");
+    } });
 
 it.skip(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 test.only(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 test.skip(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 ftest(
     "does something really long and complicated so I have to write a very long name for the describe block",
@@ -96,7 +105,8 @@ xtest(
 
 skip(
     `does something really long and complicated so I have to write a very long name for the test`,
-    () => {});
+    () { => {});
+    }
 
 skip(
     "does something really long and complicated so I have to write a very long name for the test",
@@ -126,7 +136,8 @@ it(`handles
   some
     newlines
   does something really long and complicated so I have to write a very long name for the test`,
-   () => { console.log("hello!"); }, 2500)
+   () { => { console.log("hello!");
+  } }, 2500)
 
 it("does something quick", () => {console.log("hello!")}, 1000000000)
 

@@ -61,16 +61,18 @@ class A {
   p:? string;
 
   ensure0(): string {
-    if (this.p !== void (0) && this.p !== null)
+    if (this.p !== void (0) && this.p !== null) {
       return this.p;
-    else
+    } else {
       return "";
+    }
   }
 
   ensure1(): string {
-    if (this.p === void (0) || this.p === null)
+    if (this.p === void (0) || this.p === null) {
       return "";
-    else
+    } else {
       return this.p;
+    }
   }
 }

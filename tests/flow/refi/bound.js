@@ -22,8 +22,9 @@ var tests = [
   },
 
   function() {
-    if (x == null)
+    if (x == null) {
       return;
+    }
     var y: string = x; // ok
   },
 

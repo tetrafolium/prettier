@@ -3,10 +3,11 @@
 // disjoint unions
 
 function length(list: List) {
-  if (list.kind === "cons")
+  if (list.kind === "cons") {
     return length(list.next) + 1;
-  else
+  } else {
     return 0;
+  }
 }
 
 length({kind : "nil"});

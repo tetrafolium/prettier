@@ -13,8 +13,9 @@ function foo(b) {
 
 function bar(b) {
   var x = b ? null : false;
-  if (x == null)
+  if (x == null) {
     return;
+  }
   switch ("") {
   case 0:
     var y: number = x; // error: boolean !~> number
@@ -29,8 +30,9 @@ function bar(b) {
 
 function bar2(b) {
   var x = b ? null : false;
-  if (x == null)
+  if (x == null) {
     return;
+  }
   switch ("") {
   case 0: {
     let y: number = x; // error: boolean !~> number

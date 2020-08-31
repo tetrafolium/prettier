@@ -27,18 +27,19 @@ if (5) // comment
   {
     true
   }
-else if (7) // comment
+else if (7) { // comment
   true
   else // comment
   {
     true
   }
+}
 
 if (8) // comment
 // comment
 {
   true
-} else if (9) // comment
+} else if (9) { // comment
   // comment
   true
   else // comment
@@ -46,6 +47,7 @@ if (8) // comment
   {
     true
   }
+}
 
 if (10) /* comment */ // comment
 {
@@ -54,11 +56,12 @@ if (10) /* comment */ // comment
   true
   else if (12) // comment /* comment */ // comment
   true
-  else if (13) /* comment */ /* comment */ // comment
+  else if (13) { /* comment */ /* comment */ // comment
   true
   else /* comment */
   {
     true
+  }
   }
 
 if (14) // comment
@@ -66,7 +69,8 @@ if (14) // comment
 // comment
 {
   true
-} else if (15) // comment
+} else if (15) { // comment
 /* comment */
 /* comment */ // comment
-true
+true; 
+}

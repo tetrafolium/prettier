@@ -8,8 +8,9 @@ Seq(typeDef.interface.groups)
 
 const promiseFromCallback = fn =>
     new Promise((resolve, reject) => fn((err, result) => {
-                  if (err)
+                  if (err) {
                     return reject(err);
+                  }
                   return resolve(result);
                 }));
 

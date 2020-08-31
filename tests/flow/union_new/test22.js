@@ -15,8 +15,9 @@ type Error = {
 export type T = Success|Error;
 
 function foo(x: T) {
-  if (x.type === 'SUCCESS')
+  if (x.type === 'SUCCESS') {
     return x.result;
-  else
+  } else {
     return x.result;
+  }
 }

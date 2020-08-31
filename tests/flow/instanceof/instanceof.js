@@ -12,16 +12,18 @@ function x(b) { return b ? new X1 : new X2; }
 
 function consumer1(b) {
   var g = x(b);
-  if (g instanceof X2)
+  if (g instanceof X2) {
     g.foo = '1337';
-  else
+  } else {
     g.foo = 1337;
+  }
 }
 
 function consumer2(b) {
   var g = x(b);
-  if (g instanceof X1)
+  if (g instanceof X1) {
     g.foo = '1337'; // oops
+  }
 }
 
 // x.y instanceof t
@@ -36,16 +38,18 @@ function y(b) { return b ? new Y1 : new Y2; }
 
 function consumer3(b) {
   var g = y(b);
-  if (g.bar instanceof X2)
+  if (g.bar instanceof X2) {
     g.bar.foo = '1337';
-  else
+  } else {
     g.bar.foo = 1337;
+  }
 }
 
 function consumer4(b) {
   var g = y(b);
-  if (g.bar instanceof X1)
+  if (g.bar instanceof X1) {
     g.bar.foo = '1337'; // oops
+  }
 }
 
 // x.y.z instance of t
@@ -60,25 +64,28 @@ function z(b) { return b ? new Z1 : new Z2; }
 
 function consumer5(b) {
   var g = z(b);
-  if (g.baz.bar instanceof X2)
+  if (g.baz.bar instanceof X2) {
     g.baz.bar.foo = '1337';
-  else
+  } else {
     g.baz.bar.foo = 1337;
+  }
 }
 
 function consumer6(b) {
   var g = z(b);
-  if (g.baz.bar instanceof X1)
+  if (g.baz.bar instanceof X1) {
     g.baz.bar.foo = '1337'; // oops
+  }
 }
 
 // this instanceof t
 class C {
   m() {
-    if (this instanceof D)
+    if (this instanceof D) {
       alert(this.s);
-    else
+    } else {
       alert("nope");
+    }
   }
 }
 

@@ -51,10 +51,11 @@ class G extends A {
 class H extends A {
   y: number;
   constructor() {
-    if (Math.random() < 0.5)
+    if (Math.random() < 0.5) {
       super();
-    else
+    } else {
       super();
+    }
     this.y; // OK
     this.x; // OK
   }
@@ -99,9 +100,10 @@ class K_ {
 class K extends K_ {
   constructor() {
     super(() => {
-      if (_this)
+      if (_this) {
         _this.foo()
     }); // OK
+      }
     var _this = this;
     this.closure_leaking_this();
   }
