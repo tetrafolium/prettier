@@ -1,7 +1,7 @@
 class C {
-  C() { }
-  foo() { }
-  static bar() { }
+  C() {}
+  foo() {}
+  static bar() {}
   qux() { this.constructor.x; }
 }
 C.x;

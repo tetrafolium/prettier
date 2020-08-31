@@ -1,9 +1,3 @@
-type GetChatsSagaEffects =
-  | CallEffect
-  | PutEffect<
-      | GetUsersRequestedAction
-      | GetChatsSucceededAction
-      | GetChatsFailedAction
-      | GetChatsStartedAction
-    >
-  | SelectEffect
+type GetChatsSagaEffects =|CallEffect|
+    PutEffect<|GetUsersRequestedAction|GetChatsSucceededAction|
+              GetChatsFailedAction|GetChatsStartedAction>|SelectEffect

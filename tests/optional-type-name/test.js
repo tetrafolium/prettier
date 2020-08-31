@@ -1,3 +1,5 @@
 type Foo = (any) => string
 
-type Bar = { [string]: number }
+type Bar = {
+  [string]: number
+}

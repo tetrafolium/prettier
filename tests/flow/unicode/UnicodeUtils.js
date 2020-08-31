@@ -10,7 +10,6 @@ function inSurrogateRange(codeUnit) {
   return 0xD800 <= codeUnit && codeUnit <= 0xDFFF;
 }
 
-
 /**
  * Return the length of the original Unicode character at given position in the
  * String by looking into the UTF-16 code unit; that is equal to 1 for any

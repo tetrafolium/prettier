@@ -1,1 +1,2 @@
-import someCoolUtilWithARatherLongName from '../../../../utils/someCoolUtilWithARatherLongName';
+import someCoolUtilWithARatherLongName from
+    '../../../../utils/someCoolUtilWithARatherLongName';

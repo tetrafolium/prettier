@@ -1,5 +1,5 @@
 function foo(x: boolean) {
-  var obj = { a: 1, b: 2};
+  var obj = {a : 1, b : 2};
   for (var prop in obj) {
     if (x) {
       continue;
@@ -24,11 +24,9 @@ function baz(x: boolean) {
 }
 
 function bliffl(x: boolean) {
-  var obj = { a: 1, b: 2};
+  var obj = {a : 1, b : 2};
   loop1: for (var prop1 in obj) {
-    loop2: for (var prop2 in obj) {
-      break loop1;
-    }
+    loop2: for (var prop2 in obj) { break loop1; }
     console.log('this is still reachable');
   }
   console.log('this is still reachable');

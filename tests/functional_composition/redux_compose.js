@@ -1,13 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import DevTools from './containers/DevTools';
+
 import reducer from '../reducers';
 
-const store = createStore(
-  reducer,
-  compose(
-    applyMiddleware(thunk),
-    DevTools.instrument()
-  )
-)
+import DevTools from './containers/DevTools';
 
+const store =
+    createStore(reducer, compose(applyMiddleware(thunk), DevTools.instrument()))

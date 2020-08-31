@@ -3,4 +3,6 @@
  * @flow
  */
 
-export default class Foo { givesANum(): number { return 42; }};
+export default class Foo {
+  givesANum(): number { return 42; }
+};

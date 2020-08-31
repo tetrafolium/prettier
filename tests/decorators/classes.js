@@ -1,15 +1,19 @@
-@deco class Foo {}
+@deco
+class Foo {
+}
 
-@deco export class Bar {}
+@deco
+export class Bar {
+}
 
-@deco export default class Baz {}
+@deco
+export default class Baz {
+}
 
 const foo = @deco class {
   //
 };
 
-const bar =
-  @deco
-  class {
-    //
-  };
+const bar = @deco class {
+  //
+};

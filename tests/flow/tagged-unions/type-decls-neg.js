@@ -17,12 +17,12 @@ type SystemData = {
   kind: "system",
 }
 
-declare type Data = UserData | SystemData;
+declare type Data = UserData|SystemData;
 
 const data: Data = {
-  id: "",
-  name: "",
-  kind: "system",
+  id : "",
+  name : "",
+  kind : "system",
 }
 
 if (data.kind === "user") {

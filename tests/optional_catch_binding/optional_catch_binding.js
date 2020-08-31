@@ -1,9 +1,6 @@
 try {
 
-}
-catch {
+} catch {
 
-}
-finally {
-
+} finally {
 }

@@ -6,28 +6,28 @@
 
 var x1: number = "".match(0)[0];
 var x2: number = "".match(/pattern/)[0];
-var x3: string = "".replace(/pattern/,"...");
+var x3: string = "".replace(/pattern/, "...");
 var x4: number = "".split(/pattern/)[0];
 
 declare class C {
-    foo(x:number): number;
-    foo(x:string): string;
+  foo(x: number): number;
+  foo(x: string): string;
 
-    bar(x: { a: number }): number;
-    bar(x: { a: string }): string;
+  bar(x: {a: number}): number;
+  bar(x: {a: string}): string;
 }
 
 var a = new C();
 
-a.foo(0); // ok
+a.foo(0);     // ok
 a.foo("hey"); // ok
-a.foo(true); // error, function cannot be called on intersection type
+a.foo(true);  // error, function cannot be called on intersection type
 
-a.bar({ a: 0 }); // ok
-a.bar({ a: "hey" }); // ok
-a.bar({ a: true }); // error, function cannot be called on intersection type
+a.bar({a : 0});     // ok
+a.bar({a : "hey"}); // ok
+a.bar({a : true});  // error, function cannot be called on intersection type
 
-declare var x: { a: boolean; } & { b: string };
+declare var x: {a: boolean;}&{b : string};
 
 a.bar(x); // error with nested intersection info (outer for bar, inner for x)
 

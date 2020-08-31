@@ -1,9 +1,5 @@
 namespace X {
-    export namespace Y {
-
-    }
+export namespace Y {}
 }
 
-namespace X.Y {
-
-}
+namespace X.Y {}

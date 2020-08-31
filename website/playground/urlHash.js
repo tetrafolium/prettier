@@ -8,8 +8,8 @@ export function read() {
 
   // backwards support for old json encoded URIComponent
   const decode = hash.includes("%7B%22")
-    ? decodeURIComponent
-    : LZString.decompressFromEncodedURIComponent;
+                     ? decodeURIComponent
+                     : LZString.decompressFromEncodedURIComponent;
 
   try {
     return JSON.parse(decode(hash));
@@ -20,11 +20,8 @@ export function read() {
 
 export function replace(state) {
   const hash = LZString.compressToEncodedURIComponent(JSON.stringify(state));
-  if (
-    typeof URL === "function" &&
-    typeof history === "object" &&
-    typeof history.replaceState === "function"
-  ) {
+  if (typeof URL === "function" && typeof history === "object" &&
+      typeof history.replaceState === "function") {
     const url = new URL(location);
     url.hash = hash;
     history.replaceState(null, null, url);

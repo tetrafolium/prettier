@@ -7,17 +7,14 @@ function highlander(howMany: 1): number {
 highlander(1);
 highlander(2); // error
 
+type Foo = 1|2
 
-type Foo = 1 | 2
-
-function bar(num: Foo): number {
-  return num + 1;
-}
+function bar(num: Foo): number { return num + 1; }
 
 bar(1);
 bar(2);
 bar(3); // error
 
-type ComparatorResult = -1 | 0 | 1
+type ComparatorResult = -1|0|1
 function sort(fn: (x: any, y: any) => ComparatorResult) {}
 sort((x, y) => -1);

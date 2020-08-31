@@ -1,7 +1,7 @@
 var o = require('./proto');
 
 o.z = 0;
-var x:string = o.x;
+var x: string = o.x;
 
 var Bar = require('./function');
 var a = new Bar(234);

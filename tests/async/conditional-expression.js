@@ -3,9 +3,7 @@ async function f() {
 }
 
 (async function() {
-  console.log(
-    await (true ? Promise.resolve("A") : Promise.resolve("B"))
-  );
+  console.log(await (true ? Promise.resolve("A") : Promise.resolve("B")));
 })()
 
 async function f2() {

@@ -18,7 +18,6 @@ function f(_this: { m: ?Meeting }): string {
   }
 
   if (_this.m.es.some((a) => a.fbid === 0)) {
-
   }
   return "3";
 }

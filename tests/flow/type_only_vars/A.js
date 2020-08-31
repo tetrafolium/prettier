@@ -2,13 +2,11 @@
  * @flow
  */
 
-class Foo {
-}
+class Foo {}
 
-class Bar {
-}
+class Bar {}
 
 module.exports = {
-  Foo: Foo,
-  Bar: Bar
+  Foo : Foo,
+  Bar : Bar
 };

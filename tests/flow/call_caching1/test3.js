@@ -1,8 +1,8 @@
 // @flow
 
 declare class ImmBox<T> {
-  static <U>(x: any): ImmBox<U>;
-  static (x: any): any;
+  static<U>(x: any): ImmBox<U>;
+  static(x: any): any;
 }
 
 declare class Box<T> {

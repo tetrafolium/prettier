@@ -1,3 +1,4 @@
 class X {
-	a: B<> = SuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong;
+  a: B<> =
+      SuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong;
 }

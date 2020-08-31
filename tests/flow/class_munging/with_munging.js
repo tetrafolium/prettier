@@ -3,9 +3,7 @@
  */
 
 class Foo {
-  _method(): string {
-    return 'this is private';
-  }
+  _method(): string { return 'this is private'; }
 }
 
 class Bar extends Foo {

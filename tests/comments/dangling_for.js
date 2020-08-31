@@ -1,4 +1,6 @@
 for // comment
-(;;);
+(;;)
+  ;
 
-for /* comment */(;;);
+for /* comment */(;;)
+  ;

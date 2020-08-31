@@ -1,3 +1,3 @@
 interface Foo {
-    bar: number = 5;
+  bar: number = 5;
 }

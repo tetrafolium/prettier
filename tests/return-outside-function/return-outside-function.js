@@ -1,1 +1,2 @@
-return someVeryLongStringA && someVeryLongStringB && someVeryLongStringC && someVeryLongStringD
+return someVeryLongStringA && someVeryLongStringB && someVeryLongStringC &&
+       someVeryLongStringD

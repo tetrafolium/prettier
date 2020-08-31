@@ -24,6 +24,6 @@ function cannot_reassign(x: string) {
 function durable_refi(x: ?number) {
   if (x) {
     // ok: if x is truthy here, it's truthy everywhere
-    return () => { var y:number = x; };
+    return () => { var y: number = x; };
   }
 }

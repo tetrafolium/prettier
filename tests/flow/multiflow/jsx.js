@@ -4,29 +4,16 @@
  */
 
 // This one for when there are no JSX attributes
-declare function JSX<
-  Children: $ReadOnlyArray<mixed>,
-  Elem,
-  C: (props: {}, children: Children) => Elem
->(
-  component: C,
-  props: null,
-  ...children: Children
-): Elem;
+declare function JSX<Children : $ReadOnlyArray<mixed>, Elem,
+                     C : (props: {}, children: Children) => Elem>(
+    component: C, props: null, ...children: Children): Elem;
 
 // This one for when there are JSX attributes.
-declare function JSX<
-  Children: $ReadOnlyArray<mixed>,
-  Elem,
-  Props: Object,
-  C: (props: Props, children: Children) => Elem
->(
-  component: C,
-  props: Props,
-  ...children: Children
-): Elem;
+declare function JSX<Children : $ReadOnlyArray<mixed>, Elem, Props : Object,
+                     C : (props: Props, children: Children) => Elem>(
+    component: C, props: Props, ...children: Children): Elem;
 
-declare function AcceptsWhatever(props: {} | null, children: any): string;
+declare function AcceptsWhatever(props: {}|null, children: any): string;
 (<AcceptsWhatever />: number); // Error string ~> number
 (<AcceptsWhatever name="hi">Text</AcceptsWhatever>: number); // Error string ~> number
 

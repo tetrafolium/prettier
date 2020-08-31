@@ -2,4 +2,7 @@
 class A {}
 class B {}
 
-module.exports = { A, B };
+module.exports = {
+  A,
+  B
+};

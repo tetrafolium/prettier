@@ -1,6 +1,6 @@
 // @flow
-var A = require ('./A');
-import type { B } from './B'
+var A = require('./A');
+import type {B} from './B'
 
 class C extends A {
   b: B;

@@ -5,12 +5,12 @@ let tests = [
   function(x: $Tainted<string>, y: string) {
     let obj: Object = {};
     obj.foo = x; // error, taint ~> any
-    obj[y] = x; // error, taint ~> any
+    obj[y] = x;  // error, taint ~> any
   },
 
   // getting a property
   function() {
-    let obj: Object = { foo: 'foo' };
+    let obj: Object = {foo : 'foo'};
     (obj.foo: $Tainted<string>); // ok
   },
 

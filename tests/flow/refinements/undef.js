@@ -65,7 +65,7 @@ function undef_var_nonstrict(x: ?number, y: ?number) {
   if (x != undefined) {
     var a = x * 1000;
   }
-  if (y == undefined){
+  if (y == undefined) {
     var b = y * 1000; // error
   }
 }

@@ -1,7 +1,7 @@
 interface I {
-    [Symbol.toStringTag]: "I";
+  [Symbol.toStringTag]: "I";
 }
 
 type T = {
-    [Symbol.toStringTag]: "T";
+  [Symbol.toStringTag]: "T";
 }

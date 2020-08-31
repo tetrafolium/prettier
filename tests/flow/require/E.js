@@ -4,7 +4,9 @@
 // value will affect the exports object but re-binding it makes it useless and
 // does not affect the exports value.
 module.exports = {
-  numberValue: 42
+  numberValue : 42
 };
 
-exports = {stringValue: ''};
+exports = {
+  stringValue : ''
+};

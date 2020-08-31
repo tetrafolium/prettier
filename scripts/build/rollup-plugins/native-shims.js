@@ -7,7 +7,7 @@ const path = require("path");
 const EMPTY = "export default {};";
 const PREFIX = "\0shim:";
 
-module.exports = function (dir) {
+module.exports = function(dir) {
   return {
     resolveId(importee) {
       if (importee.startsWith(PREFIX)) {

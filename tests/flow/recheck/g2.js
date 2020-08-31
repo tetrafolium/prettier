@@ -1,7 +1,7 @@
 // @flow
 
-import { C } from './g1';
+import {C} from './g1';
 
-class D extends C { }
+class D extends C {}
 
-module.exports = { D };
+module.exports = {D};

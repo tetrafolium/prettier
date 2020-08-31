@@ -1,1 +1,1 @@
-export default (function log(){} as typeof console.log);
+export default (function log() {} as typeof console.log);

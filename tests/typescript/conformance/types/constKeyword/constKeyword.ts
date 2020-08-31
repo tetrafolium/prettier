@@ -1,1 +1,5 @@
-const enum E { A, B, C }
+const enum E {
+  A,
+  B,
+  C
+}

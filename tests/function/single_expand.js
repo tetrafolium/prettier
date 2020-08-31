@@ -1,13 +1,6 @@
-function onDidInsertSuggestion({
-  editor,
-  triggerPosition,
-  re
-}): Promise<void> {
-}
+function onDidInsertSuggestion({editor, triggerPosition, re}): Promise<void> {}
 
 class X {
-  async onDidInsertSuggestion({editor, triggerPosition, suggestion}): Promise<
-    void
-  > {
-  }
+  async onDidInsertSuggestion({editor, triggerPosition, suggestion}):
+      Promise<void> {}
 }

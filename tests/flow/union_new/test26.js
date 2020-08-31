@@ -3,11 +3,11 @@
 declare function foo(x: number): number;
 declare function foo(x: string): string;
 
-declare var x: number | string;
+declare var x: number|string;
 
-(foo(x): number | string);
+(foo(x): number|string);
 
-type T = number | string;
+type T = number|string;
 declare var y: T;
 
 (foo(y): T);

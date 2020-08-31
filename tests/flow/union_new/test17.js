@@ -4,4 +4,4 @@
 
 [].concat([]);
 
-([].concat([0,1])[1]: string)
+([].concat([ 0, 1 ])[1]: string)

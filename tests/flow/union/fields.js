@@ -1,6 +1,4 @@
 class C {
-    x: ?number|string;
-    constructor() {
-        this.x = null;
-    }
+  x:? number|string;
+  constructor() { this.x = null; }
 }

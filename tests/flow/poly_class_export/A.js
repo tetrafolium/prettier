@@ -1,7 +1,5 @@
 // @flow
 
-class A<T> {
-  x: T
-}
+class A<T>{x : T}
 
 module.exports = A;

@@ -1,2 +1,1 @@
-type foo =
-                 'bar'
+type foo = 'bar'

@@ -3,12 +3,12 @@
  */
 
 function foo(x: ?number): string {
-    try {
-    } catch (e) {
-        return 'bar';
-    }
-    console.log();
-    return 'foo';
+  try {
+  } catch (e) {
+    return 'bar';
+  }
+  console.log();
+  return 'foo';
 }
 
 function bar(): string {

@@ -1,3 +1,3 @@
 /* @providesModule IncrModuleA */
 
-var x:string = 0;
+var x: string = 0;

@@ -6,6 +6,8 @@ var a = x<number>();
 var b = x<string>('hello');
 var c = x<object>('hello');
 
-class C { foo: string; }
+class C {
+  foo: string;
+}
 var c = x<C>(x);
 var d = x<any>(x);

@@ -1,6 +1,6 @@
 /* @flow */
 
-type NestedArray<T> = Array<T | NestedArray<T>>;
+type NestedArray<T> = Array<T|NestedArray<T>>;
 
 function flatten<T>(arrArg: NestedArray<T>) {
   let arr = arrArg;

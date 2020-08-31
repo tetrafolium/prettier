@@ -1,13 +1,13 @@
-var foo1 = function<T>(x:T):T { return x; }
+var foo1 = function<T>(x: T): T { return x; }
 
-function foo2<T,S>(x:T):S { return x; }
+function foo2<T, S>(x: T): S { return x; }
 
-var foo3 = function <T>(x:T):T { return foo3(x); }
+var foo3 = function<T>(x: T): T { return foo3(x); }
 
-function foo4<T,S>(x:T):S { return foo4(x); }
+function foo4<T, S>(x: T): S { return foo4(x); }
 
 var x = [];
-function foo5<T>():Array<T> { return x; }
+function foo5<T>(): Array<T> { return x; }
 /*
  var a = foo5();
  a[0] = 0;
@@ -15,12 +15,12 @@ function foo5<T>():Array<T> { return x; }
  var y: string = b[0];
 */
 
-var foo6 = function<R>(x:R):R { return foo1(x); }
+var foo6 = function<R>(x: R): R { return foo1(x); }
 
-function foo7<R>(x:R):R { return foo5(); }
+function foo7<R>(x: R): R { return foo5(); }
 
-function foo8<U>(x:U,y):U {
-  var z = foo8(x,x);
+function foo8<U>(x: U, y): U {
+  var z = foo8(x, x);
   y();
   return x;
 }

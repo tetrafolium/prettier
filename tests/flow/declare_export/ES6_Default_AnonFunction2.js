@@ -3,4 +3,4 @@
  * @flow
  */
 
-declare export default () =>number;
+declare export default () => number;

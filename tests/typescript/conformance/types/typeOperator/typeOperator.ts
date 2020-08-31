@@ -1,1 +1,1 @@
-let a: (keyof T)[] = ["a", "b"];
+let a: (keyof T)[] = [ "a", "b" ];

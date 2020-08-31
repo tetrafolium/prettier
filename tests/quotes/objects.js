@@ -1,5 +1,5 @@
 const obj = {
- 'a': true,
- b: true,
- "𐊧": true,
+  'a' : true,
+  b : true,
+  "𐊧" : true,
 }

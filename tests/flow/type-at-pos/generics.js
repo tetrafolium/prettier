@@ -1,6 +1,6 @@
 // @flow
 
-class C<X> { }
+class C<X> {}
 var cn: C<number> = new C;
 cn;
 
@@ -17,8 +17,10 @@ type F<X> = C<void>;
 var fn: F<number> = new C;
 fn;
 
-type O<X> = { x: X };
-var on: O<number> = { x: 0 };
+type O<X> = {
+  x: X
+};
+var on: O<number> = {x : 0};
 on;
 
 type Mono = C<void>;

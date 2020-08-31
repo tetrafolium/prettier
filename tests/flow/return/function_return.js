@@ -1,7 +1,7 @@
 class C {
-    foo() { }
-    bar() { return; }
-    fn(x:number) { return x; }
+  foo() {}
+  bar() { return; }
+  fn(x: number) { return x; }
 }
 
 function f(x): number {
@@ -10,7 +10,7 @@ function f(x): number {
   }
 }
 
-function g(x): ?number {
+function g(x): ? number {
   if (x > 1) {
     return 42;
   }
@@ -23,7 +23,7 @@ function h(x): number {
   return;
 }
 
-function i(x): ?number {
+function i(x): ? number {
   if (x > 1) {
     return 42;
   }
@@ -32,5 +32,5 @@ function i(x): ?number {
 
 module.exports = C;
 
-//function fn(x:number) { return x; }
-//module.exports = fn;
+// function fn(x:number) { return x; }
+// module.exports = fn;

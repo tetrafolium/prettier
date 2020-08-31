@@ -1,7 +1,7 @@
-var p = { y: "" };
-var q = { z: "" };
+var p = {y : ""};
+var q = {z : ""};
 var o = {
-  x: 5,
+  x : 5,
   ...p,
   ...q,
 };
@@ -9,7 +9,7 @@ var y: number = o.y;
 var z: number = o.z;
 
 // test conflicting keys (they get unioned)
-var r = { y: 123 };
+var r = {y : 123};
 var s = {
   ...p,
   ...r,

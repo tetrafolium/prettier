@@ -1,2 +1,2 @@
 var x: never
-var x: never | string
+var x: never|string

@@ -1,5 +1,9 @@
-interface I { xs: Array<this>; }
-interface J { f(): J; }
+interface I {
+  xs: Array<this>;
+}
+interface J {
+  f(): J;
+}
 class C {
   xs: Array<C>;
   f(): C { return this; }

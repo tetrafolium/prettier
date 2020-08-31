@@ -1,4 +1,5 @@
-const veryVeryVeryVeryVeryVeryVeryLong = doc.expandedStates[doc.expandedStates.length - 1];
+const veryVeryVeryVeryVeryVeryVeryLong =
+    doc.expandedStates[doc.expandedStates.length - 1];
 const small = doc.expandedStates[doc.expandedStates.length - 1];
 
 const promises = [
@@ -19,17 +20,17 @@ const promises2 = [
   other.fetch(),
 ];
 
-window.FooClient.setVars({
-  locale: getFooLocale({ page }),
-  authorizationToken: data.token
-}).initVerify("foo_container");
+    window.FooClient
+        .setVars(
+            {locale : getFooLocale({page}), authorizationToken : data.token})
+        .initVerify("foo_container");
 
-window.something.FooClient.setVars({
-  locale: getFooLocale({ page }),
-  authorizationToken: data.token
-}).initVerify("foo_container");
+    window.something.FooClient
+        .setVars(
+            {locale : getFooLocale({page}), authorizationToken : data.token})
+        .initVerify("foo_container");
 
-window.FooClient.something.setVars({
-  locale: getFooLocale({ page }),
-  authorizationToken: data.token
-}).initVerify("foo_container");
+    window.FooClient.something
+        .setVars(
+            {locale : getFooLocale({page}), authorizationToken : data.token})
+        .initVerify("foo_container");

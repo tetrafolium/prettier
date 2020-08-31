@@ -1,8 +1,7 @@
 /* @flow */
 
 declare interface IDataBase {
-  id: string,
-  name: string,
+  id: string, name: string,
 }
 
 declare interface IUserData extends IDataBase {
@@ -16,9 +15,9 @@ declare interface ISystemData extends IDataBase {
 declare type IData = IUserData | ISystemData;
 
 const data: IData = {
-  id: "",
-  name: "",
-  kind: "system",
+  id : "",
+  name : "",
+  kind : "system",
 }
 
 if (data.kind === "user") {

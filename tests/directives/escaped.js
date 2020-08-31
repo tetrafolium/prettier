@@ -22,9 +22,9 @@
 'escaped \u2030 \‰ (should still stay escaped)'
 
 // Meaningful escapes
-// Commented out to avoid `SyntaxError: Octal literals are not allowed in strict mode.`
-// "octal escapes \0 \1 \2 \3 \4 \5 \6 \7"
-// 'octal escapes \0 \1 \2 \3 \4 \5 \6 \7'
+// Commented out to avoid `SyntaxError: Octal literals are not allowed in strict
+// mode.` "octal escapes \0 \1 \2 \3 \4 \5 \6 \7" 'octal escapes \0 \1 \2 \3 \4
+// \5 \6 \7'
 "meaningfully escaped alphabetical characters \n \r \v \t \b \f \u2713 \x61"
 'meaningfully escaped alphabetical characters \n \r \v \t \b \f \u2713 \x61'
 'escaped newline \

@@ -2,4 +2,4 @@
 
 var f = require('./lib');
 
-var y:number = f(0);
+var y: number = f(0);

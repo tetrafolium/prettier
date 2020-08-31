@@ -6,5 +6,5 @@ class A {
   // none of the semicolons below this comment are necessary.
 
   bar: A;
-  private [baz]
+  private[baz]
 }

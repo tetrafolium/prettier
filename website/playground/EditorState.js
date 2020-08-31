@@ -1,20 +1,21 @@
 import React from "react";
 
-import { stateToggler, shallowEqual } from "./helpers";
+import {shallowEqual, stateToggler} from "./helpers";
 import * as storage from "./storage";
 
 export default class extends React.Component {
   constructor() {
     super();
     this.state = {
-      showSidebar: false,
-      showAst: false,
-      showDoc: false,
-      showSecondFormat: false,
-      toggleSidebar: () => this.setState(stateToggler("showSidebar")),
-      toggleAst: () => this.setState(stateToggler("showAst")),
-      toggleDoc: () => this.setState(stateToggler("showDoc")),
-      toggleSecondFormat: () => this.setState(stateToggler("showSecondFormat")),
+      showSidebar : false,
+      showAst : false,
+      showDoc : false,
+      showSecondFormat : false,
+      toggleSidebar : () => this.setState(stateToggler("showSidebar")),
+      toggleAst : () => this.setState(stateToggler("showAst")),
+      toggleDoc : () => this.setState(stateToggler("showDoc")),
+      toggleSecondFormat : () =>
+          this.setState(stateToggler("showSecondFormat")),
       ...storage.get("editor_state"),
     };
   }
@@ -25,7 +26,5 @@ export default class extends React.Component {
     }
   }
 
-  render() {
-    return this.props.children(this.state);
-  }
+  render() { return this.props.children(this.state); }
 }

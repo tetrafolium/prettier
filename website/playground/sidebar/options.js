@@ -1,17 +1,16 @@
 import React from "react";
 
-import { Checkbox, Select, NumberInput } from "./inputs";
+import {Checkbox, NumberInput, Select} from "./inputs";
 
-export function BooleanOption({ option, value, onChange }) {
-  function maybeInvert(value) {
-    return option.inverted ? !value : value;
-  }
+export function BooleanOption({option, value, onChange}) {
+  function maybeInvert(value) { return option.inverted ? !value : value; }
   return (
     <Checkbox
       label={option.cliName}
       title={getDescription(option)}
       checked={maybeInvert(value)}
-      onChange={(checked) => onChange(option, maybeInvert(checked))}
+      onChange={
+    (checked) => onChange(option, maybeInvert(checked))}
     />
   );
 }
@@ -28,36 +27,33 @@ export function ChoiceOption({ option, value, onChange }) {
   );
 }
 
-export function NumberOption({ option, value, onChange }) {
+export function NumberOption({option, value, onChange}) {
   return (
     <NumberInput
-      label={option.cliName}
-      title={getDescription(option)}
-      min={option.range.start}
-      max={option.range.end}
-      step={option.range.step}
-      value={value}
-      onChange={(val) => onChange(option, val)}
-    />
+  label = {option.cliName} title = {getDescription(
+      option)} min = {option.range.start} max = {option.range.end} step =
+      {option.range.step} value = {value} onChange =
+  {
+    (val) => onChange(option, val)
+  } />
   );
 }
 
 export default function (props) {
   switch (props.option.type) {
     case "boolean":
-      return <BooleanOption {...props} />;
-    case "int":
-      return <NumberOption {...props} />;
+      return <BooleanOption {...props} / >
+      ; case "int": return <NumberOption {
+        ...props
+      } />;
     case "choice":
       return <ChoiceOption {...props} />;
-    default:
-      throw new Error("unsupported type");
-  }
+      default: throw new Error("unsupported type");
+}
 }
 
 function getDescription(option) {
-  const description = option.inverted
-    ? option.oppositeDescription
-    : option.description;
+  const description =
+      option.inverted ? option.oppositeDescription : option.description;
   return description && description.replace(/\n/g, " ");
 }

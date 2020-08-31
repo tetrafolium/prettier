@@ -2,17 +2,17 @@
 
 const fs = require("fs");
 const globby = require("globby");
-const { format } = require("../src/cli-util");
+const {format} = require("../src/cli-util");
 
 function tryFormat(file) {
   const content = fs.readFileSync(file, "utf8");
 
   try {
-    format({ "debug-check": true }, content, {
+    format({"debug-check" : true}, content, {
       // Allow specifying the parser via an environment variable:
-      parser: process.env.PARSER,
+      parser : process.env.PARSER,
       // Use file extension detection otherwise:
-      filepath: file,
+      filepath : file,
     });
   } catch (error) {
     return error;
@@ -28,25 +28,24 @@ function runExternalTests(patterns) {
   }
 
   const results = {
-    good: [],
-    skipped: [],
-    bad: [],
+    good : [],
+    skipped : [],
+    bad : [],
   };
 
   testFiles.forEach((file) => {
     const error = tryFormat(file);
 
     if (error instanceof SyntaxError) {
-      results.skipped.push({ file, error });
+      results.skipped.push({file, error});
     } else if (error) {
-      results.bad.push({ file, error });
+      results.bad.push({file, error});
     } else {
-      results.good.push({ file });
+      results.good.push({file});
     }
 
-    process.stderr.write(
-      `\r${results.good.length} good, ${results.skipped.length} skipped, ${results.bad.length} bad`
-    );
+    process.stderr.write(`\r${results.good.length} good, ${
+        results.skipped.length} skipped, ${results.bad.length} bad`);
   });
 
   return results;
@@ -54,15 +53,13 @@ function runExternalTests(patterns) {
 
 function run(argv) {
   if (argv.length === 0) {
-    console.error(
-      [
-        "You must provide at least one file or glob for test files!",
-        "Examples:",
-        '  node scripts/run-external-tests.js "../TypeScript/tests/**/*.ts"',
-        '  node scripts/run-external-tests.js "../flow/tests/**/*.js"',
-        '  PARSER=flow node scripts/run-external-tests.js "../flow/tests/**/*.js"',
-      ].join("\n")
-    );
+    console.error([
+      "You must provide at least one file or glob for test files!",
+      "Examples:",
+      '  node scripts/run-external-tests.js "../TypeScript/tests/**/*.ts"',
+      '  node scripts/run-external-tests.js "../flow/tests/**/*.js"',
+      '  PARSER=flow node scripts/run-external-tests.js "../flow/tests/**/*.js"',
+    ].join("\n"));
     return 1;
   }
 
@@ -77,8 +74,7 @@ function run(argv) {
 
   console.log("");
   console.log(
-    results.bad.map((data) => `${data.file}\n${data.error}`).join("\n\n\n")
-  );
+      results.bad.map((data) => `${data.file}\n${data.error}`).join("\n\n\n"));
 
   return 0;
 }

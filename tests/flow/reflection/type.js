@@ -3,6 +3,6 @@ var b: typeof a = "...";
 var c: typeof a = "...";
 
 type T = number;
-var x:T = "...";
+var x: T = "...";
 
 // what about recursive unions?

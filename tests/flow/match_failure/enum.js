@@ -1,6 +1,6 @@
 // @flow
 
-type Binary = 0 | 1;
+type Binary = 0|1;
 
 function stringifyBinary(binary: Binary): string {
   if (binary === 0) {

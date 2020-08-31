@@ -5,20 +5,20 @@ type DataBase = {
   name: string,
 };
 
-type UserData = DataBase & {
-  kind: "user",
+type UserData = DataBase&{
+  kind : "user",
 };
 
-type SystemData = DataBase & {
-  kind: "system",
+type SystemData = DataBase&{
+  kind : "system",
 }
 
-type Data = UserData | SystemData;
+type Data = UserData|SystemData;
 
 const data: Data = {
-  id: "",
-  name: "",
-  kind: "system",
+  id : "",
+  name : "",
+  kind : "system",
 }
 
 if (data.kind === "system") {

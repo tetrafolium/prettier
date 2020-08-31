@@ -1,4 +1,2 @@
-const anyTestFailures = !(
-  aggregatedResults.numFailedTests === 0 &&
-  aggregatedResults.numRuntimeErrorTestSuites === 0
-);
+const anyTestFailures = !(aggregatedResults.numFailedTests === 0 &&
+                          aggregatedResults.numRuntimeErrorTestSuites === 0);

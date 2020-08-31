@@ -2,7 +2,7 @@
 
 "use strict";
 
-const { exec, execSync } = require("child_process");
+const {exec, execSync} = require("child_process");
 
 async function run() {
   const chalk = require("chalk");
@@ -10,17 +10,16 @@ async function run() {
   const minimist = require("minimist");
   const semver = require("semver");
 
-  const { readJson } = require("./utils");
+  const {readJson} = require("./utils");
 
   const params = minimist(process.argv.slice(2), {
-    string: ["version"],
-    boolean: ["dry"],
-    alias: { v: "version" },
+    string : [ "version" ],
+    boolean : [ "dry" ],
+    alias : {v : "version"},
   });
 
-  const previousVersion = execSync("git describe --tags --abbrev=0")
-    .toString()
-    .trim();
+  const previousVersion =
+      execSync("git describe --tags --abbrev=0").toString().trim();
 
   if (semver.parse(previousVersion) === null) {
     throw new Error(`Unexpected previousVersion: ${previousVersion}`);
@@ -56,17 +55,16 @@ async function run() {
 }
 
 exec(
-  [
-    "git fetch --tags", // Fetch git tags to get the previous version number (i.e. the latest tag)
-    "yarn install", // Install script's dependencies before any require
-  ].join(" && "),
-  { cwd: __dirname },
-  (error) => {
-    if (error) {
-      console.error(error);
-      process.exit(1);
-    } else {
-      run();
-    }
-  }
-);
+    [
+      "git fetch --tags", // Fetch git tags to get the previous version number
+                          // (i.e. the latest tag)
+      "yarn install",     // Install script's dependencies before any require
+    ].join(" && "),
+    {cwd : __dirname}, (error) => {
+      if (error) {
+        console.error(error);
+        process.exit(1);
+      } else {
+        run();
+      }
+    });

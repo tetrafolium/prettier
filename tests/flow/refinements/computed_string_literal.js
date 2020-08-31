@@ -1,8 +1,7 @@
 // @flow
 
 type A = {
-  'b_c': ?string
-};
+  'b_c': ? string };
 
 function stuff(str: string) {}
 

@@ -35,21 +35,21 @@ function fitTerminal(input) {
 }
 
 async function createBundle(bundleConfig, cache) {
-  const { output } = bundleConfig;
+  const {output} = bundleConfig;
   process.stdout.write(fitTerminal(output));
 
   return bundler(bundleConfig, cache)
-    .catch((error) => {
-      console.log(FAIL + "\n");
-      handleError(error);
-    })
-    .then((result) => {
-      if (result.cached) {
-        console.log(CACHED);
-      } else {
-        console.log(OK);
-      }
-    });
+      .catch((error) => {
+        console.log(FAIL + "\n");
+        handleError(error);
+      })
+      .then((result) => {
+        if (result.cached) {
+          console.log(CACHED);
+        } else {
+          console.log(OK);
+        }
+      });
 }
 
 function handleError(error) {
@@ -61,8 +61,8 @@ function handleError(error) {
 async function cacheFiles() {
   // Copy built files to .cache
   try {
-    await execa("rm", ["-rf", path.join(".cache", "files")]);
-    await execa("mkdir", ["-p", path.join(".cache", "files")]);
+    await execa("rm", [ "-rf", path.join(".cache", "files") ]);
+    await execa("mkdir", [ "-p", path.join(".cache", "files") ]);
     for (const bundleConfig of bundleConfigs) {
       await execa("cp", [
         path.join("dist", bundleConfig.output),
@@ -80,10 +80,10 @@ async function preparePackage() {
   delete pkg.dependencies;
   delete pkg.devDependencies;
   pkg.scripts = {
-    prepublishOnly:
-      "node -e \"assert.equal(require('.').version, require('..').version)\"",
+    prepublishOnly :
+        "node -e \"assert.equal(require('.').version, require('..').version)\"",
   };
-  pkg.files = ["*.js"];
+  pkg.files = [ "*.js" ];
   await util.writeJson("dist/package.json", pkg);
 
   await util.copyFile("./README.md", "./dist/README.md");
@@ -91,11 +91,11 @@ async function preparePackage() {
 }
 
 async function run(params) {
-  await execa("rm", ["-rf", "dist"]);
-  await execa("mkdir", ["-p", "dist"]);
+  await execa("rm", [ "-rf", "dist" ]);
+  await execa("mkdir", [ "-p", "dist" ]);
 
   if (params["purge-cache"]) {
-    await execa("rm", ["-rf", ".cache"]);
+    await execa("rm", [ "-rf", ".cache" ]);
   }
 
   const bundleCache = new Cache(".cache/", "v21");
@@ -112,8 +112,6 @@ async function run(params) {
   await preparePackage();
 }
 
-run(
-  minimist(process.argv.slice(2), {
-    boolean: ["purge-cache"],
-  })
-);
+run(minimist(process.argv.slice(2), {
+  boolean : [ "purge-cache" ],
+}));

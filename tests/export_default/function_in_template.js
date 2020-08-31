@@ -1,1 +1,1 @@
-export default (function templ() {})`foo`;
+export default (function templ() {}) `foo`;

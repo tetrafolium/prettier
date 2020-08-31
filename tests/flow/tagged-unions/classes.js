@@ -10,7 +10,7 @@ class Bar {
   bar: string;
 }
 
-type Foobar = Foo | Bar;
+type Foobar = Foo|Bar;
 
 function foobar(x: Foobar): string {
   if (x.type === 'foo') {
@@ -22,10 +22,6 @@ function foobar(x: Foobar): string {
   }
 }
 
-function foo(x: Foo): string {
-  return x.foo;
-}
+function foo(x: Foo): string { return x.foo; }
 
-function bar(x: Bar): string {
-  return x.bar;
-}
+function bar(x: Bar): string { return x.bar; }

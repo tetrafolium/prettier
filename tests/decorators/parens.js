@@ -1,4 +1,3 @@
 class X {
-  @(computed().volatile())
-  x
+  @(computed().volatile()) x
 }

@@ -18,18 +18,17 @@ border-color : tomato
 
 `;
 
-Button.extend.attr({})`
+Button.extend.attr({}) `
 border-color : black;
 `
 
-styled(ExistingComponent)`
+styled(ExistingComponent) `
        color : papayawhip ; background-color: firebrick`;
 
-
-styled.button.attr({})`
+styled.button.attr({}) `
 border : rebeccapurple`;
 
-styled(ExistingComponent).attr({})`
+styled(ExistingComponent).attr({}) `
 border : rebeccapurple`;
 
 styled.div`
@@ -158,13 +157,13 @@ const StyledComponent2 = styled.div`
 `;
 
 const Direction = styled.span`
-  ${({ up }) => up && `color: ${color.positive};`}
-  ${({ down }) => down && `color: ${color.negative};`}
+  ${({up}) => up && `color: ${color.positive};`}
+  ${({down}) => down && `color: ${color.negative};`}
 `;
 
 const Direction2 = styled.span`
-  ${({ up }) => up && `color: ${color.positive}`};
-  ${({ down }) => down && `color: ${color.negative}`};
+  ${({up}) => up && `color: ${color.positive}`};
+  ${({down}) => down && `color: ${color.negative}`};
 `;
 
 const mixin = css`
@@ -197,9 +196,7 @@ const bar = styled.div`
   height: 40px;
   width: 40px;
 
-  ${props =>
-    (props.complete || props.inProgress) &&
-    css`
+  ${props => (props.complete || props.inProgress) && css`
       border-color: rgba(var(--green-rgb), 0.15);
     `}
   
@@ -210,16 +207,12 @@ const bar = styled.div`
     color: var(--purpleTT);
     display: inline-flex;
 
-    ${props =>
-    props.complete &&
-    css`
+    ${props => props.complete && css`
         background-color: var(--green);
         border-width: 7px;
       `}
       
-    ${props =>
-    (props.complete || props.inProgress) &&
-    css`
+    ${props => (props.complete || props.inProgress) && css`
         border-color: var(--green);
       `}
   }
@@ -228,7 +221,7 @@ const bar = styled.div`
 const A = styled.a`
   display: inline-block;
   color: #fff;  
-  ${props => props.a &&css`
+  ${props => props.a && css`
     display: none;
   `}
    height: 30px;

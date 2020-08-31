@@ -1,2 +1,2 @@
 /* @flow */
-const dino : Dinosaur = "Stegosaurus"
+const dino: Dinosaur = "Stegosaurus"

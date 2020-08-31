@@ -1,24 +1,12 @@
-function doSmth()     {
-            %DebugPrint
-        (
-                foo )
-  }
+function doSmth() { % DebugPrint(foo) }
 
-    function printFunc  (
-        f
-) {
-    if(%
-    IsAsmWasmCode(f))              console.log("asm.js");
-        if(
+function printFunc(f) {
+  if (% IsAsmWasmCode(f))
+    console.log("asm.js");
+  if (
 
-        % IsWasmCode(
-        f))
-            console.log (
-                "wasm"
-            );
+      % IsWasmCode(f))
+    console.log("wasm");
 
-    console.log
-    (%
-        GetFunctioName(f)
-        );
+  console.log(% GetFunctioName(f));
 }

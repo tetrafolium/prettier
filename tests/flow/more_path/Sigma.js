@@ -1,13 +1,19 @@
 
 /* @providesModule Sigma */
 
-class A { a() {} }
+class A {
+  a() {}
+}
 
-class B extends A { b() {} }
+class B extends A {
+  b() {}
+}
 
-class C extends B { c() {} }
+class C extends B {
+  c() {}
+}
 
-function bar(x:B) {
+function bar(x: B) {
   if (x instanceof A) {
     x.a();
     x.c(); // error
@@ -16,7 +22,7 @@ function bar(x:B) {
   }
 }
 
-function foo(x:A) {
+function foo(x: A) {
   if (x instanceof C) {
     x.a();
     x.b();
@@ -28,10 +34,11 @@ function foo(x:A) {
   }
 }
 
+class D {
+  d() {}
+}
 
-class D { d() {} }
-
-function baz(x:D) {
+function baz(x: D) {
   if (x instanceof A) {
     // unreachable, TODO: this shouldn't throw
   }

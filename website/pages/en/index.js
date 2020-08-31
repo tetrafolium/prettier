@@ -2,13 +2,14 @@
 
 const React = require("react");
 const PropTypes = require("prop-types");
-const { MarkdownBlock, Container } = require("../../core/CompLibrary.js");
+const {MarkdownBlock, Container} = require("../../core/CompLibrary.js");
 const AnimatedLogo = require("@sandhose/prettier-animated-logo");
 
 const siteConfig = require(process.cwd() + "/siteConfig.js");
 
 const ButtonGroup = (props) => (
-  <div className="buttonGroup buttonWrapper">{props.children}</div>
+    <div className = "buttonGroup buttonWrapper">{props.children}<
+        /div>
 );
 
 ButtonGroup.propTypes = {
@@ -22,7 +23,7 @@ class Button extends React.Component {
         <a className="button" href={this.props.href} target={this.props.target}>
           {this.props.children}
         </a>
-      </div>
+    </div>
     );
   }
 }
@@ -41,8 +42,7 @@ function Tidelift() {
   return (
     <a className="tidelift" href={siteConfig.tideliftUrl}>
       PRETTIER FOR ENTERPRISE
-    </a>
-  );
+    </a>);
 }
 
 const HomeSplash = (props) => {
@@ -76,71 +76,74 @@ const HomeSplash = (props) => {
 };
 
 HomeSplash.propTypes = {
-  language: PropTypes.string,
+  language : PropTypes.string,
 };
 
 const TldrSection = ({ language }) => (
   <div className="tldrSection productShowcaseSection lightBackground">
     <Container>
       <div
-        style={{
-          display: "flex",
-          flexFlow: "row wrap",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <h2>What is Prettier?</h2>
+style = {
+  { display: "flex", flexFlow: "row wrap", justifyContent: "space-evenly", }
+} > <div style = {
+          { display: "flex", flexDirection: "column" }
+        }><h2>What is Prettier
+    ? </h2>
           <ul style={{ flex: "1" }}>
             <li>An opinionated code formatter</li>
-            <li>Supports many languages</li>
+    <li>Supports many
+        languages</li>
             <li>Integrates with most editors</li>
-            <li>Has few options</li>
+    <li>Has few options</li>
           </ul>
-        </div>
+    </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h2>Why?</h2>
-          <ul style={{ flex: "1" }}>
-            <li>You press save and code is formatted</li>
+    <ul style = {
+      { flex: "1" }
+    }>
+    <li>You press save and code is formatted<
+        /li>
             <li>No need to discuss style in code review</li>
-            <li>Saves you time and energy</li>
+    <li>Saves you time and
+        energy</li>
             <li>
-              <a href={"/docs/" + language + "/why-prettier.html"}>And more</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </Container>
-  </div>
-);
+              <a href={"/docs /
+                       " + language + " / why -
+                   prettier.html "}>And more</a>
+               < /li>
+          </ul></div>
+      </div></Container>
+  </div>);
 
 TldrSection.propTypes = {
-  language: PropTypes.string,
+  language : PropTypes.string,
 };
 
 const Language = ({ name, nameLink, showName, image, variants }) => (
   <div
-    className="languageCategory"
-    style={{
-      display: "flex",
-      alignItems: "flex-start",
-      paddingBottom: "1em",
-    }}
-  >
-    <img src={image} style={{ width: "50px", padding: "0 20px" }} />
+className = "languageCategory"
+style = {
+  { display: "flex", alignItems: "flex-start", paddingBottom: "1em", }
+} > <img src = {image} style =
+     {
+       { width: "50px", padding: "0 20px" }
+     } />
     <ul>
       {showName && (
         <li className="accented">
-          {nameLink ? <a href={nameLink}>{name}</a> : name}
-        </li>
+          {nameLink ? <a href={nameLink}>{name}</a>:
+            name
+}
+</li>
       )}
       {variants.map((variant) => (
         <li key={variant}>
           <MarkdownBlock>{variant}</MarkdownBlock>
-        </li>
+    </li>
       ))}
     </ul>
-  </div>
+    </div>
 );
 
 Language.propTypes = {
@@ -177,18 +180,18 @@ const LanguagesSection = () => {
       style={{ textAlign: "center" }}
     >
       <Container>
-        <h2>Works with the Tools You Use</h2>
-        <div
+        <h2>Works with the Tools You Use</h2><
+    div
           style={{
-            display: "flex",
-            flexFlow: "row wrap",
-            justifyContent: "space-around",
+  display: "flex", flexFlow: "row wrap", justifyContent: "space-around",
           }}
         >
           {languageChunks.map((languageChunk, index) => (
-            <div key={index} style={{ flex: "1 1 auto" }}>
+            <div key={index} style={{
+  flex: "1 1 auto" }}>
               {languageChunk.map((language) => (
-                <Language key={language.name} {...language} />
+                <Language key={language.name} {
+  ...language} />
               ))}
             </div>
           ))}
@@ -219,14 +222,14 @@ const EditorSupportSection = () => (
     <Container>
       <h2>Editor Support</h2>
       <div
-        style={{
-          display: "flex",
-          flexFlow: "row wrap",
-          justifyContent: "space-around",
-        }}
-      >
-        {siteConfig.editors.map((editor) => (
-          <Editor key={editor.name} {...editor} />
+          style = {
+            {
+              display: "flex", flexFlow: "row wrap",
+                  justifyContent: "space-around",
+            }
+          } > {siteConfig.editors.map((editor) => (
+          <Editor key={editor.name} {
+    ...editor} />
         ))}
       </div>
     </Container>
@@ -234,13 +237,12 @@ const EditorSupportSection = () => (
     <div style={{ float: "right" }}>
       <span>Got more? </span>
       <a
-        href={`${siteConfig.githubUrl}/edit/master/website/data/editors.yml`}
-        className="button"
-      >
-        Send a PR
-      </a>
+            href = {`${
+                siteConfig
+                    .githubUrl}/edit/master/website/data/editors.yml`} className =
+                "button" > Send a PR</a>
     </div>
-  </div>
+                </div>
 );
 
 const bash = (...args) => `~~~bash\n${String.raw(...args)}\n~~~`;
@@ -270,30 +272,28 @@ class GetStartedSection extends React.Component {
           >
             <div className="getStartedSteps">
               <h2>Get Started</h2>
-              <ol>
-                <li>
-                  Add prettier to your project:
-                  <div className="yarnOnly">
-                    <MarkdownBlock>
-                      {bash`yarn add prettier --dev --exact`}
-                    </MarkdownBlock>
+                <ol>
+                <li>Add prettier to your project: <div className = "yarnOnly">
+                <MarkdownBlock>{bash`yarn add prettier --dev --exact`}<
+                    /MarkdownBlock>
                   </div>
-                  <div className="npmOnly">
-                    <MarkdownBlock>
-                      {bash`npm install prettier --save-dev --save-exact`}
-                    </MarkdownBlock>
-                  </div>
-                </li>
+                <div className = "npmOnly"><MarkdownBlock>{
+                    bash`npm install prettier --save-dev --save-exact`}<
+                    /MarkdownBlock>
+                  </div><
+                /li>
                 <li>
                   Verify by running against a file:
                   <div className="yarnOnly">
                     <MarkdownBlock>
-                      {bash`yarn prettier --write src/index.js`}
+                      {bash`yarn prettier --write src/index
+                            .js`}
                     </MarkdownBlock>
                   </div>
                   <div className="npmOnly">
                     <MarkdownBlock>
-                      {bash`npx prettier --write src/index.js`}
+                      {bash` npx prettier-- write src /
+                        index.js`}
                     </MarkdownBlock>
                   </div>
                 </li>
@@ -301,12 +301,15 @@ class GetStartedSection extends React.Component {
                   Run prettier when committing files:
                   <div className="yarnOnly">
                     <MarkdownBlock>
-                      {bash`yarn add pretty-quick husky --dev`}
+                      {bash` yarn add pretty -
+                    quick husky-- dev`}
                     </MarkdownBlock>
                   </div>
                   <div className="npmOnly">
                     <MarkdownBlock>
-                      {bash`npm install pretty-quick husky --save-dev`}
+                      {bash` npm install pretty -
+                    quick husky-- save -
+                    dev`}
                     </MarkdownBlock>
                   </div>
                   Then add this config to <code>package.json</code>:
@@ -391,7 +394,8 @@ const UsersSection = ({ language }) => {
           </a>
           <a
             className="button"
-            href={`${siteConfig.githubUrl}/edit/master/website/data/users.yml`}
+            href={` $ { siteConfig.githubUrl } /edit/master /
+                        website / data / users.yml`}
           >
             Add Your Project
           </a>

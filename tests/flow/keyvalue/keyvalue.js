@@ -1,7 +1,3 @@
 // @flow
 
-let tests = [
-  function(x: { [key: number]: string }) {
-    (x[""]: number);
-  }
-];
+let tests = [ function(x: {[key: number]: string}) { (x[""]: number); } ];

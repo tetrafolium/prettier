@@ -1,4 +1,6 @@
-class C { foo: string; }
+class C {
+  foo: string;
+}
 
 var c: C;
 var r = c.toString();

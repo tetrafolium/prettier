@@ -13,8 +13,12 @@ export {specifierNumber5 as specifierNumber5Renamed};
 export {groupedSpecifierNumber3, groupedSpecifierNumber4};
 
 export function givesANumber2(): number { return 42; };
-export class NumberGenerator2 { givesANumber(): number { return 42; }};
+export class NumberGenerator2 {
+  givesANumber(): number { return 42; }
+};
 
 export var varDeclNumber3 = 1, varDeclNumber4 = 2;
-export var {destructuredObjNumber2} = {destructuredObjNumber2: 1};
-export var [destructuredArrNumber2] = [1]
+export var {destructuredObjNumber2} = {
+  destructuredObjNumber2 : 1
+};
+export var [destructuredArrNumber2] = [ 1 ]

@@ -4,5 +4,5 @@ class X {
 }
 
 class A {
-  protected [s]?() {}
+  protected[s]?() {}
 }

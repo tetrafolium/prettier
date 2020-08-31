@@ -10,12 +10,12 @@ declare var c: C;
 
 class Base {
   x: B;
-  +pos: B;
-  -neg: B;
-  get get(): B { return this.x };
-  set set(value: B): void { this.x = value };
-  get getset(): B { return this.x };
-  set getset(value: B): void { this.x = value };
+  + pos: B;
+  - neg: B;
+  get get(): B{return this.x};
+  set set(value: B): void{this.x = value};
+  get getset(): B{return this.x};
+  set getset(value: B): void{this.x = value};
 }
 
 (class extends Base {
@@ -30,8 +30,7 @@ class Base {
 
 (class extends Base {
   // ok: get/set co/contra with read/write property, resp.
-  get x(): C { return c }
-  set x(value: A): void {}
+  get x(): C{return c} set x(value: A): void {}
 });
 
 (class extends Base {

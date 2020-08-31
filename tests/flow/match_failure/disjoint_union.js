@@ -1,8 +1,10 @@
 /* @flow */
 
-type Shape =
-  {type: 'rectangle', width: number, height: number} |
-  {type: 'circle', radius: number};
+type Shape = {
+  type: 'rectangle',
+  width: number,
+  height: number
+}|{type : 'circle', radius : number};
 
 function area(shape: Shape): number {
   if (shape.type === 'square') { // TODO: this should be an error

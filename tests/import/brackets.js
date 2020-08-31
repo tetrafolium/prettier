@@ -1,11 +1,11 @@
 import {
-  runTaskForChanged,
+  andMore,
   description,
-  someOtherLabel,
-  thatMakes,
   itGo,
   multiLine,
-  andMore,
-  soWeCanGetItTo80Columns
+  runTaskForChanged,
+  someOtherLabel,
+  soWeCanGetItTo80Columns,
+  thatMakes
 } from '.';
 import {fitsIn, oneLine} from '.';

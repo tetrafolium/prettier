@@ -28,7 +28,7 @@ function d(x: {y: {[key: string]: ?string}}, a: {b: string}): string {
   return "";
 }
 
-function a_array(x: Array<?string>, y: number): string {
+function a_array(x: Array < ? string >, y : number): string {
   if (x[y]) {
     return x[y];
   }
@@ -42,7 +42,7 @@ function b_array(x: {y: Array<?string>}, z: number): string {
   return "";
 }
 
-function c_array(x: Array<?string>, y: {z: number}): string {
+function c_array(x: Array < ? string >, y : {z : number}): string {
   if (x[y.z]) {
     return x[y.z];
   }
@@ -68,7 +68,7 @@ function e_array(x: Array<?string>): string {
 function c2(x: {[key: string]: ?string}, y: {z: string}): string {
   if (x[y.z]) {
     y.z = "HEY";
-    return x[y.z];  // error
+    return x[y.z]; // error
   }
   return "";
 }
@@ -76,7 +76,7 @@ function c2(x: {[key: string]: ?string}, y: {z: string}): string {
 function c3(x: {[key: string]: ?string}, y: {z: string, a: string}): string {
   if (x[y.z]) {
     y.a = "HEY";
-    return x[y.z];  // ok
+    return x[y.z]; // ok
   }
   return "";
 }

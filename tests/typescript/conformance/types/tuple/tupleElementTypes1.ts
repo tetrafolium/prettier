@@ -1,1 +1,1 @@
-var [a, b]: [number, any] = [undefined, undefined];
+var [a, b]: [ number, any ] = [ undefined, undefined ];

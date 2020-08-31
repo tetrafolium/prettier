@@ -7,13 +7,14 @@
 // 'react' might show up here.
 
 import React from "react";
-//import React from "React";
-//var React = require("react");
-//var React = require("React");
+// import React from "React";
+// var React = require("react");
+// var React = require("React");
 
 class HelloMessage extends React.Component {
-  props: { name: string };
+  props: {name: string};
 }
 
-<HelloMessage name={007} />; // number ~/~> string error
+<HelloMessage name =
+     {007} />; / / number ~/~> string error
 <HelloMessage name="Bond" />; // ok

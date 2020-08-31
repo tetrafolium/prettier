@@ -1,6 +1,6 @@
 class C {
-    x: number;
-    constructor(x: number) { this.x = x; }
+  x: number;
+  constructor(x: number) { this.x = x; }
 }
 
 module.exports = C;

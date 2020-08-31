@@ -1,4 +1,6 @@
-class C { m() { } }
-class D extends C { }
+class C {
+  m() {}
+}
+class D extends C {}
 
-var d: { +m: () => void } = new D();
+var d: {+m: () => void} = new D();

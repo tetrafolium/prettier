@@ -1,1 +1,1 @@
-var y:number = x;
+var y: number = x;

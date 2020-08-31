@@ -1,5 +1,1 @@
-export default {
-  load<K, T>(k: K, t: T) {
-    return {k, t};
-  }
-}
+export default {load<K, T>(k: K, t: T) { return {k, t};}}

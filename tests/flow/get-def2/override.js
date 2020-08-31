@@ -1,11 +1,11 @@
 // @flow
 
 class C {
-  override() { }
+  override() {}
 }
 
 class D extends C {
   foo() { this.override() }
   bar() { this.override }
-  override() { }
+  override() {}
 }

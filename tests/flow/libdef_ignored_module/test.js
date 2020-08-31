@@ -2,4 +2,4 @@
 
 import foo from "foo";
 
-(foo.bar : string); // error number ~> string
+(foo.bar: string); // error number ~> string

@@ -1,5 +1,7 @@
 @decorator
-export class Foo {}
+export class Foo {
+}
 
 @decorator
-export default class {}
+export default class {
+}

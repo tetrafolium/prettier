@@ -11,6 +11,6 @@ describe("ignores files in version control systems", () => {
     "file.js",
     "-l",
   ]).test({
-    status: 1,
+    status : 1,
   });
 });

@@ -1,1 +1,1 @@
-var v: { e?(): number };
+var v: {e ? () : number};

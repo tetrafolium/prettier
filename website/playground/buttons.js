@@ -1,8 +1,9 @@
-import React from "react";
 import ClipboardJS from "clipboard";
+import React from "react";
 
 export const Button = React.forwardRef((props, ref) => (
-  <button type="button" className="btn" ref={ref} {...props} />
+  <button type="button" className="btn" ref={ref} {
+  ...props} />
 ));
 
 export class ClipboardButton extends React.Component {
@@ -42,9 +43,9 @@ export class ClipboardButton extends React.Component {
 
     return (
       <Button ref={this.ref} {...rest}>
-        {showTooltip ? <span className="tooltip">{tooltipText}</span> : null}
-        {children}
-      </Button>
+        {showTooltip ? <span className="tooltip">{tooltipText}</span> : null
+}
+{children} < /Button>
     );
   }
 }

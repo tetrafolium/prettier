@@ -1,4 +1,4 @@
 /* @providesModule Mixin */
 module.exports = {
-    success: function() { }
+  success : function() {}
 };

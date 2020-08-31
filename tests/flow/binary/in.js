@@ -4,9 +4,9 @@ let tests = [
   // objects on RHS
   function() {
     ('foo' in {});
-    ('foo' in { foo: null });
+    ('foo' in {foo : null});
     (0 in {});
-    (0 in { "0": null });
+    (0 in {"0" : null});
   },
 
   // arrays on RHS
@@ -24,26 +24,29 @@ let tests = [
 
   // primitives on RHS
   function() {
-    ('foo' in 123); // error
-    ('foo' in 'bar'); // error
+    ('foo' in 123);    // error
+    ('foo' in 'bar');  // error
     ('foo' in void 0); // error
-    ('foo' in null); // error
+    ('foo' in null);   // error
   },
 
   // bogus stuff on LHS
   function() {
-    (null in {}); // error
+    (null in {});   // error
     (void 0 in {}); // error
-    ({} in {}); // error
-    ([] in {}); // error
-    (false in []); // error
+    ({} in {});     // error
+    ([] in {});     // error
+    (false in []);  // error
   },
 
   // in predicates
   function() {
-    if ('foo' in 123) {} // error
-    if (!'foo' in {}) {} // error, !'foo' is a boolean
-    if (!('foo' in {})) {}
+    if ('foo' in 123) {
+    } // error
+    if (!'foo' in {}) {
+    } // error, !'foo' is a boolean
+    if (!('foo' in {})) {
+    }
   },
 
   // annotations on RHS

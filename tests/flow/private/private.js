@@ -2,7 +2,11 @@ class A {
   x: number;
   _x: string;
   __x: number;
-  constructor() { this.x = 0; this._x = ""; this.__x = 0; }
+  constructor() {
+    this.x = 0;
+    this._x = "";
+    this.__x = 0;
+  }
 }
 
 class B extends A {

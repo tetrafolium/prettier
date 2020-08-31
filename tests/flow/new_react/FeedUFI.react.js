@@ -14,13 +14,13 @@ var FeedUFI = React.createClass({
   _renderLikeCount: function(
       feedback: any
   ) {
-    var props = {
-      className: "",
-      key: "",
-      feedback: {feedback},
-      permalink: "",
-    };
-    var ignored = <UFILikeCount {...props} />;
+  var props = {
+    className : "",
+    key : "",
+    feedback : {feedback},
+    permalink : "",
+  };
+  var ignored = < UFILikeCount { ...props } />;
     return (
       <UFILikeCount
         className=""
@@ -32,9 +32,7 @@ var FeedUFI = React.createClass({
   },
 
   render: function(): ?React.Element<any> {
-    return (
-      <div/>
-    );
+  return (<div />);
   }
 
 });

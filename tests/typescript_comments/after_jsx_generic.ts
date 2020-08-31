@@ -14,11 +14,10 @@ let comp = (
     ></Component>
     <Component<number>
       // comment7
-      foo
-    ></Component>
+foo > < /Component>
     <Component<number>
       foo
-      // comment8
+      / / comment8
       bar
     ></Component>
   </>

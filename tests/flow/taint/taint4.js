@@ -3,11 +3,11 @@
  * @flow
  */
 
-var safe : string = "safe";
+var safe: string = "safe";
 // This should be allowed.
-var tainted : $Tainted<string> = safe
+var tainted: $Tainted<string> = safe
 
-function f(x : $Tainted<any>) {
+function f(x: $Tainted<any>) {
   // Should cause error.
-  var y : any = x;
+  var y: any = x;
 }

@@ -1,10 +1,5 @@
-var x = class C {
-}
+var x = class C {}
 
-var y = {
-    foo: class C2 {
-    }
-}
+var y = {foo : class C2 {}}
 
-var z = class C4 {
-}
+var z = class C4 {}

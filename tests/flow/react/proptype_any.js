@@ -1,13 +1,14 @@
 const React = require("react");
 
 var AnyExample = React.createClass({
-  propTypes: {
-    foo: (0: any), // OK
+  propTypes : {
+    foo : (0: any), // OK
   },
 });
 
 (<AnyExample />); // OK
-(<AnyExample foo={(0: mixed)} />); // OK
+(<AnyExample foo={
+  (0: mixed)} />); // OK
 
 var AnyFunExample = React.createClass({
   propTypes: {
@@ -16,4 +17,5 @@ var AnyFunExample = React.createClass({
 });
 
 (<AnyFunExample />); // OK
-(<AnyFunExample foo={(0: mixed)} />); // OK
+(<AnyFunExample foo={
+  (0: mixed)} />); // OK

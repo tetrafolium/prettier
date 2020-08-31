@@ -4,9 +4,7 @@ import React from "React";
 
 class JDiv extends React.Component {
   // static defaultProps: { };
-  props: {
-    id: string
-  };
+  props: {id: string};
 }
 
 // Should be a type error ('id' takes a string, not a number..)
@@ -17,10 +15,7 @@ class Example extends React.Component {
 
   render() {
     return <div>{this.props.bar}</div>
-  }
+}
 }
 
-React.render(
-  <Example foo="foo" />,
-  document.body
-);
+React.render(<Example foo = "foo" />, document.body);

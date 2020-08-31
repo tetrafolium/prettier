@@ -8,7 +8,7 @@ const mem = require("mem");
 const editorConfigToPrettier = require("editorconfig-to-prettier");
 const findProjectRoot = require("find-project-root");
 
-const jsonStringifyMem = (fn) => mem(fn, { cacheKey: JSON.stringify });
+const jsonStringifyMem = (fn) => mem(fn, {cacheKey : JSON.stringify});
 
 const maybeParse = (filePath, parse) => {
   // findProjectRoot will throw an error if we pass a nonexistent directory to
@@ -21,7 +21,7 @@ const maybeParse = (filePath, parse) => {
     dirPath = path.dirname(dirPath);
   }
   const root = findProjectRoot(dirPath);
-  return filePath && parse(filePath, { root });
+  return filePath && parse(filePath, {root});
 };
 
 const editorconfigAsyncNoCache = async (filePath) => {

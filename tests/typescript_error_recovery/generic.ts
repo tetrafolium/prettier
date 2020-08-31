@@ -5,15 +5,15 @@ new f2<>();
 function f3<>() {}
 
 class f4 {
-    constructor<>() {}
+  constructor<>() {}
 }
 
 const f5 = function<>() {}
 
 interface f6<> {
-    test<>();
+  test<>();
 }
 
 class f7<> {
-    test<>() {}
+  test<>() {}
 }

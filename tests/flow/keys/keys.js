@@ -10,7 +10,9 @@ function testKeysOfObject(str: string, lit: 'hi') {
   (123: $Keys<Object>); // Error: number -> keys of Object
 }
 
-type StrDict = {[key: string]: mixed};
+type StrDict = {
+  [key: string]: mixed
+};
 function testKeysOfStrDict(str: string, lit: 'hi') {
   (str: $Keys<StrDict>); // Any string should be fine
   if (str) {
@@ -21,19 +23,23 @@ function testKeysOfStrDict(str: string, lit: 'hi') {
   (123: $Keys<StrDict>); // Error: number -> keys of StrDict
 }
 
-type StrLitDict = {[key: 'hi']: mixed};
+type StrLitDict = {
+  [key: 'hi']: mixed
+};
 function testKeysOfStrLitDict(str: string, lit: 'hi') {
   (str: $Keys<StrLitDict>); // Error: Not all strings are allowed
   if (str) {
     (str: $Keys<StrLitDict>); // Error: Not all truthy strings are allowed
   }
-  ('hi': $Keys<StrLitDict>); // The right string literal is allowed
+  ('hi': $Keys<StrLitDict>);  // The right string literal is allowed
   ('bye': $Keys<StrLitDict>); // Error: The wrong string literal is not allowed
 
   (123: $Keys<StrLitDict>); // Error: number -> keys of StrLitDict
 }
 
-type ObjLit = {hi: mixed};
+type ObjLit = {
+  hi: mixed
+};
 function testKeysOfOtherObj(str: string, lit: 'hi') {
   (str: $Keys<ObjLit>); // Error: string -> keys of ObjLit
   if (str) {

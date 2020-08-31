@@ -1,4 +1,4 @@
-async function *catch_return() {
+async function* catch_return() {
   try {
     yield 0;
   } catch (e) {
@@ -14,7 +14,7 @@ async function *catch_return() {
   });
 });
 
-async function *yield_return() {
+async function* yield_return() {
   try {
     yield 0;
     return;

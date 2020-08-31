@@ -13,7 +13,7 @@ class Promise {}
  */
 async function foo(x: boolean) {
   if (x) {
-    return {bar: 'baz'};
+    return {bar : 'baz'};
   } else {
     return null;
   }
@@ -31,11 +31,7 @@ run();
  * using the usual rules
  */
 // error: `Promise` in return expr is the local binding
-async function bar() {
-  return Promise.resolve(0);
-}
+async function bar() { return Promise.resolve(0); }
 
 // error: return type anno is a ref to the local binding
-async function baz(): Promise<number> {
-  return 0;
-}
+async function baz(): Promise<number> { return 0; }

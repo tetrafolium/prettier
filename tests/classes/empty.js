@@ -5,8 +5,7 @@ class A1 {
 class A2 { // comment
 }
 
-class A3 {
-}
+class A3 {}
 
 class A4 {
   m() {}

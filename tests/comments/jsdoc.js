@@ -1,26 +1,18 @@
 /** @type {any} */
-const x = (
-    <div>
-        <div />
-    </div>
+const x =
+    (<div><div />
+     </div>
 );
 
-/**
- * @type {object}
- */
+/ ** * @type{object} *
+      /
 () => (
     <div>
         sajdfpoiasdjfpoiasdjfpoiasdjfpoiadsjfpaoisdjfapsdiofjapioisadfaskfaspiofjp
-    </div>
-);
+    </div>);
 
 /**
  * @type {object}
  */
-function HelloWorld() {
-    return (
-        <div>
-           <span>Test</span>
-        </div>
-    );
-}
+function HelloWorld() { return (<div><span>Test</span>
+        </div>); }

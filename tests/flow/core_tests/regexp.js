@@ -7,7 +7,7 @@ let tests = [
     new RegExp(/foo/);
     new RegExp('foo', 'i');
     new RegExp('foo', 'ig');
-    new RegExp(/foo/, 'i'); // invalid in ES5, valid in ES6
+    new RegExp(/foo/, 'i');  // invalid in ES5, valid in ES6
     new RegExp(/foo/g, 'i'); // invalid in ES5, valid in ES6
   },
 
@@ -17,13 +17,13 @@ let tests = [
     RegExp(/foo/);
     RegExp('foo', 'i');
     RegExp('foo', 'ig');
-    RegExp(/foo/, 'i'); // invalid in ES5, valid in ES6
+    RegExp(/foo/, 'i');  // invalid in ES5, valid in ES6
     RegExp(/foo/g, 'i'); // invalid in ES5, valid in ES6
   },
 
   // invalid flags
   function() {
-    RegExp('foo', 'z'); // error
+    RegExp('foo', 'z');     // error
     new RegExp('foo', 'z'); // error
   }
 ];

@@ -1,3 +1,1 @@
-function foo(x?: string): ?string {
-    return x;
-}
+function foo(x?: string): ? string { return x; }

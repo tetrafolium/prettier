@@ -15,7 +15,9 @@ declare export {specifierNumber3};
 declare export {groupedSpecifierNumber1, groupedSpecifierNumber2};
 
 declare export function givesANumber(): number;
-declare export class NumberGenerator { givesANumber(): number; };
+declare export class NumberGenerator {
+  givesANumber(): number;
+};
 
 declare export var varDeclNumber1: number;
 declare export var varDeclNumber2: number;

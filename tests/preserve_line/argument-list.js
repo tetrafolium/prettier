@@ -1,206 +1,156 @@
 longArgNamesWithComments(
 
-  // Hello World
+    // Hello World
 
-  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong1,
+    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong1,
 
-  // Hello World
+    // Hello World
 
-  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong2,
+    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong2,
 
-  /* Hello World */
-  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong3,
-
+    /* Hello World */
+    longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong3,
 
 );
 
 shortArgNames(
 
+    short,
 
-  short,
-
-  short2,
-  short3,
+    short2,
+    short3,
 );
 
 comments(
 
-  // Comment
+    // Comment
 
-  /* Some comments */
-  short,
-  /* Another comment */
+    /* Some comments */
+    short,
+    /* Another comment */
 
+    short2, // Even more comments
 
-  short2, // Even more comments
+    /* Another comment */
 
+    // Long Long Long Long Long Comment
 
-  /* Another comment */
+    /* Long Long Long Long Long Comment */
+    // Long Long Long Long Long Comment
 
-
-  // Long Long Long Long Long Comment
-
-
-
-  /* Long Long Long Long Long Comment */
-  // Long Long Long Long Long Comment
-
-  short3,
-  // More comments
-
+    short3,
+    // More comments
 
 );
 
 differentArgTypes(
 
-  () => {
-    return true
-  },
+    () => {return true},
 
-  isTrue ?
-    doSomething() : 12,
+    isTrue ? doSomething() : 12,
 
 );
 
 moreArgTypes(
 
-  [1, 2,
-    3],
+    [ 1, 2, 3 ],
 
-  {
-    name: 'Hello World',
-    age: 29
-  },
+    {name : 'Hello World', age : 29},
 
-  doSomething(
+    doSomething(
 
-    // Hello world
+        // Hello world
 
+        // Hello world again
+        {name : 'Hello World', age : 34},
 
-    // Hello world again
-    { name: 'Hello World', age: 34 },
+        oneThing + anotherThing,
 
+        // Comment
 
-    oneThing
-      + anotherThing,
-
-    // Comment
-
-  ),
+        ),
 
 );
 
 evenMoreArgTypes(
-  doSomething(
-    { name: 'Hello World', age: 34 },
+    doSomething({name : 'Hello World', age : 34},
 
+                true
 
-    true
+                ),
 
-  ),
+    14,
 
-  14,
+    1 + 2 - 90 / 80,
 
-  1 + 2
-    - 90/80,
-
-  !98 *
-    60 -
-    90,
-
-
+    !98 * 60 - 90,
 
 )
 
 foo.apply(null,
 
-// Array here
-[1, 2]);
-
+          // Array here
+          [ 1, 2 ]);
 
 bar.on("readable",
 
-() => {
-  doStuff()
-});
+       () => {doStuff()});
 
-foo(['A, B'],
+foo([ 'A, B' ],
 
-/* function here */
-function doSomething() { return true; });
+    /* function here */
+    function doSomething() { return true; });
 
 doSomething.apply(null,
 
-// Comment
+                  // Comment
 
-[
-  'Hello world 1',
-  'Hello world 2',
-  'Hello world 3',
-]);
-
+                  [
+                    'Hello world 1',
+                    'Hello world 2',
+                    'Hello world 3',
+                  ]);
 
 doAnotherThing("node",
 
-{
-  solution_type,
-  time_frame
-});
+               {solution_type, time_frame});
 
 stuff.doThing(someStuff,
 
-  -1, {
-  accept: node => doSomething(node)
-});
+              -1, {accept : node => doSomething(node)});
 
 doThing(
 
-  someOtherStuff,
+    someOtherStuff,
 
-  // This is important
-  true, {
-  decline: creditCard => takeMoney(creditCard)
-}
+    // This is important
+    true, {decline : creditCard => takeMoney(creditCard)}
 
 );
 
-func(
-  () => {
-   thing();
-  },
+func(() => { thing(); },
 
-  { yes: true, no: 5 }
-);
+     {yes : true, no : 5});
 
 doSomething(
 
-   { tomorrow: maybe, today: never[always] },
+    {tomorrow : maybe, today : never[always]},
 
-   1337,
+    1337,
 
-   /* Comment */
+    /* Comment */
 
-   // This is important
-   { helloWorld, someImportantStuff }
-
+    // This is important
+    {helloWorld, someImportantStuff}
 
 );
 
-function foo(
-  one,
+function foo(one,
 
-  two,
-  three,
-  four,
+             two, three, four,
 
+             five, six, seven, eight, nine, ten,
 
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
-
-  eleven
+             eleven
 
 ) {}

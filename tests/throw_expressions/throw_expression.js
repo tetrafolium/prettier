@@ -1,14 +1,15 @@
 function save(filename = throw new TypeError("Argument required")) {}
 
-lint(ast, {
-  with: () => throw new Error("avoid using 'with' statements.")
-});
+lint(ast, {with : () => throw new Error("avoid using 'with' statements.")});
 
 function getEncoder(encoding) {
-  const encoder = encoding === "utf8" ? new UTF8Encoder()
-                : encoding === "utf16le" ? new UTF16Encoder(false)
-                : encoding === "utf16be" ? new UTF16Encoder(true)
-                : throw new Error("Unsupported encoding");
+  const encoder = encoding === "utf8"
+                      ? new UTF8Encoder()
+                      : encoding === "utf16le"
+                            ? new UTF16Encoder(false)
+                            : encoding === "utf16be"
+                                  ? new UTF16Encoder(true)
+                                  : throw new Error("Unsupported encoding");
 }
 
 class Product {

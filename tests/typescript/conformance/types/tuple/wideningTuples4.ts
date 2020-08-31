@@ -1,4 +1,4 @@
-var a: [any];
+var a: [ any ];
 
-var b = a = [undefined, null];
-b = ["", ""];
+var b = a = [ undefined, null ];
+b = [ "", "" ];

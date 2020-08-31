@@ -4,4 +4,4 @@ foo('hmm');
 bar('hmm');
 
 function fn(data: ?{}) {}
-fn({some: 'literal'});
+fn({some : 'literal'});

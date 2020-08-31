@@ -28,15 +28,15 @@ function testString(str: string): void {
 
 function testMap1(map: Map<string, number>): void {
   for (var elem of map) {
-    (elem: [string, number]);
+    (elem: [ string, number ]);
     (elem: number); // Error - tuple ~> number
   }
 }
 
 function testMap2(map: Map<*, *>): void {
   for (var elem of map) {
-    (elem: [number, string]); // Any tuple is fine
-    (elem: number); // Error - tuple ~> number
+    (elem: [ number, string ]); // Any tuple is fine
+    (elem: number);             // Error - tuple ~> number
   }
 }
 

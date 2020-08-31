@@ -1,4 +1,4 @@
 class C {
-    readonly readonly x: number;
-    constructor(readonly readonly y: number) {}
+  readonly readonly x: number;
+  constructor(readonly readonly y: number) {}
 }

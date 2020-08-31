@@ -1,8 +1,8 @@
 class A {
-    foo(): A { return this; }
+  foo(): A { return this; }
 }
 class B extends A {
-    foo(): B { return this; }
+  foo(): B { return this; }
 }
 class C extends A {}
 var a: A = new B();

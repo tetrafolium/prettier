@@ -8,11 +8,9 @@ function hasPragma(text) {
 }
 
 function insertPragma(text) {
-  const { frontMatter, content } = parseFrontMatter(text);
-  return (
-    (frontMatter ? frontMatter.raw + "\n\n" : "") +
-    jsPragma.insertPragma(content)
-  );
+  const {frontMatter, content} = parseFrontMatter(text);
+  return ((frontMatter ? frontMatter.raw + "\n\n" : "") +
+          jsPragma.insertPragma(content));
 }
 
 module.exports = {

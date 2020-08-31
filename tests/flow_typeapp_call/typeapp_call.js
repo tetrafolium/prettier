@@ -1,6 +1,7 @@
 //@flow
 f<T>();
-f<T><U></U>;
+f<T><U><
+    /U>;
 new C<T>;
 f<T>(e);
 o[e]<T>();

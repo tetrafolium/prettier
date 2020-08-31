@@ -1,6 +1,6 @@
 /* @flow */
 
-function foo(x:{y?:() => void}) {
+function foo(x: {y?: () => void}) {
   x.y(); // error: could be undefined
   if (x.hasOwnProperty('y')) {
     x.y(); // error: still could be undefined
@@ -10,7 +10,7 @@ function foo(x:{y?:() => void}) {
   }
 }
 
-function bar(x:Object) {
+function bar(x: Object) {
   x.y(); // treated as `any`, so allowed
   if (x.hasOwnProperty('y')) {
     x.y(); // still treated as `any`, so allowed

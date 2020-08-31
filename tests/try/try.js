@@ -1,4 +1,6 @@
 try
 /* missing comment */
-{;}
-finally {}
+{
+  ;
+} finally {
+}

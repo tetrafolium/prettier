@@ -8,17 +8,17 @@ class C {
   static async mt<T>(a: T) {}
 }
 
-var e = async function () {};
-var et = async function<T> (a: T) {};
+var e = async function() {};
+var et = async function<T>(a: T) {};
 
 var n = new async function() {};
 
-var o = { async m() {} };
-var ot = { async m<T>(a: T) {} };
-var oz = { async async() {} };
+var o = {async m() {}};
+var ot = {async m<T>(a: T) {}};
+var oz = {async async() {}};
 
-var x = { async : 5 };
+var x = {async : 5};
 console.log(x.async);
 
 var async = 3;
-var y = { async };
+var y = {async};

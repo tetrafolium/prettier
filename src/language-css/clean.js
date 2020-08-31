@@ -1,32 +1,26 @@
 "use strict";
 
 function clean(ast, newObj, parent) {
-  [
-    "raw", // front-matter
-    "raws",
-    "sourceIndex",
-    "source",
-    "before",
-    "after",
-    "trailingComma",
-  ].forEach((name) => {
-    delete newObj[name];
-  });
+  ["raw", // front-matter
+   "raws",
+   "sourceIndex",
+   "source",
+   "before",
+   "after",
+   "trailingComma",
+  ].forEach((name) => { delete newObj[name]; });
 
   if (ast.type === "yaml") {
     delete newObj.value;
   }
 
   // --insert-pragma
-  if (
-    ast.type === "css-comment" &&
-    parent.type === "css-root" &&
-    parent.nodes.length !== 0 &&
-    // first non-front-matter comment
-    (parent.nodes[0] === ast ||
-      ((parent.nodes[0].type === "yaml" || parent.nodes[0].type === "toml") &&
-        parent.nodes[1] === ast))
-  ) {
+  if (ast.type === "css-comment" && parent.type === "css-root" &&
+      parent.nodes.length !== 0 &&
+      // first non-front-matter comment
+      (parent.nodes[0] === ast ||
+       ((parent.nodes[0].type === "yaml" || parent.nodes[0].type === "toml") &&
+        parent.nodes[1] === ast))) {
     /**
      * something
      *
@@ -40,11 +34,8 @@ function clean(ast, newObj, parent) {
     }
   }
 
-  if (
-    ast.type === "media-query" ||
-    ast.type === "media-query-list" ||
-    ast.type === "media-feature-expression"
-  ) {
+  if (ast.type === "media-query" || ast.type === "media-query-list" ||
+      ast.type === "media-feature-expression") {
     delete newObj.value;
   }
 
@@ -60,16 +51,12 @@ function clean(ast, newObj, parent) {
     newObj.value = newObj.value.replace(/ /g, "");
   }
 
-  if (
-    (ast.type === "value-word" &&
-      ((ast.isColor && ast.isHex) ||
-        ["initial", "inherit", "unset", "revert"].includes(
-          newObj.value.replace().toLowerCase()
-        ))) ||
-    ast.type === "media-feature" ||
-    ast.type === "selector-root-invalid" ||
-    ast.type === "selector-pseudo"
-  ) {
+  if ((ast.type === "value-word" &&
+       ((ast.isColor && ast.isHex) ||
+        [ "initial", "inherit", "unset", "revert" ].includes(
+            newObj.value.replace().toLowerCase()))) ||
+      ast.type === "media-feature" || ast.type === "selector-root-invalid" ||
+      ast.type === "selector-pseudo") {
     newObj.value = newObj.value.toLowerCase();
   }
   if (ast.type === "css-decl") {
@@ -82,20 +69,13 @@ function clean(ast, newObj, parent) {
     newObj.unit = newObj.unit.toLowerCase();
   }
 
-  if (
-    (ast.type === "media-feature" ||
-      ast.type === "media-keyword" ||
-      ast.type === "media-type" ||
-      ast.type === "media-unknown" ||
-      ast.type === "media-url" ||
-      ast.type === "media-value" ||
-      ast.type === "selector-attribute" ||
-      ast.type === "selector-string" ||
-      ast.type === "selector-class" ||
-      ast.type === "selector-combinator" ||
-      ast.type === "value-string") &&
-    newObj.value
-  ) {
+  if ((ast.type === "media-feature" || ast.type === "media-keyword" ||
+       ast.type === "media-type" || ast.type === "media-unknown" ||
+       ast.type === "media-url" || ast.type === "media-value" ||
+       ast.type === "selector-attribute" || ast.type === "selector-string" ||
+       ast.type === "selector-class" || ast.type === "selector-combinator" ||
+       ast.type === "value-string") &&
+      newObj.value) {
     newObj.value = cleanCSSStrings(newObj.value);
   }
 
@@ -118,34 +98,28 @@ function clean(ast, newObj, parent) {
     }
   }
 
-  if (
-    (ast.type === "media-value" ||
-      ast.type === "media-type" ||
-      ast.type === "value-number" ||
-      ast.type === "selector-root-invalid" ||
-      ast.type === "selector-class" ||
-      ast.type === "selector-combinator" ||
-      ast.type === "selector-tag") &&
-    newObj.value
-  ) {
+  if ((ast.type === "media-value" || ast.type === "media-type" ||
+       ast.type === "value-number" || ast.type === "selector-root-invalid" ||
+       ast.type === "selector-class" || ast.type === "selector-combinator" ||
+       ast.type === "selector-tag") &&
+      newObj.value) {
     newObj.value = newObj.value.replace(
-      /([\d.eE+-]+)([a-zA-Z]*)/g,
-      (match, numStr, unit) => {
-        const num = Number(numStr);
-        return isNaN(num) ? match : num + unit.toLowerCase();
-      }
-    );
+        /([\d.eE+-]+)([a-zA-Z]*)/g, (match, numStr, unit) => {
+          const num = Number(numStr);
+          return isNaN(num) ? match : num + unit.toLowerCase();
+        });
   }
 
   if (ast.type === "selector-tag") {
     const lowercasedValue = ast.value.toLowerCase();
 
-    if (["from", "to"].includes(lowercasedValue)) {
+    if ([ "from", "to" ].includes(lowercasedValue)) {
       newObj.value = lowercasedValue;
     }
   }
 
-  // Workaround when `postcss-values-parser` parse `not`, `and` or `or` keywords as `value-func`
+  // Workaround when `postcss-values-parser` parse `not`, `and` or `or` keywords
+  // as `value-func`
   if (ast.type === "css-atrule" && ast.name.toLowerCase() === "supports") {
     delete newObj.value;
   }

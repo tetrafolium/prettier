@@ -1,5 +1,1 @@
-export default {
-  isatty() {
-    return false
-  }
-}
+export default {isatty() { return false}}

@@ -2,26 +2,33 @@
 
 var React = require('react');
 var Example = React.createClass({
-  propTypes: {
-    str: React.PropTypes.oneOf(["foo", "bar"]),
-    num: React.PropTypes.oneOf([0, 1, 2]),
-    bool: React.PropTypes.oneOf([true]),
-    mixed: React.PropTypes.oneOf(["foo", 0, true]),
+  propTypes : {
+    str : React.PropTypes.oneOf([ "foo", "bar" ]),
+    num : React.PropTypes.oneOf([ 0, 1, 2 ]),
+    bool : React.PropTypes.oneOf([ true ]),
+    mixed : React.PropTypes.oneOf([ "foo", 0, true ]),
   },
 });
 
-(<Example str="foo" />); // OK
-(<Example str="baz" />); // error: 'baz' not in enum
+(<Example str = "foo" />); // OK
+(<Example str = "baz" />); // error: 'baz' not in enum
 
-(<Example num={0} />); // OK
-(<Example num={3} />); // error: 3 not in enum
+(<Example num={
+  0} />); // OK
+(<Example num={
+  3} />); // error: 3 not in enum
 
-(<Example bool={true} />); // OK
-(<Example bool={false} />); // error: false ~> true
+(<Example bool={
+  true} />); // OK
+(<Example bool={
+  false} />); // error: false ~> true
 
-(<Example mixed={"foo"} />); // OK
-(<Example mixed={0} />); // OK
-(<Example mixed={"baz"} />); // error: 'baz' not in enum
+(<Example mixed={
+  "foo"} />); // OK
+(<Example mixed={
+  0} />); // OK
+(<Example mixed={
+  "baz"} />); // error: 'baz' not in enum
 
 var RequiredExample = React.createClass({
   propTypes: {
@@ -37,7 +44,8 @@ var EmptyExample = React.createClass({
   },
 });
 
-(<EmptyExample nil={0} />); // number ~> empty
+(<EmptyExample nil={
+  0} />); // number ~> empty
 
 var AnyArrayExample = React.createClass({
   propTypes: {
@@ -45,7 +53,8 @@ var AnyArrayExample = React.createClass({
   },
 });
 
-(<AnyArrayExample any={0} />); // OK
+(<AnyArrayExample any={
+  0} />); // OK
 
 var AnyElemExample = React.createClass({
   propTypes: {
@@ -53,7 +62,8 @@ var AnyElemExample = React.createClass({
   },
 });
 
-(<AnyElemExample any={0} />); // OK
+(<AnyElemExample any={
+  0} />); // OK
 
 var DynamicArrayExample = React.createClass({
   propTypes: {
@@ -61,7 +71,8 @@ var DynamicArrayExample = React.createClass({
   },
 });
 
-(<DynamicArrayExample dyn={0} />); // OK
+(<DynamicArrayExample dyn={
+  0} />); // OK
 
 var DynamicElemExample = React.createClass({
   propTypes: {
@@ -69,7 +80,8 @@ var DynamicElemExample = React.createClass({
   },
 });
 
-(<DynamicElemExample dyn={0} />); // OK
+(<DynamicElemExample dyn={
+  0} />); // OK
 
 var InvalidArrayExample = React.createClass({
   propTypes: {
@@ -77,11 +89,13 @@ var InvalidArrayExample = React.createClass({
   },
 });
 
-(<InvalidArrayExample p={0} />); // OK, don't cascade errors
+(<InvalidArrayExample p={
+  0} />); // OK, don't cascade errors
 
 var NonLiteralElemExample = React.createClass({
   propTypes: {
     p: React.PropTypes.oneOf([{}]), // OK: allow non-literals
   },
 });
-(<NonLiteralElemExample p={0} />); // OK, result is unknown/any
+(<NonLiteralElemExample p={
+  0} />); // OK, result is unknown/any

@@ -1,18 +1,19 @@
 import {observable} from "mobx";
 
-@observer class OrderLine {
-  @observable price:number = 0;
-  @observable amount:number = 1;
+@observer
+class OrderLine {
+  @observable price: number = 0;
+  @observable amount: number = 1;
 
-  constructor(price) {
-    this.price = price;
-  }
+  constructor(price) { this.price = price; }
 
-  @computed get total() {
+  @computed
+  get total() {
     return this.price * this.amount;
   }
 
-  @action.bound setPrice(price) {
+  @action
+      .bound setPrice(price) {
     this.price = price;
   }
 
@@ -21,16 +22,26 @@ import {observable} from "mobx";
     return this.price * this.amount;
   }
 
-  @action.bound
-  setPrice(price) {
+  @action
+      .bound setPrice(price) {
     this.price = price;
   }
-  
-  @computed @computed @computed @computed @computed @computed @computed get total() {
+
+  @computed
+  @computed
+  @computed
+  @computed
+  @computed
+  @computed
+  @computed
+  get total() {
     return this.price * this.amount;
   }
 
-  @action handleDecrease = (event: React.ChangeEvent<HTMLInputElement>) => this.count--;
-  
-  @action handleSomething = (event: React.ChangeEvent<HTMLInputElement>) => doSomething();
+  @action
+  handleDecrease = (event: React.ChangeEvent<HTMLInputElement>) => this.count--;
+
+  @action
+  handleSomething = (event: React.ChangeEvent<HTMLInputElement>) =>
+      doSomething();
 }

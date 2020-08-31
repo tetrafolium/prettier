@@ -1,1 +1,1 @@
-  func<|>tion banana(){}
+func<|>tion banana() {}

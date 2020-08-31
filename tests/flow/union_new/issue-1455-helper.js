@@ -1,3 +1,3 @@
 /* @flow */
 
-export class Foobar { }
+export class Foobar {}

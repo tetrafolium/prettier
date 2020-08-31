@@ -1,1 +1,1 @@
-type Props = {||};
+type Props = { || };

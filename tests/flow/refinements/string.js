@@ -1,6 +1,6 @@
 // @flow
 
-type Mode = "a" | "b" | "c";
+type Mode = "a"|"b"|"c";
 
 let tests = [
   function(x: string) {

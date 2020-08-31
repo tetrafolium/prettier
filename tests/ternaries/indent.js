@@ -1,47 +1,23 @@
-aaaaaaaaaaaaaaa ? bbbbbbbbbbbbbbbbbb : ccccccccccccccc ? ddddddddddddddd : eeeeeeeeeeeeeee ? fffffffffffffff : gggggggggggggggg
+aaaaaaaaaaaaaaa
+    ? bbbbbbbbbbbbbbbbbb
+    : ccccccccccccccc ? ddddddddddddddd
+                      : eeeeeeeeeeeeeee ? fffffffffffffff : gggggggggggggggg
 
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-?
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-?
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-?
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-:
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-:
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-:
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    ? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                ? aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-a
-    ? {
-        a: 0
-      }
-    : {
-        a: {
-             a: 0
-           }
-            ? {
-                a: 0
-              }
-            : {
-                y: {
-                    a: 0
-                }
-                    ? {
-                        a: 0
-                    }
-                    : {
-                        a: 0
-                    }
-            }
-      }
+a ? {a : 0}
+  : {a : {a : 0} ? {a : 0} : {y : {a : 0} ? {a : 0} : {a : 0}}}
 
-a
-	? {
-			a: function() {
-				return a
+        a
+        ? {
+            a : function() {
+              return a
 					? {
 							a: [
 								a
@@ -162,6 +138,6 @@ a
 
 								  }
 					  ];
-			}
-	  }
-    : a;
+            }
+          }
+        : a;

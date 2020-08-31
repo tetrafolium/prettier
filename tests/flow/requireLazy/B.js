@@ -4,6 +4,6 @@
  */
 
 module.exports = {
-  numberValueB: 1,
-  stringValueB: "someString"
+  numberValueB : 1,
+  stringValueB : "someString"
 };

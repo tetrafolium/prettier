@@ -1,10 +1,10 @@
-import React from "react";
 import groupBy from "lodash/groupBy";
+import React from "react";
 
-import { SidebarCategory } from "./components";
+import {SidebarCategory} from "./components";
 import Option from "./options";
 
-export default function ({
+export default function({
   categories,
   availableOptions,
   optionValues,
@@ -19,7 +19,8 @@ export default function ({
             key={option.name}
             option={option}
             value={optionValues[option.name]}
-            onChange={onOptionValueChange}
+            onChange={
+      onOptionValueChange}
           />
         ))}
       </SidebarCategory>

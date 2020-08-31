@@ -5,12 +5,8 @@ const getLast = require("../utils/get-last");
 function locStart(node, opts) {
   opts = opts || {};
   // Handle nodes with decorators. They should start at the first decorator
-  if (
-    !opts.ignoreDecorators &&
-    node.declaration &&
-    node.declaration.decorators &&
-    node.declaration.decorators.length > 0
-  ) {
+  if (!opts.ignoreDecorators && node.declaration &&
+      node.declaration.decorators && node.declaration.decorators.length > 0) {
     return locStart(node.declaration.decorators[0]);
   }
   if (!opts.ignoreDecorators && node.decorators && node.decorators.length > 0) {
@@ -42,11 +38,8 @@ function locEnd(node) {
     return node.__location.endOffset;
   }
 
-  const loc = node.range
-    ? node.range[1]
-    : typeof node.end === "number"
-    ? node.end
-    : null;
+  const loc = node.range ? node.range[1]
+                         : typeof node.end === "number" ? node.end : null;
 
   if (node.typeAnnotation) {
     return Math.max(loc, locEnd(node.typeAnnotation));
@@ -67,13 +60,12 @@ function composeLoc(startNode, endNodeOrLength = startNode) {
   return {
     start,
     end,
-    range: [start, end],
-    loc: {
-      start: startLoc,
-      end:
-        length !== -1
-          ? { line: startLoc.line, column: startLoc.column + length }
-          : endNodeOrLength.loc.end,
+    range : [ start, end ],
+    loc : {
+      start : startLoc,
+      end : length !== -1
+                ? {line : startLoc.line, column : startLoc.column + length}
+                : endNodeOrLength.loc.end,
     },
   };
 }

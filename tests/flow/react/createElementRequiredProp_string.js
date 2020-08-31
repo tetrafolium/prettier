@@ -6,10 +6,8 @@ class Bar extends React.Component {
     test: number,
   };
   render() {
-    return (
-      <div>
-        {this.props.test}
-      </div>
+    return (<div>{this.props.test}<
+            /div>
     )
   }
 }

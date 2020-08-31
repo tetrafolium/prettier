@@ -1,3 +1,2 @@
-run_spec(__dirname, ["typescript"], {
-  disableBabelTS: ["classAbstractMixedWithModifiers.ts"]
-});
+run_spec(__dirname, [ "typescript" ],
+         {disableBabelTS : [ "classAbstractMixedWithModifiers.ts" ]});

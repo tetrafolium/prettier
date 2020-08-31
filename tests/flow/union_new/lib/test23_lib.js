@@ -1,1 +1,1 @@
-declare class SomeLibClass { }
+declare class SomeLibClass {}

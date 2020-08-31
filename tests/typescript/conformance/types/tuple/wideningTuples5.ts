@@ -1,2 +1,2 @@
 //@noImplicitAny: true
-var [a, b] = [undefined, null];
+var [a, b] = [ undefined, null ];

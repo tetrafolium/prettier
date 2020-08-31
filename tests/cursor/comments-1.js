@@ -1,4 +1,2 @@
 // hi l<|>ol
-function ehllooo () {
-  const hi = "hi"
-}
+function ehllooo() { const hi = "hi" }

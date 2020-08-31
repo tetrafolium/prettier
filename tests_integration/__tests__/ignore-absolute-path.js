@@ -10,6 +10,6 @@ describe("support absolute filename", () => {
     path.resolve(__dirname, "../cli/ignore-absolute-path/regular-module.js"),
     "-l",
   ]).test({
-    status: 1,
+    status : 1,
   });
 });

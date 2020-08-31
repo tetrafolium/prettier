@@ -3,9 +3,7 @@
 // misc basic
 
 function test1() {
-  async function foo() {
-    return 42;
-  }
+  async function foo() { return 42; }
 
   async function bar() {
     var a = await foo();
@@ -23,9 +21,7 @@ function test1() {
 //
 
 function test2() {
-  async function voidoid1() {
-    console.log("HEY");
-  }
+  async function voidoid1() { console.log("HEY"); }
 
   var voidoid2: () => Promise<void> = voidoid1; // ok
 
@@ -53,8 +49,7 @@ function test4() {
 }
 
 function test5() {
-  async function voidoid6()
-  : Promise<number> { // error, number != void
+  async function voidoid6(): Promise<number> { // error, number != void
     console.log("HEY");
   }
 }

@@ -1,3 +1,3 @@
 // @flow
 
-import type { Foo } from './h1';
+import type {Foo} from './h1';

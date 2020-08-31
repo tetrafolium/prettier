@@ -2,12 +2,9 @@
  * @flow
  */
 
-function      foo(bar)
-
+function foo(bar)
 
 {
 
-  return bar +
-    3 +
-  4;
+  return bar + 3 + 4;
 }

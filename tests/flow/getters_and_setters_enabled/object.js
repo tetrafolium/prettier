@@ -10,48 +10,53 @@ class C extends A {}
 
 var obj = {
   get goodGetterNoAnnotation() { return 4; },
-  get goodGetterWithAnnotation(): number { return 4; },
+  get goodGetterWithAnnotation() : number { return 4; },
 
   set goodSetterNoAnnotation(x) { z = x; },
   set goodSetterWithAnnotation(x: number) { z = x; },
 
-  get propWithMatchingGetterAndSetter(): number { return 4; },
-  set propWithMatchingGetterAndSetter(x: number) { },
+  get propWithMatchingGetterAndSetter() : number { return 4; },
+  set propWithMatchingGetterAndSetter(x: number) {},
 
   // The getter and setter need not have the same type
-  get propWithSubtypingGetterAndSetter(): ?number { return 4; }, // OK
-  set propWithSubtypingGetterAndSetter(x: number) { },
+  get propWithSubtypingGetterAndSetter() :
+      ? number { return 4; }, // OK
+  set propWithSubtypingGetterAndSetter(x: number) {},
 
-  set propWithSubtypingGetterAndSetterReordered(x: number) { }, // OK
-  get propWithSubtypingGetterAndSetterReordered(): ?number { return 4; },
+  set propWithSubtypingGetterAndSetterReordered(x: number) {}, // OK
+  get propWithSubtypingGetterAndSetterReordered()
+      :
+      ? number { return 4; },
 
-  get exampleOfOrderOfGetterAndSetter(): A { return new A(); },
+  get exampleOfOrderOfGetterAndSetter()
+      : A { return new A(); },
   set exampleOfOrderOfGetterAndSetter(x: B) {},
 
   set exampleOfOrderOfGetterAndSetterReordered(x: B) {},
-  get exampleOfOrderOfGetterAndSetterReordered(): A { return new A(); },
+  get exampleOfOrderOfGetterAndSetterReordered() : A { return new A(); },
 
-  set [z](x: string) {},
-  get [z](): string { return string; },
+  set[z](x: string) {},
+  get[z]() : string { return string; },
 };
-
-
 
 // Test getting properties with getters
 var testGetterNoError1: number = obj.goodGetterNoAnnotation;
 var testGetterNoError2: number = obj.goodGetterWithAnnotation;
 
-var testGetterWithError1: string = obj.goodGetterNoAnnotation; // Error number ~> string
-var testGetterWithError2: string = obj.goodGetterWithAnnotation; // Error number ~> string
+var testGetterWithError1: string =
+    obj.goodGetterNoAnnotation; // Error number ~> string
+var testGetterWithError2: string =
+    obj.goodGetterWithAnnotation; // Error number ~> string
 
 // Test setting properties with getters
 obj.goodSetterNoAnnotation = 123;
 obj.goodSetterWithAnnotation = 123;
 
-obj.goodSetterNoAnnotation = "hello"; // Error string ~> number
+obj.goodSetterNoAnnotation = "hello";   // Error string ~> number
 obj.goodSetterWithAnnotation = "hello"; // Error string ~> number
 
-var testSubtypingGetterAndSetter: number = obj.propWithSubtypingGetterAndSetter; // Error ?number ~> number
+var testSubtypingGetterAndSetter: number =
+    obj.propWithSubtypingGetterAndSetter; // Error ?number ~> number
 
 // When building this feature, it was tempting to flow the setter into the
 // getter and then use either the getter or setter as the type of the property.
@@ -60,4 +65,4 @@ obj.exampleOfOrderOfGetterAndSetter = new C(); // Error C ~> B
 
 // And this example shows the danger of using the setter's type.
 var testExampleOrOrderOfGetterAndSetterReordered: number =
-  obj.exampleOfOrderOfGetterAndSetterReordered; // Error A ~> B
+    obj.exampleOfOrderOfGetterAndSetterReordered; // Error A ~> B

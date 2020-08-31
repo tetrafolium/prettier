@@ -1,19 +1,24 @@
 declare class C {
-  f(
-    superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
-    ...args
-  ): void,
+  f(superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
+    ...args): void,
 }
 
 function f(
-  superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
-  ...args
-) {}
+    superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
+    ...args) {}
 
-declare class C { f(...superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong): void; }
+declare class C {
+  f(...superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong):
+      void;
+}
 
-[superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,,];
+[superSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperSuperLong,
+ ,
+];
 
-[veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong, ...a] = [];
-var {veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong, ...a} = {};
-
+[veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong,
+ ...a] = [];
+var {
+  veryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLong,
+  ...a
+} = {};

@@ -1,4 +1,4 @@
-({ foo = [] } = bar);
+({foo = []} = bar);
 
-function f({ x }?) {}
+function f({x}?) {}
 function g([ x ]?) {}

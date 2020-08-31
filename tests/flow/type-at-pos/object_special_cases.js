@@ -3,6 +3,6 @@
 let tests = [
   function() {
     let x = {};
-    Object.defineProperty(x, 'foo', { value: '' });
+    Object.defineProperty(x, 'foo', {value : ''});
   },
 ];

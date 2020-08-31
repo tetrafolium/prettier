@@ -1,7 +1,6 @@
 try {
 } catch (e) {
-}
-finally {
+} finally {
 }
 
 try {

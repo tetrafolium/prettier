@@ -1,5 +1,6 @@
 declare module "classnames" {
-  export default function classnames(...inputs: (string | number | false | object | undefined)[]): string;
+  export default function classnames(
+      ...inputs: (string|number|false|object|undefined)[]): string;
   export class x {}
   export interface y {}
   export type z = y;

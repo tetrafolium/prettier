@@ -1,5 +1,6 @@
 function pipeline() {
-	0
-	// Comment
-	|> x
+  0
+      // Comment
+      |
+      > x
 }

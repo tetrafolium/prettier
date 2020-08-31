@@ -12,7 +12,7 @@
 import type {BinaryExpression} from './types';
 
 function printBinaryExpression(
-  node: BinaryExpression,
+    node: BinaryExpression,
 ) {
   console.log(node);
 }

@@ -6,7 +6,7 @@ var A = require('./A.js');
 
 var good: number = A.Good.foo();
 
-var f = A.Bad.foo; // Property access is fine
+var f = A.Bad.foo;      // Property access is fine
 var bad_: number = f(); // Calling the function is fine
 
 var bad: number = A.Bad.foo(); // Method call is not fine

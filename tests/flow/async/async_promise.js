@@ -1,3 +1,1 @@
-async function f(): Promise<number> {
-  return Promise.resolve(1);
-}
+async function f(): Promise<number> { return Promise.resolve(1); }

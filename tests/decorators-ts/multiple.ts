@@ -1,5 +1,6 @@
 class C {
   @f()
   @g()
-  method() {}
+  method() {
+  }
 }

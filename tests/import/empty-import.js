@@ -1,1 +1,1 @@
-import { } from '@types/googlemaps';
+import {} from '@types/googlemaps';

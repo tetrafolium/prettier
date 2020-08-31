@@ -5,20 +5,18 @@
  * @flow
  */
 
-type DuplexStreamOptions = ReadableStreamOptions & WritableStreamOptions & {
-  allowHalfOpen? : boolean,
-  readableObjectMode? : boolean,
-  writableObjectMode? : boolean
+type DuplexStreamOptions = ReadableStreamOptions&WritableStreamOptions&{
+  allowHalfOpen?: boolean,
+  readableObjectMode?: boolean,
+  writableObjectMode?: boolean
 };
 
 function hasObjectMode_bad(options: DuplexStreamOptions): boolean {
-  return options.objectMode
-    || options.readableObjectMode
-    || options.writableObjectMode; // error, undefined ~> boolean
+  return options.objectMode || options.readableObjectMode ||
+         options.writableObjectMode; // error, undefined ~> boolean
 }
 
 function hasObjectMode_ok(options: DuplexStreamOptions): boolean {
-  return !!(options.objectMode
-    || options.readableObjectMode
-    || options.writableObjectMode);
+  return !!(options.objectMode || options.readableObjectMode ||
+            options.writableObjectMode);
 }

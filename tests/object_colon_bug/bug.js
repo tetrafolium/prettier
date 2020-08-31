@@ -1,4 +1,4 @@
 const foo = {
-  bar: props.bar ? props.bar : noop,
-  baz: props.baz
+  bar : props.bar ? props.bar : noop,
+  baz : props.baz
 }

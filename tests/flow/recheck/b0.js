@@ -1,6 +1,13 @@
 // @flow
 
-class C { x: C; }
-class E { x: C; }
+class C {
+  x: C;
+}
+class E {
+  x: C;
+}
 
-module.exports = { C, E };
+module.exports = {
+  C,
+  E
+};

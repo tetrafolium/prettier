@@ -24,7 +24,9 @@ import DefaultD from "./D"; // Error: No such module
 // == CommonJS Clobbering Literal Exports -> ES6 == //
 // ================================================ //
 
-import {doesntExist1} from "CommonJS_Clobbering_Lit"; // Error: Not an exported binding
+import {
+  doesntExist1
+} from "CommonJS_Clobbering_Lit"; // Error: Not an exported binding
 
 import {numberValue1} from "CommonJS_Clobbering_Lit";
 var c1: number = numberValue1;
@@ -42,21 +44,29 @@ CJS_Clobb_Lit.doesntExist; // Error: doesntExist isn't a property
 import * as CJS_Clobb_Lit_NS from "CommonJS_Clobbering_Lit";
 var f1: number = CJS_Clobb_Lit_NS.numberValue4;
 var f2: number = CJS_Clobb_Lit_NS.default.numberValue4;
-CJS_Clobb_Lit_NS.default.default; // Error: No 'default' property on the exported obj
+CJS_Clobb_Lit_NS.default
+    .default; // Error: No 'default' property on the exported obj
 var f3: string = CJS_Clobb_Lit_NS.numberValue4; // Error: number ~> string
-var f4: string = CJS_Clobb_Lit_NS.default.numberValue5; // Error: number ~> string
+var f4: string =
+    CJS_Clobb_Lit_NS.default.numberValue5; // Error: number ~> string
 
 // ============================================== //
 // == CommonJS Clobbering Class Exports -> ES6 == //
 // ============================================== //
 
-import {doesntExist2} from "CommonJS_Clobbering_Class"; // Error: Not an exported binding
+import {
+  doesntExist2
+} from "CommonJS_Clobbering_Class"; // Error: Not an exported binding
 
 // The following import should error because class statics are not turned into
 // named exports for now. This avoids complexities with polymorphic static
 // members (where the polymophism is defined on the class itself rather than the
 // method).
-import {staticNumber1, baseProp, childProp} from "CommonJS_Clobbering_Class"; // Error
+import {
+  staticNumber1,
+  baseProp,
+  childProp
+} from "CommonJS_Clobbering_Class"; // Error
 
 import CJS_Clobb_Class from "CommonJS_Clobbering_Class";
 new CJS_Clobb_Class();
@@ -68,9 +78,12 @@ var h4: string = new CJS_Clobb_Class().instNumber1(); // Error: number ~> string
 
 import * as CJS_Clobb_Class_NS from "CommonJS_Clobbering_Class";
 new CJS_Clobb_Class_NS(); // Error: Namespace object isn't constructable
-var i1: number = CJS_Clobb_Class_NS.staticNumber3(); // Error: Class statics not copied to Namespace object
+var i1: number =
+    CJS_Clobb_Class_NS
+        .staticNumber3(); // Error: Class statics not copied to Namespace object
 var i2: number = new CJS_Clobb_Class_NS.default().instNumber2();
-var i3: string = new CJS_Clobb_Class_NS.default().instNumber2(); // Error: number ~> string
+var i3: string =
+    new CJS_Clobb_Class_NS.default().instNumber2(); // Error: number ~> string
 
 // =================================== //
 // == CommonJS Named Exports -> ES6 == //
@@ -89,18 +102,22 @@ var k2: string = numVal3; // Error: number ~> string
 import * as CJS_Named from "CommonJS_Named";
 var l1: number = CJS_Named.numberValue1;
 var l2: string = CJS_Named.numberValue1; // Error: number ~> string
-CJS_Named.doesntExist; // Error: doesntExist isn't a property
+CJS_Named.doesntExist;                   // Error: doesntExist isn't a property
 
 import * as CJS_Named_NS from "CommonJS_Named";
 var m1: number = CJS_Named_NS.numberValue4;
-var m2: string = CJS_Named_NS.default.numberValue4; // Error: CommonJS_Named has no default export
+var m2: string =
+    CJS_Named_NS.default
+        .numberValue4; // Error: CommonJS_Named has no default export
 var m3: string = CJS_Named_NS.numberValue4; // Error: number ~> string
 
 //////////////////////////////
 // == ES6 Default -> ES6 == //
 //////////////////////////////
 
-import {doesntExist4} from "ES6_Default_AnonFunction1"; // Error: Not an exported binding
+import {
+  doesntExist4
+} from "ES6_Default_AnonFunction1"; // Error: Not an exported binding
 
 import ES6_Def_AnonFunc1 from "ES6_Default_AnonFunction1";
 var n1: number = ES6_Def_AnonFunc1();
@@ -112,11 +129,13 @@ var o2: string = ES6_Def_NamedFunc1(); // Error: number ~> string
 
 import ES6_Def_AnonClass1 from "ES6_Default_AnonClass1";
 var p1: number = new ES6_Def_AnonClass1().givesANum();
-var p2: string = new ES6_Def_AnonClass1().givesANum(); // Error: number ~> string
+var p2: string =
+    new ES6_Def_AnonClass1().givesANum(); // Error: number ~> string
 
 import ES6_Def_NamedClass1 from "ES6_Default_NamedClass1";
 var q1: number = new ES6_Def_NamedClass1().givesANum();
-var q2: string = new ES6_Def_NamedClass1().givesANum(); // Error: number ~> string
+var q2: string =
+    new ES6_Def_NamedClass1().givesANum(); // Error: number ~> string
 
 ////////////////////////////
 // == ES6 Named -> ES6 == //
@@ -148,7 +167,8 @@ var v2: string = givesANumber(); // Error: number ~> string
 
 import {NumberGenerator} from "ES6_Named1";
 var w1: number = new NumberGenerator().givesANumber();
-var w2: string = new NumberGenerator().givesANumber(); // Error: number ~> string
+var w2: string =
+    new NumberGenerator().givesANumber(); // Error: number ~> string
 
 import {varDeclNumber1, varDeclNumber2} from "ES6_Named1";
 var x1: number = varDeclNumber1;
@@ -180,7 +200,8 @@ var ac2: string = numberValue5; // Error: number ~> string
 // == ES6 Default -> CommonJS == //
 ///////////////////////////////////
 
-require('ES6_Default_AnonFunction2').doesntExist; // Error: 'doesntExist' isn't an export
+require('ES6_Default_AnonFunction2')
+    .doesntExist; // Error: 'doesntExist' isn't an export
 
 var ES6_Def_AnonFunc2 = require("ES6_Default_AnonFunction2").default;
 var ad1: number = ES6_Def_AnonFunc2();
@@ -192,11 +213,13 @@ var ae2: string = ES6_Def_NamedFunc2(); // Error: number ~> string
 
 var ES6_Def_AnonClass2 = require("ES6_Default_AnonClass2").default;
 var af1: number = new ES6_Def_AnonClass2().givesANum();
-var af2: string = new ES6_Def_AnonClass2().givesANum(); // Error: number ~> string
+var af2: string =
+    new ES6_Def_AnonClass2().givesANum(); // Error: number ~> string
 
 var ES6_Def_NamedClass2 = require("ES6_Default_NamedClass2").default;
 var ag1: number = new ES6_Def_NamedClass2().givesANum();
-var ag2: string = new ES6_Def_NamedClass2().givesANum(); // Error: number ~> string
+var ag2: string =
+    new ES6_Def_NamedClass2().givesANum(); // Error: number ~> string
 
 /////////////////////////////////
 // == ES6 Named -> CommonJS == //
@@ -223,7 +246,8 @@ var ak2: string = givesANumber2(); // Error: number ~> string
 
 var NumberGenerator2 = require("ES6_Named2").NumberGenerator2;
 var al1: number = new NumberGenerator2().givesANumber();
-var al2: string = new NumberGenerator2().givesANumber(); // Error: number ~> string
+var al2: string =
+    new NumberGenerator2().givesANumber(); // Error: number ~> string
 
 var varDeclNumber3 = require("ES6_Named2").varDeclNumber3;
 var varDeclNumber4 = require("ES6_Named2").varDeclNumber4;
@@ -244,7 +268,8 @@ var numberValue6 = require("ES6_ExportFrom_Intermediary2").numberValue1;
 var ap1: number = numberValue6;
 var ap2: string = numberValue6; // Error: number ~> string
 
-var numberValue2_renamed2 = require("ES6_ExportFrom_Intermediary2").numberValue2_renamed2;
+var numberValue2_renamed2 =
+    require("ES6_ExportFrom_Intermediary2").numberValue2_renamed2;
 var aq1: number = numberValue2_renamed2;
 var aq2: string = numberValue2_renamed2; // Error: number ~> string
 
@@ -273,8 +298,11 @@ import "./SideEffects";
 //////////////////////////////////////////////
 // == Suggest export name on likely typo == //
 //////////////////////////////////////////////
-import specifierNumber1 from "ES6_Named1"; // Error: Did you mean `import {specifierNumber1} from ...`?
-import {specifierNumber} from "ES6_Named1"; // Error: Did you mean `specifierNumber1`?
+import specifierNumber1 from
+    "ES6_Named1"; // Error: Did you mean `import {specifierNumber1} from ...`?
+import {
+  specifierNumber
+} from "ES6_Named1"; // Error: Did you mean `specifierNumber1`?
 
 ///////////////////////////////////////////////////
 // == Multi `export *` should combine exports == //
@@ -293,4 +321,6 @@ var at4: string = numberValue9; // Error: number ~> string
 /////////////////////////////////////////////////////////////
 // == Vanilla `import` cannot import a type-only export == //
 /////////////////////////////////////////////////////////////
-import {typeAlias} from "./ExportType"; // Error: Cannot vanilla-import a type alias!
+import {
+  typeAlias
+} from "./ExportType"; // Error: Cannot vanilla-import a type alias!

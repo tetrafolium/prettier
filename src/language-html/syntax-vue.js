@@ -1,7 +1,7 @@
 "use strict";
 
 const {
-  builders: { concat, group },
+  builders : {concat, group},
 } = require("../document");
 
 /**
@@ -11,22 +11,21 @@ const {
  *     v-for="(..., ...) of ..."
  */
 function printVueFor(value, textToDoc) {
-  const { left, operator, right } = parseVueFor(value);
+  const {left, operator, right} = parseVueFor(value);
   return concat([
-    group(
-      textToDoc(`function _(${left}) {}`, {
-        parser: "babel",
-        __isVueForBindingLeft: true,
-      })
-    ),
+    group(textToDoc(`function _(${left}) {}`, {
+      parser : "babel",
+      __isVueForBindingLeft : true,
+    })),
     " ",
     operator,
     " ",
-    textToDoc(right, { parser: "__js_expression" }),
+    textToDoc(right, {parser : "__js_expression"}),
   ]);
 }
 
-// modified from https://github.com/vuejs/vue/blob/v2.5.17/src/compiler/parser/index.js#L370-L387
+// modified from
+// https://github.com/vuejs/vue/blob/v2.5.17/src/compiler/parser/index.js#L370-L387
 function parseVueFor(value) {
   const forAliasRE = /([^]*?)\s+(in|of)\s+([^]*)/;
   const forIteratorRE = /,([^,}\]]*)(?:,([^,}\]]*))?$/;
@@ -51,18 +50,17 @@ function parseVueFor(value) {
   }
 
   return {
-    left: `${[res.alias, res.iterator1, res.iterator2]
-      .filter(Boolean)
-      .join(",")}`,
-    operator: inMatch[2],
-    right: res.for,
+    left: `${
+            [res.alias, res.iterator1, res.iterator2].filter(Boolean).join(
+                ",")}`,
+        operator: inMatch[2], right: res.for,
   };
 }
 
 function printVueSlotScope(value, textToDoc) {
   return textToDoc(`function _(${value}) {}`, {
-    parser: "babel",
-    __isVueSlotScope: true,
+    parser : "babel",
+    __isVueSlotScope : true,
   });
 }
 
@@ -71,7 +69,8 @@ function isVueEventBindingExpression(eventBindingValue) {
   // arrow function or anonymous function
   const fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*\(/;
   // simple member expression chain (a, a.b, a['b'], a["b"], a[0], a[b])
-  const simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
+  const simplePathRE =
+      /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
   // https://github.com/vuejs/vue/blob/v2.5.17/src/compiler/helpers.js#L104
   const value = eventBindingValue.trim();

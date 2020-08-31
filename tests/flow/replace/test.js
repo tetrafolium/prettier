@@ -1,5 +1,5 @@
 var a = 0;
 
-function foo(x) { }
+function foo(x) {}
 
 foo("");

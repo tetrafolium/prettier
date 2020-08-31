@@ -15,7 +15,7 @@
  * Hashtbl.hash_param
  */
 
-function fill_the_cache(x: Array<any | any>): Iterable<string> { return x; }
+function fill_the_cache(x: Array<any|any>): Iterable<string> { return x; }
 
 // Error: number ~> string
-function miss_the_cache(x: Array<string | number>): Iterable<string> { return x; }
+function miss_the_cache(x: Array<string|number>): Iterable<string> { return x; }

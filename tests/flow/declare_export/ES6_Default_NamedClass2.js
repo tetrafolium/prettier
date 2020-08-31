@@ -3,4 +3,6 @@
  * @flow
  */
 
-declare export default class Foo { givesANum(): number; };
+declare export default class Foo {
+  givesANum(): number;
+};

@@ -10,8 +10,9 @@ import typeof ClassFoo1T from "./ExportDefault_Class";
 import ClassFoo1 from "./ExportDefault_Class";
 
 var a1: ClassFoo1T = ClassFoo1;
-var a2: ClassFoo1T = new ClassFoo1(); // Error: ClassFoo1 (inst) ~> ClassFoo1 (class)
-new ClassFoo1T(); // Error: ClassFoo1T is not bound to a value
+var a2: ClassFoo1T =
+    new ClassFoo1(); // Error: ClassFoo1 (inst) ~> ClassFoo1 (class)
+new ClassFoo1T();    // Error: ClassFoo1T is not bound to a value
 
 /////////////////////////////////////////////////
 // == Importing Class Typeof (Named Export) == //
@@ -21,8 +22,9 @@ import typeof {ClassFoo2 as ClassFoo2T} from "./ExportNamed_Class";
 import {ClassFoo2} from "./ExportNamed_Class";
 
 var b1: ClassFoo2T = ClassFoo2;
-var b2: ClassFoo2T = new ClassFoo2(); // Error: ClassFoo2 (inst) ~> ClassFoo2 (class)
-new ClassFoo2T(); // Error: ClassFoo2T is not bound to a value
+var b2: ClassFoo2T =
+    new ClassFoo2(); // Error: ClassFoo2 (inst) ~> ClassFoo2 (class)
+new ClassFoo2T();    // Error: ClassFoo2T is not bound to a value
 
 ///////////////////////////////////////////////////////
 // == Importing Class Typeof (CJS Default Export) == //
@@ -32,7 +34,8 @@ import typeof ClassFoo3T from "./ExportCJSDefault_Class";
 import ClassFoo3 from "./ExportCJSDefault_Class";
 
 var c1: ClassFoo3T = ClassFoo3;
-var c2: ClassFoo3T = new ClassFoo3(); // Error: ClassFoo3 (inst) ~> ClassFoo3 (class)
+var c2: ClassFoo3T =
+    new ClassFoo3(); // Error: ClassFoo3 (inst) ~> ClassFoo3 (class)
 
 /////////////////////////////////////////////////////
 // == Importing Class Typeof (CJS Named Export) == //
@@ -42,13 +45,16 @@ import typeof {ClassFoo4 as ClassFoo4T} from "./ExportCJSNamed_Class";
 import {ClassFoo4} from "./ExportCJSNamed_Class";
 
 var d1: ClassFoo4T = ClassFoo4;
-var d2: ClassFoo4T = new ClassFoo4(); // Error: ClassFoo4 (inst) ~> ClassFoo4 (class)
+var d2: ClassFoo4T =
+    new ClassFoo4(); // Error: ClassFoo4 (inst) ~> ClassFoo4 (class)
 
 //////////////////////////////////////////////
 // == Import Typeof Alias (Named Export) == //
 //////////////////////////////////////////////
 
-import typeof {AliasFoo3} from "./ExportNamed_Alias"; // Error: Can't `import typeof` type aliases!
+import typeof {
+  AliasFoo3
+} from "./ExportNamed_Alias"; // Error: Can't `import typeof` type aliases!
 
 ////////////////////////////////////////////////
 // == Import Typeof Alias (Default Export) == //
@@ -99,5 +105,5 @@ var i2: num_cjs_named = 'asdf'; // Error: string ~> number
 ///////////////////////////////////////////////
 
 import typeof * as ModuleNSObjT from "./ExportNamed_Multi";
-var j1: ModuleNSObjT = {num: 42, str: 'asdf'};
-var j2: ModuleNSObjT = {num: 42, str: 42}; // Error: number ~> string
+var j1: ModuleNSObjT = {num : 42, str : 'asdf'};
+var j2: ModuleNSObjT = {num : 42, str : 42}; // Error: number ~> string

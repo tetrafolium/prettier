@@ -3,4 +3,4 @@
  * @flow
  */
 
-declare export default function foo():number;
+declare export default function foo(): number;

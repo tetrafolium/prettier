@@ -1,9 +1,9 @@
 class X {
-    optionalMethod?() {}
+  optionalMethod?() {}
 }
 
 interface Iterable<T> {
-  export [Symbol.iterator](): Iterator<T>;
+  export[Symbol.iterator](): Iterator<T>;
 }
 
 export class Check {

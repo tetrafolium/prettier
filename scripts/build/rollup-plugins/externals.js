@@ -2,14 +2,14 @@
 
 const path = require("path");
 
-module.exports = function (modules = []) {
+module.exports = function(modules = []) {
   const requires = modules.reduce((obj, mod) => {
     obj[mod] = path.basename(mod).replace(/\.js$/, "");
     return obj;
   }, {});
 
   return {
-    name: "externals",
+    name : "externals",
 
     load(importee) {
       if (requires[importee]) {

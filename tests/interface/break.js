@@ -4,7 +4,8 @@ export interface Environment1 extends GenericEnvironment<
   YetAnotherType,
 > {
   m(): void;
-};
+}
+;
 export class Environment2 extends GenericEnvironment<
   SomeType,
   AnotherType,
@@ -22,11 +23,14 @@ declare interface ExtendsOne extends ASingleInterface {
   x: string;
 }
 
-declare interface ExtendsLarge extends ASingleInterfaceWithAReallyReallyReallyReallyLongName {
+declare interface ExtendsLarge extends
+    ASingleInterfaceWithAReallyReallyReallyReallyLongName {
   x: string;
 }
 
-declare interface ExtendsMany extends Interface1, Interface2, Interface3, Interface4, Interface5, Interface6, Interface7 {
+declare interface ExtendsMany extends Interface1, Interface2, Interface3,
+                                      Interface4, Interface5, Interface6,
+                                      Interface7 {
   x: string;
 }
 
@@ -35,11 +39,13 @@ interface ExtendsOne extends ASingleInterface {
   x: string;
 }
 
-interface ExtendsLarge extends ASingleInterfaceWithAReallyReallyReallyReallyLongName {
+interface ExtendsLarge extends
+    ASingleInterfaceWithAReallyReallyReallyReallyLongName {
   x: string;
 }
 
-interface ExtendsMany extends Interface1, Interface2, Interface3, Interface4, Interface5, Interface6, Interface7 {
+interface ExtendsMany extends Interface1, Interface2, Interface3, Interface4,
+                              Interface5, Interface6, Interface7 {
   s: string;
 }
 
@@ -48,19 +54,26 @@ interface ExtendsOne extends ASingleInterface<string> {
   x: string;
 }
 
-interface ExtendsLarge extends ASingleInterfaceWithAReallyReallyReallyReallyLongName<string> {
+interface ExtendsLarge extends
+    ASingleInterfaceWithAReallyReallyReallyReallyLongName<string> {
   x: string;
 }
 
-interface ExtendsMany
-  extends ASingleGenericInterface<Interface1, Interface2, Interface3, Interface4, Interface5, Interface6, Interface7> {
+interface ExtendsMany extends
+    ASingleGenericInterface<Interface1, Interface2, Interface3, Interface4,
+                            Interface5, Interface6, Interface7> {
   x: string;
 }
 
-interface ExtendsManyWithGenerics
-  extends InterfaceOne, InterfaceTwo, ASingleGenericInterface<Interface1, Interface2, Interface3, Interface4, Interface5, Interface6, Interface7>, InterfaceThree {
+interface ExtendsManyWithGenerics extends
+    InterfaceOne, InterfaceTwo,
+    ASingleGenericInterface<Interface1, Interface2, Interface3, Interface4,
+                            Interface5, Interface6, Interface7>,
+    InterfaceThree {
 
-    x: string;
-  }
+  x: string;
+}
 
-export interface ExtendsLongOneWithGenerics extends Bar< SomeLongTypeSomeLongTypeSomeLongTypeSomeLongType,  ToBreakLineToBreakLineToBreakLine> {}
+export interface ExtendsLongOneWithGenerics extends
+    Bar<SomeLongTypeSomeLongTypeSomeLongTypeSomeLongType,
+        ToBreakLineToBreakLineToBreakLine> {}

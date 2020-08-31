@@ -1,2 +1,2 @@
-import type { Foo } from './bar.js';
-({ x: "" }: Foo);
+import type {Foo} from './bar.js';
+({x : ""}: Foo);

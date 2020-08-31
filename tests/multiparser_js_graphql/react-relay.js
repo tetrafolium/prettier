@@ -1,4 +1,4 @@
-const { graphql } = require("react-relay");
+const {graphql} = require("react-relay");
 
 graphql`
  mutation     MarkReadNotificationMutation(

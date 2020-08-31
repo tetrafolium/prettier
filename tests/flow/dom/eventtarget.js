@@ -1,6 +1,6 @@
 // @flow
 
-let listener: EventListener = function (event: Event) :void {};
+let listener: EventListener = function(event: Event): void {};
 
 let tests = [
   // attachEvent
@@ -18,8 +18,6 @@ let tests = [
   },
 
   function() {
-    window.onmessage = (event: MessageEvent) => {
-      (event.target: window);
-    };
+    window.onmessage = (event: MessageEvent) => { (event.target: window); };
   },
 ];

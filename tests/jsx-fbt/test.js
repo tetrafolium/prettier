@@ -1,47 +1,34 @@
-x =
-  <fbt>
-    <fbt:param>
-      First
-    </fbt:param>,
+x = <fbt>< fbt: param >
+    First</fbt:param>,
     <fbt:param>
       Second
-    </fbt:param>
-  </fbt>
+    </fbt : param>
+    </fbt>
 
 x =
   <fbt>
     <fbt:param>
       First
-    </fbt:param>
-    ,
-    <fbt:param>
-      Second
-    </fbt:param>
+    </fbt : param>,
+    <fbt : param>Second</fbt:param>
   </fbt>
 
-x =
-  <fbt>
-    <fbt:param>First</fbt:param>,<fbt:param>Second</fbt:param>
-  </fbt>
+        x =
+        <fbt>< fbt: param > First</fbt:param>,<fbt:param>Second</fbt : param>
+        </fbt>
 
 x =
   <fbt>
     <fbt:param>
       First
-    </fbt:param>,<fbt:param>
-      Second
-    </fbt:param>
+    </fbt : param>,
+    <fbt : param>Second</fbt:param>
   </fbt>
 
-x =
-  <fbt desc="example 1">
-    Prefix comes before
-    <fbt:param>
-      <b>
-        suffix
-      </b>
-    </fbt:param>
-  </fbt>
+        x = <fbt desc = "example 1">Prefix comes before < fbt: param >
+            <b>suffix</b>
+    </fbt : param>
+            </fbt>
 
 x =
   <fbt desc="example 2">
@@ -50,25 +37,23 @@ x =
       <b>
       suffix
       </b>
-    </fbt:param>
+            </fbt:param>
     <fbt:param name="a link">
       <link href="#">
         suffix
       </link>
-    </fbt:param>
+            </fbt:param>
   </fbt>
 
-x =
-  <fbt desc="example 3">
-    Count Chocula knows the the number
-    <fbt:enum enum-range={['one', 'two', 'three']} value={getValue()} />
+                x = <fbt desc = "example 3">Count Chocula knows the the number <
+                    fbt: enum enum
+-range = {['one', 'two', 'three']} value =
+    {getValue()} />
     is awesome
-  </fbt>
+  </fbt >
 
-x = (
-  <fbt>
-    {hour}:{minute}:{second}
-  </fbt>
+    x = (<fbt>{hour}: {minute}: {second}<
+         /fbt>
 );
 
 x = (
@@ -78,8 +63,7 @@ x = (
     {minute}
     :
     {second}
-  </fbt>
-);
+  </fbt>);
 
 x = (
   <fbt>

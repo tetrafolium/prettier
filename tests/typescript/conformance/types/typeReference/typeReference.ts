@@ -1,2 +1,1 @@
-let n: Promise<number>
-let m: Map<number, string>
+let n: Promise<number>let m: Map<number, string>

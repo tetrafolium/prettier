@@ -1,11 +1,5 @@
-button.connect(
-  "clicked",
-  () => doSomething()
-);
-app.connect(
-  "activate",
-  async () => {
-    await data.load();
-    win.show_all();
-  }
-);
+button.connect("clicked", () => doSomething());
+app.connect("activate", async () => {
+  await data.load();
+  win.show_all();
+});

@@ -10,24 +10,22 @@
 import React from "react";
 
 React.createClass({
-  propTypes: {
-    foo: React.PropTypes.shape({
-      bar: React.PropTypes.string.isRequired,
-    }).isRequired,
+  propTypes : {
+    foo : React.PropTypes
+              .shape({
+                bar : React.PropTypes.string.isRequired,
+              })
+              .isRequired,
   },
 
-  f() {
-    (this.props.foo.baz: string);
-  },
+  f() { (this.props.foo.baz: string); },
 
-  g() {
-    this.props.foo.baz = 0;
-  }
+  g() { this.props.foo.baz = 0; }
 });
 
 React.createClass({
-  propTypes: {
-    foo: React.PropTypes.shape(({}: {[string]: any})).isRequired,
+  propTypes : {
+    foo : React.PropTypes.shape(({}: {[string]: any})).isRequired,
   },
   f() {
     (this.props.foo.bar: empty); // OK

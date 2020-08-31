@@ -1,9 +1,9 @@
 @Component({
-       selector: 'app-test',
-  template: `<ul>   <li>test</li>
+  selector : 'app-test',
+  template : `<ul>   <li>test</li>
   </ul>
   `,
-  styles: [   `
+  styles : [ `
   
  :host {
    color: red;
@@ -12,6 +12,7 @@
  }
 `
 
-]
+  ]
 })
-class     TestComponent {}
+class TestComponent {
+}

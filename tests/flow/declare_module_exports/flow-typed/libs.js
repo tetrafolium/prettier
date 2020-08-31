@@ -1,6 +1,4 @@
-declare module "declare_module_exports" {
-  declare module.exports: number;
-}
+declare module "declare_module_exports" { declare module.exports: number; }
 
 declare module "declare_m_e_with_other_value_declares" {
   declare module.exports: number;

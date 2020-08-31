@@ -7,7 +7,7 @@ function test1(gen: Generator<void, string, void>) {
 
 // However, a generator can "refuse" the return by catching an exception and
 // yielding or returning internally.
-function *refuse_return() {
+function* refuse_return() {
   try {
     yield 1;
   } finally {

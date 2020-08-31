@@ -1,5 +1,5 @@
 class MyComponent {
-ngModel!: ng.INgModelController;
+  ngModel!: ng.INgModelController;
 }
 
 const x!: string

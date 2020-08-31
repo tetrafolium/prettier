@@ -1,26 +1,24 @@
 class A {
   static x: number;
   static y: string;
-  static foo(x: number) { }
-  static bar(y: string) { }
+  static foo(x: number) {}
+  static bar(y: string) {}
 }
-A.qux = function(x: string) { } // error?
+A.qux = function(x: string) {} // error?
 
 class B extends A {
-  static x: string; // error?
-  static foo(x: string) { } // error?
+  static x: string;        // error?
+  static foo(x: string) {} // error?
   static main() {
     B.x = 0; // error
     B.x = "";
     B.foo(0); // error
     B.foo("");
-    B.y = 0; // error
+    B.y = 0;  // error
     B.bar(0); // error
     B.qux(0); // error
   }
-  static create(): A {
-    return new this();
-  }
+  static create(): A { return new this(); }
 
   static badCreate(): number {
     return new this(); // error B ~> number
@@ -29,10 +27,8 @@ class B extends A {
 
 class C<X> {
   static x: X;
-  static bar(x: X) { }
-  static create(): C<*> {
-    return new this();
-  }
+  static bar(x: X) {}
+  static create(): C<*> { return new this(); }
 }
 
 class D extends C<string> {
@@ -50,12 +46,16 @@ var d: C<*> = D.create();
 class E {
   static x: number;
   static foo(): string {
-    this.bar(); // error
+    this.bar();    // error
     return this.x; // error
   }
 }
 
 // note: above classdefs are sufficiently annotated to export
 module.exports = {
-  A: A, B: B, C: C, D: D, E: E
+  A : A,
+  B : B,
+  C : C,
+  D : D,
+  E : E
 }

@@ -5,7 +5,7 @@ const assert = require("assert");
 const crypto = require("crypto");
 const fs = require("fs");
 const path = require("path");
-const { rollup } = require("rollup");
+const {rollup} = require("rollup");
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -19,14 +19,14 @@ function Cache(cacheDir, version) {
   this.checksums = {};
   this.files = {};
   this.updated = {
-    version: this.version,
-    checksums: {},
-    files: {},
+    version : this.version,
+    checksums : {},
+    files : {},
   };
 }
 
 // Loads the manifest.json file with the information from the last build
-Cache.prototype.load = async function () {
+Cache.prototype.load = async function() {
   // This should never throw, if it does, let it fail the build
   const lockfile = await readFile("yarn.lock", "utf-8");
   const lockfileHash = hashString(lockfile);
@@ -34,7 +34,7 @@ Cache.prototype.load = async function () {
 
   try {
     const manifest = await readFile(this.manifest, "utf-8");
-    const { version, checksums, files } = JSON.parse(manifest);
+    const {version, checksums, files} = JSON.parse(manifest);
 
     // Ignore the cache if the version changed
     assert.equal(this.version, version);
@@ -60,18 +60,18 @@ Cache.prototype.load = async function () {
 // any (or the list itself) have changed.
 // This takes the same rollup config used for bundling to include files that are
 // resolved by specific plugins.
-Cache.prototype.checkBundle = async function (id, inputOptions, outputOptions) {
+Cache.prototype.checkBundle = async function(id, inputOptions, outputOptions) {
   const files = new Set(this.files[id]);
   const newFiles = (this.updated.files[id] = []);
 
   let dirty = false;
 
   const bundle = await rollup(getRollupConfig(inputOptions));
-  const { output } = await bundle.generate(outputOptions);
+  const {output} = await bundle.generate(outputOptions);
 
-  const modules = output
-    .filter((mod) => !/\0/.test(mod.facadeModuleId))
-    .map((mod) => [path.relative(ROOT, mod.facadeModuleId), mod.code]);
+  const modules =
+      output.filter((mod) => !/\0/.test(mod.facadeModuleId))
+          .map((mod) => [path.relative(ROOT, mod.facadeModuleId), mod.code]);
 
   for (const [id, code] of modules) {
     newFiles.push(id);
@@ -96,7 +96,7 @@ Cache.prototype.checkBundle = async function (id, inputOptions, outputOptions) {
   return !dirty && files.size === 0;
 };
 
-Cache.prototype.save = async function () {
+Cache.prototype.save = async function() {
   try {
     await writeFile(this.manifest, JSON.stringify(this.updated, null, 2));
   } catch (err) {
@@ -104,9 +104,7 @@ Cache.prototype.save = async function () {
   }
 };
 
-function required(name) {
-  throw new Error(name + " is required");
-}
+function required(name) { throw new Error(name + " is required"); }
 
 function hashString(string) {
   return crypto.createHash("md5").update(string).digest("hex");
@@ -116,13 +114,13 @@ function getRollupConfig(rollupConfig) {
   return {
     ...rollupConfig,
     onwarn() {},
-    plugins: rollupConfig.plugins.filter(
-      (plugin) =>
-        // We're not interested in dependencies, we already check `yarn.lock`
+    plugins : rollupConfig.plugins.filter(
+        (plugin) =>
+            // We're not interested in dependencies, we already check
+            // `yarn.lock`
         plugin.name !== "node-resolve" &&
         // This is really slow, we need this "preflight" to be fast
-        plugin.name !== "babel"
-    ),
+        plugin.name !== "babel"),
   };
 }
 

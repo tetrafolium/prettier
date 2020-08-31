@@ -5,15 +5,16 @@ class Base {
   annotatedField: number;
   initializedField = 42;
   initializedFieldWithThis = this.initializedField;
-  annotatedInitializedFieldValid: ?number = 42;
+  annotatedInitializedFieldValid:? number = 42;
   annotatedInitializedFieldInvalid: number = 'asdf'; // Error: string ~> number
 
   static unannotatedField;
   static annotatedField: number;
   static initializedField = 'asdf';
   static initializedFieldWithThis = this.initializedField;
-  static annotatedInitializedFieldValid: ?number = 42;
-  static annotatedInitializedFieldInvalid: number = 'asdf'; // Error: string ~> number
+  static annotatedInitializedFieldValid:? number = 42;
+  static annotatedInitializedFieldInvalid: number =
+      'asdf'; // Error: string ~> number
 }
 
 var o = new Base();

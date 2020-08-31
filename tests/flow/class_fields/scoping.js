@@ -11,9 +11,7 @@ class Foo {
   static selfTyped: Foo;
   static selfTypedInit = new Foo();
 
-  constructor() {
-    var someVar = 'asdf';
-  }
+  constructor() { var someVar = 'asdf'; }
 }
 
 /**

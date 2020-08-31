@@ -1,8 +1,11 @@
 export type AdamPlacementValidationSingleErrorKey =
-  'SOME_FANCY_TARGETS.GLOBAL_TARGET';
+    'SOME_FANCY_TARGETS.GLOBAL_TARGET';
 
-export type SomeReallyLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey = true;
+export type SomeReallyLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey =
+    true;
 
-export type SomeOtherLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey = null;
+export type SomeOtherLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey =
+    null;
 
-type SomeOtherLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey2 = SomeReallyLongLongLongLongLongLongIdentifier;
+type SomeOtherLongLongLongLongLongLongLongLongLongLongLongLongLongLongKey2 =
+    SomeReallyLongLongLongLongLongLongIdentifier;

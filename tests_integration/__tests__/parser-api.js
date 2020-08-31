@@ -8,9 +8,9 @@ test("allows custom parser provided as object", () => {
     parser(text) {
       expect(text).toEqual("1");
       return {
-        type: "Literal",
-        value: 2,
-        raw: "2",
+        type : "Literal",
+        value : 2,
+        raw : "2",
       };
     },
   });
@@ -37,6 +37,6 @@ describe("allows passing a string to resolve a parser", () => {
     "--parser",
     "./custom-rename-parser",
   ]).test({
-    status: 0,
+    status : 0,
   });
 });

@@ -8,6 +8,8 @@ else {
   stuff;
 }
 
-if (cond) stuff;
+if (cond)
+  stuff;
 // comment
-else stuff;
+else
+  stuff;

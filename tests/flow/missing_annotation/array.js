@@ -2,4 +2,4 @@
 
 type Foo = {};
 var f: Foo = {};
-export var arr = [f];
+export var arr = [ f ];

@@ -1,6 +1,6 @@
 "use strict";
 
 module.exports = {
-  endOfLine: 'auto',
-  tabWidth: 8
+  endOfLine : 'auto',
+  tabWidth : 8
 };

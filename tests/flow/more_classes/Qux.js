@@ -2,11 +2,11 @@
 /* @providesModule Qux */
 
 class Qux {
-  w:number;
+  w: number;
 
   qux() { return this.w; }
 
-  fooqux(x:number) { }
+  fooqux(x: number) {}
 }
 
 module.exports = Qux;

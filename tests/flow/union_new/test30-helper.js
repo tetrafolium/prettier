@@ -1,6 +1,6 @@
 // @noflow
 
 module.exports = {
-  FOO: 'foo',
-  BAR: 'bar',
+  FOO : 'foo',
+  BAR : 'bar',
 }

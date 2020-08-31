@@ -1,11 +1,6 @@
 
 class C {
-  name/*comment*/() {
-  }
+  name /*comment*/ () {}
 };
 
-
-({
-  name/*comment*/() {
-  }
-});
+({name /*comment*/ () {}});

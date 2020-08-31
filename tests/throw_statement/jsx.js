@@ -1,9 +1,7 @@
-function foo() {
-  throw <Bar />;
-}
+function foo() { throw<Bar />; }
 
 function foo() {
-  throw <Bar>baz</Bar>;
+  throw<Bar>baz</Bar>;
 }
 
 function foo() {
@@ -11,7 +9,7 @@ function foo() {
 }
 
 function foo() {
-  throw <Bar baz={baz}>foo</Bar>;
+  throw<Bar baz = {baz}>foo</Bar>;
 }
 
 function foo() {
@@ -19,5 +17,5 @@ function foo() {
 }
 
 function foo() {
-  throw <>foo</>;
+  throw<>foo < />;
 }

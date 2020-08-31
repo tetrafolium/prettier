@@ -1,19 +1,20 @@
 import React from "react";
 
-export function Checkbox({ label: _label, title, checked, onChange }) {
+export function Checkbox({label : _label, title, checked, onChange}) {
   return (
     <label title={title}>
       <input
-        type="checkbox"
+  type = "checkbox"
         checked={checked}
-        onChange={(ev) => onChange(ev.target.checked)}
+        onChange={
+    (ev) => onChange(ev.target.checked)}
       />{" "}
       {_label}
     </label>
   );
 }
 
-export function Select({ label: _label, title, values, selected, onChange }) {
+export function Select({label : _label, title, values, selected, onChange}) {
   return (
     <label title={title}>
       {_label}{" "}

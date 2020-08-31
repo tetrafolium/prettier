@@ -1,5 +1,2 @@
-interface ReallyReallyLongName<
-    TypeArgumentNumberOne, 
-    TypeArgumentNumberTwo,
-    TypeArgumentNumberThree
-> {}
+interface ReallyReallyLongName<TypeArgumentNumberOne, TypeArgumentNumberTwo,
+                               TypeArgumentNumberThree> {}

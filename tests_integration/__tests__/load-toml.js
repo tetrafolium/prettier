@@ -26,12 +26,9 @@ enabled = true
   });
 
   test("throws error on incorrect toml", () => {
-    expect(() => {
-      loadToml(exampleFilePath, wrongToml);
-    }).toThrow();
+    expect(() => { loadToml(exampleFilePath, wrongToml); }).toThrow();
 
-    expect(() => {
-      loadToml(exampleFilePath, wrongToml);
-    }).toThrowErrorMatchingSnapshot();
+    expect(() => { loadToml(exampleFilePath, wrongToml); })
+        .toThrowErrorMatchingSnapshot();
   });
 });

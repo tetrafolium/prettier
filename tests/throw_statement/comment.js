@@ -1,21 +1,17 @@
 function x() {
   throw func2
-      //comment
+      // comment
       .bar();
 }
- 
+
 function f() {
-  throw (
-    foo
-      // comment
-      .bar()
-  );
+  throw (foo
+             // comment
+             .bar());
 }
- 
+
 fn(function f() {
-  throw (
-    foo
-      // comment
-      .bar()
-  );
+  throw (foo
+             // comment
+             .bar());
 });

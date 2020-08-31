@@ -8,4 +8,4 @@ type Node2 = {
   prop2?: string
 }
 
-export type ASTNode = Node1 | Node2;
+export type ASTNode = Node1|Node2;

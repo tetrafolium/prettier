@@ -2,4 +2,5 @@
 
 try {
   throw "foo";
-} catch (e) {}
+} catch (e) {
+}

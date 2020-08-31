@@ -1,19 +1,13 @@
 // @flow
 
-function is_string(y): %checks {
-  return typeof y === "string";
-}
+function is_string(y): % checks { return typeof y === "string"; }
 
-function is_bool(y): %checks {
-  return typeof y === "boolean";
-}
+function is_bool(y): % checks { return typeof y === "boolean"; }
 
-function is_number(y): %checks {
-  return typeof y === "number";
-}
+function is_number(y): % checks { return typeof y === "number"; }
 
 // Feature check:
-function foo(x: string | Array<string>): string {
+function foo(x: string|Array<string>): string {
   if (is_string(x)) {
     // The use of `is_string` as a conditional check
     // should guarantee the narrowing of the type of `x`
@@ -27,7 +21,7 @@ function foo(x: string | Array<string>): string {
 }
 
 // Same as above but refining an offset
-function bar(z: { f: string | Array<string>}): string {
+function bar(z: {f: string|Array<string>}): string {
   if (is_string(z.f)) {
     return z.f;
   } else {
@@ -35,11 +29,9 @@ function bar(z: { f: string | Array<string>}): string {
   }
 }
 
-function is_number_or_bool(y): %checks {
-  return is_number(y) || is_bool(y);
-}
+function is_number_or_bool(y): % checks { return is_number(y) || is_bool(y); }
 
-function baz(z: string | number): number {
+function baz(z: string|number): number {
   if (is_number_or_bool(z)) {
     return z;
   } else {
@@ -48,11 +40,9 @@ function baz(z: string | number): number {
 }
 
 // Feature: multi params
-function multi_param(w,x,y,z): %checks {
-  return typeof z === "string";
-}
+function multi_param(w, x, y, z): % checks { return typeof z === "string"; }
 
-function foo(x: string | Array<string>): string {
+function foo(x: string|Array<string>): string {
   if (multi_param("1", "2", "3", x)) {
     return x;
   } else {
@@ -66,8 +56,6 @@ function foo(a, b) {
   }
 }
 
-function two_strings(x,y): %checks {
-  return is_string(x) && is_string(y) ;
-}
+function two_strings(x, y): % checks { return is_string(x) && is_string(y); }
 
 declare function from_two_strings(x: string, y: string): void;

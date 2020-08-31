@@ -1,4 +1,4 @@
-let xs = [0, "", true];
+let xs = [ 0, "", true ];
 let [a, ...ys] = xs;
 let [b, ...zs] = ys;
 let c = zs[0]; // retain tuple info

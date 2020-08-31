@@ -1,24 +1,33 @@
-import { a //comment1
-//comment2
-//comment3
-as b} from "";
-
+import {
+  DocumentNode,
+  ExecutionResult,
+  /* tslint:disable */
+  SelectionSetNode,
+  /* tslint:enable */
+} from 'graphql';
+import x, {
+  // comment
+  y} from 'z';
+import {
+  a //comment1
+      //comment2
+      //comment3
+      as b
+} from "";
 import {
   a as //comment1
-  //comment2
-  //comment3
-  b1
+      //comment2
+      //comment3
+      b1
 } from "";
-
 import {
   a as //comment2 //comment1
-  //comment3
-  b2
+      //comment3
+      b2
 } from "";
-
 import {
   a as //comment3 //comment2 //comment1
-  b3
+      b3
 } from "";
 
 import {
@@ -30,16 +39,3 @@ import {
   // FN4,
   // FN5
 } from "./module";
-
-import {
-  ExecutionResult,
-  DocumentNode,
-  /* tslint:disable */
-  SelectionSetNode,
-  /* tslint:enable */
-} from 'graphql';
-
-import x, {
-  // comment
-  y
-} from 'z';

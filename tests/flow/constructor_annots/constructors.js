@@ -3,7 +3,9 @@ function Foo() {
   this.x = 0; // constructs objects with property x
 }
 Foo.y = 0; // has static property y
-Foo.prototype = { m() { return 0; } };
+Foo.prototype = {
+  m() { return 0; }
+};
 
 // exporting Foo directly doesn't work
 // Foo's instance and static props are not picked up
@@ -15,7 +17,7 @@ interface IFooPrototype {
 }
 interface IFoo extends IFooPrototype {
   x: boolean; // error, should have declared x: number instead
-  static (): void;
+  static(): void;
   constructor(): void;
 }
 exports.Foo2 = (Foo: Class<IFoo>);

@@ -1,17 +1,10 @@
 /* @flow */
 
-function f() {
-  return this.p;
-}
+function f() { return this.p; }
 
-var a = {
-  p: 0,
-  f
-}
+var a = {p : 0, f}
 
-var b = {
-  f
-}
+var b = {f}
 
-a.f(); // okey-dokie
-b.f(); // error, property `p` not found
+        a.f(); // okey-dokie
+b.f();         // error, property `p` not found

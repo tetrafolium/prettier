@@ -13,10 +13,6 @@
 
 type MyObj = Object;
 
-function foo(x: {[key: string]: mixed}) {
-  bar(x);
-}
+function foo(x: {[key: string]: mixed}) { bar(x); }
 
-function bar(y: MyObj): string {
-  return y.foo;
-}
+function bar(y: MyObj): string { return y.foo; }

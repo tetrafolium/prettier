@@ -8,7 +8,7 @@ class Base {
   bar_caller() { return this.bar(); }
 }
 
-class Inherit extends Base { }
+class Inherit extends Base {}
 
 class Override extends Base {
   foo() { return this; } // OK
@@ -17,7 +17,7 @@ class Override extends Base {
   bar() { return new Override; } // OK (cf. error below)
 }
 
-class InheritOverride extends Override { }
+class InheritOverride extends Override {}
 
 (new Inherit().foo(): Base);
 (new Inherit().foo(): Inherit); // error (cf. OK below)
@@ -38,25 +38,27 @@ class Base2 {
   bar(): this { return this; }
   bar_caller(): this { return this.bar(); }
 
-  corge(that: this) { }
-  grault(that: Base2) { }
+  corge(that: this) {}
+  grault(that: Base2) {}
 }
 
-class Inherit2 extends Base2 { }
+class Inherit2 extends Base2 {}
 
 class Override2 extends Base2 {
   foo(): this { return this; } // OK
   qux(): this { return this; } // OK, too
 
-  bar(): Override2 { return new Override2; } // error (cf. OK above)
-                                             // see exploit below
+  bar(): Override2 {
+    return new Override2;
+  } // error (cf. OK above)
+    // see exploit below
 
-  corge(that: this) { } // error
+  corge(that: this) {}  // error
                         // see exploit below
-  grault(that: this) { } // error, too
+  grault(that: this) {} // error, too
 }
 
-class InheritOverride2 extends Override2 { }
+class InheritOverride2 extends Override2 {}
 
 (new Inherit2().foo(): Base2);
 (new Inherit2().foo(): Inherit2); // OK (cf. error above)

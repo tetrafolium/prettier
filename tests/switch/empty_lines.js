@@ -1,70 +1,69 @@
 switch (foo) {
-  case "bar":
-    doSomething();
+case "bar":
+  doSomething();
 
-  case "baz":
-    doOtherThing();
+case "baz":
+  doOtherThing();
 }
 
 switch (foo) {
 
-  case "bar":
-    doSomething();
+case "bar":
+  doSomething();
 
-  case "baz":
-    doOtherThing();
+case "baz":
+  doOtherThing();
 }
 
 switch (foo) {
-  case "bar":
-    doSomething();
+case "bar":
+  doSomething();
 
-  case "baz":
-    doOtherThing();
-
+case "baz":
+  doOtherThing();
 }
 
 switch (foo) {
-  case "bar":
-    doSomething();
+case "bar":
+  doSomething();
 
-
-
-  case "baz":
-    doOtherThing();
+case "baz":
+  doOtherThing();
 }
 
 switch (x) {
-  case y:
-    call();
+case y:
+  call();
 
-    break;
+  break;
 
-  case z:
-    call();
+case z:
+  call();
 
-    break;
+  break;
 }
 
 switch (a) {
-  case b:
-    if (1) {};
-    c;
+case b:
+  if (1) {
+  };
+  c;
 }
 
 switch (a) {
-  case x:
-  case y:
-    call();
+case x:
+case y:
+  call();
 
-  case z:
-    call();
+case z:
+  call();
 }
 
 switch (a) {
-  case x: case y:
-    call();
+case x:
+case y:
+  call();
 
-  case z:
-    call();
+case z:
+  call();
 }

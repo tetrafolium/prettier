@@ -1,11 +1,10 @@
-a
-;::b.c
+a;
+::b.c
 
 class A {
   a = b;
-  in
-  c
+  in c
 
   a = b;
-  instanceof(){}
+  instanceof() {}
 }

@@ -11,7 +11,7 @@ export function getDefaults(availableOptions, optionNames) {
   for (const option of availableOptions) {
     if (optionNames.includes(option.name)) {
       defaults[option.name] =
-        option.name === "parser" ? "babel" : option.default;
+          option.name === "parser" ? "babel" : option.default;
     }
   }
   return defaults;
@@ -28,10 +28,10 @@ export function buildCliArgs(availableOptions, options) {
 
     if (option.type === "boolean") {
       if ((value && !option.inverted) || (!value && option.inverted)) {
-        args.push([option.cliName, true]);
+        args.push([ option.cliName, true ]);
       }
     } else if (value !== option.default || option.name === "rangeStart") {
-      args.push([option.cliName, value]);
+      args.push([ option.cliName, value ]);
     }
   }
   return args;
@@ -39,15 +39,15 @@ export function buildCliArgs(availableOptions, options) {
 
 export function getCodemirrorMode(parser) {
   switch (parser) {
-    case "css":
-    case "less":
-    case "scss":
-      return "css";
-    case "graphql":
-      return "graphql";
-    case "markdown":
-      return "markdown";
-    default:
-      return "jsx";
+  case "css":
+  case "less":
+  case "scss":
+    return "css";
+  case "graphql":
+    return "graphql";
+  case "markdown":
+    return "markdown";
+  default:
+    return "jsx";
   }
 }

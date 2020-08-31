@@ -5,9 +5,9 @@
 var f = {
   get a() { return 4; },
   set b(x: number) { this.c = x; },
-  c: 10,
-  get ['d']() { return 'foo'; },
-  set ['d'](x: number) {},
+  c : 10,
+  get['d']() { return 'foo'; },
+  set['d'](x: number) {},
 };
 
 type T = {
@@ -26,6 +26,6 @@ class Bar {
   get a() { return 4; }
   set b(x: number) { this.c = x; }
   c: number;
-  get ['d']() { return 'foo'; }
-  set ['d'](x: number) {}
+  get['d']() { return 'foo'; }
+  set['d'](x: number) {}
 }

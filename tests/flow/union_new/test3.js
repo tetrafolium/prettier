@@ -8,7 +8,7 @@
 // example with function types
 ///////////////////////////////
 
-function fun(a: ((x: number) => void) | ((x: string) => void)) { }
+function fun(a: ((x: number) => void)|((x: string) => void)) {}
 
 fun((((x) => {}): A1));
 
@@ -20,7 +20,7 @@ type B1 = string;
 // example with array types
 ////////////////////////////
 
-function arr(a: number[] | string[]) { }
+function arr(a: number[]|string[]) {}
 
 arr(([]: A2));
 

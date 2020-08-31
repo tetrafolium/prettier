@@ -1,7 +1,7 @@
 var d = new Date(0);
-var x:string = d.getTime();
+var x: string = d.getTime();
 
-var y:number = d;
+var y: number = d;
 
 // valid constructors
 new Date();

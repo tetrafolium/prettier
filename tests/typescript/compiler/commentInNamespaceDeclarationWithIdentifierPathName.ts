@@ -1,4 +1,3 @@
-﻿namespace hello.hi.world
-{
-    function foo() {}
+﻿namespace hello.hi.world {
+  function foo() {}
 }

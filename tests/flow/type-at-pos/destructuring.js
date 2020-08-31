@@ -1,6 +1,6 @@
 // @flow
 
-let [x, y] = [1, 2];
+let [x, y] = [ 1, 2 ];
 
 /**
  * Test what happens when the destructuring is unevaluated. In this case,
@@ -9,11 +9,9 @@ let [x, y] = [1, 2];
  * returns EmptyT.
  */
 export const X = {
-  returnsATuple: function(): [number, number] {
-    return [1, 2];
+  returnsATuple : function() : [ number, number ] {
+    return [ 1, 2 ];
   },
 
-  test: function() {
-    let [a, b] = this.returnsATuple();
-  }
+  test : function() { let [a, b] = this.returnsATuple();}
 };

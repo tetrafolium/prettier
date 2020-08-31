@@ -1,2 +1,2 @@
 var x: undefined
-var x: undefined | string
+var x: undefined|string

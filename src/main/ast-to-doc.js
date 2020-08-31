@@ -7,7 +7,7 @@ const multiparser = require("./multiparser");
 
 const doc = require("../document");
 const docBuilders = doc.builders;
-const { concat, hardline, addAlignmentToDoc } = docBuilders;
+const {concat, hardline, addAlignmentToDoc} = docBuilders;
 const docUtils = doc.utils;
 
 /**
@@ -32,7 +32,7 @@ const docUtils = doc.utils;
  * the path to the current node through the Abstract Syntax Tree.
  */
 function printAstToDoc(ast, options, alignmentSize = 0) {
-  const { printer } = options;
+  const {printer} = options;
 
   if (printer.preprocess) {
     ast = printer.preprocess(ast, options);
@@ -51,20 +51,16 @@ function printAstToDoc(ast, options, alignmentSize = 0) {
     // We let JSXElement print its comments itself because it adds () around
     // UnionTypeAnnotation has to align the child without the comments
     let res;
-    if (
-      printer.willPrintOwnComments &&
-      printer.willPrintOwnComments(path, options)
-    ) {
+    if (printer.willPrintOwnComments &&
+        printer.willPrintOwnComments(path, options)) {
       res = callPluginPrintFunction(path, options, printGenerically, args);
     } else {
       // printComments will call the plugin print function and check for
       // comments to print
       res = comments.printComments(
-        path,
-        (p) => callPluginPrintFunction(p, options, printGenerically, args),
-        options,
-        args && args.needsSemi
-      );
+          path,
+          (p) => callPluginPrintFunction(p, options, printGenerically, args),
+          options, args && args.needsSemi);
     }
 
     if (shouldCache) {
@@ -78,11 +74,8 @@ function printAstToDoc(ast, options, alignmentSize = 0) {
   if (alignmentSize > 0) {
     // Add a hardline to make the indents take effect
     // It should be removed in index.js format()
-    doc = addAlignmentToDoc(
-      concat([hardline, doc]),
-      alignmentSize,
-      options.tabWidth
-    );
+    doc = addAlignmentToDoc(concat([ hardline, doc ]), alignmentSize,
+                            options.tabWidth);
   }
   docUtils.propagateBreaks(doc);
 
@@ -93,25 +86,19 @@ function callPluginPrintFunction(path, options, printPath, args) {
   assert.ok(path instanceof FastPath);
 
   const node = path.getValue();
-  const { printer } = options;
+  const {printer} = options;
 
   // Escape hatch
   if (printer.hasPrettierIgnore && printer.hasPrettierIgnore(path)) {
-    return options.originalText.slice(
-      options.locStart(node),
-      options.locEnd(node)
-    );
+    return options.originalText.slice(options.locStart(node),
+                                      options.locEnd(node));
   }
 
   if (node) {
     try {
       // Potentially switch to a different parser
-      const sub = multiparser.printSubtree(
-        path,
-        printPath,
-        options,
-        printAstToDoc
-      );
+      const sub =
+          multiparser.printSubtree(path, printPath, options, printAstToDoc);
       if (sub) {
         return sub;
       }

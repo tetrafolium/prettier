@@ -1,13 +1,13 @@
 /* @flow */
 
 function a(): number {
-  var x: ?string = null;
+  var x: ? string = null;
   return x ? 1 : 0;
 }
 
 function b(): number {
-    var x: ?number = null;
-    return x != null ? x : 0;
+  var x: ? number = null;
+  return x != null ? x : 0;
 }
 
 function c(): number {
@@ -19,6 +19,6 @@ function c(): number {
 
 function d(): string { // expected `: number | boolean`
   // equivalent to `return x != null && x`
-  var x: ?number = null;
+  var x: ? number = null;
   return (x != null) ? x : (x != null);
 }

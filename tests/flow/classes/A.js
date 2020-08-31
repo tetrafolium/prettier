@@ -1,5 +1,5 @@
 class A {
-  foo(x:number):void { }
+  foo(x: number): void {}
 }
 
 module.exports = A;

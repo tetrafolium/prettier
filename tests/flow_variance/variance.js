@@ -1,3 +1,3 @@
 class Route {
-  static +param: T;
+  static + param: T;
 }

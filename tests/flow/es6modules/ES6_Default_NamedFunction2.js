@@ -3,4 +3,4 @@
  * @flow
  */
 
-export default function foo():number { return 42; }
+export default function foo(): number { return 42; }

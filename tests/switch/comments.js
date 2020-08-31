@@ -1,23 +1,23 @@
 switch (true) {
-  case true:
+case true:
   // Good luck getting here
 
-  case false:
+case false:
 }
 
 switch (true) {
-  case true:
+case true:
 
-  // Good luck getting here
-  case false:
+// Good luck getting here
+case false:
 }
 
-switch(x) {
-  case x: {
-  }
+switch (x) {
+case x: {
+}
 
   // other
 
-  case y: {
-  }
+case y: {
+}
 }

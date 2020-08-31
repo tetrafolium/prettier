@@ -17,15 +17,13 @@ function getNodeStackIndexHelper(stack, count) {
 }
 
 class FastPath {
-  constructor(value) {
-    this.stack = [value];
-  }
+  constructor(value) { this.stack = [ value ]; }
 
   // The name of the current property is always the penultimate element of
   // this.stack, and always a String.
   getName() {
-    const { stack } = this;
-    const { length } = stack;
+    const {stack} = this;
+    const {length} = stack;
     if (length > 1) {
       return stack[length - 2];
     }
@@ -37,17 +35,11 @@ class FastPath {
 
   // The value of the current property is always the final element of
   // this.stack.
-  getValue() {
-    return getLast(this.stack);
-  }
+  getValue() { return getLast(this.stack); }
 
-  getNode(count = 0) {
-    return getNodeHelper(this, count);
-  }
+  getNode(count = 0) { return getNodeHelper(this, count); }
 
-  getParentNode(count = 0) {
-    return getNodeHelper(this, count + 1);
-  }
+  getParentNode(count = 0) { return getNodeHelper(this, count + 1); }
 
   // Temporarily push properties named by string arguments given after the
   // callback function onto this.stack, then call the callback with a
@@ -55,8 +47,8 @@ class FastPath {
   // be restored to its original state after the callback is finished, so it
   // is probably a mistake to retain a reference to the path.
   call(callback, ...names) {
-    const { stack } = this;
-    const { length } = stack;
+    const {stack} = this;
+    const {length} = stack;
     let value = getLast(stack);
 
     for (const name of names) {
@@ -81,8 +73,8 @@ class FastPath {
   // callback will be called with a reference to this path object for each
   // element of the array.
   each(callback, ...names) {
-    const { stack } = this;
-    const { length } = stack;
+    const {stack} = this;
+    const {length} = stack;
     let value = getLast(stack);
 
     for (const name of names) {
@@ -107,8 +99,8 @@ class FastPath {
   // callback function invocations are stored in an array and returned at
   // the end of the iteration.
   map(callback, ...names) {
-    const { stack } = this;
-    const { length } = stack;
+    const {stack} = this;
+    const {length} = stack;
     let value = getLast(stack);
 
     for (const name of names) {
