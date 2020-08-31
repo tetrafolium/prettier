@@ -1058,7 +1058,7 @@ Lots of small fixes, mainly for TypeScript.
 - Add TSParameterProperty, TSAbstractClassDeclaration and TSAbstractMethodDefinition (#1410)
 - Inline nullable in flow generics (#1426)
 - fixed method 'check' error 'format' of undefined (#1424)
-- feat(typescript): add delcare modifier support for vars, classes and functions (#1436)
+- feat(typescript): add declare modifier support for vars, classes and functions (#1436)
 - Allow flow declarations to break on StringLiteralTypeAnnotations (#1437)
 - Require '::a.b' to have a preceding ; in no-semi style (#1442)
 - Require '(a || b).c++' to have a preceding ; in no-semi style (#1443)
