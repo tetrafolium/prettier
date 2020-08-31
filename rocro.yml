@@ -38,7 +38,7 @@ inspecode:
   #  thresholds: { num-issues: 999 }
 
   jscpd:
-    thresholds: { num-issues: 14 }
+    thresholds: { num-issues: 92 }
 
   #### TypeError: Cannot read property 'identifier' of undefined
   #### -> codelift#1801
